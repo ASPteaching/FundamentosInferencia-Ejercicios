@@ -1,0 +1,107 @@
+# Distribuciones de probabilidad multidimensionales
+# Distribuciones de probabilidad multidimensionales
+
+## Ejercicio 1 
+<!-- (W-M, 5.1)  -->
+
+Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios, A, B y C. Denote con $Y_{1}$ el número de estudios asignados al laboratorio A y con $Y_{2}$ el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir 0, 1 o 2 estudios.
+
+a. Encuentre la función de probabilidad conjunta para $Y_{1}$ y $Y_{2}$.  
+
+b. Encuentre $F(1,0)$, es decir, la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.
+
+
+## Ejercicio 2 
+<!-- (W-M, 5.2) -->
+
+Tres monedas balanceadas se lanzan en forma independiente al aire. Una de las variables de interés es $Y_{1}$, el número de caras. Denote con $Y_{2}$ la cantidad de dinero ganado en una apuesta colateral en la siguiente forma. Si la primera cara aparece en el primer tiro, usted gana 1€. Si la primera cara aparece en el tiro segundo o en el tercero gana 2€ o 3€, respectivamente. Si no aparece una cara, usted pierde 1€ (esto es, gana - 1€ ).
+a Encuentre la función de probabilidad conjunta para $Y_{1}$ y $Y_{2}$.
+b ¿Cuál es la probabilidad de que haya menos de tres caras y usted gane 1€ o menos? [Esto es, encuentre $F(2,1)$.
+
+## Ejercicio 3
+
+En el Ejercicio 1 determinamos que la distribución conjunta de $Y_{1}$, el número de análisis asignados al laboratorio A, y $Y_{2}$, el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.
+
+|  | $y_{1}$ |  |  |
+| :---: | :---: | :---: | :---: |
+| $y_{2}$ | 0 | 1 | 2 |
+| 0 | $1 / 9$ | $2 / 9$ | $1 / 9$ |
+| 1 | $2 / 9$ | $2 / 9$ | 0 |
+| 2 | $1 / 9$ | 0 | 0 |
+
+a. Encuentre la distribución de probabilidad marginal de $Y_{1}$.
+
+b. De acuerdo con los resultados vistos anteriormente $Y_{1}$ tiene una distribución binomial con $n=2$ y $p=1 / 3$. ¿Hay algún conflicto entre este resultado y la respuesta dada en el punto a?
+
+## Ejercicio 4
+
+Un ingeniero ambiental mide la cantidad (en peso) de partículas contaminantes en muestras de aire de cierto volumen recolectado en dos chimeneas en una planta de energía alimentada con carbón. Una de las chimeneas está equipada con un aparato limpiador. Denote con $Y_{1}$ la cantidad de contaminante por muestra recolectada arriba de la chimenea que no tiene aparato limpiador y denote con $Y_{2}$ la cantidad de contaminante por muestra recolectada arriba de la chimenea que está equipada con el aparato limpiador.
+
+Suponga que el comportamiento de frecuencia relativa de $Y_{1}$ y $Y_{2}$ puede ser modelado por
+
+$$
+f\left(y_{1}, y_{2}\right)= \begin{cases}k, & 0 \leq y_{1} \leq 2,\quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\ 0, & \text { en cualquier otro punto. }\end{cases}
+$$
+
+Esto es, $Y_{1}$ y $Y_{2}$ están uniformemente distribuidas sobre la región dentro del triángulo limitado por $y_{1}=2, y_{2}=0$ y $2 y_{2}=y_{1}$.
+
+a. Encuentre el valor de $k$ que haga de ésta una función de densidad de probabilidad.
+
+b. Encuentre $P\left(Y_{1} \geq 3 Y_{2}\right)$. Esto es, encuentre la probabilidad de que el aparato limpiador reduzca la cantidad de contaminante en un tercio o más.
+
+## Ejercicio 5
+
+En el Ejercicio 4 hemos establecido que
+
+
+$$
+f\left(y_{1}, y_{2}\right)= \begin{cases}k, & 0 \leq y_{1} \leq 2,\quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\ 0, & \text { en cualquier otro punto. }\end{cases}
+$$
+
+
+es una función de densidad de probabilidad conjunta válida para $Y_{1}$, la cantidad de contaminante por muestra recolectada arriba de la chimenea que no tenía el aparato limpiador, y para $Y_{2}$, la cantidad recolectada arriba de la chimenea con el aparato limpiador.
+
+a, Si consideramos la chimenea con el limpiador instalado, encuentre la probabilidad de que la cantidad de contaminante en una muestra determinada sea mayor que $0.5$.
+
+b. Dado que se observa que la cantidad de contaminante en una muestra tomada arriba de la chimenea con el limpiador es 0.5 , encuentre la probabilidad de que la cantidad de contaminante exceda de 1.5 arriba de la otra chimenea (la que no tiene limpiador).
+
+## Ejercicio 6 
+<!-- (W-M, 5.89) -->
+
+En el ejercicio 1 determinamos que la distribución conjunta de $Y_{1}$, el número de análisis asignados al laboratorio A, y $Y_{2}$, el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.
+
+|  | $y_{1}$ |  |  |
+| :---: | :---: | :---: | :---: |
+| $y_{2}$ | 0 | 1 | 2 |
+| 0 | $1 / 9$ | $2 / 9$ | $1 / 9$ |
+| 1 | $2 / 9$ | $2 / 9$ | 0 |
+| 2 | $1 / 9$ | 0 | 0 |
+
+a. Encuentre $\operatorname{Cov}\left(Y_{1}, Y_{2}\right) \cdot{ }_{¿}$ 
+
+b. Le sorprende que $\operatorname{Cov}\left(Y_{1}, Y_{2}\right)$ sea negativa? ${ }_{\text {¿Por qué? }}$
+
+## Ejercicio 7 
+<!-- (W-M, 5.97) -->
+
+Las variables aleatorias $Y_{1}$ y $Y_{2}$ son tales que $E\left(Y_{1}\right)=4, E\left(Y_{2}\right)=-1, V\left(Y_{1}\right)=2$ y $V\left(Y_{2}\right)=8$.
+
+a. ¿Cuál es $\operatorname{Cov}\left(Y_{1}, Y_{1}\right)$ ?
+
+b. Suponiendo que las medias y las varianzas sean correctas, ¿es posible que $\operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7$ ? [Sugerencia: $\operatorname{si} \operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7$, ¿cuál es el valor de $\rho$, el coeficiente de correlación?]
+
+c. Suponiendo que las medias y las varianzas sean correctas, ¿cuál es el máximo valor posible para $\operatorname{Cov}\left(Y_{1}, Y_{2}\right) ? \operatorname{Si} \operatorname{Cov}\left(Y_{1}, Y_{2}\right)$ alcanza este valor máximo, ¿qué implica eso acerca de la relación entre $Y_{1}$ y $Y_{2}$ ?
+
+## Ejercicio 8 
+<!-- (W-M, 5.119) -->
+
+Un experimento de aprendizaje requiere que una rata corra por un laberinto (una red de pasillos) hasta que localice una de tres posibles salidas. La salida 1 presenta una recompensa de alimento, no así las salidas 2 y 3. (Si la rata finalmente selecciona la salida 1 casi siempre, puede tener lugar el aprendizaje.) Denote con $Y_{i}$ el número de veces que la salida $i$ es seleccionada en corridas sucesivas. Para lo siguiente, suponga que la rata escoge una salida aleatoriamente en cada corrida.
+
+a. Encuentre la probabilidad de que $n=6$ corridas resulte en $Y_{1}=3, Y_{2}=1$ y $Y_{3}=2$.
+
+b. Para $n$ general, encuentre $E\left(Y_{1}\right)$ y $V\left(Y_{1}\right)$.
+
+c. Encuentre $\operatorname{Cov}\left(Y_{2}, Y_{3}\right)$ para $n$ general.
+
+d. Para comprobar la preferencia de la rata entre las salidas 2 y 3 , podemos buscar en $Y_{2}-Y_{3}$. Encuentre $E\left(Y_{2}-Y_{3}\right)$ y $V\left(Y_{2}-Y_{3}\right)$ para $n$ general.
+

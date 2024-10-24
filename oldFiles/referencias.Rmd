@@ -1,8 +1,0 @@
----
-title: "Referencias"
-bibliography: references.bib
-nocite: |
-  @*
-numbered: false
----
-
