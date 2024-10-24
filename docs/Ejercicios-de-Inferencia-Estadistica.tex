@@ -607,7 +607,7 @@ Consideremos la variable aleatoria: \(X=\) ``Número de genes sobre expresados''
 
 La variable aleatoria que nos interesa es \(X=\) ``Número de genes sobre-expresados''.
 
-\subsection{1. Distribución de probabilidad}\label{distribuciuxf3n-de-probabilidad}
+\subsubsection{Distribución de probabilidad}\label{distribuciuxf3n-de-probabilidad}
 
 Para obtener la distribución de probabilidad de \(X\), necesitamos sumar las probabilidades de las mutaciones que tienen el mismo número de genes sobre-expresados.
 
@@ -671,7 +671,7 @@ Podemos representarla gráficamente usando R:
 
 \includegraphics{Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-7-1.pdf}
 
-\subsection{2. Esperanza y varianza}\label{esperanza-y-varianza}
+\subsubsection{Esperanza y varianza}\label{esperanza-y-varianza}
 
 La \textbf{esperanza} (o valor esperado) de una variable aleatoria discreta \(X\) se calcula como:
 
@@ -772,7 +772,7 @@ Se considera el modelo para la distribución de probabilidades de mutaciones en 
 p(x)=\frac{K}{2+x}, x=0,1,2,3,4,5
 \]
 
-\subsection{\texorpdfstring{Determinar el valor de \(K\)}{Determinar el valor de K}}\label{determinar-el-valor-de-k}
+\subsubsection{\texorpdfstring{Valor de \(K\)}{Valor de K}}\label{valor-de-k}
 
 Para que \(p(x)\) sea una función de masa de probabilidad, la suma de todas las probabilidades debe ser igual a 1. Es decir:
 
@@ -815,7 +815,7 @@ Podemos calcular esta suma numéricamente en R:
 ## [1] 0.6278027
 \end{verbatim}
 
-\subsection{Calcular la esperanza y la varianza}\label{calcular-la-esperanza-y-la-varianza}
+\subsubsection{Esperanza y la varianza}\label{esperanza-y-la-varianza}
 
 La \textbf{esperanza} de \(X\) se calcula como:
 
@@ -866,9 +866,9 @@ Podemos calcular la esperanza y la varianza en R de la siguiente forma:
 ## [1] 2.761769
 \end{verbatim}
 
-\subsection{3. Calcular las probabilidades}\label{calcular-las-probabilidades}
+\subsubsection{Probabilidades}\label{probabilidades}
 
-\subsubsection{1. Probabilidad de que un tumor presente exactamente tres mutaciones}\label{probabilidad-de-que-un-tumor-presente-exactamente-tres-mutaciones}
+\textbf{Probabilidad de que un tumor presente exactamente tres mutaciones}
 
 La probabilidad de que \(X = 3\) es:
 
@@ -890,7 +890,7 @@ Podemos calcularlo en R:
 ## [1] 0.1255605
 \end{verbatim}
 
-\subsubsection{2. Probabilidad de que un tumor presente al menos una mutación}\label{probabilidad-de-que-un-tumor-presente-al-menos-una-mutaciuxf3n}
+\textbf{Probabilidad de que un tumor presente al menos una mutación}
 
 La probabilidad de que \(X \geq 1\) es:
 
@@ -912,7 +912,7 @@ Podemos calcularlo en R:
 ## [1] 0.6860987
 \end{verbatim}
 
-\subsubsection{3. Probabilidad de que un tumor presente como máximo dos mutaciones}\label{probabilidad-de-que-un-tumor-presente-como-muxe1ximo-dos-mutaciones}
+\textbf{Probabilidad de que un tumor presente como máximo dos mutaciones}
 
 La probabilidad de que \(X \leq 2\) es:
 
@@ -943,8 +943,7 @@ f_{x}(x)=-0.5 \cdot x+1, \quad \text { donde } \quad 0 \leq x \leq 2
 \]
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
+\def\labelenumi{\arabic{enumi}.}
 \item
   Comprobar que \(f_{X}\) es una densidad. Representarla gráficamente.
 \item
@@ -963,9 +962,8 @@ f_{x}(x)=-0.5 \cdot x+1, \quad \text { donde } \quad 0 \leq x \leq 2
 \end{enumerate}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{4}
-\tightlist
 \item
   Calcular \(E(X)\) i \(\operatorname{Var}(X)\).
 \item
@@ -980,7 +978,7 @@ Calcular la constante \(k\) para que \(\mathrm{g}_{\mathrm{x}}\) sea una funció
 
 \textbf{SOLUCIÓN}
 
-\subsection{\texorpdfstring{a) Comprobar que \(f_X(x)\) es una densidad}{a) Comprobar que f\_X(x) es una densidad}}\label{a-comprobar-que-f_xx-es-una-densidad}
+\subsubsection{\texorpdfstring{\(f_X(x)\) es una densidad}{f\_X(x) es una densidad}}\label{f_xx-es-una-densidad}
 
 Para comprobar que \(f_X(x)\) es una función de densidad, necesitamos verificar que cumple las dos condiciones básicas:
 
@@ -1032,7 +1030,9 @@ Por lo tanto, \(f_X(x)\) cumple con ambas condiciones y es una función de densi
 
 \includegraphics{Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-14-1.pdf}
 
-\subsection{\texorpdfstring{b) Calcular \(F_X(x)\) y representarla gráficamente}{b) Calcular F\_X(x) y representarla gráficamente}}\label{b-calcular-f_xx-y-representarla-gruxe1ficamente}
+\subsubsection{Función de distribución}\label{funciuxf3n-de-distribuciuxf3n}
+
+\textbf{Calcular \(F_X(x)\) y representarla gráficamente}
 
 La función de distribución acumulada (CDF) \(F_X(x)\) se obtiene integrando la función de densidad:
 
@@ -1048,7 +1048,7 @@ F_X(x) = \left[-0.25 \cdot t^2 + t\right]_0^x = -0.25 \cdot x^2 + x
 
 Para \(x < 0\), \(F_X(x) = 0\), y para \(x > 2\), \(F_X(x) = 1\).
 
-\subsubsection{\texorpdfstring{Gráfica de \(F_X(x)\)}{Gráfica de F\_X(x)}}\label{gruxe1fica-de-f_xx-1}
+\textbf{Gráfica de \(F_X(x)\)ç}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1061,7 +1061,7 @@ Para \(x < 0\), \(F_X(x) = 0\), y para \(x > 2\), \(F_X(x) = 1\).
 
 \includegraphics{Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-15-1.pdf}
 
-\subsection{\texorpdfstring{c) Calcular probabilidades y \(f_X(1)\)}{c) Calcular probabilidades y f\_X(1)}}\label{c-calcular-probabilidades-y-f_x1}
+\subsubsection{\texorpdfstring{Probabilidades y \(f_X(1)\)}{Probabilidades y f\_X(1)}}\label{probabilidades-y-f_x1}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1090,7 +1090,7 @@ Por lo tanto, \(P(X \geq 1) = 1 - 0.75 = 0.25\).
 f_X(1) = -0.5 \cdot 1 + 1 = 0.5
 \]
 
-\subsection{d) Probabilidad de supervivencia}\label{d-probabilidad-de-supervivencia}
+\subsubsection{Probabilidad de supervivencia}\label{probabilidad-de-supervivencia}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1123,7 +1123,7 @@ P(0.5 \leq X \leq 1) = F_X(1) - F_X(0.5) = 0.75 - 0.375 = 0.375
   Más de dos años (\(x > 2\)): Como el dominio de \(X\) es \([0, 2]\), \(P(X > 2) = 0\).
 \end{enumerate}
 
-\subsection{\texorpdfstring{e) Calcular \(E(X)\) y \(\operatorname{Var}(X)\)}{e) Calcular E(X) y \textbackslash operatorname\{Var\}(X)}}\label{e-calcular-ex-y-operatornamevarx}
+\subsubsection{\texorpdfstring{\(E(X)\) y \(\operatorname{Var}(X)\)}{E(X) y \textbackslash operatorname\{Var\}(X)}}\label{ex-y-operatornamevarx}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1182,7 +1182,7 @@ Finalmente:
 \operatorname{Var}(X) = E(X^2) - E(X)^2 = \frac{2}{3} - \left(\frac{2}{3}\right)^2 = \frac{2}{3} - \frac{4}{9} = \frac{2}{9}
 \]
 
-\subsection{\texorpdfstring{f) Modelo alternativo \(g_X(x)\)}{f) Modelo alternativo g\_X(x)}}\label{f-modelo-alternativo-g_xx}
+\subsubsection{\texorpdfstring{Modelo alternativo \(g_X(x)\)}{Modelo alternativo g\_X(x)}}\label{modelo-alternativo-g_xx}
 
 Dado el modelo alternativo \(g_X(x) = \exp(-k \cdot x)\) para \(x \geq 0\), la constante \(k\) se determina imponiendo que la integral de la función de densidad debe ser 1:
 
@@ -1225,7 +1225,7 @@ donde \(X\) es el número de ratas que sobreviven y sigue una \textbf{distribuci
 X \sim \text{Binomial}(n=10, p=0.8)
 \]
 
-\subsection{Cálculo de la probabilidad}\label{cuxe1lculo-de-la-probabilidad}
+\subsubsection{Cálculo de la probabilidad}\label{cuxe1lculo-de-la-probabilidad}
 
 La probabilidad de que exactamente \(k\) ratas sobrevivan está dada por la fórmula de la binomial:
 
@@ -1302,7 +1302,7 @@ El número de muertes por cáncer de pulmón sigue una distribución de Poisson,
 
 donde \(k\) es el número de eventos, \(\lambda\) es el valor esperado (12 en nuestro caso) y \(k!\) es el factorial de \(k\). Usaremos este modelo para resolver los apartados.
 
-\subsection{Probabilidad de que haya exactamente 10 muertes}\label{probabilidad-de-que-haya-exactamente-10-muertes}
+\subsubsection{Probabilidad de que haya exactamente 10 muertes}\label{probabilidad-de-que-haya-exactamente-10-muertes}
 
 La probabilidad de observar exactamente \(k = 10\) muertes se puede calcular usando la PMF de la distribución de Poisson con \(\lambda = 12\):
 
@@ -1323,7 +1323,7 @@ Podemos calcular este valor con R.
 ## [1] 0.1048373
 \end{verbatim}
 
-\subsection{Probabilidad de que 15 o más personas mueran}\label{probabilidad-de-que-15-o-muxe1s-personas-mueran}
+\subsubsection{Probabilidad de que 15 o más personas mueran}\label{probabilidad-de-que-15-o-muxe1s-personas-mueran}
 
 Para obtener la probabilidad de que 15 o más personas mueran, necesitamos calcular la probabilidad acumulada de \(X \geq 15\). Esto se puede obtener restando de 1 la probabilidad acumulada de \(X < 15\), es decir:
 
@@ -1343,7 +1343,7 @@ Usamos la función de probabilidad acumulada (CDF) de la Poisson en R.
 ## [1] 0.2279755
 \end{verbatim}
 
-\subsection{Probabilidad de que 10 o menos personas mueran}\label{probabilidad-de-que-10-o-menos-personas-mueran}
+\subsubsection{Probabilidad de que 10 o menos personas mueran}\label{probabilidad-de-que-10-o-menos-personas-mueran}
 
 La probabilidad de que 10 o menos personas mueran es simplemente la probabilidad acumulada de \(X \leq 10\), que se puede calcular directamente con la CDF de la distribución de Poisson.
 
@@ -1362,7 +1362,7 @@ Calculamos esto en R:
 ## [1] 0.3472294
 \end{verbatim}
 
-\subsection{Conclusión}\label{conclusiuxf3n}
+\subsubsection{Conclusión}\label{conclusiuxf3n}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1431,7 +1431,7 @@ Una vez detectadas 150 mutaciones,
   ¿Cuál es la probabilidad de que solamente 10 se debiesen a radiaciones?
 \end{enumerate}
 
-\subsection{Solución}\label{soluciuxf3n-5}
+\textbf{Solución}
 
 Para analizar el número de mutaciones que se deben a radiaciones, podemos considera dos modelos diferentes: uno basado en la distribución binomial y otro en la distribución de Poisson.
 
@@ -1551,7 +1551,7 @@ Con R:
 ## [1] 0.04861075
 \end{verbatim}
 
-\subsection{Conclusión}\label{conclusiuxf3n-1}
+\subsubsection{Conclusión}\label{conclusiuxf3n-1}
 
 \begin{itemize}
 \item
