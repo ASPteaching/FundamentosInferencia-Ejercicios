@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 2 Variables aleatorias y Distribuciones de probabilidad | _main.knit</title>
+  <title>Capítulo 13 Distribuciones de probabilidad multidimensionales | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 2 Variables aleatorias y Distribuciones de probabilidad | _main.knit" />
+  <meta property="og:title" content="Capítulo 13 Distribuciones de probabilidad multidimensionales | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 2 Variables aleatorias y Distribuciones de probabilidad | _main.knit" />
+  <meta name="twitter:title" content="Capítulo 13 Distribuciones de probabilidad multidimensionales | _main.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="probabilidad-y-experimentos-aleatorios.html"/>
-<link rel="next" href="ejercicio-2.html"/>
+<link rel="prev" href="distribuciones-de-probabilidad-multidimensionales.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -257,16 +257,168 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="variables-aleatorias-y-distribuciones-de-probabilidad" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Capítulo 2</span> Variables aleatorias y Distribuciones de probabilidad<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-y-distribuciones-de-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="distribuciones-de-probabilidad-multidimensionales-1" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Capítulo 13</span> Distribuciones de probabilidad multidimensionales<a href="distribuciones-de-probabilidad-multidimensionales-1.html#distribuciones-de-probabilidad-multidimensionales-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="ejercicio-1" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Ejercicio 1<a href="distribuciones-de-probabilidad-multidimensionales-1.html#ejercicio-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- (W-M, 5.1)  -->
+<p>Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios, A, B y C. Denote con <span class="math inline">\(Y_{1}\)</span> el número de estudios asignados al laboratorio A y con <span class="math inline">\(Y_{2}\)</span> el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir 0, 1 o 2 estudios.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Encuentre la función de probabilidad conjunta para <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span>.</p></li>
+<li><p>Encuentre <span class="math inline">\(F(1,0)\)</span>, es decir, la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.</p></li>
+</ol>
+</div>
+<div id="ejercicio-2" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Ejercicio 2<a href="distribuciones-de-probabilidad-multidimensionales-1.html#ejercicio-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- (W-M, 5.2) -->
+<p>Tres monedas balanceadas se lanzan en forma independiente al aire. Una de las variables de interés es <span class="math inline">\(Y_{1}\)</span>, el número de caras. Denote con <span class="math inline">\(Y_{2}\)</span> la cantidad de dinero ganado en una apuesta colateral en la siguiente forma. Si la primera cara aparece en el primer tiro, usted gana 1€. Si la primera cara aparece en el tiro segundo o en el tercero gana 2€ o 3€, respectivamente. Si no aparece una cara, usted pierde 1€ (esto es, gana - 1€ ).
+a Encuentre la función de probabilidad conjunta para <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span>.
+b ¿Cuál es la probabilidad de que haya menos de tres caras y usted gane 1€ o menos? [Esto es, encuentre <span class="math inline">\(F(2,1)\)</span>.</p>
+</div>
+<div id="ejercicio-3" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Ejercicio 3<a href="distribuciones-de-probabilidad-multidimensionales-1.html#ejercicio-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En el Ejercicio 1 determinamos que la distribución conjunta de <span class="math inline">\(Y_{1}\)</span>, el número de análisis asignados al laboratorio A, y <span class="math inline">\(Y_{2}\)</span>, el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(y_{1}\)</span></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(y_{2}\)</span></td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><p>Encuentre la distribución de probabilidad marginal de <span class="math inline">\(Y_{1}\)</span>.</p></li>
+<li><p>De acuerdo con los resultados vistos anteriormente <span class="math inline">\(Y_{1}\)</span> tiene una distribución binomial con <span class="math inline">\(n=2\)</span> y <span class="math inline">\(p=1 / 3\)</span>. ¿Hay algún conflicto entre este resultado y la respuesta dada en el punto a?</p></li>
+</ol>
+</div>
+<div id="ejercicio-4" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Ejercicio 4<a href="distribuciones-de-probabilidad-multidimensionales-1.html#ejercicio-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un ingeniero ambiental mide la cantidad (en peso) de partículas contaminantes en muestras de aire de cierto volumen recolectado en dos chimeneas en una planta de energía alimentada con carbón. Una de las chimeneas está equipada con un aparato limpiador. Denote con <span class="math inline">\(Y_{1}\)</span> la cantidad de contaminante por muestra recolectada arriba de la chimenea que no tiene aparato limpiador y denote con <span class="math inline">\(Y_{2}\)</span> la cantidad de contaminante por muestra recolectada arriba de la chimenea que está equipada con el aparato limpiador.</p>
+<p>Suponga que el comportamiento de frecuencia relativa de <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span> puede ser modelado por</p>
+<p><span class="math display">\[
+f\left(y_{1}, y_{2}\right)= \begin{cases}k, &amp; 0 \leq y_{1} \leq 2,\quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\ 0, &amp; \text { en cualquier otro punto. }\end{cases}
+\]</span></p>
+<p>Esto es, <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span> están uniformemente distribuidas sobre la región dentro del triángulo limitado por <span class="math inline">\(y_{1}=2, y_{2}=0\)</span> y <span class="math inline">\(2 y_{2}=y_{1}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Encuentre el valor de <span class="math inline">\(k\)</span> que haga de ésta una función de densidad de probabilidad.</p></li>
+<li><p>Encuentre <span class="math inline">\(P\left(Y_{1} \geq 3 Y_{2}\right)\)</span>. Esto es, encuentre la probabilidad de que el aparato limpiador reduzca la cantidad de contaminante en un tercio o más.</p></li>
+</ol>
+</div>
+<div id="ejercicio-5" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> Ejercicio 5<a href="distribuciones-de-probabilidad-multidimensionales-1.html#ejercicio-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En el Ejercicio 4 hemos establecido que</p>
+<p><span class="math display">\[
+f\left(y_{1}, y_{2}\right)= \begin{cases}k, &amp; 0 \leq y_{1} \leq 2,\quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\ 0, &amp; \text { en cualquier otro punto. }\end{cases}
+\]</span></p>
+<p>es una función de densidad de probabilidad conjunta válida para <span class="math inline">\(Y_{1}\)</span>, la cantidad de contaminante por muestra recolectada arriba de la chimenea que no tenía el aparato limpiador, y para <span class="math inline">\(Y_{2}\)</span>, la cantidad recolectada arriba de la chimenea con el aparato limpiador.</p>
+<p>a, Si consideramos la chimenea con el limpiador instalado, encuentre la probabilidad de que la cantidad de contaminante en una muestra determinada sea mayor que <span class="math inline">\(0.5\)</span>.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Dado que se observa que la cantidad de contaminante en una muestra tomada arriba de la chimenea con el limpiador es 0.5 , encuentre la probabilidad de que la cantidad de contaminante exceda de 1.5 arriba de la otra chimenea (la que no tiene limpiador).</li>
+</ol>
+</div>
+<div id="ejercicio-6" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> Ejercicio 6<a href="distribuciones-de-probabilidad-multidimensionales-1.html#ejercicio-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- (W-M, 5.89) -->
+<p>En el ejercicio 1 determinamos que la distribución conjunta de <span class="math inline">\(Y_{1}\)</span>, el número de análisis asignados al laboratorio A, y <span class="math inline">\(Y_{2}\)</span>, el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(y_{1}\)</span></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(y_{2}\)</span></td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><p>Encuentre <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right) \cdot{ }_{¿}\)</span></p></li>
+<li><p>Le sorprende que <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\)</span> sea negativa? <span class="math inline">\({ }_{\text {¿Por qué? }}\)</span></p></li>
+</ol>
+</div>
+<div id="ejercicio-7" class="section level2 hasAnchor" number="13.7">
+<h2><span class="header-section-number">13.7</span> Ejercicio 7<a href="distribuciones-de-probabilidad-multidimensionales-1.html#ejercicio-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- (W-M, 5.97) -->
+<p>Las variables aleatorias <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span> son tales que <span class="math inline">\(E\left(Y_{1}\right)=4, E\left(Y_{2}\right)=-1, V\left(Y_{1}\right)=2\)</span> y <span class="math inline">\(V\left(Y_{2}\right)=8\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>¿Cuál es <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{1}\right)\)</span> ?</p></li>
+<li><p>Suponiendo que las medias y las varianzas sean correctas, ¿es posible que <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\)</span> ? [Sugerencia: <span class="math inline">\(\operatorname{si} \operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\)</span>, ¿cuál es el valor de <span class="math inline">\(\rho\)</span>, el coeficiente de correlación?]</p></li>
+<li><p>Suponiendo que las medias y las varianzas sean correctas, ¿cuál es el máximo valor posible para <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right) ? \operatorname{Si} \operatorname{Cov}\left(Y_{1}, Y_{2}\right)\)</span> alcanza este valor máximo, ¿qué implica eso acerca de la relación entre <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span> ?</p></li>
+</ol>
+</div>
+<div id="ejercicio-8" class="section level2 hasAnchor" number="13.8">
+<h2><span class="header-section-number">13.8</span> Ejercicio 8<a href="distribuciones-de-probabilidad-multidimensionales-1.html#ejercicio-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- (W-M, 5.119) -->
+<p>Un experimento de aprendizaje requiere que una rata corra por un laberinto (una red de pasillos) hasta que localice una de tres posibles salidas. La salida 1 presenta una recompensa de alimento, no así las salidas 2 y 3. (Si la rata finalmente selecciona la salida 1 casi siempre, puede tener lugar el aprendizaje.) Denote con <span class="math inline">\(Y_{i}\)</span> el número de veces que la salida <span class="math inline">\(i\)</span> es seleccionada en corridas sucesivas. Para lo siguiente, suponga que la rata escoge una salida aleatoriamente en cada corrida.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Encuentre la probabilidad de que <span class="math inline">\(n=6\)</span> corridas resulte en <span class="math inline">\(Y_{1}=3, Y_{2}=1\)</span> y <span class="math inline">\(Y_{3}=2\)</span>.</p></li>
+<li><p>Para <span class="math inline">\(n\)</span> general, encuentre <span class="math inline">\(E\left(Y_{1}\right)\)</span> y <span class="math inline">\(V\left(Y_{1}\right)\)</span>.</p></li>
+<li><p>Encuentre <span class="math inline">\(\operatorname{Cov}\left(Y_{2}, Y_{3}\right)\)</span> para <span class="math inline">\(n\)</span> general.</p></li>
+<li><p>Para comprobar la preferencia de la rata entre las salidas 2 y 3 , podemos buscar en <span class="math inline">\(Y_{2}-Y_{3}\)</span>. Encuentre <span class="math inline">\(E\left(Y_{2}-Y_{3}\right)\)</span> y <span class="math inline">\(V\left(Y_{2}-Y_{3}\right)\)</span> para <span class="math inline">\(n\)</span> general.</p></li>
+</ol>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="probabilidad-y-experimentos-aleatorios.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ejercicio-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="distribuciones-de-probabilidad-multidimensionales.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -297,7 +449,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/02-VariablesAleatorias_y_Distribuciones.Rmd",
+"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/03-Distribuciones_multivariantes.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -305,7 +457,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/02-VariablesAleatorias_y_Distribuciones.Rmd",
+"link": "https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/03-Distribuciones_multivariantes.Rmd",
 "text": null
 },
 "download": "https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/docs/_main.pdf",
