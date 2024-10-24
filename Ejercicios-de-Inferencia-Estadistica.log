@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.16)  24 OCT 2024 09:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.16)  24 OCT 2024 10:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -644,10 +644,10 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 [2{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc
-}]
+}{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.e
+nc}]
 
-[3{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.
-enc}]
+[3]
 
 [4]
 
@@ -670,7 +670,7 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 [9{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.
 enc}]
 <Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-7-1.pdf,
- id=191, 469.755pt x 325.215pt>
+ id=189, 469.755pt x 325.215pt>
 File: Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-7-1
 .pdf Graphic file (type pdf)
 <use Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-7-1.
@@ -698,7 +698,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [14]
 <Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-14-1.pdf
-, id=238, 469.755pt x 325.215pt>
+, id=236, 469.755pt x 325.215pt>
 File: Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-14-
 1.pdf Graphic file (type pdf)
 <use Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-14-1
@@ -711,7 +711,7 @@ x/unnamed-chunk-14-1.pdf  used on input line 1033.
 [15 <./Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-14
 -1.pdf>]
 <Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-15-1.pdf
-, id=250, 469.755pt x 325.215pt>
+, id=248, 469.755pt x 325.215pt>
 File: Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-15-
 1.pdf Graphic file (type pdf)
 <use Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-15-1
@@ -743,7 +743,7 @@ x/unnamed-chunk-15-1.pdf  used on input line 1062.
 [25]
 
 LaTeX Warning: Command \textquestiondown invalid in math mode on input line 172
-3.
+1.
 
 
 
@@ -756,13 +756,13 @@ L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14751 strings out of 473899
- 235286 string characters out of 5725555
- 675098 words of memory out of 5000000
- 37053 multiletter control sequences out of 15000+600000
+ 14748 strings out of 473899
+ 235218 string characters out of 5725555
+ 675025 words of memory out of 5000000
+ 37051 multiletter control sequences out of 15000+600000
  619650 words of font info for 164 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,12n,93p,1035b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,12n,93p,1035b,556s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
 pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
 2.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lme
@@ -780,10 +780,10 @@ ublic/lm/lmsy10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1
 1/public/lm/lmtk10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/lm/lmtt10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/lm/lmtti10.pfb>
-Output written on Ejercicios-de-Inferencia-Estadistica.pdf (27 pages, 428258 by
+Output written on Ejercicios-de-Inferencia-Estadistica.pdf (27 pages, 427720 by
 tes).
 PDF statistics:
- 601 PDF objects out of 1000 (max. 8388607)
- 171 named destinations out of 1000 (max. 500000)
- 33152 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 596 PDF objects out of 1000 (max. 8388607)
+ 170 named destinations out of 1000 (max. 500000)
+ 33144 words of extra memory for PDF output out of 35830 (max. 10000000)
 

@@ -1,5 +1,4 @@
 # Distribuciones de probabilidad multidimensionales
-# Distribuciones de probabilidad multidimensionales
 
 ## Ejercicio 1 
 <!-- (W-M, 5.1)  -->
