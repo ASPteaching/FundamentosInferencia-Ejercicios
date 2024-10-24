@@ -391,7 +391,7 @@ $$
 1. Menos de seis meses ($x = 0.5$):
 
 $$
-P(X < 0.5) = F_X(0.5) = -0.25 \cdot 0.5^2 + 0.5 = 0.375
+P(X < 0.5) = F_X(0.5) = -0.25 \cdot 0.5^2 + 0.5 = 0.4375
 $$
 
 2. Entre seis meses y un año ($x \in [0.5, 1]$):
