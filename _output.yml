@@ -1,5 +1,6 @@
 bookdown::gitbook:
   css: [style.css,blocks.css]
+  title: "Ejercicios-de-Inferencia-Estadistica"
   config:
     toc:
       collapse: section
@@ -12,4 +13,5 @@ bookdown::gitbook:
     edit: https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/%s
     download: ["https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/docs/_main.pdf"]
 bookdown::pdf_book:
+  title: "Ejercicios-de-Inferencia-Estadistica"
   keep_tex: yes
