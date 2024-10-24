@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/docs/_main.pdf" title="Version en PDF" target="_blank"><img alt="Versión en pdf" src="./images(pdf.png)" width="12" height="15" />    </a>
+<li><a href="https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/docs/_main.pdf" title="Version en PDF" target="_blank"><img alt="Versión en pdf" src="./images/archivoPDF.png" width="12" height="15" />    </a>
 </li>
 
 <li class="divider"></li>
@@ -210,7 +210,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6.5" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-exactamente-10-mutaciones-se-deban-a-radiaciones"><i class="fa fa-check"></i><b>2.6.5</b> Probabilidad de que exactamente 10 mutaciones se deban a radiaciones</a></li>
 <li class="chapter" data-level="2.6.6" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#conclusión-1"><i class="fa fa-check"></i><b>2.6.6</b> Conclusión</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.7"><i class="fa fa-check"></i><b>2.7</b> Ejercicio 2.7</a></li>
+<li class="chapter" data-level="2.7" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.7"><i class="fa fa-check"></i><b>2.7</b> Ejercicio 2.7</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#porcentaje-de-diabéticos-con-niveles-de-glucosa-inferiores-a-120-px-leq-120"><i class="fa fa-check"></i><b>2.7.1</b> Porcentaje de diabéticos con niveles de glucosa inferiores a 120 (<span class="math inline">\(P[X \leq 120]\)</span>)</a></li>
+<li class="chapter" data-level="2.7.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#porcentaje-de-diabéticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120"><i class="fa fa-check"></i><b>2.7.2</b> Porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120</a></li>
+<li class="chapter" data-level="2.7.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#hallar-el-nivel-de-glucosa-p25"><i class="fa fa-check"></i><b>2.7.3</b> Hallar el nivel de glucosa “p25”</a></li>
+<li class="chapter" data-level="2.7.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#resumen-de-resultados"><i class="fa fa-check"></i><b>2.7.4</b> Resumen de resultados:</a></li>
+</ul></li>
 <li class="chapter" data-level="2.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-28"><i class="fa fa-check"></i><b>2.8</b> Ejercicio 28</a></li>
 <li class="chapter" data-level="2.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.9"><i class="fa fa-check"></i><b>2.9</b> Ejercicio 2.9</a></li>
 </ul></li>
@@ -870,10 +876,68 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <div id="ejercicio-2.7" class="section level2 hasAnchor" number="2.7">
 <h2><span class="header-section-number">2.7</span> Ejercicio 2.7<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Entre los diabéticos, el nivel de glucosa en sangre <span class="math inline">\(X\)</span>, en ayunas, puede suponerse de distribución aproximadamente normal, con media <span class="math inline">\(106 \mathrm{mg} / 100 \mathrm{ml}\)</span> y desviación típica <span class="math inline">\(8 \mathrm{mg} / 100 \mathrm{ml}\)</span>, es decir : <span class="math inline">\(X \sim N\left(\mu=106, \sigma^{2}=64\right)\)</span>.</p>
-<p>Hallar
-a) El porcentaje de diabéticos con niveles de glucosa inferiores a 120 ( <span class="math inline">\(P[X \leq 120]\)</span>
-b) ¿Qué porcentaje de diabéticos tienen niveles comprendidos entre 90 y 120?
-c) Hallar el nivel de glucosa “p25”, caracterizado por la propiedad de que el <span class="math inline">\(25 \%\)</span> de todos los diabéticos tiene un nivel de glucosa en ayunas inferior o igual a <span class="math inline">\(x\)</span>.</p>
+<p>Hallar;
+1. El porcentaje de diabéticos con niveles de glucosa inferiores a 120 ( <span class="math inline">\(P[X \leq 120]\)</span>
+2. ¿Qué porcentaje de diabéticos tienen niveles comprendidos entre 90 y 120?
+3. Hallar el nivel de glucosa “p25”, caracterizado por la propiedad de que el <span class="math inline">\(25 \%\)</span> de todos los diabéticos tiene un nivel de glucosa en ayunas inferior o igual a <span class="math inline">\(x\)</span>.</p>
+<p><strong>SOLUCIÓN</strong></p>
+<p>Según el enunciado el nivel de glucosa <span class="math inline">\(X\)</span> se distribuye según una distribución normal con media <span class="math inline">\(\mu = 106\)</span> y varianza <span class="math inline">\(\sigma^2 = 64\)</span>, es decir, <span class="math inline">\(X \sim N(106, 64)\)</span>, o equivalentemente <span class="math inline">\(X \sim N(106, 8^2)\)</span>.</p>
+<div id="porcentaje-de-diabéticos-con-niveles-de-glucosa-inferiores-a-120-px-leq-120" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Porcentaje de diabéticos con niveles de glucosa inferiores a 120 (<span class="math inline">\(P[X \leq 120]\)</span>)<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#porcentaje-de-diabéticos-con-niveles-de-glucosa-inferiores-a-120-px-leq-120" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para calcular esta probabilidad, necesitamos estandarizar la variable <span class="math inline">\(X\)</span> a una normal estándar <span class="math inline">\(Z \sim N(0, 1)\)</span>. La fórmula de estandarización es:</p>
+<p><span class="math display">\[ Z = \frac{X - \mu}{\sigma} \]</span></p>
+<p>Sustituyendo los valores de <span class="math inline">\(\mu = 106\)</span> y <span class="math inline">\(\sigma = 8\)</span>:</p>
+<p><span class="math display">\[ Z = \frac{120 - 106}{8} = 1.75 \]</span></p>
+<p>Ahora calculamos <span class="math inline">\(P(Z \leq 1.75)\)</span>, es decir, la probabilidad de que la variable estándar normal sea menor o igual que 1.75. Esta probabilidad la obtenemos a partir de la tabla de la normal estándar o usando R.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb58-1" tabindex="-1"></a><span class="co"># Calculamos la probabilidad con la función pnorm</span></span>
+<span id="cb58-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb58-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fl">1.75</span>)</span>
+<span id="cb58-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb58-3" tabindex="-1"></a>p1</span></code></pre></div>
+<pre><code>## [1] 0.9599408</code></pre>
+</div>
+<div id="porcentaje-de-diabéticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120" class="section level3 hasAnchor" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#porcentaje-de-diabéticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este caso queremos calcular <span class="math inline">\(P(90 \leq X \leq 120)\)</span>. Para hacerlo, calculamos las probabilidades individuales de <span class="math inline">\(P(X \leq 120)\)</span> y <span class="math inline">\(P(X \leq 90)\)</span>, y restamos la segunda de la primera:</p>
+<p><span class="math display">\[ P(90 \leq X \leq 120) = P(X \leq 120) - P(X \leq 90) \]</span></p>
+<p>Primero estandarizamos ambas variables:</p>
+<p><span class="math display">\[ Z_{120} = \frac{120 - 106}{8} = 1.75 \]</span>
+<span class="math display">\[ Z_{90} = \frac{90 - 106}{8} = -2.00 \]</span></p>
+<p>Ahora calculamos <span class="math inline">\(P(Z \leq 1.75)\)</span> y <span class="math inline">\(P(Z \leq -2.00)\)</span> usando R.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-1" tabindex="-1"></a><span class="co"># Calculamos ambas probabilidades</span></span>
+<span id="cb60-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-2" tabindex="-1"></a>p2_120 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fl">1.75</span>)</span>
+<span id="cb60-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-3" tabindex="-1"></a>p2_90 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">2.00</span>)</span>
+<span id="cb60-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-4" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p2_120 <span class="sc">-</span> p2_90</span>
+<span id="cb60-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-5" tabindex="-1"></a>p2</span></code></pre></div>
+<pre><code>## [1] 0.9371907</code></pre>
+</div>
+<div id="hallar-el-nivel-de-glucosa-p25" class="section level3 hasAnchor" number="2.7.3">
+<h3><span class="header-section-number">2.7.3</span> Hallar el nivel de glucosa “p25”<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#hallar-el-nivel-de-glucosa-p25" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para encontrar el percentil 25 de la distribución, necesitamos resolver la ecuación:</p>
+<p><span class="math display">\[ P(X \leq p_{25}) = 0.25 \]</span></p>
+<p>Sabemos que <span class="math inline">\(X \sim N(106, 64)\)</span>, así que estandarizamos el valor <span class="math inline">\(p_{25}\)</span>:</p>
+<p><span class="math display">\[ Z_{p25} = \frac{p_{25} - 106}{8} \]</span></p>
+<p>Luego, encontramos el valor de <span class="math inline">\(Z_{p25}\)</span> que corresponde al percentil 25 de la distribución normal estándar, es decir, <span class="math inline">\(P(Z \leq Z_{p25}) = 0.25\)</span>. Esto lo obtenemos con la función inversa de la distribución normal estándar.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-1" tabindex="-1"></a><span class="co"># Calculamos el valor z correspondiente al percentil 25</span></span>
+<span id="cb62-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-2" tabindex="-1"></a>z_p25 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.25</span>)</span>
+<span id="cb62-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-3" tabindex="-1"></a><span class="co"># Calculamos el p25 en la escala original</span></span>
+<span id="cb62-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-4" tabindex="-1"></a>p25 <span class="ot">&lt;-</span> <span class="dv">106</span> <span class="sc">+</span> z_p25 <span class="sc">*</span> <span class="dv">8</span></span>
+<span id="cb62-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-5" tabindex="-1"></a>p25</span></code></pre></div>
+<pre><code>## [1] 100.6041</code></pre>
+</div>
+<div id="resumen-de-resultados" class="section level3 hasAnchor" number="2.7.4">
+<h3><span class="header-section-number">2.7.4</span> Resumen de resultados:<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#resumen-de-resultados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>La probabilidad de que el nivel de glucosa sea menor o igual a 120 es aproximadamente:</li>
+</ol>
+<p><span class="math display">\[ P[X \leq 120] = 0.9599 \]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>El porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120 es aproximadamente:</li>
+</ol>
+<p><span class="math display">\[ P[90 \leq X \leq 120] = 0.9104 \]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>El nivel de glucosa correspondiente al percentil 25, es decir, el valor <span class="math inline">\(p_{25}\)</span>, es aproximadamente:</li>
+</ol>
+<p><span class="math display">\[ p_{25} \approx 100.61 \, \mathrm{mg/100ml} \]</span></p>
+</div>
 </div>
 <div id="ejercicio-28" class="section level2 hasAnchor" number="2.8">
 <h2><span class="header-section-number">2.8</span> Ejercicio 28<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-28" class="anchor-section" aria-label="Anchor link to header"></a></h2>

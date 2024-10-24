@@ -735,10 +735,86 @@ Ambos métodos dan resultados similares, pero el modelo de Poisson es útil para
 
 Entre los diabéticos, el nivel de glucosa en sangre $X$, en ayunas, puede suponerse de distribución aproximadamente normal, con media $106 \mathrm{mg} / 100 \mathrm{ml}$ y desviación típica $8 \mathrm{mg} / 100 \mathrm{ml}$, es decir : $X \sim N\left(\mu=106, \sigma^{2}=64\right)$.
 
-Hallar
-a) El porcentaje de diabéticos con niveles de glucosa inferiores a 120 ( $P[X \leq 120]$
-b) ¿Qué porcentaje de diabéticos tienen niveles comprendidos entre 90 y 120?
-c) Hallar el nivel de glucosa "p25", caracterizado por la propiedad de que el $25 \%$ de todos los diabéticos tiene un nivel de glucosa en ayunas inferior o igual a $x$.
+Hallar;
+1. El porcentaje de diabéticos con niveles de glucosa inferiores a 120 ( $P[X \leq 120]$
+2. ¿Qué porcentaje de diabéticos tienen niveles comprendidos entre 90 y 120?
+3. Hallar el nivel de glucosa "p25", caracterizado por la propiedad de que el $25 \%$ de todos los diabéticos tiene un nivel de glucosa en ayunas inferior o igual a $x$.
+
+**SOLUCIÓN**
+
+Según el enunciado el nivel de glucosa $X$ se distribuye según una distribución normal con media $\mu = 106$ y varianza $\sigma^2 = 64$, es decir, $X \sim N(106, 64)$, o equivalentemente $X \sim N(106, 8^2)$.
+
+### Porcentaje de diabéticos con niveles de glucosa inferiores a 120 ($P[X \leq 120]$)
+
+Para calcular esta probabilidad, necesitamos estandarizar la variable $X$ a una normal estándar $Z \sim N(0, 1)$. La fórmula de estandarización es:
+
+$$ Z = \frac{X - \mu}{\sigma} $$
+
+Sustituyendo los valores de $\mu = 106$ y $\sigma = 8$:
+
+$$ Z = \frac{120 - 106}{8} = 1.75 $$
+
+Ahora calculamos $P(Z \leq 1.75)$, es decir, la probabilidad de que la variable estándar normal sea menor o igual que 1.75. Esta probabilidad la obtenemos a partir de la tabla de la normal estándar o usando R.
+
+```{r}
+# Calculamos la probabilidad con la función pnorm
+p1 <- pnorm(1.75)
+p1
+```
+
+### Porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120
+
+En este caso queremos calcular $P(90 \leq X \leq 120)$. Para hacerlo, calculamos las probabilidades individuales de $P(X \leq 120)$ y $P(X \leq 90)$, y restamos la segunda de la primera:
+
+$$ P(90 \leq X \leq 120) = P(X \leq 120) - P(X \leq 90) $$
+
+Primero estandarizamos ambas variables:
+
+$$ Z_{120} = \frac{120 - 106}{8} = 1.75 $$
+$$ Z_{90} = \frac{90 - 106}{8} = -2.00 $$
+
+Ahora calculamos $P(Z \leq 1.75)$ y $P(Z \leq -2.00)$ usando R.
+
+```{r}
+# Calculamos ambas probabilidades
+p2_120 <- pnorm(1.75)
+p2_90 <- pnorm(-2.00)
+p2 <- p2_120 - p2_90
+p2
+```
+
+### Hallar el nivel de glucosa "p25"
+
+Para encontrar el percentil 25 de la distribución, necesitamos resolver la ecuación:
+
+$$ P(X \leq p_{25}) = 0.25 $$
+
+Sabemos que $X \sim N(106, 64)$, así que estandarizamos el valor $p_{25}$:
+
+$$ Z_{p25} = \frac{p_{25} - 106}{8} $$
+
+Luego, encontramos el valor de $Z_{p25}$ que corresponde al percentil 25 de la distribución normal estándar, es decir, $P(Z \leq Z_{p25}) = 0.25$. Esto lo obtenemos con la función inversa de la distribución normal estándar.
+
+```{r}
+# Calculamos el valor z correspondiente al percentil 25
+z_p25 <- qnorm(0.25)
+# Calculamos el p25 en la escala original
+p25 <- 106 + z_p25 * 8
+p25
+```
+
+### Resumen de resultados:
+1. La probabilidad de que el nivel de glucosa sea menor o igual a 120 es aproximadamente:
+
+$$ P[X \leq 120] = 0.9599 $$
+
+2. El porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120 es aproximadamente:
+
+$$ P[90 \leq X \leq 120] = 0.9104 $$
+
+3. El nivel de glucosa correspondiente al percentil 25, es decir, el valor $p_{25}$, es aproximadamente:
+
+$$ p_{25} \approx 100.61 \, \mathrm{mg/100ml} $$
 
 ## Ejercicio 28 
 

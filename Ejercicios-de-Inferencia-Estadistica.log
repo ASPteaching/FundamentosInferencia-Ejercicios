@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.16)  24 OCT 2024 10:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.16)  24 OCT 2024 16:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -736,25 +736,29 @@ x/unnamed-chunk-15-1.pdf  used on input line 1062.
 
 [25]
 
-LaTeX Warning: Command \textquestiondown invalid in math mode on input line 172
-1.
+[26]
+
+[27]
+
+LaTeX Warning: Command \textquestiondown invalid in math mode on input line 183
+3.
 
 
 
-[26] (Ejercicios-de-Inferencia-Estadistica.aux)
+[28] (Ejercicios-de-Inferencia-Estadistica.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14665 strings out of 473899
- 233946 string characters out of 5725555
- 671426 words of memory out of 5000000
- 36992 multiletter control sequences out of 15000+600000
- 607215 words of font info for 144 fonts, out of 8000000 for 9000
+ 14684 strings out of 473899
+ 234332 string characters out of 5725555
+ 671879 words of memory out of 5000000
+ 36996 multiletter control sequences out of 15000+600000
+ 607464 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,12n,93p,1035b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,12n,93p,1035b,560s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
 pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
 2.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lme
@@ -769,10 +773,10 @@ lic/lm/lmsy7.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/lm/lmtk10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/lm/lmtt10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/lm/lmtti10.pfb>
-Output written on Ejercicios-de-Inferencia-Estadistica.pdf (26 pages, 382022 by
+Output written on Ejercicios-de-Inferencia-Estadistica.pdf (28 pages, 390553 by
 tes).
 PDF statistics:
- 499 PDF objects out of 1000 (max. 8388607)
- 164 named destinations out of 1000 (max. 500000)
+ 515 PDF objects out of 1000 (max. 8388607)
+ 173 named destinations out of 1000 (max. 500000)
  26856 words of extra memory for PDF output out of 29859 (max. 10000000)
 
