@@ -13,3 +13,5 @@ bookdown::gitbook:
     download: ["https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/docs/_main.pdf"]
 bookdown::pdf_book:
   keep_tex: yes
+  latex_engine: xelatex
+

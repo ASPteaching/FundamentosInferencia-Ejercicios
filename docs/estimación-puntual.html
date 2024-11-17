@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Probabilidad y Experimentos aleatorios | EjerciciosInferenciaEstadistica.knit</title>
+  <title>5 Estimación puntual | EjerciciosInferenciaEstadistica.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Probabilidad y Experimentos aleatorios | EjerciciosInferenciaEstadistica.knit" />
+  <meta property="og:title" content="5 Estimación puntual | EjerciciosInferenciaEstadistica.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Probabilidad y Experimentos aleatorios | EjerciciosInferenciaEstadistica.knit" />
+  <meta name="twitter:title" content="5 Estimación puntual | EjerciciosInferenciaEstadistica.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"/>
+<link rel="prev" href="muestreo-y-distribuciones-en-el-muestreo.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -318,252 +318,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="probabilidad-y-experimentos-aleatorios" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios<a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-y-experimentos-aleatorios" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="problema-1" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Problema 1<a href="probabilidad-y-experimentos-aleatorios.html#problema-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<!-- (Bioestadística UB, problema 2) -->
-<p>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos sucesos. Suponiendo que <span class="math inline">\(P(A)=0.3, P(B)=0.6\)</span>, y <span class="math inline">\(P(A \cap B)=0.1\)</span>, calcula las siguientes probabilidades:</p>
+<div id="estimación-puntual" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Estimación puntual<a href="estimación-puntual.html#estimación-puntual" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="ejercicio-1-2" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Ejercicio 1<a href="estimación-puntual.html#ejercicio-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [W_M 8.8]  -->
+<p>Suponga que <span class="math inline">\(Y_{1}, Y_{2}, Y_{3}\)</span> denotan una muestra aleatoria de una distribución exponencial con función de densidad</p>
+<p><span class="math display">\[
+f(y)= \begin{cases}\left(\frac{1}{\theta}\right) e^{-y / \theta}, &amp; y&gt;0 \\ 0, &amp; \text { en cualquier otro punto. }\end{cases}
+\]</span></p>
+<p>Considere los siguientes cinco estimadores de <span class="math inline">\(\theta\)</span> :</p>
+<p><span class="math display">\[
+\hat{\theta}_{1}=Y_{1}, \quad \hat{\theta}_{2}=\frac{Y_{1}+Y_{2}}{2}, \quad \hat{\theta}_{3}=\frac{Y_{1}+2 Y_{2}}{3}, \quad \hat{\theta}_{4}=min\left(Y_{1}, Y_{2}, Y_{3}\right), \quad \hat{\theta}_{5}=\bar{Y}
+\]</span></p>
 <ol style="list-style-type: lower-alpha">
-<li><p><span class="math inline">\(P(A \cup B)\)</span></p></li>
-<li><p><span class="math inline">\(P(A^c)\)</span></p></li>
-<li><p><span class="math inline">\(P(A c \cap B)\)</span></p></li>
-<li><p><span class="math inline">\(P(A \cap B^c)\)</span></p></li>
-<li><p><span class="math inline">\(P(A^c \cap B^c)\)</span></p></li>
+<li>¿Cuáles de estos estimadores son insesgados?</li>
+<li>Entre los estimadores insesgados, ¿cuál tiene la varianza más pequeña?
+Nota: La esperanza de la distribución exponencial, tal como se define aquí es <span class="math inline">\(E(Y)= \theta\)</span>.</li>
 </ol>
-<div id="solución" class="section level3 hasAnchor" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Solución<a href="probabilidad-y-experimentos-aleatorios.html#solución" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="ejercicio-2-2" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Ejercicio 2<a href="estimación-puntual.html#ejercicio-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [Propi] -->
+<p>Considere una distribución uniforme en el intervalo <span class="math inline">\((0, \theta)\)</span>. Para estimar <span class="math inline">\(\theta\)</span> se consideran dos estimadores <span class="math inline">\(\theta_1 = max(X1,...X_n)\)</span> y <span class="math inline">\(\theta_2 = 2 \overline{X}\)</span> donde <span class="math inline">\(\overline{X}\)</span> es la media aritmética.</p>
 <ol style="list-style-type: lower-alpha">
-<li><span class="math inline">\(P(A \cup B)=P(A)+P(B)-P(A \cap B)=0.3+0.6-0.1=0.8\)</span></li>
-<li><span class="math inline">\(P\left(A^{c}\right)=1-P(A)=1-0.3=0.7\)</span></li>
-<li><span class="math inline">\(P\left(A^{c} \cap B\right)=P(B)-P(A \cap B)=0.6-0.1=0.5\)</span></li>
-<li><span class="math inline">\(P\left(A \cap B^{c}\right)=P(A)-P(A \cap B)=0.3-0.1=0.2\)</span></li>
-<li><span class="math inline">\(P\left(A^{c} \cap B^{c}\right)=1-P(A \cup B)=1-0.8=0.2\)</span></li>
+<li>¿Alguno de estos estimadores es insesgado?</li>
+<li>Simula 1000 muestras de una distribución uniforme <span class="math inline">\((0,1)\)</span> y a partir de estas estima <span class="math inline">\(E[\hat \theta_1]\)</span> y <span class="math inline">\(E[\hat \theta_2 ]\)</span> mediante la media aritmética de los valores de los estimadores sobre las 1000 réplicas de simulación. Que puedes decir en este caso del sesgo de cada estimador?</li>
+<li>¿Como podríamos utilizar las simulaciones anteriores para estimar la varianza de cada estimador? ¿Cual de los dos resulta más eficiente?</li>
 </ol>
 </div>
-</div>
-<div id="problema-2" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Problema 2<a href="probabilidad-y-experimentos-aleatorios.html#problema-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<!-- (Bioestadística UB, problema 3) -->
-<p>Una población está afectada por tres enfermedades diferentes A, B i C. La probabilidad de que una persona sufra <span class="math inline">\(A\)</span> es 0.30 , la probabilidad de que sufra <span class="math inline">\(B\)</span> es 0.20 y la probabilidad de que sufra <span class="math inline">\(C\)</span> es 0.15 . La probabilidad de que una persona sufra <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> es 0.12 , la que sufra <span class="math inline">\(A\)</span> y <span class="math inline">\(C\)</span> es 0.09 y la que sufra <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> es 0.06 . La probabilidad de que una persona sufra las tres enfermedades es 0.03 . Se piden las probabilidades de que una persona escogida al azar:</p>
-<div id="solución-1" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Solución<a href="probabilidad-y-experimentos-aleatorios.html#solución-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<!-- a. $P(A \cup B \cup C)=0.41$ -->
-<!-- b. $P\left(A \cap B^{c} \cap C^{c}\right)=0.12$ -->
-<!-- c. $P\left(\left(A^{c} \cap(B \cup C)\right)=0.11\right.$ -->
-<!-- d. $P\left(A \cup\left(B^{c} \cap C^{c}\right)\right)=0.89$ -->
-<hr />
+<div id="ejercicio-3-2" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Ejercicio 3<a href="estimación-puntual.html#ejercicio-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [Propi] -->
+<p>Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución expoenencial y consideramos <span class="math inline">\(\hat \theta_1 = X_1\)</span> y <span class="math inline">\(\hat\theta_2=\overline{X}\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li><strong>¿Cuál es la probabilidad de que una persona padezca al menos una enfermedad?</strong></li>
-</ol>
-<p>Queremos calcular la probabilidad de que una persona sufra al menos una de las tres enfermedades, es decir, <span class="math inline">\(P(A \cup B \cup C)\)</span>.</p>
-<p>Para calcular <span class="math inline">\(P(A \cup B \cup C)\)</span>, usamos la regla de inclusión-exclusión:</p>
-<p><span class="math display">\[
-P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)
-\]</span></p>
-<p>Sustituyendo los valores dados en el enunciado:</p>
-<p><span class="math display">\[
-P(A \cup B \cup C) = 0.30 + 0.20 + 0.15 - 0.12 - 0.09 - 0.06 + 0.03 = 0.41
-\]</span></p>
-<p>Por lo tanto, la probabilidad de que una persona padezca al menos una enfermedad es <strong>0.41</strong>.</p>
-<hr />
-<ol start="2" style="list-style-type: lower-alpha">
-<li><strong>¿Cuál es la probabilidad de que una persona solo sufra <span class="math inline">\(A\)</span>?</strong></li>
-</ol>
-<p>Para resolver esto, necesitamos calcular la probabilidad de que la persona sufra <span class="math inline">\(A\)</span>, pero no <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span>, es decir, <span class="math inline">\(P(A \cap B^c \cap C^c)\)</span>.</p>
-<p>Podemos calcular <span class="math inline">\(P(A \cap B^c \cap C^c)\)</span> restando de <span class="math inline">\(P(A)\)</span> la probabilidad de que la persona sufra <span class="math inline">\(A\)</span> junto con alguna de las otras dos enfermedades:</p>
-<p><span class="math display">\[
-P(A \cap B^c \cap C^c) = P(A) - P(A \cap B) - P(A \cap C) + P(A \cap B \cap C)
-\]</span></p>
-<p>Sustituyendo los valores:</p>
-<p><span class="math display">\[
-P(A \cap B^c \cap C^c) = 0.30 - 0.12 - 0.09 + 0.03 = 0.12
-\]</span></p>
-<p>Por lo tanto, la probabilidad de que una persona solo sufra <span class="math inline">\(A\)</span> es <strong>0.12</strong>.</p>
-<hr />
-<ol start="3" style="list-style-type: lower-alpha">
-<li><strong>¿Cuál es la probabilidad de que una persona sufra <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>, pero no sufra <span class="math inline">\(A\)</span>?</strong></li>
-</ol>
-<p>Aquí buscamos la probabilidad <span class="math inline">\(P(A^c \cap (B \cup C))\)</span>, es decir, la probabilidad de que la persona no tenga <span class="math inline">\(A\)</span>, pero tenga <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>.</p>
-<p>Primero, calculamos <span class="math inline">\(P(B \cup C)\)</span> utilizando la regla de inclusión-exclusión:</p>
-<p><span class="math display">\[
-P(B \cup C) = P(B) + P(C) - P(B \cap C)
-\]</span></p>
-<p>Sustituyendo los valores:</p>
-<p><span class="math display">\[
-P(B \cup C) = 0.20 + 0.15 - 0.06 = 0.29
-\]</span></p>
-<p>Ahora, para calcular <span class="math inline">\(P(A^c \cap (B \cup C))\)</span>, restamos de <span class="math inline">\(P(B \cup C)\)</span> la probabilidad de que la persona tenga <span class="math inline">\(A\)</span> y alguna de las enfermedades <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>, es decir, <span class="math inline">\(P(A \cap (B \cup C))\)</span>:</p>
-<p><span class="math display">\[
-P(A \cap (B \cup C)) = P(A \cap B) + P(A \cap C) - P(A \cap B \cap C)
-\]</span></p>
-<p>Sustituyendo los valores:</p>
-<p><span class="math display">\[
-P(A \cap (B \cup C)) = 0.12 + 0.09 - 0.03 = 0.18
-\]</span></p>
-<p>Finalmente, restamos:</p>
-<p><span class="math display">\[
-P(A^c \cap (B \cup C)) = P(B \cup C) - P(A \cap (B \cup C)) = 0.29 - 0.18 = 0.11
-\]</span></p>
-<p>Por lo tanto, la probabilidad de que una persona sufra <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>, pero no <span class="math inline">\(A\)</span>, es <strong>0.11</strong>.</p>
-<hr />
-<ol start="4" style="list-style-type: lower-alpha">
-<li><strong>¿Cuál es la probabilidad de que una persona sufra <span class="math inline">\(A\)</span> o no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span>?</strong></li>
-</ol>
-<p>Aquí buscamos la probabilidad <span class="math inline">\(P(A \cup (B^c \cap C^c))\)</span>, es decir, que la persona sufra <span class="math inline">\(A\)</span> o que no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span>.</p>
-<p>Primero, calculamos <span class="math inline">\(P(B^c \cap C^c)\)</span>, que es la probabilidad de que la persona no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span>. Esto es simplemente <span class="math inline">\(1 - P(B \cup C)\)</span>, que ya calculamos previamente:</p>
-<p><span class="math display">\[
-P(B^c \cap C^c) = 1 - P(B \cup C) = 1 - 0.29 = 0.71
-\]</span></p>
-<p>Ahora, aplicamos la regla de la unión para calcular <span class="math inline">\(P(A \cup (B^c \cap C^c))\)</span>:</p>
-<p><span class="math display">\[
-P(A \cup (B^c \cap C^c)) = P(A) + P(B^c \cap C^c) - P(A \cap B^c \cap C^c)
-\]</span></p>
-<p>Ya calculamos <span class="math inline">\(P(B^c \cap C^c)\)</span>, y sabemos que <span class="math inline">\(P(A \cap B^c \cap C^c)\)</span> es la probabilidad de que una persona solo sufra <span class="math inline">\(A\)</span>, que también calculamos previamente:</p>
-<p><span class="math display">\[
-P(A \cap B^c \cap C^c) = 0.12
-\]</span></p>
-<p>Sustituyendo los valores:</p>
-<p><span class="math display">\[
-P(A \cup (B^c \cap C^c)) = 0.30 + 0.71 - 0.12 = 0.89
-\]</span></p>
-<p>Por lo tanto, la probabilidad de que una persona sufra <span class="math inline">\(A\)</span> o no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span> es <strong>0.89</strong>.</p>
-<p><strong>Resumiendo:</strong></p>
-<ol style="list-style-type: decimal">
-<li>La probabilidad de que una persona padezca al menos una enfermedad es <strong>0.41</strong>.</li>
-<li>La probabilidad de que una persona solo sufra <span class="math inline">\(A\)</span> es <strong>0.12</strong>.</li>
-<li>La probabilidad de que una persona sufra <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>, pero no <span class="math inline">\(A\)</span>, es <strong>0.11</strong>.</li>
-<li>La probabilidad de que una persona sufra <span class="math inline">\(A\)</span> o no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span> es <strong>0.89</strong>.</li>
+<li>Si deseamos comparar ambos estimadores: (i) Son estimadores sesgados o insesgados? (ii) Cual de los dos es más eficiente? (iii) Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.</li>
+<li>Realice una simulación similar a la del ejercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.</li>
 </ol>
 </div>
+<div id="ejercicio-4-1" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Ejercicio 4<a href="estimación-puntual.html#ejercicio-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [7.6 Peña] -->
+<p>La media aritmética y la mediana se consderan ambos buenos estimadores del valor medio de una población cuando la distribución de origen es simétrica. Sin embargo “buenos estimadores” es algo que debe precisarse. En general ambos son estimadores centrados y consistentes, pero su eficiencia no resulta tan clara.
+Obtenga muestras, utilizando el método de Montecarlo, de una población normal <span class="math inline">\(N(0,1)\)</span> y estudie la eficiencia relativa de la media y la mediana muestrales como estimadores de la esperanza de la distribución.</p>
 </div>
-<div id="problema-3" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Problema 3<a href="probabilidad-y-experimentos-aleatorios.html#problema-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<!-- (Bioestadística UB, problema 8) -->
-<p>Por los síntomas observados en un enfermo, y según la experiencia acumulada en un gran número de situaciones similares, se deduce que ha podido coger la enfermedad <span class="math inline">\(A\)</span> con probabilidad <span class="math inline">\(1 / 3\)</span>, o la enfermedad <span class="math inline">\(B\)</span> con probabilidad <span class="math inline">\(2 / 3\)</span>. Con el fin de precisar el diagnóstico, se hace un análisis clínico al enfermo con dos resultados posibles, positivo o negativo. Se sabe, también por experiencia, que en los pacientes que tienen la enfermedad En el análisis es positiva con probabilidad 0.99 , y en los que padecen la enfermedad B lo es con probabilidad 0.06</p>
+<div id="ejercicio-5-2" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Ejercicio 5<a href="estimación-puntual.html#ejercicio-5-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [Propi] -->
+<p>La función de verosimilitud es una función de gran importancia y utilidad en inferencia estadística. Dicha función se encuentra en la base de muchos procedimientos de estimación y contraste de hipótesis por lo que es bueno entender lo que significa. La función de verosimilitd tiene, para muestras de tamaño 1 , la misma forma que la función de densidad de probabilidad. Sin embargo, mientras que, cuando consideramos la función de densidad estamos suponiendo que los valores de x , varian y los del parámetro son fijos, al considerar la verosimilitud lo hacemos distinto: suponemos que la muestra es fija y los valores del parámetro varían. Ilustra esta diferencia realizando dos gráficos para una distribución de Poisson en los que, por un lado se representa la función de densidad para valores, por ejemplo de 0 a 10, suponiendo <span class="math inline">\(\lambda=4\)</span> y por el otro la verosimilitud de una observación X=4, suponiendo valores de <span class="math inline">\(\lambda\)</span> entre 1 y 10.</p>
+</div>
+<div id="ejercicios-6" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Ejercicios 6<a href="estimación-puntual.html#ejercicios-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [W 9.76] -->
+<p>Sean <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> variables aleatorias de Bernoulli independientes tales que <span class="math inline">\(P\left(X_{i}=1\right)=p\)</span> y <span class="math inline">\(P\left(X_{i}=\right.\)</span> <span class="math inline">\(0)=1-p\)</span> para cada <span class="math inline">\(i=1,2,3, \ldots\)</span> Con la variable aleatoria <span class="math inline">\(Y\)</span> denote el número de intentos necesario para obtener el primer éxito, es decir, el valor de <span class="math inline">\(i\)</span> para el cual <span class="math inline">\(X_{i}=1\)</span> ocurre primero. Entonces <span class="math inline">\(Y\)</span> tiene una distribución geométrica con <span class="math inline">\(P(Y=y)=(1-p)^{y-1} p\)</span>, para <span class="math inline">\(y=1,2,3, \ldots\)</span> Encuentre el estimador del método de momentos para <span class="math inline">\(p\)</span> basado en esta única observación de <span class="math inline">\(Y\)</span>.</p>
+</div>
+<div id="ejercicio-7-2" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Ejercicio 7<a href="estimación-puntual.html#ejercicio-7-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [W 9.77] -->
+<p>Sean <span class="math inline">\(Y_{1}, Y_{2}, \ldots, Y_{n}\)</span> variables aleatorias uniformes independientes y distribuidas idénticamente en el intervalo <span class="math inline">\((0,3 \theta)\)</span>. Deduzca el estimador del método de momentos para <span class="math inline">\(\theta\)</span>.</p>
+</div>
+<div id="ejercicio-8-2" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> Ejercicio 8<a href="estimación-puntual.html#ejercicio-8-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [W 9.78] -->
+<p>Sean <span class="math inline">\(Y_{1}, Y_{2}, \ldots, Y_{n}\)</span> variables aleatorias independientes y distribuidas idénticamente de una familia de distribución de potencias con parámetros <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\theta=3\)</span>. Entonces, si <span class="math inline">\(\alpha&gt;0\)</span>,</p>
+<p><span class="math display">\[
+f(y \mid \alpha)= \begin{cases}\alpha y^{\alpha-1} / 3^{\alpha}, &amp; 0 \leq y \leq 3 \\ 0, &amp; \text { en cualquier otro punto.. }\end{cases}
+\]</span></p>
+<p>Asumiendo que hemos calculado <span class="math inline">\(E\left(Y_{1}\right)=3 \alpha /(\alpha+1)\)</span> deduzca el estimador del método de momentos para <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+<div id="ejercicio-9-1" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> Ejercicio 9<a href="estimación-puntual.html#ejercicio-9-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [W-M 80] -->
+<p>Suponga que <span class="math inline">\(Y_{1}, Y_{2}, \ldots, Y_{n}\)</span> denotan una muestra aleatoria de la distribución de Poisson con media <span class="math inline">\(\lambda\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>¿Cuál es la probabilidad de que el análisis dé un
-resultado negativo?</p></li>
-<li><p>Si el resultado ha sido positivo, ¿cuál es la probabilidad de que el paciente sufra la enfermedad A? ¿Y la probabilidad de que padezca la enfermedad B?</p></li>
+<li>Encuentre el MLE <span class="math inline">\(\hat{\lambda}\)</span> para <span class="math inline">\(\lambda\)</span>.</li>
+<li>Encuentre el valor esperado y la varianza de <span class="math inline">\(\hat{\lambda}\)</span>.</li>
+<li>Demuestre que el estimador del inciso a es consistente para <span class="math inline">\(\lambda\)</span>.</li>
+<li>¿Cuál es el MLE para <span class="math inline">\(P(Y=0)=e^{-\lambda}\)</span> ?</li>
 </ol>
-<div id="solución-2" class="section level3 hasAnchor" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Solución<a href="probabilidad-y-experimentos-aleatorios.html#solución-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: lower-alpha">
-<li><p><span class="math display">\[
-\begin{aligned}
-P(Neg)&amp;=P(Neg|A) \cdot  P(A)+P(Neg|B) \cdot  P(B)=
-\\&amp;= 0.01 \cdot 1 / 3+0.94 \cdot 2 / 3=0.63
-\end{aligned}
-\]</span></p></li>
-<li></li>
-</ol>
-<p><span class="math display">\[
-\begin{aligned}
-\mathrm{P}(\mathrm{A} | Pos )&amp;=\frac{P(\text { Pos } | A) P(A)}{P(\text { Pos})}=0.8919, \quad \text{para A},\\
-\mathrm{P}(\mathrm{B} | Pos)&amp;=1-\mathrm{P}(\mathrm{A} / Positiu )=0.1081, \quad \text{para $B$}.
-\end{aligned}
-\]</span></p>
-<p>Las probabilidades las hemos calculado con R a partir de la información del enunciado:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb1-1" tabindex="-1"></a>pA<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb1-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb1-2" tabindex="-1"></a>pB<span class="ot">&lt;-</span><span class="dv">2</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb1-3"><a href="probabilidad-y-experimentos-aleatorios.html#cb1-3" tabindex="-1"></a>ppA<span class="ot">&lt;-</span><span class="fl">0.99</span></span>
-<span id="cb1-4"><a href="probabilidad-y-experimentos-aleatorios.html#cb1-4" tabindex="-1"></a>ppB<span class="ot">&lt;-</span><span class="fl">0.06</span></span>
-<span id="cb1-5"><a href="probabilidad-y-experimentos-aleatorios.html#cb1-5" tabindex="-1"></a>pn<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">-</span>ppA)<span class="sc">*</span>pA<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>ppB)<span class="sc">*</span>pB</span>
-<span id="cb1-6"><a href="probabilidad-y-experimentos-aleatorios.html#cb1-6" tabindex="-1"></a>pn</span></code></pre></div>
-<pre><code>## [1] 0.63</code></pre>
 </div>
-</div>
-<div id="problema-4" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Problema 4<a href="probabilidad-y-experimentos-aleatorios.html#problema-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<!-- (Santi, Cosecha propia) -->
-<p>El embolismo pulmonar es una condición relativamente común que necesita hospitalización y que a menudo ocurre en pacientes hospitalizados. La presión arterial menor de 90 mm HG es uno de los criterios importantes para diagnosticar esta condición. Supongamos que la sensibilidad del test es del 95% y la especificidad del test es del 75% y la prevalencia es del 20%.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Calcula el valor predictivo positivo del test.</p></li>
-<li><p>Calcula el valor predictivo negativo del test.</p></li>
-<li><p>Responde a las preguntas anteriores si la prevalencia fuera del <span class="math inline">\(80 \%\)</span>.</p></li>
-</ol>
-<div id="solución-3" class="section level3 hasAnchor" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Solución<a href="probabilidad-y-experimentos-aleatorios.html#solución-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: lower-alpha">
-<li>Calcula el valor predictivo positivo del test</li>
-</ol>
-<p><span class="math display">\[
-V P+=P(\text { Embolismo } / \text { Test }+)=\frac{\text { Sens}\times\text{Prev }}{\text { Sens}\times\text{Prev }+(1-\text { Esp })(1-\text { Prev })}
-\]</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb3-1" tabindex="-1"></a>sens<span class="ot">&lt;-</span><span class="fl">0.95</span></span>
-<span id="cb3-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb3-2" tabindex="-1"></a>esp<span class="ot">&lt;-</span><span class="fl">0.75</span></span>
-<span id="cb3-3"><a href="probabilidad-y-experimentos-aleatorios.html#cb3-3" tabindex="-1"></a>prev<span class="ot">&lt;-</span><span class="fl">0.20</span></span>
-<span id="cb3-4"><a href="probabilidad-y-experimentos-aleatorios.html#cb3-4" tabindex="-1"></a>vpp<span class="ot">&lt;-</span>(sens<span class="sc">*</span>prev)<span class="sc">/</span>(sens<span class="sc">*</span>prev<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>esp)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev))</span>
-<span id="cb3-5"><a href="probabilidad-y-experimentos-aleatorios.html#cb3-5" tabindex="-1"></a>vpp</span></code></pre></div>
-<pre><code>## [1] 0.4871795</code></pre>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Calcula el valor predictivo negativo del test</li>
-</ol>
-<p><span class="math display">\[
-V P-=\frac{\operatorname{Esp}(1-\operatorname{Prev})}{\operatorname{Esp}(1-\operatorname{Prev})+(1-\text { Sens }) \operatorname{Prev}}
-\]</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb5-1" tabindex="-1"></a>vpn<span class="ot">&lt;-</span>(esp<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev))<span class="sc">/</span>(esp<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>sens)<span class="sc">*</span>prev)</span>
-<span id="cb5-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb5-2" tabindex="-1"></a>vpn</span></code></pre></div>
-<pre><code>## [1] 0.9836066</code></pre>
-<p>Como se observa al tratarse de una prueba muy sensible y poco específica hay pocos falsos negativos y cuando el test da negativo hay una probabilidad muy alta (0.98) de que el individuo sea sano. No así cuando da positivo. Sólo el <span class="math inline">\(48 \%\)</span> serán verdaderos enfermos.</p>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Responde a las preguntas anteriores si la prevalencia fuera del 80%</li>
-</ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb7-1" tabindex="-1"></a>prev<span class="ot">&lt;-</span><span class="fl">0.80</span></span>
-<span id="cb7-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb7-2" tabindex="-1"></a>vpp<span class="ot">&lt;-</span>(sens<span class="sc">*</span>prev)<span class="sc">/</span>(sens<span class="sc">*</span>prev<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>esp)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev))</span>
-<span id="cb7-3"><a href="probabilidad-y-experimentos-aleatorios.html#cb7-3" tabindex="-1"></a>vpp</span></code></pre></div>
-<pre><code>## [1] 0.9382716</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb9-1" tabindex="-1"></a>vpn<span class="ot">&lt;-</span>(esp<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev))<span class="sc">/</span>(esp<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>sens)<span class="sc">*</span>prev)</span>
-<span id="cb9-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb9-2" tabindex="-1"></a>vpn</span></code></pre></div>
-<pre><code>## [1] 0.7894737</code></pre>
-<p>Si la prevalencia es más alta, el VP- sigue siendo alto, aunque no tanto pero hemos aumentado el VP+ hasta el 93% y no habrá tantos falsos positivos. Lo que está claro es el VPN y el VPP dependen de la prevalencia de la enfermedad.</p>
-</div>
-</div>
-<div id="problema-5" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Problema 5<a href="probabilidad-y-experimentos-aleatorios.html#problema-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<!--  (Bioestadística UB, problema 12) -->
-<p>Un índice que evalúa el síndrome de la muerte súbita (SMS) tiene una sensibilidad del <span class="math inline">\(68 \%\)</span> y una especificidad del <span class="math inline">\(82 \%\)</span>. ¿Cuáles son los valores predictivos positivo y negativo del índice si se aplica a una población donde se producen un <span class="math inline">\(0,21 \%\)</span> de muertes súbitas sobre el total de nacimientos?</p>
-<div id="solución-4" class="section level3 hasAnchor" number="1.5.1">
-<h3><span class="header-section-number">1.5.1</span> Solución<a href="probabilidad-y-experimentos-aleatorios.html#solución-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La prevalencia del síndrome de la muerte súbita en la población es del 0.21%, es decir 0.0021.</p>
-<p>Nos piden que calculemos respectivamente los valores predictivos positivo y negativo del test. Es decir, que tan bien funciona el test para detectar la enfermedad (<span class="math inline">\(SMS\)</span>) cuando da un resultado positivo (<span class="math inline">\(T+\)</span>) y para indicar su ausencia (<span class="math inline">\(SMS^c\)</span>), mediante un resultado negativo (<span class="math inline">\(T-\)</span>).</p>
-<p><span class="math display">\[
-VP+ = P[SMS | T+],\qquad VP- = P[SMS^c | T-],
-\]</span></p>
-<p>Puede hacerse el cálculo directamente a partir de las probabilidades condicionadas.</p>
-<p><span class="math display">\[
-\begin{aligned}
-VP+ &amp; = P[SMS | T+]= \frac {P[T+ | SMS]\times P[SMS]}{P[T+]} =\\
-&amp; = \frac {P[T+ | SMS]\times P[SMS]}
-{P[T+|SMS]\times P[SMS]+ P[T+|SMS^c]\times P[SMS^c]}=\\
-&amp; = \frac{\text {Sensibilidad}\times \text{Prevalencia}}
-{\text {Sensibilidad}\times \text{Prevalencia}+
-\text {1-Especificidad}\times \text{1-Prevalencia}}
-\end{aligned}
-\]</span></p>
-<p>De forma análoga:</p>
-<p><span class="math display">\[
-\begin{aligned}
-VP- &amp; = P[SMS^c | T-]= \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T-]} =\\
-&amp; = \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T- | SMS^c]\times P[SMS^c] + P[T- | SMS]\times P[SMS]}=\\
-&amp; = \frac{\text {Especificidad}\times \text{1-Prevalencia}}
-{\text {Especificidad}\times \text{1-Prevalencia}+
-\text {1-Sensibilidad}\times \text{Prevalencia}}
-\end{aligned}
-\]</span></p>
-<p>Estos cálculos se reañlizan de forma imediata usando R:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb11-1" tabindex="-1"></a>sensi <span class="ot">&lt;-</span> <span class="fl">0.68</span></span>
-<span id="cb11-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb11-2" tabindex="-1"></a>espec <span class="ot">&lt;-</span> <span class="fl">0.82</span></span>
-<span id="cb11-3"><a href="probabilidad-y-experimentos-aleatorios.html#cb11-3" tabindex="-1"></a>prev <span class="ot">&lt;-</span> <span class="fl">0.0021</span></span>
-<span id="cb11-4"><a href="probabilidad-y-experimentos-aleatorios.html#cb11-4" tabindex="-1"></a>vp.pos <span class="ot">&lt;-</span> (sensi <span class="sc">*</span> prev )<span class="sc">/</span> (sensi <span class="sc">*</span> prev <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>espec)<span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>prev))</span>
-<span id="cb11-5"><a href="probabilidad-y-experimentos-aleatorios.html#cb11-5" tabindex="-1"></a><span class="fu">cat</span> (<span class="st">&quot;El valor predictivo positivo es: &quot;</span>, vp.pos)</span></code></pre></div>
-<pre><code>## El valor predictivo positivo es:  0.007887324</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb13-1" tabindex="-1"></a>vp.neg <span class="ot">&lt;-</span> (espec <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>prev) )<span class="sc">/</span> (espec <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>prev) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>sensi)<span class="sc">*</span> (prev))</span>
-<span id="cb13-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb13-2" tabindex="-1"></a><span class="fu">cat</span> (<span class="st">&quot;El valor predictivo negativo es: &quot;</span>, vp.neg)</span></code></pre></div>
-<pre><code>## El valor predictivo negativo es:  0.9991794</code></pre>
-<p>Como en el caso anterior, podemos ver que. al ser la prevalencia muy baja, el valor predicpositivo del test también lo es puesto que un test + tan solo indica en un 0,79% de veces la presencia del síndrome, correctamente.</p>
+<div id="ejercicio-10-1" class="section level2 hasAnchor" number="5.10">
+<h2><span class="header-section-number">5.10</span> Ejercicio 10<a href="estimación-puntual.html#ejercicio-10-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- [W-M 80] -->
+<p>Suponga que <span class="math inline">\(Y_{1}, Y_{2}, \ldots, Y_{n}\)</span> denotan una muestra aleatoria de una población distribuida exponencialmente con media <span class="math inline">\(\theta\)</span>. Encuentre el MLE de la varianza poblacional <span class="math inline">\(\theta^{2}\)</span>.</p>
 
-</div>
 </div>
 </div>
             </section>
@@ -571,8 +409,8 @@ VP- &amp; = P[SMS^c | T-]= \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T-]} =\\
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="muestreo-y-distribuciones-en-el-muestreo.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -603,7 +441,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/01-Probabilidad.Rmd",
+"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/05-Estimacion.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -611,7 +449,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/01-Probabilidad.Rmd",
+"link": "https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/05-Estimacion.Rmd",
 "text": null
 },
 "download": "https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/docs/_main.pdf",

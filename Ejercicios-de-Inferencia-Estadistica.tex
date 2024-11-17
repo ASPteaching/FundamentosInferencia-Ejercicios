@@ -1,0 +1,2854 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section*{Presentación}\label{presentaciuxf3n}
+\addcontentsline{toc}{section}{Presentación}
+
+\subsection*{Objetivo}\label{objetivo}
+\addcontentsline{toc}{subsection}{Objetivo}
+
+El objetivo de estos ejercicios es proporcionar unos materiales de soporte para la asignatura de ``Inferencia Estadística'' del \href{https://www.uoc.edu/es/estudios/masters/master-universitario-bioinformatica-bioestadistica}{Máster interuniversitario de Bioiestadística y Bioinformática} impartido conjuntamente por la \href{https://www.uoc.edu}{Universitat Oberta de Catalunya (UOC)} y la \href{https://www.ub.edu}{Universidad de Barcelona (UB)}.
+
+Esta asignatura adolece de las características habituales de las asignaturas de posgrado, y especialmente de un posgrado de estadística (y bioinformática), que muestran algunas de las cosas que no debe de ser esta asignatura:
+
+Tal como se indica en la introducción a las notas de soporte del curso, este debería:
+
+\begin{itemize}
+\tightlist
+\item
+  Servir para repasar y consolidar los conceptos básicos que la mayoría de estudiantes traerán consigo.
+\item
+  Además, y sobretodo, debe proporcionar una visión general, lo más completa posible dentro de las limitaciones de tiempo, del campo de la inferencia estadística
+\end{itemize}
+
+Y, naturalmente, una de las formas de consolidar conocimientos, como en cualquier disciplina cuantitatva,es a traves de la resolución de ejercicios que permiten reflexionar, comprender y ver como se aplican los conceptos teóricos introducidos.
+
+Para ello, estos materiales contienen una serie de ejercicios similares a los que se proponen en las actividades y pruebas de evaluación continua de la asignatura.
+
+La mayoría de los ejercicios estan resueltos, pero \emph{es importante intentar resolverlos de forma autónoma antes de consultar la solución}.
+
+En general los ejercicios no presuponen ningún conocimiento especial de matemáticas, más allá de las habilidades básicas que se adquieren durante los estudios de una carrera de ciencias o de ingeniería.
+
+\section{Probabilidad y Experimentos aleatorios}\label{probabilidad-y-experimentos-aleatorios}
+
+\subsection{Problema 1}\label{problema-1}
+
+Sean \(A\) y \(B\) dos sucesos. Suponiendo que \(P(A)=0.3, P(B)=0.6\), y \(P(A \cap B)=0.1\), calcula las siguientes probabilidades:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  \(P(A \cup B)\)
+\item
+  \(P(A^c)\)
+\item
+  \(P(A c \cap B)\)
+\item
+  \(P(A \cap B^c)\)
+\item
+  \(P(A^c \cap B^c)\)
+\end{enumerate}
+
+\subsubsection{Solución}\label{soluciuxf3n}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(P(A \cup B)=P(A)+P(B)-P(A \cap B)=0.3+0.6-0.1=0.8\)
+\item
+  \(P\left(A^{c}\right)=1-P(A)=1-0.3=0.7\)
+\item
+  \(P\left(A^{c} \cap B\right)=P(B)-P(A \cap B)=0.6-0.1=0.5\)
+\item
+  \(P\left(A \cap B^{c}\right)=P(A)-P(A \cap B)=0.3-0.1=0.2\)
+\item
+  \(P\left(A^{c} \cap B^{c}\right)=1-P(A \cup B)=1-0.8=0.2\)
+\end{enumerate}
+
+\subsection{Problema 2}\label{problema-2}
+
+Una población está afectada por tres enfermedades diferentes A, B i C. La probabilidad de que una persona sufra \(A\) es 0.30 , la probabilidad de que sufra \(B\) es 0.20 y la probabilidad de que sufra \(C\) es 0.15 . La probabilidad de que una persona sufra \(A\) y \(B\) es 0.12 , la que sufra \(A\) y \(C\) es 0.09 y la que sufra \(B\) y \(C\) es 0.06 . La probabilidad de que una persona sufra las tres enfermedades es 0.03 . Se piden las probabilidades de que una persona escogida al azar:
+
+\begin{enumerate}
+
+\item padezca al menos una enfermedad
+
+\item sólo sufra $A$
+
+\item sufra B o C, pero no sufra A
+
+\item sufra A o no sufra ni B ni C.
+
+\end{enumerate}
+
+\subsubsection{Solución}\label{soluciuxf3n-1}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  \textbf{¿Cuál es la probabilidad de que una persona padezca al menos una enfermedad?}
+\end{enumerate}
+
+Queremos calcular la probabilidad de que una persona sufra al menos una de las tres enfermedades, es decir, \(P(A \cup B \cup C)\).
+
+Para calcular \(P(A \cup B \cup C)\), usamos la regla de inclusión-exclusión:
+
+\[
+P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)
+\]
+
+Sustituyendo los valores dados en el enunciado:
+
+\[
+P(A \cup B \cup C) = 0.30 + 0.20 + 0.15 - 0.12 - 0.09 - 0.06 + 0.03 = 0.41
+\]
+
+Por lo tanto, la probabilidad de que una persona padezca al menos una enfermedad es \textbf{0.41}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{¿Cuál es la probabilidad de que una persona solo sufra \(A\)?}
+\end{enumerate}
+
+Para resolver esto, necesitamos calcular la probabilidad de que la persona sufra \(A\), pero no \(B\) ni \(C\), es decir, \(P(A \cap B^c \cap C^c)\).
+
+Podemos calcular \(P(A \cap B^c \cap C^c)\) restando de \(P(A)\) la probabilidad de que la persona sufra \(A\) junto con alguna de las otras dos enfermedades:
+
+\[
+P(A \cap B^c \cap C^c) = P(A) - P(A \cap B) - P(A \cap C) + P(A \cap B \cap C)
+\]
+
+Sustituyendo los valores:
+
+\[
+P(A \cap B^c \cap C^c) = 0.30 - 0.12 - 0.09 + 0.03 = 0.12
+\]
+
+Por lo tanto, la probabilidad de que una persona solo sufra \(A\) es \textbf{0.12}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{¿Cuál es la probabilidad de que una persona sufra \(B\) o \(C\), pero no sufra \(A\)?}
+\end{enumerate}
+
+Aquí buscamos la probabilidad \(P(A^c \cap (B \cup C))\), es decir, la probabilidad de que la persona no tenga \(A\), pero tenga \(B\) o \(C\).
+
+Primero, calculamos \(P(B \cup C)\) utilizando la regla de inclusión-exclusión:
+
+\[
+P(B \cup C) = P(B) + P(C) - P(B \cap C)
+\]
+
+Sustituyendo los valores:
+
+\[
+P(B \cup C) = 0.20 + 0.15 - 0.06 = 0.29
+\]
+
+Ahora, para calcular \(P(A^c \cap (B \cup C))\), restamos de \(P(B \cup C)\) la probabilidad de que la persona tenga \(A\) y alguna de las enfermedades \(B\) o \(C\), es decir, \(P(A \cap (B \cup C))\):
+
+\[
+P(A \cap (B \cup C)) = P(A \cap B) + P(A \cap C) - P(A \cap B \cap C)
+\]
+
+Sustituyendo los valores:
+
+\[
+P(A \cap (B \cup C)) = 0.12 + 0.09 - 0.03 = 0.18
+\]
+
+Finalmente, restamos:
+
+\[
+P(A^c \cap (B \cup C)) = P(B \cup C) - P(A \cap (B \cup C)) = 0.29 - 0.18 = 0.11
+\]
+
+Por lo tanto, la probabilidad de que una persona sufra \(B\) o \(C\), pero no \(A\), es \textbf{0.11}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{¿Cuál es la probabilidad de que una persona sufra \(A\) o no sufra ni \(B\) ni \(C\)?}
+\end{enumerate}
+
+Aquí buscamos la probabilidad \(P(A \cup (B^c \cap C^c))\), es decir, que la persona sufra \(A\) o que no sufra ni \(B\) ni \(C\).
+
+Primero, calculamos \(P(B^c \cap C^c)\), que es la probabilidad de que la persona no sufra ni \(B\) ni \(C\). Esto es simplemente \(1 - P(B \cup C)\), que ya calculamos previamente:
+
+\[
+P(B^c \cap C^c) = 1 - P(B \cup C) = 1 - 0.29 = 0.71
+\]
+
+Ahora, aplicamos la regla de la unión para calcular \(P(A \cup (B^c \cap C^c))\):
+
+\[
+P(A \cup (B^c \cap C^c)) = P(A) + P(B^c \cap C^c) - P(A \cap B^c \cap C^c)
+\]
+
+Ya calculamos \(P(B^c \cap C^c)\), y sabemos que \(P(A \cap B^c \cap C^c)\) es la probabilidad de que una persona solo sufra \(A\), que también calculamos previamente:
+
+\[
+P(A \cap B^c \cap C^c) = 0.12
+\]
+
+Sustituyendo los valores:
+
+\[
+P(A \cup (B^c \cap C^c)) = 0.30 + 0.71 - 0.12 = 0.89
+\]
+
+Por lo tanto, la probabilidad de que una persona sufra \(A\) o no sufra ni \(B\) ni \(C\) es \textbf{0.89}.
+
+\textbf{Resumiendo:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La probabilidad de que una persona padezca al menos una enfermedad es \textbf{0.41}.
+\item
+  La probabilidad de que una persona solo sufra \(A\) es \textbf{0.12}.
+\item
+  La probabilidad de que una persona sufra \(B\) o \(C\), pero no \(A\), es \textbf{0.11}.
+\item
+  La probabilidad de que una persona sufra \(A\) o no sufra ni \(B\) ni \(C\) es \textbf{0.89}.
+\end{enumerate}
+
+\subsection{Problema 3}\label{problema-3}
+
+Por los síntomas observados en un enfermo, y según la experiencia acumulada en un gran número de situaciones similares, se deduce que ha podido coger la enfermedad \(A\) con probabilidad \(1 / 3\), o la enfermedad \(B\) con probabilidad \(2 / 3\). Con el fin de precisar el diagnóstico, se hace un análisis clínico al enfermo con dos resultados posibles, positivo o negativo. Se sabe, también por experiencia, que en los pacientes que tienen la enfermedad En el análisis es positiva con probabilidad 0.99 , y en los que padecen la enfermedad B lo es con probabilidad 0.06
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  ¿Cuál es la probabilidad de que el análisis dé un
+  resultado negativo?
+\item
+  Si el resultado ha sido positivo, ¿cuál es la probabilidad de que el paciente sufra la enfermedad A? ¿Y la probabilidad de que padezca la enfermedad B?
+\end{enumerate}
+
+\subsubsection{Solución}\label{soluciuxf3n-2}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  \[
+  \begin{aligned}
+  P(Neg)&=P(Neg|A) \cdot  P(A)+P(Neg|B) \cdot  P(B)=
+  \\&= 0.01 \cdot 1 / 3+0.94 \cdot 2 / 3=0.63
+  \end{aligned}
+  \]
+\item
+\end{enumerate}
+
+\[
+\begin{aligned}
+\mathrm{P}(\mathrm{A} | Pos )&=\frac{P(\text { Pos } | A) P(A)}{P(\text { Pos})}=0.8919, \quad \text{para A},\\
+\mathrm{P}(\mathrm{B} | Pos)&=1-\mathrm{P}(\mathrm{A} / Positiu )=0.1081, \quad \text{para $B$}.
+\end{aligned}
+\]
+
+Las probabilidades las hemos calculado con R a partir de la información del enunciado:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pA}\OtherTok{\textless{}{-}}\DecValTok{1}\SpecialCharTok{/}\DecValTok{3}
+\NormalTok{pB}\OtherTok{\textless{}{-}}\DecValTok{2}\SpecialCharTok{/}\DecValTok{3}
+\NormalTok{ppA}\OtherTok{\textless{}{-}}\FloatTok{0.99}
+\NormalTok{ppB}\OtherTok{\textless{}{-}}\FloatTok{0.06}
+\NormalTok{pn}\OtherTok{\textless{}{-}}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{ppA)}\SpecialCharTok{*}\NormalTok{pA}\SpecialCharTok{+}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{ppB)}\SpecialCharTok{*}\NormalTok{pB}
+\NormalTok{pn}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.63
+\end{verbatim}
+
+\subsection{Problema 4}\label{problema-4}
+
+El embolismo pulmonar es una condición relativamente común que necesita hospitalización y que a menudo ocurre en pacientes hospitalizados. La presión arterial menor de 90 mm HG es uno de los criterios importantes para diagnosticar esta condición. Supongamos que la sensibilidad del test es del 95\% y la especificidad del test es del 75\% y la prevalencia es del 20\%.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Calcula el valor predictivo positivo del test.
+\item
+  Calcula el valor predictivo negativo del test.
+\item
+  Responde a las preguntas anteriores si la prevalencia fuera del \(80 \%\).
+\end{enumerate}
+
+\subsubsection{Solución}\label{soluciuxf3n-3}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Calcula el valor predictivo positivo del test
+\end{enumerate}
+
+\[
+V P+=P(\text { Embolismo } / \text { Test }+)=\frac{\text { Sens}\times\text{Prev }}{\text { Sens}\times\text{Prev }+(1-\text { Esp })(1-\text { Prev })}
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sens}\OtherTok{\textless{}{-}}\FloatTok{0.95}
+\NormalTok{esp}\OtherTok{\textless{}{-}}\FloatTok{0.75}
+\NormalTok{prev}\OtherTok{\textless{}{-}}\FloatTok{0.20}
+\NormalTok{vpp}\OtherTok{\textless{}{-}}\NormalTok{(sens}\SpecialCharTok{*}\NormalTok{prev)}\SpecialCharTok{/}\NormalTok{(sens}\SpecialCharTok{*}\NormalTok{prev}\SpecialCharTok{+}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{esp)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{prev))}
+\NormalTok{vpp}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4871795
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Calcula el valor predictivo negativo del test
+\end{enumerate}
+
+\[
+V P-=\frac{\operatorname{Esp}(1-\operatorname{Prev})}{\operatorname{Esp}(1-\operatorname{Prev})+(1-\text { Sens }) \operatorname{Prev}}
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vpn}\OtherTok{\textless{}{-}}\NormalTok{(esp}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{prev))}\SpecialCharTok{/}\NormalTok{(esp}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{prev)}\SpecialCharTok{+}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{sens)}\SpecialCharTok{*}\NormalTok{prev)}
+\NormalTok{vpn}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9836066
+\end{verbatim}
+
+Como se observa al tratarse de una prueba muy sensible y poco específica hay pocos falsos negativos y cuando el test da negativo hay una probabilidad muy alta (0.98) de que el individuo sea sano. No así cuando da positivo. Sólo el \(48 \%\) serán verdaderos enfermos.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Responde a las preguntas anteriores si la prevalencia fuera del 80\%
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prev}\OtherTok{\textless{}{-}}\FloatTok{0.80}
+\NormalTok{vpp}\OtherTok{\textless{}{-}}\NormalTok{(sens}\SpecialCharTok{*}\NormalTok{prev)}\SpecialCharTok{/}\NormalTok{(sens}\SpecialCharTok{*}\NormalTok{prev}\SpecialCharTok{+}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{esp)}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{prev))}
+\NormalTok{vpp}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9382716
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vpn}\OtherTok{\textless{}{-}}\NormalTok{(esp}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{prev))}\SpecialCharTok{/}\NormalTok{(esp}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{prev)}\SpecialCharTok{+}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{sens)}\SpecialCharTok{*}\NormalTok{prev)}
+\NormalTok{vpn}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7894737
+\end{verbatim}
+
+Si la prevalencia es más alta, el VP- sigue siendo alto, aunque no tanto pero hemos aumentado el VP+ hasta el 93\% y no habrá tantos falsos positivos. Lo que está claro es el VPN y el VPP dependen de la prevalencia de la enfermedad.
+
+\subsection{Problema 5}\label{problema-5}
+
+Un índice que evalúa el síndrome de la muerte súbita (SMS) tiene una sensibilidad del \(68 \%\) y una especificidad del \(82 \%\). ¿Cuáles son los valores predictivos positivo y negativo del índice si se aplica a una población donde se producen un \(0,21 \%\) de muertes súbitas sobre el total de nacimientos?
+
+\subsubsection{Solución}\label{soluciuxf3n-4}
+
+La prevalencia del síndrome de la muerte súbita en la población es del 0.21\%, es decir 0.0021.
+
+Nos piden que calculemos respectivamente los valores predictivos positivo y negativo del test. Es decir, que tan bien funciona el test para detectar la enfermedad (\(SMS\)) cuando da un resultado positivo (\(T+\)) y para indicar su ausencia (\(SMS^c\)), mediante un resultado negativo (\(T-\)).
+
+\[
+VP+ = P[SMS | T+],\qquad VP- = P[SMS^c | T-],
+\]
+
+Puede hacerse el cálculo directamente a partir de las probabilidades condicionadas.
+
+\[
+\begin{aligned}
+VP+ & = P[SMS | T+]= \frac {P[T+ | SMS]\times P[SMS]}{P[T+]} =\\
+& = \frac {P[T+ | SMS]\times P[SMS]}
+{P[T+|SMS]\times P[SMS]+ P[T+|SMS^c]\times P[SMS^c]}=\\
+& = \frac{\text {Sensibilidad}\times \text{Prevalencia}}
+{\text {Sensibilidad}\times \text{Prevalencia}+
+\text {1-Especificidad}\times \text{1-Prevalencia}}
+\end{aligned}
+\]
+
+De forma análoga:
+
+\[
+\begin{aligned}
+VP- & = P[SMS^c | T-]= \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T-]} =\\
+& = \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T- | SMS^c]\times P[SMS^c] + P[T- | SMS]\times P[SMS]}=\\
+& = \frac{\text {Especificidad}\times \text{1-Prevalencia}}
+{\text {Especificidad}\times \text{1-Prevalencia}+
+\text {1-Sensibilidad}\times \text{Prevalencia}}
+\end{aligned}
+\]
+
+Estos cálculos se reañlizan de forma imediata usando R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sensi }\OtherTok{\textless{}{-}} \FloatTok{0.68}
+\NormalTok{espec }\OtherTok{\textless{}{-}} \FloatTok{0.82}
+\NormalTok{prev }\OtherTok{\textless{}{-}} \FloatTok{0.0021}
+\NormalTok{vp.pos }\OtherTok{\textless{}{-}}\NormalTok{ (sensi }\SpecialCharTok{*}\NormalTok{ prev )}\SpecialCharTok{/}\NormalTok{ (sensi }\SpecialCharTok{*}\NormalTok{ prev }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{espec)}\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{prev))}
+\FunctionTok{cat}\NormalTok{ (}\StringTok{"El valor predictivo positivo es: "}\NormalTok{, vp.pos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## El valor predictivo positivo es:  0.007887324
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vp.neg }\OtherTok{\textless{}{-}}\NormalTok{ (espec }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{prev) )}\SpecialCharTok{/}\NormalTok{ (espec }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{prev) }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{sensi)}\SpecialCharTok{*}\NormalTok{ (prev))}
+\FunctionTok{cat}\NormalTok{ (}\StringTok{"El valor predictivo negativo es: "}\NormalTok{, vp.neg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## El valor predictivo negativo es:  0.9991794
+\end{verbatim}
+
+Como en el caso anterior, podemos ver que. al ser la prevalencia muy baja, el valor predicpositivo del test también lo es puesto que un test + tan solo indica en un 0,79\% de veces la presencia del síndrome, correctamente.
+
+\section{Variables aleatorias y Distribuciones de probabilidad}\label{variables-aleatorias-y-distribuciones-de-probabilidad}
+
+\subsection{Ejercicio 2.1}\label{ejercicio-2.1}
+
+Se sabe que la presencia de algunas mutaciones en una región genómica puede influir en la sobreexpresión (``Up'') o la inhibición (``Down'') de dos genes distintos. Se conocen 6 variantes de dicha mutación y, dado que los efectos de la sobreexpresión de los dos genes son muy similares se ha optado por contar únicamente cuántos genes se sobre-expresan en presencia de cada una de ellas (un individuo puede presentar una única variante). Un estudio realizado sobre 300 pacientes ha permitido estimar las siguientes probabilidades de aparición de cada mutación así como el número de genes sobre-expresados asociados a las mismas. Los resultados se encuentran disponibles en la tabla siguiente:
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule\noalign{}
+Mutación & Probabilidad & \(N^{\circ}\) de genes \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(e_{1}\) & 0.15 & 0 \\
+\(e_{2}\) & 0.13 & 1 \\
+\(e_{3}\) & 0.07 & 1 \\
+\(e_{4}\) & 0.30 & 2 \\
+\(e_{5}\) & 0.20 & 2 \\
+\(e_{6}\) & 0.15 & 0 \\
+\end{longtable}
+
+Consideremos la variable aleatoria: \(X=\) ``Número de genes sobre expresados''
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Obtener su distribución de probabilidad y representarla gráficamente
+\item
+  Calcular la esperanza y la varianza de dicha variable
+\end{enumerate}
+
+\textbf{SOLUCIÓN}
+
+La variable aleatoria que nos interesa es \(X=\) ``Número de genes sobre-expresados''.
+
+\subsubsection{Distribución de probabilidad}\label{distribuciuxf3n-de-probabilidad}
+
+Para obtener la distribución de probabilidad de \(X\), necesitamos sumar las probabilidades de las mutaciones que tienen el mismo número de genes sobre-expresados.
+
+Los posibles valores de \(X\) son 0, 1 y 2. A continuación calculamos la probabilidad de cada uno:
+
+\begin{itemize}
+\tightlist
+\item
+  Para \(X = 0\), las mutaciones son \(e_1\) y \(e_6\):
+\end{itemize}
+
+\[
+P(X = 0) = P(e_1) + P(e_6) = 0.15 + 0.15 = 0.30
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Para \(X = 1\), las mutaciones son \(e_2\) y \(e_3\):
+\end{itemize}
+
+\[
+P(X = 1) = P(e_2) + P(e_3) = 0.13 + 0.07 = 0.20
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Para \(X = 2\), las mutaciones son \(e_4\) y \(e_5\):
+\end{itemize}
+
+\[
+P(X = 2) = P(e_4) + P(e_5) = 0.30 + 0.20 = 0.50
+\]
+
+La distribución de probabilidad de \(X\) es la siguiente:
+
+\[
+P(X = x) =
+\begin{cases}
+0.30 & \text{si } x = 0, \\
+0.20 & \text{si } x = 1, \\
+0.50 & \text{si } x = 2.
+\end{cases}
+\]
+
+Podemos representarla gráficamente usando R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Valores de X y sus probabilidades}
+\NormalTok{X\_values }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{probabilities }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.30}\NormalTok{, }\FloatTok{0.20}\NormalTok{, }\FloatTok{0.50}\NormalTok{)}
+
+\CommentTok{\# Crear el gráfico}
+\FunctionTok{barplot}\NormalTok{(probabilities, }\AttributeTok{names.arg =}\NormalTok{ X\_values, }\AttributeTok{col =} \StringTok{"lightblue"}\NormalTok{,}
+        \AttributeTok{main =} \StringTok{"Distribución de Probabilidad de X"}\NormalTok{,}
+        \AttributeTok{xlab =} \StringTok{"Número de genes sobre{-}expresados"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Probabilidad"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\subsubsection{Esperanza y varianza}\label{esperanza-y-varianza}
+
+La \textbf{esperanza} (o valor esperado) de una variable aleatoria discreta \(X\) se calcula como:
+
+\[
+E(X) = \sum_{x} x \cdot P(X = x)
+\]
+
+Sustituyendo los valores:
+
+\[
+E(X) = 0 \cdot 0.30 + 1 \cdot 0.20 + 2 \cdot 0.50 = 0 + 0.20 + 1.00 = 1.20
+\]
+
+La \textbf{varianza} de \(X\) se calcula como:
+
+\[
+\text{Var}(X) = E(X^2) - [E(X)]^2
+\]
+
+Primero calculamos \(E(X^2)\):
+
+\[
+E(X^2) = \sum_{x} x^2 \cdot P(X = x)
+\]
+
+\[
+E(X^2) = 0^2 \cdot 0.30 + 1^2 \cdot 0.20 + 2^2 \cdot 0.50 = 0 + 0.20 + 2.00 = 2.20
+\]
+
+Entonces, la varianza es:
+
+\[
+\text{Var}(X) = 2.20 - (1.20)^2 = 2.20 - 1.44 = 0.76
+\]
+
+Verificamos los cálculos con R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calcular esperanza y varianza}
+\NormalTok{esperanza }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(X\_values }\SpecialCharTok{*}\NormalTok{ probabilities)}
+\NormalTok{esperanza\_cuadrado }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(X\_values}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ probabilities)}
+
+\NormalTok{varianza }\OtherTok{\textless{}{-}}\NormalTok{ esperanza\_cuadrado }\SpecialCharTok{{-}}\NormalTok{ esperanza}\SpecialCharTok{\^{}}\DecValTok{2}
+
+\NormalTok{esperanza}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{varianza}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.76
+\end{verbatim}
+
+\subsection{Ejercicio 2.2}\label{ejercicio-2.2}
+
+Para describir el número de mutaciones presentes en un volumen estándar de un tumor unos investigadores han propuesto el modelo siguiente
+
+\[
+p(x)=\frac{K}{2+x}, x=0,1,2,3,4,5
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Determinar qué valor debe de tener \(K\) para que \(p(x)\) sea una función de masa de probabilidad
+\item
+  Calcular su esperanza y su varianza
+\item
+  Calcular las probabilidades de los sucesos:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    1 Un tumor presenta exactamente tres mutaciones
+  \item
+    2 Un tumor presenta al menos una mutación
+  \item
+    3 Un tumor presenta como máximo dos mutaciones.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{SOLUCIÓN}
+
+Se considera el modelo para la distribución de probabilidades de mutaciones en un tumor dado por:
+
+\[
+p(x)=\frac{K}{2+x}, x=0,1,2,3,4,5
+\]
+
+\subsubsection{\texorpdfstring{Valor de \(K\)}{Valor de K}}\label{valor-de-k}
+
+Para que \(p(x)\) sea una función de masa de probabilidad, la suma de todas las probabilidades debe ser igual a 1. Es decir:
+
+\[
+\sum_{x=0}^{5} p(x) = 1
+\]
+
+Sustituyendo la fórmula de \(p(x)\):
+
+\[
+\sum_{x=0}^{5} \frac{K}{2+x} = 1
+\]
+
+Simplificamos la suma:
+
+\[
+K \sum_{x=0}^{5} \frac{1}{2+x} = 1
+\]
+
+La suma es:
+
+\[
+\sum_{x=0}^{5} \frac{1}{2+x} = \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7}
+\]
+
+Podemos calcular esta suma numéricamente en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Valores de la suma}
+\NormalTok{suma }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\DecValTok{1} \SpecialCharTok{/}\NormalTok{ (}\DecValTok{2} \SpecialCharTok{+} \DecValTok{0}\SpecialCharTok{:}\DecValTok{5}\NormalTok{))}
+
+\CommentTok{\# Calcular el valor de K}
+\NormalTok{K }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{/}\NormalTok{ suma}
+\NormalTok{K}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6278027
+\end{verbatim}
+
+\subsubsection{Esperanza y la varianza}\label{esperanza-y-la-varianza}
+
+La \textbf{esperanza} de \(X\) se calcula como:
+
+\[
+E(X) = \sum_{x=0}^{5} x \cdot p(x) = \sum_{x=0}^{5} x \cdot \frac{K}{2+x}
+\]
+
+La \textbf{varianza} se calcula usando:
+
+\[
+\text{Var}(X) = E(X^2) - [E(X)]^2
+\]
+
+Para esto, primero calculamos \(E(X^2)\):
+
+\[
+E(X^2) = \sum_{x=0}^{5} x^2 \cdot p(x) = \sum_{x=0}^{5} x^2 \cdot \frac{K}{2+x}
+\]
+
+Podemos calcular la esperanza y la varianza en R de la siguiente forma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calcular la esperanza}
+\NormalTok{esperanza }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{((}\DecValTok{0}\SpecialCharTok{:}\DecValTok{5}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ K }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{2} \SpecialCharTok{+} \DecValTok{0}\SpecialCharTok{:}\DecValTok{5}\NormalTok{))}
+
+\CommentTok{\# Calcular la esperanza al cuadrado}
+\NormalTok{esperanza\_cuadrado }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{((}\DecValTok{0}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ K }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{2} \SpecialCharTok{+} \DecValTok{0}\SpecialCharTok{:}\DecValTok{5}\NormalTok{))}
+
+\CommentTok{\# Calcular la varianza}
+\NormalTok{varianza }\OtherTok{\textless{}{-}}\NormalTok{ esperanza\_cuadrado }\SpecialCharTok{{-}}\NormalTok{ esperanza}\SpecialCharTok{\^{}}\DecValTok{2}
+
+\NormalTok{esperanza}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.766816
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{varianza}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.761769
+\end{verbatim}
+
+\subsubsection{Probabilidades}\label{probabilidades}
+
+\textbf{Probabilidad de que un tumor presente exactamente tres mutaciones}
+
+La probabilidad de que \(X = 3\) es:
+
+\[
+P(X = 3) = p(3) = \frac{K}{2+3}
+\]
+
+Podemos calcularlo en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Probabilidad de X = 3}
+\NormalTok{P\_X\_3 }\OtherTok{\textless{}{-}}\NormalTok{ K }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{2} \SpecialCharTok{+} \DecValTok{3}\NormalTok{)}
+\NormalTok{P\_X\_3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1255605
+\end{verbatim}
+
+\textbf{Probabilidad de que un tumor presente al menos una mutación}
+
+La probabilidad de que \(X \geq 1\) es:
+
+\[
+P(X \geq 1) = 1 - P(X = 0)
+\]
+
+Podemos calcularlo en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Probabilidad de X \textgreater{}= 1}
+\NormalTok{P\_X\_1 }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ K }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{2} \SpecialCharTok{+} \DecValTok{0}\NormalTok{)}
+\NormalTok{P\_X\_1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6860987
+\end{verbatim}
+
+\textbf{Probabilidad de que un tumor presente como máximo dos mutaciones}
+
+La probabilidad de que \(X \leq 2\) es:
+
+\[
+P(X \leq 2) = P(X = 0) + P(X = 1) + P(X = 2)
+\]
+
+Podemos calcularlo en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Probabilidad de X \textless{}= 2}
+\NormalTok{P\_X\_2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(K }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{2} \SpecialCharTok{+} \DecValTok{0}\SpecialCharTok{:}\DecValTok{2}\NormalTok{))}
+\NormalTok{P\_X\_2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6801196
+\end{verbatim}
+
+\subsection{Ejercicio 2.3}\label{ejercicio-2.3}
+
+Un modelo simplificado del tiempo de supervivencia, en años, tras un diagnóstico de una variante de leucemia es el siguiente:
+
+\[
+f_{x}(x)=-0.5 \cdot x+1, \quad \text { donde } \quad 0 \leq x \leq 2
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Comprobar que \(f_{X}\) es una densidad. Representarla gráficamente.
+\item
+  Calcular \(\mathrm{F}_{\mathrm{X}} \mathrm{y}\) representarla gráficamente.
+\item
+  Calcular \(P(X \geq 1), P(X>1), P(X=1), f_{x}(1)\).
+\item
+  Calcular la probabilidad de que un individuo diagnosticado con leucemia sobreviva :
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\tightlist
+\item
+  menos de seis meses, (ii) entre seis meses y un año, (iii) más de dos años.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  Calcular \(E(X)\) i \(\operatorname{Var}(X)\).
+\item
+  En vista que el modelo anterior no ha resultado satisfactorio una bioestadística ha propuesto un modelo alternativo consistente en modelizar la variable como:
+\end{enumerate}
+
+\[
+g_{X}(x)=\exp (-k x), \text { dondex } \geq 0
+\]
+
+Calcular la constante \(k\) para que \(\mathrm{g}_{\mathrm{x}}\) sea una función de densidad de probabilidad. Repetir los cálculos de los apartados b), c), d) y e) con el nuevo modelo. Discutir adecuación de ambos modelos a una situación real.
+
+\textbf{SOLUCIÓN}
+
+\subsubsection{\texorpdfstring{\(f_X(x)\) es una densidad}{f\_X(x) es una densidad}}\label{f_xx-es-una-densidad}
+
+Para comprobar que \(f_X(x)\) es una función de densidad, necesitamos verificar que cumple las dos condiciones básicas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(f_X(x) \geq 0\) para todo \(x\) en su dominio.
+\item
+  La integral de \(f_X(x)\) sobre todo su dominio debe ser 1, es decir:
+\end{enumerate}
+
+\[
+\int_0^2 f_X(x) \, dx = 1
+\]
+
+La función de densidad dada es \(f_X(x) = -0.5 \cdot x + 1\) con \(0 \leq x \leq 2\).
+
+Primero, comprobamos que \(f_X(x) \geq 0\) para \(x \in [0, 2]\). Evaluamos los valores extremos:
+
+\begin{itemize}
+\tightlist
+\item
+  \(f_X(0) = -0.5 \cdot 0 + 1 = 1\)
+\item
+  \(f_X(2) = -0.5 \cdot 2 + 1 = 0\)
+\end{itemize}
+
+La función es no negativa en el intervalo dado.
+
+Ahora, calculamos la integral:
+
+\[
+\int_0^2 (-0.5 \cdot x + 1) \, dx = \left[ -0.25 \cdot x^2 + x \right]_0^2 = (-0.25 \cdot 4 + 2) - (0) = 1
+\]
+
+Por lo tanto, \(f_X(x)\) cumple con ambas condiciones y es una función de densidad.
+
+\subsubsection{\texorpdfstring{Gráfica de \(f_X(x)\)}{Gráfica de f\_X(x)}}\label{gruxe1fica-de-f_xx}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# R code to plot the density function}
+\NormalTok{f\_x }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) }\SpecialCharTok{{-}}\FloatTok{0.5} \SpecialCharTok{*}\NormalTok{ x }\SpecialCharTok{+} \DecValTok{1}
+\FunctionTok{curve}\NormalTok{(f\_x, }\AttributeTok{from =} \DecValTok{0}\NormalTok{, }\AttributeTok{to =} \DecValTok{2}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"f\_X(x)"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"x"}\NormalTok{,}
+      \AttributeTok{main =} \StringTok{"Densidad f\_X(x)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\subsubsection{Función de distribución}\label{funciuxf3n-de-distribuciuxf3n}
+
+\textbf{Calcular \(F_X(x)\) y representarla gráficamente}
+
+La función de distribución acumulada (CDF) \(F_X(x)\) se obtiene integrando la función de densidad:
+
+\[
+F_X(x) = \int_0^x (-0.5 \cdot t + 1) \, dt
+\]
+
+Para \(x \in [0, 2]\), tenemos:
+
+\[
+F_X(x) = \left[-0.25 \cdot t^2 + t\right]_0^x = -0.25 \cdot x^2 + x
+\]
+
+Para \(x < 0\), \(F_X(x) = 0\), y para \(x > 2\), \(F_X(x) = 1\).
+
+\textbf{Gráfica de \(F_X(x)\)ç}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# R code to plot the CDF function}
+\NormalTok{F\_x }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{ifelse}\NormalTok{(x }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FunctionTok{ifelse}\NormalTok{(x }\SpecialCharTok{\textgreater{}} \DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.25} \SpecialCharTok{*}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ x))}
+\FunctionTok{curve}\NormalTok{(F\_x, }\AttributeTok{from =} \SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\AttributeTok{to =} \DecValTok{3}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"F\_X(x)"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"x"}\NormalTok{,}
+      \AttributeTok{main =} \StringTok{"Distribución acumulada F\_X(x)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\subsubsection{\texorpdfstring{Probabilidades y \(f_X(1)\)}{Probabilidades y f\_X(1)}}\label{probabilidades-y-f_x1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(P(X \geq 1) = 1 - F_X(1)\):
+\end{enumerate}
+
+\[
+F_X(1) = -0.25 \cdot 1^2 + 1 = 0.75
+\]
+Por lo tanto, \(P(X \geq 1) = 1 - 0.75 = 0.25\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \(P(X > 1)\): Como \(X\) es una variable continua, \(P(X > 1) = P(X \geq 1) = 0.25\).
+\item
+  \(P(X = 1)\): Para una variable continua, la probabilidad puntual es 0, es decir, \(P(X = 1) = 0\).
+\item
+  \(f_X(1)\):
+\end{enumerate}
+
+\[
+f_X(1) = -0.5 \cdot 1 + 1 = 0.5
+\]
+
+\subsubsection{Probabilidad de supervivencia}\label{probabilidad-de-supervivencia}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Menos de seis meses (\(x = 0.5\)):
+\end{enumerate}
+
+\[
+P(X < 0.5) = F_X(0.5) = -0.25 \cdot 0.5^2 + 0.5 = 0.4375
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Entre seis meses y un año (\(x \in [0.5, 1]\)):
+\end{enumerate}
+
+\[
+P(0.5 \leq X \leq 1) = F_X(1) - F_X(0.5) = 0.75 - 0.375 = 0.375
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Más de dos años (\(x > 2\)): Como el dominio de \(X\) es \([0, 2]\), \(P(X > 2) = 0\).
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\(E(X)\) y \(\operatorname{Var}(X)\)}{E(X) y \textbackslash operatorname\{Var\}(X)}}\label{ex-y-operatornamevarx}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La esperanza de \(X\) es:
+\end{enumerate}
+
+\[
+E(X) = \int_0^2 x \cdot f_X(x) \, dx = \int_0^2 x \cdot (-0.5 \cdot x + 1) \, dx
+\]
+
+Desarrollamos:
+
+\[
+E(X) = \int_0^2 (-0.5 \cdot x^2 + x) \, dx = \left[-\frac{0.5}{3} \cdot x^3 + 0.5 \cdot x^2\right]_0^2
+\]
+
+Calculamos:
+
+\[
+E(X) = -\frac{0.5}{3} \cdot 8 + 0.5 \cdot 4 = -\frac{4}{3} + 2 = \frac{2}{3}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  La varianza de \(X\) es:
+\end{enumerate}
+
+\[
+\operatorname{Var}(X) = E(X^2) - E(X)^2
+\]
+
+Primero calculamos \(E(X^2)\):
+
+\[
+E(X^2) = \int_0^2 x^2 \cdot f_X(x) \, dx = \int_0^2 x^2 \cdot (-0.5 \cdot x + 1) \, dx
+\]
+
+Desarrollamos y calculamos:
+
+\[
+E(X^2) = \int_0^2 (-0.5 \cdot x^3 + x^2) \, dx = \left[-\frac{0.5}{4} \cdot x^4 + \frac{1}{3} \cdot x^3\right]_0^2
+\]
+
+\[
+E(X^2) = -\frac{0.5}{4} \cdot 16 + \frac{1}{3} \cdot 8 = -2 + \frac{8}{3} = \frac{2}{3}
+\]
+
+Finalmente:
+
+\[
+\operatorname{Var}(X) = E(X^2) - E(X)^2 = \frac{2}{3} - \left(\frac{2}{3}\right)^2 = \frac{2}{3} - \frac{4}{9} = \frac{2}{9}
+\]
+
+\subsubsection{\texorpdfstring{Modelo alternativo \(g_X(x)\)}{Modelo alternativo g\_X(x)}}\label{modelo-alternativo-g_xx}
+
+Dado el modelo alternativo \(g_X(x) = \exp(-k \cdot x)\) para \(x \geq 0\), la constante \(k\) se determina imponiendo que la integral de la función de densidad debe ser 1:
+
+\[
+\int_0^\infty \exp(-k \cdot x) \, dx = 1
+\]
+
+Resolviendo:
+
+\[
+\frac{1}{k} = 1 \implies k = 1
+\]
+
+Por lo tanto, el nuevo modelo de densidad es \(g_X(x) = \exp(-x)\).
+
+\subsection{Ejercicio 2.4}\label{ejercicio-2.4}
+
+Para estudiar la regulación hormonal de una línea metabólica se inyectan ratas albinas con un fármaco que inhibe la síntesis de proteínas del organismo. En general, 4 de cada 20 ratas mueren a causa del fármaco antes de que el experimento haya concluido. Si se trata a 10 animales con el fármaco, ¿cuál es la probabilidad de que al menos 8 lleguen vivas al final del experimento?
+
+\textbf{SOLUCION}
+
+En este problema en el que tenemos grupos de 10 animales independientes, cada uno de los cuales puede sobrevivir o no resulta apropiada \textbf{la distribución binomial}.
+
+\begin{itemize}
+\item
+  La probabilidad de que una rata sobreviva al fármaco es \(p = \frac{16}{20} = 0.8\), dado que 4 de cada 20 ratas mueren.
+\item
+  El experimento se realiza con 10 ratas, por lo que tenemos \(n = 10\).
+\item
+  Queremos calcular la probabilidad de que al menos 8 ratas sobrevivan. Matemáticamente, esto corresponde a:
+\end{itemize}
+
+\[
+P(X \geq 8)
+\]
+
+donde \(X\) es el número de ratas que sobreviven y sigue una \textbf{distribución binomial}:
+
+\[
+X \sim \text{Binomial}(n=10, p=0.8)
+\]
+
+\subsubsection{Cálculo de la probabilidad}\label{cuxe1lculo-de-la-probabilidad}
+
+La probabilidad de que exactamente \(k\) ratas sobrevivan está dada por la fórmula de la binomial:
+
+\[
+P(X = k) = \binom{n}{k} p^k (1 - p)^{n-k}
+\]
+
+Para responder la pregunta debemos calcular:
+
+\[
+P(X \geq 8) = P(X = 8) + P(X = 9) + P(X = 10)
+\]
+Esto puede calcularse:
+
+\begin{itemize}
+\tightlist
+\item
+  directamente usando la función de probabilidad acumulada implementada en R
+\item
+  indirectamente calculando las probabilidades individuales y sumándolas.
+\end{itemize}
+
+En todo caso debemos recordar que al tratarse de una variable discreta si queremos usar \(F_X(x)\) para calcular \(P(X\geq k)\) deberemos tener en cuenta que:
+\[
+P(X\geq k) = 1-P(X\leq k-1)
+\]
+En primer lugar calculamos esta suma utilizando la función de masa de probabilidad:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parámetros del problema}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{10}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FloatTok{0.8}
+
+\CommentTok{\# Probabilidades P(X = 8), P(X = 9) y P(X = 10)}
+\NormalTok{prob\_8 }\OtherTok{\textless{}{-}} \FunctionTok{dbinom}\NormalTok{(}\DecValTok{8}\NormalTok{, }\AttributeTok{size =}\NormalTok{ n, }\AttributeTok{prob =}\NormalTok{ p)}
+\NormalTok{prob\_9 }\OtherTok{\textless{}{-}} \FunctionTok{dbinom}\NormalTok{(}\DecValTok{9}\NormalTok{, }\AttributeTok{size =}\NormalTok{ n, }\AttributeTok{prob =}\NormalTok{ p)}
+\NormalTok{prob\_10 }\OtherTok{\textless{}{-}} \FunctionTok{dbinom}\NormalTok{(}\DecValTok{10}\NormalTok{, }\AttributeTok{size =}\NormalTok{ n, }\AttributeTok{prob =}\NormalTok{ p)}
+
+\CommentTok{\# Probabilidad total P(X \textgreater{}= 8)}
+\NormalTok{prob\_total }\OtherTok{\textless{}{-}}\NormalTok{ prob\_8 }\SpecialCharTok{+}\NormalTok{ prob\_9 }\SpecialCharTok{+}\NormalTok{ prob\_10}
+\NormalTok{prob\_total}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6777995
+\end{verbatim}
+
+Si usamos la funcion de distribución, \texttt{pbinom}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pbinom}\NormalTok{ (}\DecValTok{7}\NormalTok{, }\AttributeTok{size =}\NormalTok{ n, }\AttributeTok{prob =}\NormalTok{ p)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6777995
+\end{verbatim}
+
+Naturalmente ambos resultados coinciden. Obsérvese que al ser \(p=0.8\) valores altos resultan bastante probables, con lo que la
+
+\subsection{Ejercicio 2.5}\label{ejercicio-2.5}
+
+En una cierta población se ha observado un número medio anual de 12 muertes por cáncer de pulmón. Si el número de muertes causadas por la enfermedad sigue una distribución de Poisson, ¿cuál es la probabilidad de que durante el año en curso:
+1. haya exactamente 10 muertes por cáncer de pulmón?
+2. 15 o más personas mueran a causa de la enfermedad?
+3. 10 o menos personas mueran a causa de la enfermedad?
+
+El número de muertes por cáncer de pulmón sigue una distribución de Poisson, que se usa para modelar la ocurrencia de eventos discretos dentro de un intervalo de tiempo, donde el valor esperado es proporcional al tamaño del intervalo. En este caso, el valor esperado es el número medio de muertes por año, que es 12. La función de masa de probabilidad (PMF) de una variable aleatoria \(X\) con distribución de Poisson y parámetro \(\lambda\) es:
+
+\[ P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!} \]
+
+donde \(k\) es el número de eventos, \(\lambda\) es el valor esperado (12 en nuestro caso) y \(k!\) es el factorial de \(k\). Usaremos este modelo para resolver los apartados.
+
+\subsubsection{Probabilidad de que haya exactamente 10 muertes}\label{probabilidad-de-que-haya-exactamente-10-muertes}
+
+La probabilidad de observar exactamente \(k = 10\) muertes se puede calcular usando la PMF de la distribución de Poisson con \(\lambda = 12\):
+
+\[ P(X = 10) = \frac{12^{10} e^{-12}}{10!} \]
+
+Podemos calcular este valor con R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda }\OtherTok{\textless{}{-}} \DecValTok{12}
+\NormalTok{k }\OtherTok{\textless{}{-}} \DecValTok{10}
+\NormalTok{prob\_10\_muertes }\OtherTok{\textless{}{-}} \FunctionTok{dpois}\NormalTok{(k, lambda)}
+\NormalTok{prob\_10\_muertes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1048373
+\end{verbatim}
+
+\subsubsection{Probabilidad de que 15 o más personas mueran}\label{probabilidad-de-que-15-o-muxe1s-personas-mueran}
+
+Para obtener la probabilidad de que 15 o más personas mueran, necesitamos calcular la probabilidad acumulada de \(X \geq 15\). Esto se puede obtener restando de 1 la probabilidad acumulada de \(X < 15\), es decir:
+
+\[ P(X \geq 15) = 1 - P(X < 15) = 1 - P(X \leq 14) \]
+
+Usamos la función de probabilidad acumulada (CDF) de la Poisson en R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{k\_15 }\OtherTok{\textless{}{-}} \DecValTok{14}
+\NormalTok{prob\_15\_o\_mas }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}} \FunctionTok{ppois}\NormalTok{(k\_15, lambda)}
+\NormalTok{prob\_15\_o\_mas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2279755
+\end{verbatim}
+
+\subsubsection{Probabilidad de que 10 o menos personas mueran}\label{probabilidad-de-que-10-o-menos-personas-mueran}
+
+La probabilidad de que 10 o menos personas mueran es simplemente la probabilidad acumulada de \(X \leq 10\), que se puede calcular directamente con la CDF de la distribución de Poisson.
+
+\[ P(X \leq 10) \]
+
+Calculamos esto en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob\_10\_o\_menos }\OtherTok{\textless{}{-}} \FunctionTok{ppois}\NormalTok{(k, lambda)}
+\NormalTok{prob\_10\_o\_menos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3472294
+\end{verbatim}
+
+\subsubsection{Conclusión}\label{conclusiuxf3n}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La probabilidad de que haya exactamente 10 muertes es:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob\_10\_muertes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1048373
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  La probabilidad de que 15 o más personas mueran es:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob\_15\_o\_mas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2279755
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  La probabilidad de que 10 o menos personas mueran es:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob\_10\_o\_menos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3472294
+\end{verbatim}
+
+\subsection{Ejercicio 2.6}\label{ejercicio-2.6}
+
+Los daños a los cromosomas del óvulo o del espermatozoide, pueden causar mutaciones que conducen a abortos, defectos de nacimiento, u otras deficiencias genéticas. Un estudio sobre los efectos teratogénicos de la radiación ha determinado que la probabilidad de que tal mutación se produzca por radiación es del 10\%. El resto son atribuibles a otras causas.
+Una vez detectadas 150 mutaciones,
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ¿cuántas se esperaría que se debiesen a radiaciones?
+\item
+  ¿Cuál es la probabilidad de que solamente 10 se debiesen a radiaciones?
+\end{enumerate}
+
+\textbf{Solución}
+
+Para analizar el número de mutaciones que se deben a radiaciones, podemos considera dos modelos diferentes: uno basado en la distribución binomial y otro en la distribución de Poisson.
+
+\subsubsection{Justificación del uso de distribución binomial}\label{justificaciuxf3n-del-uso-de-distribuciuxf3n-binomial}
+
+La distribución binomial es adecuada cuando tenemos un número fijo de ensayos independientes y cada ensayo tiene dos posibles resultados: éxito (la mutación es debida a radiación) o fracaso (la mutación no es debida a radiación). En cada ensayo, la probabilidad de éxito es constante.
+
+Esto se ajusta perfectamente a las condiciones del problema:
+- Hay 150 ensayos independientes (cada mutación observada puede estar o no causada por radiación).
+- Cada ensayo tiene dos posibles resultados: mutación por radiación o mutación por otra causa.
+- La probabilidad de éxito es constante y pequeña (\(p = 0.1\)).
+Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien mediante una distribución binomial \(X \sim \text{Binomial}(n = 150, p = 0.1)\).
+
+\subsubsection{Justificación del uso de distribución de Poisson}\label{justificaciuxf3n-del-uso-de-distribuciuxf3n-de-poisson}
+
+La distribución de Poisson es adecuada para modelar el número de eventos raros que ocurren en un intervalo de tiempo, espacio, o cualquier otra unidad, cuando estos eventos ocurren de forma independiente y su probabilidad de ocurrencia es baja.
+
+En este caso las ``mutaciones debidas a radiación'' pueden considerarse eventos raros dentro de un gran conjunto de mutaciones (150 mutaciones observadas, pero solo un 10\% de ellas son debidas a radiación).
+
+Puede considerarse además, que las mutaciones individuales pueden ocurrir de forma independiente entre sí, ya que la probabilidad de que una mutación se deba a radiación no afecta a la probabilidad de que otra mutación sea causada por radiación.
+
+Estas condiciones son características de los \emph{procesos de Poisson} y por tanto la distribución de Poisson es una elección natural para describir procesos en los que los eventos ocurren de manera aleatoria en un intervalo dado (por ejemplo, en un periodo de tiempo o un espacio), siempre que:
+
+\begin{itemize}
+\tightlist
+\item
+  Los eventos ocurran con una tasa promedio constante (en este caso, la tasa de mutaciones debidas a radiaciones es proporcional a la tasa global de mutaciones, multiplicada por la probabilidad \(p = 0.1\)).
+\item
+  No haya límite teórico en el número de eventos que puedan ocurrir en un intervalo (aunque observamos un total de 150 mutaciones, teóricamente podríamos seguir detectando más mutaciones).
+\end{itemize}
+
+En el modelo de Poisson, el parámetro \(\lambda\) representa la tasa promedio de ocurrencia de los eventos (en este caso, mutaciones debidas a radiación). Si conocemos la tasa promedio de aparición de mutaciones por radiación (\(\lambda = n \cdot p\) en el contexto binomial, pero también se puede calcular directamente si conocemos la tasa de aparición de eventos raros), entonces podemos usar directamente la distribución de Poisson para modelar el número de eventos.
+
+En este caso, \(\lambda = 150 \cdot 0.1 = 15\), que representa el número esperado de mutaciones debidas a radiación en el total observado de mutaciones.
+
+\subsubsection{Aproximación del modelo binomial por el de Poisson}\label{aproximaciuxf3n-del-modelo-binomial-por-el-de-poisson}
+
+La distribución de Poisson puede considerarse una aproximación de la binomial cuando el número de ensayos (\(n\)) es grande y la probabilidad de éxito (\(p\)) es pequeña. En este caso, el número esperado de éxitos, \(n \cdot p\), se mantiene moderado (en este caso, \(n \cdot p = 15\)).
+
+Este resultado que se conoce como \emph{límite de Poisson} establece que si:
+
+\begin{itemize}
+\tightlist
+\item
+  \(n\) es grande (muchos ensayos),
+\item
+  \(p\) es pequeño (baja probabilidad de éxito),
+\item
+  el producto \(n \cdot p = \lambda\) es moderado,
+\end{itemize}
+
+entonces la binomial \(X \sim \text{Binomial}(n, p)\) se puede aproximar por una distribución de Poisson con parámetro \(\lambda = n \cdot p\).
+
+En este caso:
+
+\begin{itemize}
+\tightlist
+\item
+  \(n = 150\) es suficientemente grande.
+\item
+  \(p = 0.1\) es pequeño.
+\item
+  \(n \cdot p = 15\), lo cual es un valor razonable para usar la aproximación de Poisson.
+\end{itemize}
+
+Por tanto, el número de mutaciones debidas a radiaciones puede aproximarse por una distribución de Poisson \(X \sim \text{Poisson}(\lambda = 15)\).
+
+\subsubsection{Número esperado de mutaciones}\label{nuxfamero-esperado-de-mutaciones}
+
+En ambos modelos, la esperanza del número de mutaciones debidas a radiaciones es \(E[X] = n \cdot p\). Esto representa el número promedio de mutaciones debidas a radiaciones. Lo calculamos:
+
+\[ E[X] = 150 \cdot 0.1 = 15 \]
+
+Por lo tanto, se espera que alrededor de 15 mutaciones se deban a radiaciones.
+
+\subsubsection{Probabilidad de que exactamente 10 mutaciones se deban a radiaciones}\label{probabilidad-de-que-exactamente-10-mutaciones-se-deban-a-radiaciones}
+
+\paragraph{Usando la distribución Binomial}\label{usando-la-distribuciuxf3n-binomial}
+
+La probabilidad de que exactamente 10 mutaciones se deban a radiaciones se puede calcular usando la PMF de la binomial:
+
+\[ P(X = 10) = \binom{150}{10} (0.1)^{10} (0.9)^{140} \]
+
+Usando R tenemos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{150}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FloatTok{0.1}
+\NormalTok{k }\OtherTok{\textless{}{-}} \DecValTok{10}
+\NormalTok{prob\_binom\_10 }\OtherTok{\textless{}{-}} \FunctionTok{dbinom}\NormalTok{(k, n, p)}
+\NormalTok{prob\_binom\_10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04591681
+\end{verbatim}
+
+\paragraph{Usando la aproximación de Poisson}\label{usando-la-aproximaciuxf3n-de-poisson}
+
+La distribución de Poisson con \(\lambda = n \cdot p = 15\) también se puede usar para aproximar esta probabilidad. La probabilidad de obtener exactamente 10 mutaciones se calcula como:
+
+\[ P(X = 10) = \frac{15^{10} e^{-15}}{10!} \]
+
+Con R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda }\OtherTok{\textless{}{-}} \DecValTok{15}
+\NormalTok{prob\_pois\_10 }\OtherTok{\textless{}{-}} \FunctionTok{dpois}\NormalTok{(k, lambda)}
+\NormalTok{prob\_pois\_10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04861075
+\end{verbatim}
+
+\subsubsection{Conclusión}\label{conclusiuxf3n-1}
+
+\begin{itemize}
+\item
+  Se espera que 15 de las 150 mutaciones se deban a radiaciones.
+\item
+  La probabilidad de que exactamente 10 mutaciones se deban a radiaciones es:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Usando la distribución binomial:
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob\_binom\_10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04591681
+\end{verbatim}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Usando la aproximación de Poisson:
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prob\_pois\_10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.04861075
+\end{verbatim}
+\end{itemize}
+
+Ambos métodos dan resultados similares, pero el modelo de Poisson es útil para simplificar los cálculos cuando el número total de mutaciones es grande y la probabilidad de cada evento es pequeña.
+
+\subsection{Ejercicio 2.7}\label{ejercicio-2.7}
+
+Entre los diabéticos, el nivel de glucosa en sangre \(X\), en ayunas, puede suponerse de distribución aproximadamente normal, con media \(106 \mathrm{mg} / 100 \mathrm{ml}\) y desviación típica \(8 \mathrm{mg} / 100 \mathrm{ml}\), es decir : \(X \sim N\left(\mu=106, \sigma^{2}=64\right)\).
+
+Hallar;
+1. El porcentaje de diabéticos con niveles de glucosa inferiores a 120 ( \(P[X \leq 120]\)
+2. ¿Qué porcentaje de diabéticos tienen niveles comprendidos entre 90 y 120?
+3. Hallar el nivel de glucosa ``p25'', caracterizado por la propiedad de que el \(25 \%\) de todos los diabéticos tiene un nivel de glucosa en ayunas inferior o igual a \(x\).
+
+\textbf{SOLUCIÓN}
+
+Según el enunciado el nivel de glucosa \(X\) se distribuye según una distribución normal con media \(\mu = 106\) y varianza \(\sigma^2 = 64\), es decir, \(X \sim N(106, 64)\), o equivalentemente \(X \sim N(106, 8^2)\).
+
+\subsubsection{\texorpdfstring{Porcentaje de diabéticos con niveles de glucosa inferiores a 120 (\(P[X \leq 120]\))}{Porcentaje de diabéticos con niveles de glucosa inferiores a 120 (P{[}X \textbackslash leq 120{]})}}\label{porcentaje-de-diabuxe9ticos-con-niveles-de-glucosa-inferiores-a-120-px-leq-120}
+
+Para calcular esta probabilidad, necesitamos estandarizar la variable \(X\) a una normal estándar \(Z \sim N(0, 1)\). La fórmula de estandarización es:
+
+\[ Z = \frac{X - \mu}{\sigma} \]
+
+Sustituyendo los valores de \(\mu = 106\) y \(\sigma = 8\):
+
+\[ Z = \frac{120 - 106}{8} = 1.75 \]
+
+Ahora calculamos \(P(Z \leq 1.75)\), es decir, la probabilidad de que la variable estándar normal sea menor o igual que 1.75. Esta probabilidad la obtenemos a partir de la tabla de la normal estándar o usando R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculamos la probabilidad con la función pnorm}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{pnorm}\NormalTok{(}\FloatTok{1.75}\NormalTok{)}
+\NormalTok{p1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9599408
+\end{verbatim}
+
+\subsubsection{Porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120}\label{porcentaje-de-diabuxe9ticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120}
+
+En este caso queremos calcular \(P(90 \leq X \leq 120)\). Para hacerlo, calculamos las probabilidades individuales de \(P(X \leq 120)\) y \(P(X \leq 90)\), y restamos la segunda de la primera:
+
+\[ P(90 \leq X \leq 120) = P(X \leq 120) - P(X \leq 90) \]
+
+Primero estandarizamos ambas variables:
+
+\[ Z_{120} = \frac{120 - 106}{8} = 1.75 \]
+\[ Z_{90} = \frac{90 - 106}{8} = -2.00 \]
+
+Ahora calculamos \(P(Z \leq 1.75)\) y \(P(Z \leq -2.00)\) usando R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculamos ambas probabilidades}
+\NormalTok{p2\_120 }\OtherTok{\textless{}{-}} \FunctionTok{pnorm}\NormalTok{(}\FloatTok{1.75}\NormalTok{)}
+\NormalTok{p2\_90 }\OtherTok{\textless{}{-}} \FunctionTok{pnorm}\NormalTok{(}\SpecialCharTok{{-}}\FloatTok{2.00}\NormalTok{)}
+\NormalTok{p2 }\OtherTok{\textless{}{-}}\NormalTok{ p2\_120 }\SpecialCharTok{{-}}\NormalTok{ p2\_90}
+\NormalTok{p2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9371907
+\end{verbatim}
+
+\subsubsection{Hallar el nivel de glucosa ``p25''}\label{hallar-el-nivel-de-glucosa-p25}
+
+Para encontrar el percentil 25 de la distribución, necesitamos resolver la ecuación:
+
+\[ P(X \leq p_{25}) = 0.25 \]
+
+Sabemos que \(X \sim N(106, 64)\), así que estandarizamos el valor \(p_{25}\):
+
+\[ Z_{p25} = \frac{p_{25} - 106}{8} \]
+
+Luego, encontramos el valor de \(Z_{p25}\) que corresponde al percentil 25 de la distribución normal estándar, es decir, \(P(Z \leq Z_{p25}) = 0.25\). Esto lo obtenemos con la función inversa de la distribución normal estándar.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculamos el valor z correspondiente al percentil 25}
+\NormalTok{z\_p25 }\OtherTok{\textless{}{-}} \FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.25}\NormalTok{)}
+\CommentTok{\# Calculamos el p25 en la escala original}
+\NormalTok{p25 }\OtherTok{\textless{}{-}} \DecValTok{106} \SpecialCharTok{+}\NormalTok{ z\_p25 }\SpecialCharTok{*} \DecValTok{8}
+\NormalTok{p25}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 100.6041
+\end{verbatim}
+
+\subsubsection{Resumen de resultados:}\label{resumen-de-resultados}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La probabilidad de que el nivel de glucosa sea menor o igual a 120 es aproximadamente:
+\end{enumerate}
+
+\[ P[X \leq 120] = 0.9599 \]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  El porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120 es aproximadamente:
+\end{enumerate}
+
+\[ P[90 \leq X \leq 120] = 0.9104 \]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  El nivel de glucosa correspondiente al percentil 25, es decir, el valor \(p_{25}\), es aproximadamente:
+\end{enumerate}
+
+\[ p_{25} \approx 100.61 \, \mathrm{mg/100ml} \]
+
+\subsection{Ejercicio 28}\label{ejercicio-28}
+
+Se supone que la glucemia basal en individuos sanos, \(X_{s}\) sigue una distribución \(X \sim N(\mu=80, \sigma=10)\), mientras que en los diabéticos \(X_{d}\), sigue una distribución \(X \sim N(\mu=160, \sigma=31.4)\). Si se conviene en clasificar como sanos al \(2 \%\) de los diabéticos:
+a) ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?
+b) Se sabe que en la población en general el \(10 \%\) de los individuos son diabéticos ¿cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?
+
+\subsection{Ejercicio 2.9}\label{ejercicio-2.9}
+
+Supóngase que se van a utilizar 20 ratas en un estudio de agentes coagulantes de la sangre. Como primera experiencia, se dio un anticoagulante a 10 de ellos, pero por inadvertencia se pusieron todas sin marcas en el mismo recinto. Se necesitaron 12 ratas para la segunda fase del estudio y se le tomó al azar sin reemplazamiento. ¿Cuál es la probabilidad de que de las 12 elegidas 6 tengan la droga y 6 no la tengan?
+
+\section{Distribuciones de probabilidad multidimensionales}\label{distribuciones-de-probabilidad-multidimensionales}
+
+\subsection{Ejercicio 1}\label{ejercicio-1}
+
+Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios, \(\mathrm{A}, \mathrm{B}\) y C . Denote con \(Y_{1}\) el número de estudios asignados al laboratorio A y con \(Y_{2}\) el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir 0,1 o 2 estudios.
+a. Encuentre la función de probabilidad conjunta para \(Y_{1}\) y \(Y_{2}\).
+b. Encuentre \(F(1,0)\), es decir, la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.
+
+\subsubsection{\texorpdfstring{Parte a: Función de probabilidad conjunta para \(Y_1\) y \(Y_2\)}{Parte a: Función de probabilidad conjunta para Y\_1 y Y\_2}}\label{parte-a-funciuxf3n-de-probabilidad-conjunta-para-y_1-y-y_2}
+
+En este ejercicio, se nos indica que existen tres laboratorios (A, B y C) a los cuales se pueden asignar los estudios de forma aleatoria. Denotamos con \(Y_1\) el número de estudios asignados al laboratorio A y con \(Y_2\) el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir entre 0 y 2 estudios.
+
+Vamos a analizar el espacio muestral, \(S\), que representa las posibles combinaciones de asignación de estudios a los laboratorios. Los resultados posibles son:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(S\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+AA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+AB
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+AC
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+BA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+BB
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+BC
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+CA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+CB
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+CC
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\((y_1, y_2)\) & (2,0) & (1,1) & (1,0) & (1,1) & (0,2) & (1,0) & (1,0) & (0,1) & (0,0) \\
+\end{longtable}
+
+Cada punto muestral es igualmente probable, con una probabilidad de \(\frac{1}{9}\), ya que existen 9 combinaciones posibles.
+
+La función de probabilidad conjunta para \(Y_1\) y \(Y_2\) queda entonces representada en la siguiente tabla:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+& \(y_1 = 0\) & \(y_1 = 1\) & \(y_1 = 2\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(y_2 = 0\) & \(\frac{1}{9}\) & \(\frac{2}{9}\) & \(\frac{1}{9}\) \\
+\(y_2 = 1\) & \(\frac{2}{9}\) & \(\frac{2}{9}\) & \(0\) \\
+\(y_2 = 2\) & \(\frac{1}{9}\) & \(0\) & \(0\) \\
+\end{longtable}
+
+\subsubsection{\texorpdfstring{Parte b: Cálculo de \(F(1,0)\)}{Parte b: Cálculo de F(1,0)}}\label{parte-b-cuxe1lculo-de-f10}
+
+Nos piden encontrar la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno, es decir, \(F(1,0) = P(Y_1 \leq 1, Y_2 = 0)\).
+
+Para resolverlo, sumamos las probabilidades de los eventos en los cuales \(Y_1 \leq 1\) y \(Y_2 = 0\), que son \((Y_1 = 0, Y_2 = 0)\) y \((Y_1 = 1, Y_2 = 0)\):
+
+\[
+F(1,0) = P(Y_1 = 0, Y_2 = 0) + P(Y_1 = 1, Y_2 = 0)
+\]
+
+Sustituyendo con las probabilidades correspondientes de la tabla obtenemos:
+
+\[
+F(1,0) = \frac{1}{9} + \frac{2}{9} = \frac{3}{9} = \frac{1}{3}
+\]
+
+\subsubsection{Resumen}\label{resumen}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La función de probabilidad conjunta ha sido obtenida en función de todas las combinaciones posibles de asignación, considerando que cada una es igualmente probable.
+\item
+  La probabilidad solicitada, \(F(1,0)\), es de \(\frac{1}{3}\), que representa la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.
+\end{enumerate}
+
+\subsection{Ejercicio 2}\label{ejercicio-2}
+
+Tres monedas balanceadas se lanzan en forma independiente al aire. Una de las variables de interés es \(Y_{1}\), el número de caras. Denote con \(Y_{2}\) la cantidad de dinero ganado en una apuesta colateral en la siguiente forma. Si la primera cara aparece en el primer tiro, usted gana 1€. Si la primera cara aparece en el tiro segundo o en el tercero gana 2€ o 3€, respectivamente. Si no aparece una cara, usted pierde 1€ (esto es, gana - 1€ ).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Encuentre la función de probabilidad conjunta para \(Y_{1}\) y \(Y_{2}\).
+\item
+  ¿Cuál es la probabilidad de que haya menos de tres caras y usted gane 1€ o menos? {[}Esto es, encuentre \(F(2,1)\).
+\end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{1. Función de probabilidad conjunta para \(Y_1\) y \(Y_2\)}{1. Función de probabilidad conjunta para Y\_1 y Y\_2}}\label{funciuxf3n-de-probabilidad-conjunta-para-y_1-y-y_2}
+
+Dado que se lanzan tres monedas balanceadas de manera independiente, cada lanzamiento puede resultar en cara (C) o cruz (+) con probabilidad \(0.5\).
+
+Listamos todas las posibles secuencias de resultados en los tres lanzamientos y calculamos los valores de \(Y_1\) (número de caras obtenidas) y \(Y_2\) (cantidad de dinero ganado) para cada caso.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Secuencia & \(Y_1\) (Número de Caras) & \(Y_2\) (Ganancia en €) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+CCC & 3 & 1 \\
+CC+ & 2 & 1 \\
+C+C & 2 & 1 \\
+C++ & 1 & 1 \\
++CC & 2 & 2 \\
++C+ & 1 & 2 \\
+++C & 1 & 3 \\
++++ & 0 & -1 \\
+\end{longtable}
+
+Para calcular la función de probabilidad conjunta \(P(Y_1 = y_1, Y_2 = y_2)\), obtenemos las probabilidades de cada combinación de \((Y_1, Y_2)\) a partir de la cantidad de secuencias que cumplen con esos valores específicos.
+
+\paragraph{\texorpdfstring{Probabilidad de cada combinación de \((Y_1, Y_2)\):}{Probabilidad de cada combinación de (Y\_1, Y\_2):}}\label{probabilidad-de-cada-combinaciuxf3n-de-y_1-y_2}
+
+\begin{itemize}
+\tightlist
+\item
+  \(P(Y_1 = 3, Y_2 = 1) = \frac{1}{8}\), secuencia: CCC
+\item
+  \(P(Y_1 = 2, Y_2 = 1) = \frac{2}{8}\), secuencias: CC+, C+C
+\item
+  \(P(Y_1 = 2, Y_2 = 2) = \frac{1}{8}\), secuencia: +CC
+\item
+  \(P(Y_1 = 1, Y_2 = 1) = \frac{1}{8}\), secuencia: C++
+\item
+  \(P(Y_1 = 1, Y_2 = 2) = \frac{1}{8}\), secuencia: +C+
+\item
+  \(P(Y_1 = 1, Y_2 = 3) = \frac{1}{8}\), secuencia: ++C
+\item
+  \(P(Y_1 = 0, Y_2 = -1) = \frac{1}{8}\), secuencia: +++
+\end{itemize}
+
+Con esto, la función de probabilidad conjunta \(P(Y_1 = y_1, Y_2 = y_2)\) se define por:
+
+\[
+P(Y_1 = y_1, Y_2 = y_2) = 
+\begin{cases}
+\frac{1}{8}, & (y_1, y_2) = (3, 1), (2, 1), (2, 2), (1, 1), (1, 2), (1, 3), (0, -1) \\
+0, & \text{en cualquier otro caso}
+\end{cases}
+\]
+
+\subsubsection{\texorpdfstring{2. Cálculo de \(F(2, 1)\)}{2. Cálculo de F(2, 1)}}\label{cuxe1lculo-de-f2-1}
+
+Buscamos \(F(2, 1) = P(Y_1 \leq 2, Y_2 \leq 1)\), es decir, la probabilidad de obtener menos de tres caras y ganar un máximo de 1€.
+
+Para calcular esta probabilidad, sumamos \(P(Y_1 = y_1, Y_2 = y_2)\) para todos los pares \((y_1, y_2)\) que cumplen \(Y_1 \leq 2\) y \(Y_2 \leq 1\). De la tabla anterior, vemos que cumplen esta condición las siguientes combinaciones:
+
+\begin{itemize}
+\tightlist
+\item
+  \((Y_1 = 2, Y_2 = 1)\) con probabilidad \(\frac{2}{8}\)
+\item
+  \((Y_1 = 1, Y_2 = 1)\) con probabilidad \(\frac{1}{8}\)
+\item
+  \((Y_1 = 0, Y_2 = -1)\) con probabilidad \(\frac{1}{8}\)
+\end{itemize}
+
+Entonces:
+
+\[
+F(2, 1) = P(Y_1 \leq 2, Y_2 \leq 1) = \frac{2}{8} + \frac{1}{8} + \frac{1}{8} = \frac{4}{8} = \frac{1}{2}
+\]
+
+\subsubsection{Resumen de resultados}\label{resumen-de-resultados-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La función de probabilidad conjunta \(P(Y_1 = y_1, Y_2 = y_2)\) se ha especificado para todos los valores posibles.
+\item
+  La probabilidad de que haya menos de tres caras y se gane 1€ o menos es \(F(2, 1) = \frac{1}{2}\).
+\end{enumerate}
+
+\subsection{Ejercicio 3}\label{ejercicio-3}
+
+En el Ejercicio 1 determinamos que la distribución conjunta de \(Y_{1}\), el número de análisis asignados al laboratorio A , y \(Y_{2}\), el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.
+
+\begin{longtable}[]{@{}cccc@{}}
+\toprule\noalign{}
+\(y_{1}\) & & & \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(y_{2}\) & 0 & 1 & 2 \\
+0 & \(1 / 9\) & \(2 / 9\) & \(1 / 9\) \\
+1 & \(2 / 9\) & \(2 / 9\) & 0 \\
+2 & \(1 / 9\) & 0 & 0 \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Encuentre la distribución de probabilidad marginal de \(Y_{1}\).
+\item
+  De acuerdo con los resultados vistos anteriormente \(Y_{1}\) tiene una distribución binomial con \(n=2\) y \(p=1 / 3\). ¿Hay algún conflicto entre este resultado y la respuesta dada en el punto a?
+\end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{Parte a: Distribución de probabilidad marginal de \(Y_1\)}{Parte a: Distribución de probabilidad marginal de Y\_1}}\label{parte-a-distribuciuxf3n-de-probabilidad-marginal-de-y_1}
+
+Para encontrar la distribución marginal de \(Y_1\), debemos sumar las probabilidades conjuntas de \(Y_1\) y \(Y_2\) para cada valor posible de \(Y_1\). A continuación, mostramos la tabla de probabilidades conjuntas de la solución anterior:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+\(y_1 \backslash y_2\) & 0 & 1 & 2 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(y_1 = 0\) & \(1/9\) & \(2/9\) & \(1/9\) \\
+\(y_1 = 1\) & \(2/9\) & \(2/9\) & \(0\) \\
+\(y_1 = 2\) & \(1/9\) & \(0\) & \(0\) \\
+\end{longtable}
+
+La distribución marginal de \(Y_1\) se calcula sumando las probabilidades de cada fila (fijando \(y_1\) y sumando sobre los valores de \(y_2\)):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Para \(y_1 = 0\):
+  \[
+  P(Y_1 = 0) = \frac{1}{9} + \frac{2}{9} + \frac{1}{9} = \frac{4}{9}
+  \]
+\item
+  Para \(y_1 = 1\):
+  \[
+  P(Y_1 = 1) = \frac{2}{9} + \frac{2}{9} + 0 = \frac{4}{9}
+  \]
+\item
+  Para \(y_1 = 2\):
+  \[
+  P(Y_1 = 2) = \frac{1}{9} + 0 + 0 = \frac{1}{9}
+  \]
+\end{enumerate}
+
+Por lo tanto, la distribución marginal de \(Y_1\) es:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+\(y_1\) & 0 & 1 & 2 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(p_{Y_1}(y_1)\) & \(\frac{4}{9}\) & \(\frac{4}{9}\) & \(\frac{1}{9}\) \\
+\end{longtable}
+
+\subsubsection{Parte b: Comparación con la distribución binomial}\label{parte-b-comparaciuxf3n-con-la-distribuciuxf3n-binomial}
+
+Se sugiere que \(Y_1\) sigue una distribución binomial con parámetros \(n = 2\) y \(p = \frac{1}{3}\). Veamos si esta afirmación concuerda con los resultados obtenidos en la parte a.
+
+Para una variable aleatoria binomial \(Y_1 \sim \text{Binomial}(n=2, p=1/3)\), la función de probabilidad es:
+
+\[
+P(Y_1 = k) = \binom{n}{k} p^k (1 - p)^{n - k}
+\]
+
+Calculamos las probabilidades para cada valor de \(k\):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Para \(k = 0\):
+  \[
+  P(Y_1 = 0) = \binom{2}{0} \left(\frac{1}{3}\right)^0 \left(\frac{2}{3}\right)^2 = 1 \cdot 1 \cdot \frac{4}{9} = \frac{4}{9}
+  \]
+\item
+  Para \(k = 1\):
+  \[
+  P(Y_1 = 1) = \binom{2}{1} \left(\frac{1}{3}\right)^1 \left(\frac{2}{3}\right)^1 = 2 \cdot \frac{1}{3} \cdot \frac{2}{3} = \frac{4}{9}
+  \]
+\item
+  Para \(k = 2\):
+  \[
+  P(Y_1 = 2) = \binom{2}{2} \left(\frac{1}{3}\right)^2 \left(\frac{2}{3}\right)^0 = 1 \cdot \frac{1}{9} \cdot 1 = \frac{1}{9}
+  \]
+\end{enumerate}
+
+Las probabilidades obtenidas para la binomial son exactamente las mismas que encontramos en la distribución marginal de \(Y_1\), lo que confirma que \(Y_1 \sim \text{Binomial}(2, 1/3)\).
+
+\subsubsection{Conclusión}\label{conclusiuxf3n-2}
+
+No hay conflicto entre la distribución marginal de \(Y_1\) obtenida en la parte a y el hecho de que \(Y_1\) tenga una distribución binomial con parámetros \(n = 2\) y \(p = \frac{1}{3}\).
+
+\subsection{Ejercicio 4}\label{ejercicio-4}
+
+Un ingeniero ambiental mide la cantidad (en peso) de partículas contaminantes en muestras de aire de cierto volumen recolectado en dos chimeneas en una planta de energía alimentada con carbón. Una de las chimeneas está equipada con un aparato limpiador. Denote con \(Y_{1}\) la cantidad de contaminante por muestra recolectada arriba de la chimenea que no tiene aparato limpiador y denote con \(Y_{2}\) la cantidad de contaminante por muestra recolectada arriba de la chimenea que está equipada con el aparato limpiador.
+
+Suponga que el comportamiento de frecuencia relativa de \(Y_{1}\) y \(Y_{2}\) puede ser modelado por
+
+\[
+f\left(y_{1}, y_{2}\right)=\left\{\begin{array}{l}
+k, \quad 0 \leq y_{1} \leq 2, \quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\
+0, \quad \text { en cualquier otro punto. }
+\end{array}\right.
+\]
+
+Esto es, \(Y_{1}\) y \(Y_{2}\) están uniformemente distribuidas sobre la región dentro del triángulo limitado por \(y_{1}=2, y_{2}=0\) y \(2 y_{2}=y_{1}\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Encuentre el valor de \(k\) que haga de ésta una función de densidad de probabilidad.
+\item
+  Encuentre \(P\left(Y_{1} \geq 3 Y_{2}\right)\). Esto es, encuentre la probabilidad de que el aparato limpiador reduzca la cantidad de contaminante en un tercio o más.
+\end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{1. Encontrar el valor de \(k\) que haga de ésta una función de densidad de probabilidad}{1. Encontrar el valor de k que haga de ésta una función de densidad de probabilidad}}\label{encontrar-el-valor-de-k-que-haga-de-uxe9sta-una-funciuxf3n-de-densidad-de-probabilidad}
+
+Para que \(f(y_1, y_2)\) sea una función de densidad de probabilidad válida, la integral de \(f(y_1, y_2)\) sobre toda la región de soporte debe ser igual a 1:
+
+\[
+\iint_{\text{región de soporte}} f(y_1, y_2) \, dy_1 \, dy_2 = 1
+\]
+
+La función de densidad es constante y toma el valor \(k\) sobre la región triangular definida por \(0 \leq y_1 \leq 2\), \(0 \leq y_2 \leq 1\) y \(2 y_2 \leq y_1\). Esta región corresponde a un triángulo en el plano \(y_1\)-\(y_2\) con los vértices en \((0,0)\), \((2,0)\), y \((2,1)\).
+
+\paragraph{Paso 1: Determinar el área de la región triangular}\label{paso-1-determinar-el-uxe1rea-de-la-regiuxf3n-triangular}
+
+La región triangular tiene una base de longitud 2 (a lo largo del eje \(y_1\)) y una altura de 1 (a lo largo del eje \(y_2\)). El área del triángulo es:
+
+\[
+\text{Área} = \frac{1}{2} \times \text{base} \times \text{altura} = \frac{1}{2} \times 2 \times 1 = 1
+\]
+
+\paragraph{\texorpdfstring{Paso 2: Integrar \(f(y_1, y_2)\) sobre la región triangular}{Paso 2: Integrar f(y\_1, y\_2) sobre la región triangular}}\label{paso-2-integrar-fy_1-y_2-sobre-la-regiuxf3n-triangular}
+
+Dado que \(f(y_1, y_2) = k\) en esta región y la función de densidad es uniforme, la integral sobre esta área es simplemente \(k\) multiplicado por el área:
+
+\[
+\iint_{\text{región}} f(y_1, y_2) \, dy_1 \, dy_2 = k \times \text{Área} = k \times 1 = k
+\]
+
+Para que \(f(y_1, y_2)\) sea una función de densidad, necesitamos que esta integral sea igual a 1, entonces:
+
+\[
+k = 1
+\]
+
+\subsubsection{\texorpdfstring{2. Encontrar \(P(Y_{1} \geq 3 Y_{2})\)}{2. Encontrar P(Y\_\{1\} \textbackslash geq 3 Y\_\{2\})}}\label{encontrar-py_1-geq-3-y_2}
+
+Queremos encontrar la probabilidad de que \(Y_{1} \geq 3 Y_{2}\) en la región triangular donde \(f(y_1, y_2) = k = 1\).
+
+\paragraph{\texorpdfstring{Paso 1: Identificar la subregión definida por \(Y_{1} \geq 3 Y_{2}\)}{Paso 1: Identificar la subregión definida por Y\_\{1\} \textbackslash geq 3 Y\_\{2\}}}\label{paso-1-identificar-la-subregiuxf3n-definida-por-y_1-geq-3-y_2}
+
+La desigualdad \(Y_{1} \geq 3 Y_{2}\) corresponde a la recta \(y_1 = 3 y_2\). Para encontrar la intersección de esta recta con la región triangular, notamos que:
+- En \(y_1 = 2\), al sustituir en \(y_1 = 3 y_2\), tenemos \(y_2 = \frac{2}{3}\).
+
+Por lo tanto, la subregión de interés es el triángulo delimitado por los puntos \((0,0)\), \((2,0)\) y \((2, \frac{2}{3})\).
+
+\paragraph{Paso 2: Calcular el área de la subregión}\label{paso-2-calcular-el-uxe1rea-de-la-subregiuxf3n}
+
+La base de este subtriángulo es 2 (a lo largo de \(y_1\)), y la altura es \(\frac{2}{3}\) (a lo largo de \(y_2\)). Su área es:
+
+\[
+\text{Área del subtriángulo} = \frac{1}{2} \times \text{base} \times \text{altura} = \frac{1}{2} \times 2 \times \frac{2}{3} = \frac{2}{3}
+\]
+
+\paragraph{Paso 3: Calcular la probabilidad}\label{paso-3-calcular-la-probabilidad}
+
+La probabilidad buscada es la proporción del área del subtriángulo respecto al área total de la región de soporte:
+
+\[
+P(Y_{1} \geq 3 Y_{2}) = \frac{\text{Área del subtriángulo}}{\text{Área de la región total}} = \frac{\frac{2}{3}}{1} = \frac{2}{3}
+\]
+
+\subsubsection{Respuesta final}\label{respuesta-final}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  El valor de \(k\) que hace de \(f(y_1, y_2)\) una función de densidad de probabilidad es \(k = 1\).
+\item
+  La probabilidad de que \(Y_{1} \geq 3 Y_{2}\) es:
+\end{enumerate}
+
+\[
+P(Y_{1} \geq 3 Y_{2}) = \frac{2}{3}
+\]
+
+\subsection{Ejercicio 5}\label{ejercicio-5}
+
+En el Ejercicio 4 hemos establecido que
+
+\[
+f\left(y_{1}, y_{2}\right)=\left\{\begin{array}{l}
+k, \quad 0 \leq y_{1} \leq 2, \quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\
+0, \quad \text { en cualquier otro punto. }
+\end{array}\right.
+\]
+
+es una función de densidad de probabilidad conjunta válida para \(Y_{1}\), la cantidad de contaminante por muestra recolectada arriba de la chimenea que no tenía el aparato limpiador, y para \(Y_{2}\), la cantidad recolectada arriba de la chimenea con el aparato limpiador.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Si consideramos la chimenea con el limpiador instalado, encuentre la probabilidad de que la cantidad de contaminante en una muestra determinada sea mayor que 0.5.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Dado que se observa que la cantidad de contaminante en una muestra tomada arriba de la chimenea con el limpiador es 0.5 , encuentre la probabilidad de que la cantidad de contaminante exceda de 1.5 arriba de la otra chimenea (la que no tiene limpiador).
+\end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{1. Probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5}\label{probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5}
+
+Queremos encontrar la probabilidad de que \(Y_2 > 0.5\), donde \(Y_2\) representa la cantidad de contaminante en la chimenea con el aparato limpiador. Recordando que \(f(y_1, y_2)\) es la función de densidad conjunta y que hemos hallado \(k = 1\), calcularemos la probabilidad integrando sobre la región correspondiente a \(y_2 > 0.5\) y \(y_1\) dentro de su rango definido por la condición \(2y_2 \leq y_1 \leq 2\).
+
+La probabilidad se calcula como:
+
+\[
+P(Y_2 > 0.5) = \iint_{\{y_2 > 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \, dy_1 \, dy_2
+\]
+
+\paragraph{Paso 1: Establecer los límites de integración}\label{paso-1-establecer-los-luxedmites-de-integraciuxf3n}
+
+Para \(y_2 > 0.5\), los límites de \(y_1\) están restringidos por la región triangular dada:
+- \(2 y_2 \leq y_1 \leq 2\)
+
+Entonces, los límites de integración son:
+- \(y_2\): desde 0.5 hasta 1
+- \(y_1\): desde \(2 y_2\) hasta 2
+
+\paragraph{Paso 2: Integrar la función de densidad conjunta}\label{paso-2-integrar-la-funciuxf3n-de-densidad-conjunta}
+
+Dado que \(f(y_1, y_2) = 1\) en esta región, la probabilidad es la integral de 1 sobre el área triangular correspondiente:
+
+\[
+P(Y_2 > 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
+\]
+
+Evaluamos esta integral en dos pasos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Calculo de la probabilidad con R}
+
+\DocumentationTok{\#\# Definir la función de integración para y1}
+\NormalTok{integrate\_y1 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(y2) \{}
+  \FunctionTok{integrate}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(y1) }\DecValTok{1}\NormalTok{, }\AttributeTok{lower =} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ y2, }\AttributeTok{upper =} \DecValTok{2}\NormalTok{)}\SpecialCharTok{$}\NormalTok{value}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# Integrar respecto a y2}
+\NormalTok{result }\OtherTok{\textless{}{-}} \FunctionTok{integrate}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(y2) }\FunctionTok{integrate\_y1}\NormalTok{(y2), }\AttributeTok{lower =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{upper =} \DecValTok{1}\NormalTok{)}
+\NormalTok{result}\SpecialCharTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{Resultado}\label{resultado}
+
+Al resolver esta integral, obtenemos la probabilidad:
+
+\[
+P(Y_2 > 0.5) \approx 0.25
+\]
+
+\subsubsection{\texorpdfstring{2. Probabilidad condicional dada una observación de \(Y_2 = 0.5\)}{2. Probabilidad condicional dada una observación de Y\_2 = 0.5}}\label{probabilidad-condicional-dada-una-observaciuxf3n-de-y_2-0.5}
+
+Queremos calcular \(P(Y_1 > 1.5 \mid Y_2 = 0.5)\), la probabilidad de que la cantidad de contaminante en la chimenea sin limpiador (representada por \(Y_1\)) sea mayor que 1.5, dado que en la chimenea con limpiador se observó \(Y_2 = 0.5\).
+
+\paragraph{Paso 1: Identificar la función de densidad condicional}\label{paso-1-identificar-la-funciuxf3n-de-densidad-condicional}
+
+Para la función de densidad condicional \(f_{Y_1|Y_2}(y_1 | y_2)\), aplicamos:
+
+\[
+f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = \frac{f(y_1, 0.5)}{f_{Y_2}(0.5)}
+\]
+
+Calcularemos \(f_{Y_2}(0.5)\) integrando \(f(y_1, y_2)\) sobre los valores de \(y_1\) en la región donde \(Y_2 = 0.5\):
+
+\[
+f_{Y_2}(0.5) = \int_{y_1 = 2 \cdot 0.5}^{2} f(y_1, 0.5) \, dy_1 = \int_{1}^{2} 1 \, dy_1
+\]
+
+Evaluamos la integral:
+
+\[
+f_{Y_2}(0.5) = \int_{1}^{2} 1 \, dy_1 = (2 - 1) = 1
+\]
+
+Por lo tanto, \(f_{Y_2}(0.5) = 1\).
+
+\paragraph{Paso 2: Calcular la probabilidad condicional}\label{paso-2-calcular-la-probabilidad-condicional}
+
+La probabilidad de interés es:
+
+\[
+P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) \, dy_1
+\]
+
+Como \(f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = 1\) para \(1 \leq y_1 \leq 2\), tenemos:
+
+\[
+P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
+\]
+
+\subsubsection{Respuesta final}\label{respuesta-final-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5 es aproximadamente 0.25.
+\item
+  La probabilidad de que la cantidad de contaminante en la chimenea sin limpiador exceda 1.5, dado que en la otra chimenea se observó 0.5, es 0.5.
+\end{enumerate}
+
+\subsection{Ejercicio 6}\label{ejercicio-6}
+
+En el ejercicio 1 determinamos que la distribución conjunta de \(Y_{1}\), el número de análisis asignados al laboratorio A, y \(Y_{2}\), el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.
+
+\begin{longtable}[]{@{}cccc@{}}
+\toprule\noalign{}
+\(y_{1}\) & & & \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+& & & \\
+\(y_{2}\) & 0 & 1 & 2 \\
+0 & \(1 / 9\) & \(2 / 9\) & \(1 / 9\) \\
+1 & \(2 / 9\) & \(2 / 9\) & 0 \\
+2 & \(1 / 9\) & 0 & 0 \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Encuentre \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right) \cdot{ }_{i}\)
+\item
+  Le sorprende que \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\) sea negativa? \({ }_{\text {¿Por qué? }}\)
+\end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{Parte a: Cálculo de la covarianza \(\operatorname{Cov}(Y_1, Y_2)\)}{Parte a: Cálculo de la covarianza \textbackslash operatorname\{Cov\}(Y\_1, Y\_2)}}\label{parte-a-cuxe1lculo-de-la-covarianza-operatornamecovy_1-y_2}
+
+La covarianza entre dos variables aleatorias \(Y_1\) y \(Y_2\) se define como:
+
+\[
+\operatorname{Cov}(Y_1, Y_2) = E(Y_1 Y_2) - E(Y_1)E(Y_2)
+\]
+
+Para calcular la covarianza, necesitamos obtener los valores de \(E(Y_1)\), \(E(Y_2)\) y \(E(Y_1 Y_2)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Cálculo de \(E(Y_1)\) y \(E(Y_2)\)}
+
+  A partir de la distribución conjunta dada en la tabla, podemos calcular la esperanza de \(Y_1\) y \(Y_2\) sumando las posibles combinaciones de valores ponderadas por sus probabilidades.
+
+  \[ E(Y_1) = \sum_{y_1} y_1 \cdot P(Y_1 = y_1) \]
+  \[ E(Y_2) = \sum_{y_2} y_2 \cdot P(Y_2 = y_2) \]
+
+  Usamos la tabla para estos cálculos:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+   \DocumentationTok{\#\# Probabilidades conjuntas}
+\NormalTok{   probs }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{2}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{2}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{2}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+   
+   \DocumentationTok{\#\# Valores de Y1 y Y2}
+\NormalTok{   y1\_values }\OtherTok{\textless{}{-}} \DecValTok{0}\SpecialCharTok{:}\DecValTok{2}
+\NormalTok{   y2\_values }\OtherTok{\textless{}{-}} \DecValTok{0}\SpecialCharTok{:}\DecValTok{2}
+   
+   \DocumentationTok{\#\# Esperanza de Y1}
+\NormalTok{   E\_Y1 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(y1\_values }\SpecialCharTok{*} \FunctionTok{rowSums}\NormalTok{(probs))}
+   \DocumentationTok{\#\# Esperanza de Y2}
+\NormalTok{   E\_Y2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(y2\_values }\SpecialCharTok{*} \FunctionTok{colSums}\NormalTok{(probs))}
+   
+\NormalTok{   E\_Y1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6666667
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{   E\_Y2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6666667
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Cálculo de \(E(Y_1 Y_2)\)}
+
+  Para calcular \(E(Y_1 Y_2)\), sumamos el producto \(y_1 \cdot y_2\) ponderado por la probabilidad conjunta \(p(y_1, y_2)\).
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+   \DocumentationTok{\#\# Producto de Y1 * Y2 * probabilidad conjunta}
+\NormalTok{   E\_Y1Y2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{outer}\NormalTok{(y1\_values, y2\_values, }\StringTok{"*"}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ probs)}
+   
+\NormalTok{   E\_Y1Y2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2222222
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Calcular la covarianza}
+
+  Sustituyendo los valores obtenidos:
+
+  \[ \operatorname{Cov}(Y_1, Y_2) = E(Y_1 Y_2) - E(Y_1)E(Y_2) \]
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{   Cov\_Y1Y2 }\OtherTok{\textless{}{-}}\NormalTok{ E\_Y1Y2 }\SpecialCharTok{{-}}\NormalTok{ E\_Y1 }\SpecialCharTok{*}\NormalTok{ E\_Y2}
+\NormalTok{   Cov\_Y1Y2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.2222222
+\end{verbatim}
+
+\subsubsection{Parte b: Interpretación de la covarianza negativa}\label{parte-b-interpretaciuxf3n-de-la-covarianza-negativa}
+
+La covarianza calculada es negativa. Este resultado tiene sentido en el contexto del problema. Dado que los estudios se asignan a tres laboratorios y cada laboratorio recibe un número limitado de estudios, un incremento en el número de estudios asignados a un laboratorio reduce la cantidad disponible para los otros. Así, si \(Y_1\) aumenta, \(Y_2\) tiende a disminuir, lo que explica una relación inversa entre ambas variables y resulta en una covarianza negativa.
+
+\textbf{Solución}
+
+\subsubsection{Ejercicio}\label{ejercicio}
+
+\paragraph{1. Probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5}\label{probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5-1}
+
+Queremos encontrar la probabilidad de que \(Y_2 > 0.5\), donde \(Y_2\) representa la cantidad de contaminante en la chimenea con el aparato limpiador. Recordando que \(f(y_1, y_2)\) es la función de densidad conjunta y que hemos hallado \(k = 1\), calcularemos la probabilidad integrando sobre la región correspondiente a \(y_2 > 0.5\) y \(y_1\) dentro de su rango definido por la condición \(2y_2 \leq y_1 \leq 2\).
+
+La probabilidad se calcula como:
+
+\[
+P(Y_2 > 0.5) = \iint_{\{y_2 > 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \, dy_1 \, dy_2
+\]
+
+\subparagraph{Paso 1: Establecer los límites de integración}\label{paso-1-establecer-los-luxedmites-de-integraciuxf3n-1}
+
+Para \(y_2 > 0.5\), los límites de \(y_1\) están restringidos por la región triangular dada:
+- \(2 y_2 \leq y_1 \leq 2\)
+
+Entonces, los límites de integración son:
+- \(y_2\): desde 0.5 hasta 1
+- \(y_1\): desde \(2 y_2\) hasta 2
+
+\subparagraph{Paso 2: Integrar la función de densidad conjunta}\label{paso-2-integrar-la-funciuxf3n-de-densidad-conjunta-1}
+
+Dado que \(f(y_1, y_2) = 1\) en esta región, la probabilidad es la integral de 1 sobre el área triangular correspondiente:
+
+\[
+P(Y_2 > 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
+\]
+
+Evaluamos esta integral en dos pasos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Calculo de la probabilidad con R}
+
+\DocumentationTok{\#\# Definir la función de integración para y1}
+\NormalTok{integrate\_y1 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(y2) \{}
+  \FunctionTok{integrate}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(y1) }\DecValTok{1}\NormalTok{, }\AttributeTok{lower =} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ y2, }\AttributeTok{upper =} \DecValTok{2}\NormalTok{)}\SpecialCharTok{$}\NormalTok{value}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# Integrar respecto a y2}
+\NormalTok{result }\OtherTok{\textless{}{-}} \FunctionTok{integrate}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(y2) }\FunctionTok{integrate\_y1}\NormalTok{(y2), }\AttributeTok{lower =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{upper =} \DecValTok{1}\NormalTok{)}
+\NormalTok{result}\SpecialCharTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\subparagraph{Resultado}\label{resultado-1}
+
+Al resolver esta integral, obtenemos la probabilidad:
+
+\[
+P(Y_2 > 0.5) \approx 0.25
+\]
+
+\paragraph{\texorpdfstring{2. Probabilidad condicional dada una observación de \(Y_2 = 0.5\)}{2. Probabilidad condicional dada una observación de Y\_2 = 0.5}}\label{probabilidad-condicional-dada-una-observaciuxf3n-de-y_2-0.5-1}
+
+Queremos calcular \(P(Y_1 > 1.5 \mid Y_2 = 0.5)\), la probabilidad de que la cantidad de contaminante en la chimenea sin limpiador (representada por \(Y_1\)) sea mayor que 1.5, dado que en la chimenea con limpiador se observó \(Y_2 = 0.5\).
+
+\subparagraph{Paso 1: Identificar la función de densidad condicional}\label{paso-1-identificar-la-funciuxf3n-de-densidad-condicional-1}
+
+Para la función de densidad condicional \(f_{Y_1|Y_2}(y_1 | y_2)\), aplicamos:
+
+\[
+f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = \frac{f(y_1, 0.5)}{f_{Y_2}(0.5)}
+\]
+
+Calcularemos \(f_{Y_2}(0.5)\) integrando \(f(y_1, y_2)\) sobre los valores de \(y_1\) en la región donde \(Y_2 = 0.5\):
+
+\[
+f_{Y_2}(0.5) = \int_{y_1 = 2 \cdot 0.5}^{2} f(y_1, 0.5) \, dy_1 = \int_{1}^{2} 1 \, dy_1
+\]
+
+Evaluamos la integral:
+
+\[
+f_{Y_2}(0.5) = \int_{1}^{2} 1 \, dy_1 = (2 - 1) = 1
+\]
+
+Por lo tanto, \(f_{Y_2}(0.5) = 1\).
+
+\subparagraph{Paso 2: Calcular la probabilidad condicional}\label{paso-2-calcular-la-probabilidad-condicional-1}
+
+La probabilidad de interés es:
+
+\[
+P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) \, dy_1
+\]
+
+Como \(f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = 1\) para \(1 \leq y_1 \leq 2\), tenemos:
+
+\[
+P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
+\]
+
+\paragraph{Respuesta final}\label{respuesta-final-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5 es aproximadamente 0.25.
+\item
+  La probabilidad de que la cantidad de contaminante en la chimenea sin limpiador exceda 1.5, dado que en la otra chimenea se observó 0.5, es 0.5.
+\end{enumerate}
+
+\subsection{Ejercicio 7}\label{ejercicio-7}
+
+Las variables aleatorias \(Y_{1}\) y \(Y_{2}\) son tales que \(E\left(Y_{1}\right)=4, E\left(Y_{2}\right)=-1, V\left(Y_{1}\right)=2\) y \(V\left(Y_{2}\right)=8\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ¿Cuál es \(\operatorname{Cov}\left(Y_{1}, Y_{1}\right)\) ?
+\item
+  Suponiendo que las medias y las varianzas sean correctas, ¿es posible que \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\) ? {[}Sugerencia: si \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\), ¿cuál es el valor de \(\rho\), el coeficiente de correlación?{]}
+\item
+  Suponiendo que las medias y las varianzas sean correctas, ¿cuál es el máximo valor posible para \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\) ? Si \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\) alcanza este valor máximo, ¿qué implica eso acerca de la relación entre \(Y_{1}\) y \(Y_{2}\) ?
+\end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{Parte a: Cálculo de \(\operatorname{Cov}(Y_1, Y_1)\)}{Parte a: Cálculo de \textbackslash operatorname\{Cov\}(Y\_1, Y\_1)}}\label{parte-a-cuxe1lculo-de-operatornamecovy_1-y_1}
+
+Para cualquier variable aleatoria \(Y\), la covarianza de \(Y\) consigo misma es igual a su varianza. Es decir:
+
+\[
+\operatorname{Cov}(Y_1, Y_1) = V(Y_1)
+\]
+
+Dado que \(V(Y_1) = 2\), tenemos que:
+
+\[
+\operatorname{Cov}(Y_1, Y_1) = 2
+\]
+
+\subsubsection{\texorpdfstring{Parte b: Verificación de \(\operatorname{Cov}(Y_1, Y_2) = 7\)}{Parte b: Verificación de \textbackslash operatorname\{Cov\}(Y\_1, Y\_2) = 7}}\label{parte-b-verificaciuxf3n-de-operatornamecovy_1-y_2-7}
+
+Si se supone que \(\operatorname{Cov}(Y_1, Y_2) = 7\), podemos calcular el coeficiente de correlación \(\rho\), que se define como:
+
+\[
+\rho = \frac{\operatorname{Cov}(Y_1, Y_2)}{\sqrt{V(Y_1) \cdot V(Y_2)}}
+\]
+
+Sustituyendo los valores dados:
+
+\[
+\rho = \frac{7}{\sqrt{2 \cdot 8}} = \frac{7}{4} = 1.75
+\]
+
+Dado que el coeficiente de correlación \(\rho\) debe estar en el rango de \(-1 \leq \rho \leq 1\), obtener \(\rho = 1.75\) es imposible. Esto implica que no es posible que \(\operatorname{Cov}(Y_1, Y_2) = 7\) con los valores de varianza y media proporcionados.
+
+\subsubsection{\texorpdfstring{Parte c: Valor máximo posible de \(\operatorname{Cov}(Y_1, Y_2)\) y su interpretación}{Parte c: Valor máximo posible de \textbackslash operatorname\{Cov\}(Y\_1, Y\_2) y su interpretación}}\label{parte-c-valor-muxe1ximo-posible-de-operatornamecovy_1-y_2-y-su-interpretaciuxf3n}
+
+Para determinar el valor máximo posible de \(\operatorname{Cov}(Y_1, Y_2)\), consideramos que el valor absoluto del coeficiente de correlación \(\rho\) puede ser como máximo \(1\). Esto ocurre en los casos de correlación lineal perfecta (positiva o negativa). Entonces, el valor máximo de \(\operatorname{Cov}(Y_1, Y_2)\) es:
+
+\[
+\operatorname{Cov}(Y_1, Y_2) = \rho \cdot \sqrt{V(Y_1) \cdot V(Y_2)} 
+\]
+
+Si \(\rho = 1\), lo cual indica una asociación lineal positiva perfecta, obtenemos:
+
+\[
+\operatorname{Cov}(Y_1, Y_2) = 1 \cdot \sqrt{2 \cdot 8} = 4
+\]
+
+Esto significa que el valor máximo posible de \(\operatorname{Cov}(Y_1, Y_2)\) es \(4\). De manera similar, si \(\rho = -1\), el valor mínimo posible de \(\operatorname{Cov}(Y_1, Y_2)\) sería \(-4\), indicando una asociación lineal negativa perfecta.
+
+Cuando \(\operatorname{Cov}(Y_1, Y_2) = 4\), significa que \(Y_1\) y \(Y_2\) están perfectamente correlacionadas en forma positiva, es decir, existe una relación lineal exacta en la que un aumento en \(Y_1\) siempre corresponde a un aumento proporcional en \(Y_2\).
+
+\subsection{Ejercicio 8}\label{ejercicio-8}
+
+Un experimento de aprendizaje requiere que una rata corra por un laberinto (una red de pasillos) hasta que localice una de tres posibles salidas. La salida 1 presenta una recompensa de alimento, no así las salidas 2 y 3. (Si la rata finalmente selecciona la salida 1 casi siempre, puede tener lugar el aprendizaje.) Denote con \(Y_{i}\) el número de veces que la salida \(i\) es seleccionada en corridas sucesivas. Para lo siguiente, suponga que la rata escoge una salida aleatoriamente en cada corrida.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Encuentre la probabilidad de que \(n=6\) corridas resulte en \(Y_{1}=3, Y_{2}=1\) y \(Y_{3}=2\).
+\item
+  Para \(n\) general, encuentre \(E\left(Y_{1}\right)\) y \(V\left(Y_{1}\right)\).
+\item
+  Encuentre \(\operatorname{Cov}\left(Y_{2}, Y_{3}\right)\) para \(n\) general.
+\item
+  Para comprobar la preferencia de la rata entre las salidas 2 y 3 , podemos buscar en \(Y_{2}-Y_{3}\). Encuentre \(E\left(Y_{2}-Y_{3}\right)\) y \(V\left(Y_{2}-Y_{3}\right)\) para \(n\) general.
+\end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{Parte a: Probabilidad de obtener \(Y_1 = 3\), \(Y_2 = 1\) y \(Y_3 = 2\) en \(n = 6\) corridas}{Parte a: Probabilidad de obtener Y\_1 = 3, Y\_2 = 1 y Y\_3 = 2 en n = 6 corridas}}\label{parte-a-probabilidad-de-obtener-y_1-3-y_2-1-y-y_3-2-en-n-6-corridas}
+
+Este problema puede resolverse utilizando la \textbf{distribución multinomial}, ya que describe el número de veces que ocurre cada posible resultado en un número fijo de ensayos independientes. Aquí, cada una de las tres salidas tiene la misma probabilidad de ser seleccionada en cada corrida, es decir, \(p_1 = p_2 = p_3 = \frac{1}{3}\), y el número total de corridas es \(n = 6\). Por lo tanto, estamos interesados en calcular:
+
+\[
+P(Y_1 = 3, Y_2 = 1, Y_3 = 2) = \frac{6!}{3! \, 1! \, 2!} \left( \frac{1}{3} \right)^6
+\]
+
+Calculando esta expresión:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{6}
+\NormalTok{p }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{/} \DecValTok{3}
+\NormalTok{prob }\OtherTok{\textless{}{-}} \FunctionTok{factorial}\NormalTok{(n) }\SpecialCharTok{/}\NormalTok{ (}\FunctionTok{factorial}\NormalTok{(}\DecValTok{3}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{factorial}\NormalTok{(}\DecValTok{1}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{factorial}\NormalTok{(}\DecValTok{2}\NormalTok{)) }\SpecialCharTok{*}\NormalTok{ p}\SpecialCharTok{\^{}}\NormalTok{n}
+\NormalTok{prob}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.08230453
+\end{verbatim}
+
+El resultado de esta probabilidad es aproximadamente 0.0823.
+
+\subsubsection{\texorpdfstring{Parte b: Esperanza y varianza de \(Y_1\) para un \(n\) general}{Parte b: Esperanza y varianza de Y\_1 para un n general}}\label{parte-b-esperanza-y-varianza-de-y_1-para-un-n-general}
+
+Para una variable aleatoria multinomial, la esperanza y la varianza de cada conteo se puede calcular usando las propiedades de esta distribución. En particular, para \(Y_1\), tenemos que:
+
+\begin{itemize}
+\tightlist
+\item
+  La \textbf{esperanza} es \(E(Y_1) = n \cdot p_1\).
+\item
+  La \textbf{varianza} es \(V(Y_1) = n \cdot p_1 \cdot (1 - p_1)\).
+\end{itemize}
+
+Como \(p_1 = \frac{1}{3}\), obtenemos:
+
+\[
+E(Y_1) = \frac{n}{3}, \quad V(Y_1) = n \cdot \frac{1}{3} \cdot \frac{2}{3} = \frac{2n}{9}
+\]
+
+\subsubsection{\texorpdfstring{Parte c: Covarianza entre \(Y_2\) y \(Y_3\) para un \(n\) general}{Parte c: Covarianza entre Y\_2 y Y\_3 para un n general}}\label{parte-c-covarianza-entre-y_2-y-y_3-para-un-n-general}
+
+La \textbf{covarianza} entre dos variables en una distribución multinomial, \(Y_2\) y \(Y_3\), se puede calcular como:
+
+\[
+\operatorname{Cov}(Y_2, Y_3) = -n \cdot p_2 \cdot p_3
+\]
+
+Dado que \(p_2 = p_3 = \frac{1}{3}\), tenemos:
+
+\[
+\operatorname{Cov}(Y_2, Y_3) = -n \cdot \frac{1}{3} \cdot \frac{1}{3} = -\frac{n}{9}
+\]
+
+\subsubsection{\texorpdfstring{Parte d: Esperanza y varianza de \(Y_2 - Y_3\) para un \(n\) general}{Parte d: Esperanza y varianza de Y\_2 - Y\_3 para un n general}}\label{parte-d-esperanza-y-varianza-de-y_2---y_3-para-un-n-general}
+
+Para evaluar la preferencia de la rata entre las salidas 2 y 3, podemos observar la diferencia \(Y_2 - Y_3\). Calcularemos su esperanza y varianza.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Esperanza de \(Y_2 - Y_3\)}:
+
+  Usamos la linealidad de la esperanza:
+
+  \[
+  E(Y_2 - Y_3) = E(Y_2) - E(Y_3) = \frac{n}{3} - \frac{n}{3} = 0
+  \]
+\item
+  \textbf{Varianza de \(Y_2 - Y_3\)}:
+
+  Para calcular la varianza de \(Y_2 - Y_3\), usamos la fórmula de la varianza de una diferencia:
+
+  \[
+  V(Y_2 - Y_3) = V(Y_2) + V(Y_3) - 2 \operatorname{Cov}(Y_2, Y_3)
+  \]
+
+  Sabemos que \(V(Y_2) = V(Y_3) = \frac{2n}{9}\) y que \(\operatorname{Cov}(Y_2, Y_3) = -\frac{n}{9}\), por lo que:
+
+  \[
+  V(Y_2 - Y_3) = \frac{2n}{9} + \frac{2n}{9} - 2 \cdot \left(-\frac{n}{9}\right) = \frac{6n}{9} = \frac{2n}{3}
+  \]
+\end{enumerate}
+
+\subsubsection{Resumen de Resultados}\label{resumen-de-resultados-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La probabilidad de observar \(Y_1 = 3\), \(Y_2 = 1\) y \(Y_3 = 2\) en 6 corridas es 0.0823.
+\item
+  La esperanza y varianza de \(Y_1\) para \(n\) corridas son \(E(Y_1) = \frac{n}{3}\) y \(V(Y_1) = \frac{2n}{9}\).
+\item
+  La covarianza entre \(Y_2\) y \(Y_3\) es \(\operatorname{Cov}(Y_2, Y_3) = -\frac{n}{9}\).
+\item
+  La esperanza y varianza de \(Y_2 - Y_3\) son \(E(Y_2 - Y_3) = 0\) y \(V(Y_2 - Y_3) = \frac{2n}{3}\).
+\end{enumerate}
+
+\section{Muestreo y Distribuciones en el Muestreo}\label{muestreo-y-distribuciones-en-el-muestreo}
+
+\subsection{Ejercicio 1}\label{ejercicio-1-1}
+
+Un guardabosque, que estudia los efectos de la fertilización en ciertos bosques de pinos en el sureste, está interesado en estimar el promedio de área de la base de los pinos. Al estudiar áreas basales de pinos similares durante muchos años, descubrió que estas mediciones (en pulgadas cuadradas) están distri-
+buidas normalmente con desviación estándar aproxima de 4 pulgadas cuadradas. Si el guardabosque muestrea \(n=9\) árboles, encuentre la probabilidad de que la media muestral se encuentre a no más de 2 pulgadas cuadradas de la media poblacional.
+
+\subsection{Ejercicio 2}\label{ejercicio-2-1}
+
+Suponga que al guardabosque del Ejercicio 7.11 le gustaría que la media muestral estuviera a no más de 1 pulgada cuadrada de la media poblacional, con probabilidad . 90 . ¿Cuántos árboles debe medir para asegurar este grado de precisión?
+
+\subsection{Ejercicio 3}\label{ejercicio-3-1}
+
+La Environmental Protection Agency se ocupa del problema de establecer criterios para las cantidades de sustancias químicas tóxicas permitidas en lagos y ríos de agua dulce. Una medida común de toxicidad para cualquier contaminante es la concentración de éste que mataría a la mitad de la especie de prueba en un tiempo determinado (por lo general 96 horas para especies de peces). Esta medida se denomina CL50 (concentración letal que mata \(50 \%\) de la especie de prueba). En muchos estudios, los valores contenidos en el logaritmo natural de mediciones del CL50 están distribuidos normalmente y, en consecuencia, el análisis está basado en datos del \(\ln\) (CL50).
+
+\subsection{Ejercicio 4}\label{ejercicio-4-1}
+
+Estudios de los efectos del cobre en cierta especie de peces (por ejemplo la especie A) muestran que la varianza de mediciones de \(\ln\) (CL50) es alrededor de .4 con mediciones de concentración en miligramos por litro. Si han de completarse \(n=10\) estudios sobre el CL50 para cobre, encuentre la probabilidad de que la media muestral de \(\ln\) (CL50) difiera de la verdadera media poblacional en no más de .5 .
+
+\subsection{Ejercicio 5}\label{ejercicio-5-1}
+
+Si en el Ejercicio 3 deseamos que la media muestral difiera de la media poblacional en no más de . 5 con probabilidad .95 , ¿cuántas pruebas deben realizarse?
+
+\subsection{Ejercicio 6}\label{ejercicio-6-1}
+
+Suponga que \(X_{1}, X_{2}, \ldots, X_{m}\) y \(Y_{1}, Y_{2}, \ldots, Y_{n}\) son muestras aleatorias independientes, con las variables \(X_{i}\) distribuidas normalmente con media \(\mu_{1} \mathrm{y}\) varianza \(\sigma_{1}^{2} \mathrm{y}\) las variables \(Y_{i}\) distribuidas normalmente con media \(\mu_{2}\) y varianza \(\sigma_{2}^{2}\). La diferencia entre las medias muestrales, \(\bar{X}-\bar{Y}\), es entonces una combinación lineal de \(m+n\) variables aleatorias distribuidas normalmente y, por el Teorema 6.3, tiene una distribución normal.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Encuentre \(E(\bar{X}-\bar{Y})\).
+\item
+  Encuentre \(V(\bar{X}-\bar{Y})\).
+\item
+  Suponga que \(\sigma_{1}^{2}=2, \sigma_{2}^{2}=2.5\) y \(m=n\). Encuentre los tamaños muestrales para que \((\bar{X}-\bar{Y})\) se encuentre a no más de 1 unidad de \(\left(\mu_{1}-\mu_{2}\right)\) con probabilidad .95 .
+\end{enumerate}
+
+\subsection{Ejercicio 7}\label{ejercicio-7-1}
+
+Refiriéndose al Ejercicio 3, suponga que los efectos del cobre en una segunda especie (por ejemplo la especie B) de peces muestran la varianza de mediciones de \(\ln\) (CL50) que son de .8 . Si las medias poblacionales del \(\ln\) (CL50) para las dos especies son iguales, encuentre la probabilidad de que, con muestras aleatorias de diez mediciones de cada especie, la media muestral para la especie A sea mayor a la media muestral para la especie B en al menos 1 unidad.
+
+\subsection{Ejercicio 8}\label{ejercicio-8-1}
+
+La acidez de los suelos se mide mediante una cantidad llamada pH , que varía de 0 (acidez alta) a 14 (alcalinidad alta). Un edafólogo desea calcular el promedio de pH para un campo de grandes dimensiones al seleccionar aleatoriamente \(n\) muestras de núcleos y medir el pH de cada muestra. Aun cuando la
+desviación estándar poblacional de mediciones de pH no se conoce, la experiencia del pasado indica que casi todos los suelos tienen un valor de pH de entre 5 y 8 . Si el científico selecciona \(n=40\) muestras, encuentre la probabilidad aproximada de que la media muestral de las 40 mediciones de pH esté a .2 unidades del verdadero promedio de pH para el campo.
+
+\subsection{Ejercicio 9}\label{ejercicio-9}
+
+El estado de Florida resultó afectado por cuatro huracanes de gran intensidad. En 2005 un estudio indicó que en 2004, \(48 \%\) de las familias en Florida no tenían planes para escapar de un huracán que se aproximaba. Suponga que una muestra aleatoria reciente de 50 familias se seleccionó en Gainesville y que los miembros de 29 de las familias indicaron que tenían un plan de escape en caso de huracán.
+a Si los porcentajes estatales de 2004 todavía fueran válidos para las familias recientes de Gainesville.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Use R para calcular las probabilidades siguiendo una distribución binomial y también una aproximación Normala la Binomial para determinar los valores exacto y aproximado de la probabilidad que 29 o más de las familias muestreadas tengan un plan de escape para el huracán.
+\item
+  ¿La aproximación normal es cercana a la probabilidad binomial exacta? Explique por qué.
+\end{enumerate}
+
+\subsection{Ejercicio 10}\label{ejercicio-10}
+
+Para verificar la abundancia relativa de cierta especie de peces en dos lagos, se toman \(n=50\) observaciones relacionadas con los resultados de la captura en cada uno de los lagos. Para cada observación, el experimentador sólo registra si la especie deseada estaba presente en la trampa. La experiencia del pasado ha demostrado que esta especie aparece en trampas del lago A aproximadamente \(10 \%\) del tiempo y en trampas del lago B, alrededor de \(20 \%\) del tiempo. Use estos resultados para aproximar la probabilidad de que la diferencia entre las proporciones muestrales sea de no más de .1 de la diferencia entre las proporciones reales.
+
+\section{Estimación puntual}\label{estimaciuxf3n-puntual}
+
+\subsection{Ejercicio 1}\label{ejercicio-1-2}
+
+Suponga que \(Y_{1}, Y_{2}, Y_{3}\) denotan una muestra aleatoria de una distribución exponencial con función de densidad
+
+\[
+f(y)= \begin{cases}\left(\frac{1}{\theta}\right) e^{-y / \theta}, & y>0 \\ 0, & \text { en cualquier otro punto. }\end{cases}
+\]
+
+Considere los siguientes cinco estimadores de \(\theta\) :
+
+\[
+\hat{\theta}_{1}=Y_{1}, \quad \hat{\theta}_{2}=\frac{Y_{1}+Y_{2}}{2}, \quad \hat{\theta}_{3}=\frac{Y_{1}+2 Y_{2}}{3}, \quad \hat{\theta}_{4}=\operatorname{mín}\left(Y_{1}, Y_{2}, Y_{3}\right), \quad \hat{\theta}_{5}=\bar{Y}
+\]
+
+a ¿Cuáles de estos estimadores son insesgados?
+b Entre los estimadores insesgados, ¿cuál tiene la varianza más pequeña?
+Nota: La esperanza de la distribución exponencial, tal como se define aquí es \(E(Y)=\) theta
+
+\subsection{Ejercicio 2}\label{ejercicio-2-2}
+
+Considere una distribución uniforme en el intervalo \((0, \theta)\). Para estimar \(\theta\) se consideran dos estimadores \(\theta_1 = max(X1,...X_n)\) y \(\theta_2 = 2 \overline{X}\) donde \(\overline{X}\) es la media aritmética.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Alguno de estos estimadores es insesgado?
+\item
+  Simula 1000 muestras de una distribución uniforme \((0,1)\) y a partir de estas estima \(E[\hat \theta_1]\) y \(E[\hat \theta_2 ]\) mediante la media aritmética de los valores de los estimadores sobre las 1000 réplicas de simulación. Que puedes decir en este caso del sesgo de cada estimador?
+\item
+  Como podríamos utilizar las simulaciones anteriores para estimar la varianza de cada estimador? Cual de los dos resulta más eficiente.
+\end{enumerate}
+
+\subsection{Ejercicio 3}\label{ejercicio-3-2}
+
+Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución expoenencial y consideramos \(\hat \theta_1 = X_1\) y \(\hat\theta_2=\overline{X}\).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Si deseamos comparar ambos estimadores: (i) Son estimadores sesgados o insesgados? (ii) Cual de los dos es más eficiente? (iii) Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.
+\item
+  Realice una simulación similar a la del ehercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.
+\end{enumerate}
+
+\subsection{Ejercicio 4}\label{ejercicio-4-2}
+
+La media aritmética y la mediana se consderan ambos buenos estimadores del valor medio de una población cuando la distribución de origen es simétrica. Sin embargo ``buenos estimadores'' es algo que debe precisarse. En general ambos son estimadores centrados y consistentes, pero su eficiencia no resulta tan clara.
+Obtenga muestras, utilizando el método de Montecarlo, de una población normal \(N(0,1)\) y estudie la eficiencia relativa de la media y la mediana muestrales como estimadores de la esperanza de la distribución.
+
+\subsection{Ejercicio 5}\label{ejercicio-5-2}
+
+La función de verosimilitud es una función de gran importancia y utilidad en inferencia estadística. Dicha función se encuentra en la base de muchos procedimientos de estimación y contraste de hipótesis por lo que es bueno entender lo que significa. La función de verosimilitd tiene, para muestras de tamaño 1 , la misma forma que la función de densidad de probabilidad. Sin embargo, mientras que, cuando consideramos la función de densidad estamos suponiendo que los valores de x , varian y los del parámetro son fijos, al considerar la verosimilitud lo hacemos distinto: suponemos que la muestra es fija y los valores del parámetro varían. Ilustra esta diferencia realizando dos gráficos para una distribución de Poisson en los que, por un lado se representa la función de densidad para valores, por ejemplo de 0 a 10, suponiendo \$\lambda= \$ y por el otro la verosimilitud de una observación X=4, suponiendo valores de \(\lambda\) entre 1 y 10.
+
+Ejercicios 6
+
+Sean \(X_{1}, X_{2}, \ldots, X_{n}\) variables aleatorias de Bernoulli independientes tales que \(P\left(X_{i}=1\right)=p\) y \(P\left(X_{i}=\right.\) \(0)=1-p\) para cada \(i=1,2,3, \ldots\) Con la variable aleatoria \(Y\) denote el número de intentos necesario para obtener el primer éxito, es decir, el valor de \(i\) para el cual \(X_{i}=1\) ocurre primero. Entonces \(Y\) tiene una distribución geométrica con \(P(Y=y)=(1-p)^{y-1} p\), para \(y=1,2,3, \ldots\) Encuentre el estimador del método de momentos para \(p\) basado en esta única observación de \(Y\).
+Sean \(Y_{1}, Y_{2}, \ldots, Y_{n}\) variables aleatorias uniformes independientes y distribuidas idénticamente en el intervalo \((0,3 \theta)\). Deduzca el estimador del método de momentos para \(\theta\).
+Sean \(Y_{1}, Y_{2}, \ldots, Y_{n}\) variables aleatorias independientes y distribuidas idénticamente de una familia de distribución de potencias con parámetros \(\alpha\) y \(\theta=3\). Entonces, si \(\alpha>0\),
+
+\[
+f(y \mid \alpha)= \begin{cases}\alpha y^{\alpha-1} / 3^{\alpha}, & 0 \leq y \leq 3 \\ 0, & \text { en cualquier otro punto.. }\end{cases}
+\]
+
+Demuestre que \(E\left(Y_{1}\right)=3 \alpha /(\alpha+1)\) y deduzca el estimador del método de momentos para \(\alpha\).
+
+\subsection{Ejercicio 9}\label{ejercicio-9-1}
+
+Suponga que \(Y_{1}, Y_{2}, \ldots, Y_{n}\) denotan una muestra aleatoria de la distribución de Poisson con media \(\lambda\).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Encuentre el MLE \(\hat{\lambda}\) para \(\lambda\).
+\item
+  Encuentre el valor esperado y la varianza de \(\hat{\lambda}\).
+\item
+  Demuestre que el estimador del inciso a es consistente para \(\lambda\).
+\item
+  ¿Cuál es el MLE para \(P(Y=0)=e^{-\lambda}\) ?
+\end{enumerate}
+
+\subsection{Ejercicio 10}\label{ejercicio-10-1}
+
+Suponga que \(Y_{1}, Y_{2}, \ldots, Y_{n}\) denotan una muestra aleatoria de una población distribuida exponencialmente con media \(\theta\). Encuentre el MLE de la varianza poblacional \(\theta^{2}\).
+
+\end{document}

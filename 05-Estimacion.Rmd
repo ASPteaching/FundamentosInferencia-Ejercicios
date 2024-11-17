@@ -1,0 +1,87 @@
+# Estimación puntual
+
+## Ejercicio 1 
+<!-- [W_M 8.8]  -->
+
+Suponga que $Y_{1}, Y_{2}, Y_{3}$ denotan una muestra aleatoria de una distribución exponencial con función de densidad
+
+$$
+f(y)= \begin{cases}\left(\frac{1}{\theta}\right) e^{-y / \theta}, & y>0 \\ 0, & \text { en cualquier otro punto. }\end{cases}
+$$
+
+Considere los siguientes cinco estimadores de $\theta$ :
+
+$$
+\hat{\theta}_{1}=Y_{1}, \quad \hat{\theta}_{2}=\frac{Y_{1}+Y_{2}}{2}, \quad \hat{\theta}_{3}=\frac{Y_{1}+2 Y_{2}}{3}, \quad \hat{\theta}_{4}=min\left(Y_{1}, Y_{2}, Y_{3}\right), \quad \hat{\theta}_{5}=\bar{Y}
+$$
+
+a. ¿Cuáles de estos estimadores son insesgados?
+b. Entre los estimadores insesgados, ¿cuál tiene la varianza más pequeña?
+Nota: La esperanza de la distribución exponencial, tal como se define aquí es $E(Y)= \theta$.
+
+## Ejercicio 2 
+<!-- [Propi] -->
+
+Considere una distribución uniforme en el intervalo $(0, \theta)$. Para estimar $\theta$ se consideran dos estimadores $\theta_1 = max(X1,...X_n)$ y $\theta_2 = 2 \overline{X}$ donde $\overline{X}$ es la media aritmética.
+
+a. ¿Alguno de estos estimadores es insesgado?
+b. Simula 1000 muestras de una distribución uniforme $(0,1)$ y a partir de estas estima $E[\hat \theta_1]$ y $E[\hat \theta_2 ]$ mediante la media aritmética de los valores de los estimadores sobre las 1000 réplicas de simulación. Que puedes decir en este caso del sesgo de cada estimador?
+c. ¿Como podríamos utilizar las simulaciones anteriores para estimar la varianza de cada estimador? ¿Cual de los dos resulta más eficiente?
+
+## Ejercicio 3 
+<!-- [Propi] -->
+
+Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución expoenencial y consideramos $\hat \theta_1 = X_1$ y $\hat\theta_2=\overline{X}$.
+
+a. Si deseamos comparar ambos estimadores: (i) Son estimadores sesgados o insesgados? (ii) Cual de los dos es más eficiente? (iii) Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.
+b. Realice una simulación similar a la del ejercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.
+
+## Ejercicio 4 
+<!-- [7.6 Peña] -->
+
+La media aritmética y la mediana se consderan ambos buenos estimadores del valor medio de una población cuando la distribución de origen es simétrica. Sin embargo "buenos estimadores" es algo que debe precisarse. En general ambos son estimadores centrados y consistentes, pero su eficiencia no resulta tan clara.
+Obtenga muestras, utilizando el método de Montecarlo, de una población normal $N(0,1)$ y estudie la eficiencia relativa de la media y la mediana muestrales como estimadores de la esperanza de la distribución.
+
+## Ejercicio 5 
+<!-- [Propi] -->
+
+La función de verosimilitud es una función de gran importancia y utilidad en inferencia estadística. Dicha función se encuentra en la base de muchos procedimientos de estimación y contraste de hipótesis por lo que es bueno entender lo que significa. La función de verosimilitd tiene, para muestras de tamaño 1 , la misma forma que la función de densidad de probabilidad. Sin embargo, mientras que, cuando consideramos la función de densidad estamos suponiendo que los valores de x , varian y los del parámetro son fijos, al considerar la verosimilitud lo hacemos distinto: suponemos que la muestra es fija y los valores del parámetro varían. Ilustra esta diferencia realizando dos gráficos para una distribución de Poisson en los que, por un lado se representa la función de densidad para valores, por ejemplo de 0 a 10, suponiendo $\lambda=4$ y por el otro la verosimilitud de una observación X=4, suponiendo valores de $\lambda$ entre 1 y 10.
+
+## Ejercicios 6 
+<!-- [W 9.76] -->
+
+Sean $X_{1}, X_{2}, \ldots, X_{n}$ variables aleatorias de Bernoulli independientes tales que $P\left(X_{i}=1\right)=p$ y $P\left(X_{i}=\right.$ $0)=1-p$ para cada $i=1,2,3, \ldots$ Con la variable aleatoria $Y$ denote el número de intentos necesario para obtener el primer éxito, es decir, el valor de $i$ para el cual $X_{i}=1$ ocurre primero. Entonces $Y$ tiene una distribución geométrica con $P(Y=y)=(1-p)^{y-1} p$, para $y=1,2,3, \ldots$ Encuentre el estimador del método de momentos para $p$ basado en esta única observación de $Y$.
+
+## Ejercicio 7
+<!-- [W 9.77] -->
+
+
+Sean $Y_{1}, Y_{2}, \ldots, Y_{n}$ variables aleatorias uniformes independientes y distribuidas idénticamente en el intervalo $(0,3 \theta)$. Deduzca el estimador del método de momentos para $\theta$.
+
+## Ejercicio 8
+<!-- [W 9.78] -->
+
+Sean $Y_{1}, Y_{2}, \ldots, Y_{n}$ variables aleatorias independientes y distribuidas idénticamente de una familia de distribución de potencias con parámetros $\alpha$ y $\theta=3$. Entonces, si $\alpha>0$,
+
+$$
+f(y \mid \alpha)= \begin{cases}\alpha y^{\alpha-1} / 3^{\alpha}, & 0 \leq y \leq 3 \\ 0, & \text { en cualquier otro punto.. }\end{cases}
+$$
+
+Asumiendo que hemos calculado $E\left(Y_{1}\right)=3 \alpha /(\alpha+1)$  deduzca el estimador del método de momentos para $\alpha$.
+
+
+## Ejercicio 9
+<!-- [W-M 80] -->
+
+Suponga que $Y_{1}, Y_{2}, \ldots, Y_{n}$ denotan una muestra aleatoria de la distribución de Poisson con media $\lambda$.
+
+a. Encuentre el MLE $\hat{\lambda}$ para $\lambda$.
+b. Encuentre el valor esperado y la varianza de $\hat{\lambda}$.
+c. Demuestre que el estimador del inciso a es consistente para $\lambda$.
+d. ¿Cuál es el MLE para $P(Y=0)=e^{-\lambda}$ ?
+
+## Ejercicio 10
+<!-- [W-M 80] -->
+
+Suponga que $Y_{1}, Y_{2}, \ldots, Y_{n}$ denotan una muestra aleatoria de una población distribuida exponencialmente con media $\theta$. Encuentre el MLE de la varianza poblacional $\theta^{2}$. 
+

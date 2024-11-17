@@ -669,7 +669,7 @@ Podemos representarla gráficamente usando R:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-7-1.pdf}
+\includegraphics{EjerciciosInferenciaEstadistica_files/figure-latex/unnamed-chunk-7-1.pdf}
 
 \subsubsection{Esperanza y varianza}\label{esperanza-y-varianza}
 
@@ -1028,7 +1028,7 @@ Por lo tanto, \(f_X(x)\) cumple con ambas condiciones y es una función de densi
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-14-1.pdf}
+\includegraphics{EjerciciosInferenciaEstadistica_files/figure-latex/unnamed-chunk-14-1.pdf}
 
 \subsubsection{Función de distribución}\label{funciuxf3n-de-distribuciuxf3n}
 
@@ -1059,7 +1059,7 @@ Para \(x < 0\), \(F_X(x) = 0\), y para \(x > 2\), \(F_X(x) = 1\).
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Ejercicios-de-Inferencia-Estadistica_files/figure-latex/unnamed-chunk-15-1.pdf}
+\includegraphics{EjerciciosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pdf}
 
 \subsubsection{\texorpdfstring{Probabilidades y \(f_X(1)\)}{Probabilidades y f\_X(1)}}\label{probabilidades-y-f_x1}
 
@@ -1729,29 +1729,209 @@ Supóngase que se van a utilizar 20 ratas en un estudio de agentes coagulantes d
 
 \subsection{Ejercicio 1}\label{ejercicio-1}
 
-Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios, A, B y C. Denote con \(Y_{1}\) el número de estudios asignados al laboratorio A y con \(Y_{2}\) el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir 0, 1 o 2 estudios.
+Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios, \(\mathrm{A}, \mathrm{B}\) y C . Denote con \(Y_{1}\) el número de estudios asignados al laboratorio A y con \(Y_{2}\) el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir 0,1 o 2 estudios.
+a. Encuentre la función de probabilidad conjunta para \(Y_{1}\) y \(Y_{2}\).
+b. Encuentre \(F(1,0)\), es decir, la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.
+
+\subsubsection{\texorpdfstring{Parte a: Función de probabilidad conjunta para \(Y_1\) y \(Y_2\)}{Parte a: Función de probabilidad conjunta para Y\_1 y Y\_2}}\label{parte-a-funciuxf3n-de-probabilidad-conjunta-para-y_1-y-y_2}
+
+En este ejercicio, se nos indica que existen tres laboratorios (A, B y C) a los cuales se pueden asignar los estudios de forma aleatoria. Denotamos con \(Y_1\) el número de estudios asignados al laboratorio A y con \(Y_2\) el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir entre 0 y 2 estudios.
+
+Vamos a analizar el espacio muestral, \(S\), que representa las posibles combinaciones de asignación de estudios a los laboratorios. Los resultados posibles son:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(S\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+AA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+AB
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+AC
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+BA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+BB
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+BC
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+CA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+CB
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+CC
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\((y_1, y_2)\) & (2,0) & (1,1) & (1,0) & (1,1) & (0,2) & (1,0) & (1,0) & (0,1) & (0,0) \\
+\end{longtable}
+
+Cada punto muestral es igualmente probable, con una probabilidad de \(\frac{1}{9}\), ya que existen 9 combinaciones posibles.
+
+La función de probabilidad conjunta para \(Y_1\) y \(Y_2\) queda entonces representada en la siguiente tabla:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+& \(y_1 = 0\) & \(y_1 = 1\) & \(y_1 = 2\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(y_2 = 0\) & \(\frac{1}{9}\) & \(\frac{2}{9}\) & \(\frac{1}{9}\) \\
+\(y_2 = 1\) & \(\frac{2}{9}\) & \(\frac{2}{9}\) & \(0\) \\
+\(y_2 = 2\) & \(\frac{1}{9}\) & \(0\) & \(0\) \\
+\end{longtable}
+
+\subsubsection{\texorpdfstring{Parte b: Cálculo de \(F(1,0)\)}{Parte b: Cálculo de F(1,0)}}\label{parte-b-cuxe1lculo-de-f10}
+
+Nos piden encontrar la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno, es decir, \(F(1,0) = P(Y_1 \leq 1, Y_2 = 0)\).
+
+Para resolverlo, sumamos las probabilidades de los eventos en los cuales \(Y_1 \leq 1\) y \(Y_2 = 0\), que son \((Y_1 = 0, Y_2 = 0)\) y \((Y_1 = 1, Y_2 = 0)\):
+
+\[
+F(1,0) = P(Y_1 = 0, Y_2 = 0) + P(Y_1 = 1, Y_2 = 0)
+\]
+
+Sustituyendo con las probabilidades correspondientes de la tabla obtenemos:
+
+\[
+F(1,0) = \frac{1}{9} + \frac{2}{9} = \frac{3}{9} = \frac{1}{3}
+\]
+
+\subsubsection{Resumen}\label{resumen}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Encuentre la función de probabilidad conjunta para \(Y_{1}\) y \(Y_{2}\).
+  La función de probabilidad conjunta ha sido obtenida en función de todas las combinaciones posibles de asignación, considerando que cada una es igualmente probable.
 \item
-  Encuentre \(F(1,0)\), es decir, la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.
+  La probabilidad solicitada, \(F(1,0)\), es de \(\frac{1}{3}\), que representa la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.
 \end{enumerate}
 
 \subsection{Ejercicio 2}\label{ejercicio-2}
 
 Tres monedas balanceadas se lanzan en forma independiente al aire. Una de las variables de interés es \(Y_{1}\), el número de caras. Denote con \(Y_{2}\) la cantidad de dinero ganado en una apuesta colateral en la siguiente forma. Si la primera cara aparece en el primer tiro, usted gana 1€. Si la primera cara aparece en el tiro segundo o en el tercero gana 2€ o 3€, respectivamente. Si no aparece una cara, usted pierde 1€ (esto es, gana - 1€ ).
-a Encuentre la función de probabilidad conjunta para \(Y_{1}\) y \(Y_{2}\).
-b ¿Cuál es la probabilidad de que haya menos de tres caras y usted gane 1€ o menos? {[}Esto es, encuentre \(F(2,1)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Encuentre la función de probabilidad conjunta para \(Y_{1}\) y \(Y_{2}\).
+\item
+  ¿Cuál es la probabilidad de que haya menos de tres caras y usted gane 1€ o menos? {[}Esto es, encuentre \(F(2,1)\).
+\end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{1. Función de probabilidad conjunta para \(Y_1\) y \(Y_2\)}{1. Función de probabilidad conjunta para Y\_1 y Y\_2}}\label{funciuxf3n-de-probabilidad-conjunta-para-y_1-y-y_2}
+
+Dado que se lanzan tres monedas balanceadas de manera independiente, cada lanzamiento puede resultar en cara (C) o cruz (+) con probabilidad \(0.5\).
+
+Listamos todas las posibles secuencias de resultados en los tres lanzamientos y calculamos los valores de \(Y_1\) (número de caras obtenidas) y \(Y_2\) (cantidad de dinero ganado) para cada caso.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Secuencia & \(Y_1\) (Número de Caras) & \(Y_2\) (Ganancia en €) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+CCC & 3 & 1 \\
+CC+ & 2 & 1 \\
+C+C & 2 & 1 \\
+C++ & 1 & 1 \\
++CC & 2 & 2 \\
++C+ & 1 & 2 \\
+++C & 1 & 3 \\
++++ & 0 & -1 \\
+\end{longtable}
+
+Para calcular la función de probabilidad conjunta \(P(Y_1 = y_1, Y_2 = y_2)\), obtenemos las probabilidades de cada combinación de \((Y_1, Y_2)\) a partir de la cantidad de secuencias que cumplen con esos valores específicos.
+
+\paragraph{\texorpdfstring{Probabilidad de cada combinación de \((Y_1, Y_2)\):}{Probabilidad de cada combinación de (Y\_1, Y\_2):}}\label{probabilidad-de-cada-combinaciuxf3n-de-y_1-y_2}
+
+\begin{itemize}
+\tightlist
+\item
+  \(P(Y_1 = 3, Y_2 = 1) = \frac{1}{8}\), secuencia: CCC
+\item
+  \(P(Y_1 = 2, Y_2 = 1) = \frac{2}{8}\), secuencias: CC+, C+C
+\item
+  \(P(Y_1 = 2, Y_2 = 2) = \frac{1}{8}\), secuencia: +CC
+\item
+  \(P(Y_1 = 1, Y_2 = 1) = \frac{1}{8}\), secuencia: C++
+\item
+  \(P(Y_1 = 1, Y_2 = 2) = \frac{1}{8}\), secuencia: +C+
+\item
+  \(P(Y_1 = 1, Y_2 = 3) = \frac{1}{8}\), secuencia: ++C
+\item
+  \(P(Y_1 = 0, Y_2 = -1) = \frac{1}{8}\), secuencia: +++
+\end{itemize}
+
+Con esto, la función de probabilidad conjunta \(P(Y_1 = y_1, Y_2 = y_2)\) se define por:
+
+\[
+P(Y_1 = y_1, Y_2 = y_2) = 
+\begin{cases}
+\frac{1}{8}, & (y_1, y_2) = (3, 1), (2, 1), (2, 2), (1, 1), (1, 2), (1, 3), (0, -1) \\
+0, & \text{en cualquier otro caso}
+\end{cases}
+\]
+
+\subsubsection{\texorpdfstring{2. Cálculo de \(F(2, 1)\)}{2. Cálculo de F(2, 1)}}\label{cuxe1lculo-de-f2-1}
+
+Buscamos \(F(2, 1) = P(Y_1 \leq 2, Y_2 \leq 1)\), es decir, la probabilidad de obtener menos de tres caras y ganar un máximo de 1€.
+
+Para calcular esta probabilidad, sumamos \(P(Y_1 = y_1, Y_2 = y_2)\) para todos los pares \((y_1, y_2)\) que cumplen \(Y_1 \leq 2\) y \(Y_2 \leq 1\). De la tabla anterior, vemos que cumplen esta condición las siguientes combinaciones:
+
+\begin{itemize}
+\tightlist
+\item
+  \((Y_1 = 2, Y_2 = 1)\) con probabilidad \(\frac{2}{8}\)
+\item
+  \((Y_1 = 1, Y_2 = 1)\) con probabilidad \(\frac{1}{8}\)
+\item
+  \((Y_1 = 0, Y_2 = -1)\) con probabilidad \(\frac{1}{8}\)
+\end{itemize}
+
+Entonces:
+
+\[
+F(2, 1) = P(Y_1 \leq 2, Y_2 \leq 1) = \frac{2}{8} + \frac{1}{8} + \frac{1}{8} = \frac{4}{8} = \frac{1}{2}
+\]
+
+\subsubsection{Resumen de resultados}\label{resumen-de-resultados-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La función de probabilidad conjunta \(P(Y_1 = y_1, Y_2 = y_2)\) se ha especificado para todos los valores posibles.
+\item
+  La probabilidad de que haya menos de tres caras y se gane 1€ o menos es \(F(2, 1) = \frac{1}{2}\).
+\end{enumerate}
 
 \subsection{Ejercicio 3}\label{ejercicio-3}
 
-En el Ejercicio 1 determinamos que la distribución conjunta de \(Y_{1}\), el número de análisis asignados al laboratorio A, y \(Y_{2}\), el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.
+En el Ejercicio 1 determinamos que la distribución conjunta de \(Y_{1}\), el número de análisis asignados al laboratorio A , y \(Y_{2}\), el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.
 
 \begin{longtable}[]{@{}cccc@{}}
 \toprule\noalign{}
-& \(y_{1}\) & & \\
+\(y_{1}\) & & & \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -1764,11 +1944,100 @@ En el Ejercicio 1 determinamos que la distribución conjunta de \(Y_{1}\), el n�
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
+\tightlist
 \item
   Encuentre la distribución de probabilidad marginal de \(Y_{1}\).
 \item
   De acuerdo con los resultados vistos anteriormente \(Y_{1}\) tiene una distribución binomial con \(n=2\) y \(p=1 / 3\). ¿Hay algún conflicto entre este resultado y la respuesta dada en el punto a?
 \end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{Parte a: Distribución de probabilidad marginal de \(Y_1\)}{Parte a: Distribución de probabilidad marginal de Y\_1}}\label{parte-a-distribuciuxf3n-de-probabilidad-marginal-de-y_1}
+
+Para encontrar la distribución marginal de \(Y_1\), debemos sumar las probabilidades conjuntas de \(Y_1\) y \(Y_2\) para cada valor posible de \(Y_1\). A continuación, mostramos la tabla de probabilidades conjuntas de la solución anterior:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+\(y_1 \backslash y_2\) & 0 & 1 & 2 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(y_1 = 0\) & \(1/9\) & \(2/9\) & \(1/9\) \\
+\(y_1 = 1\) & \(2/9\) & \(2/9\) & \(0\) \\
+\(y_1 = 2\) & \(1/9\) & \(0\) & \(0\) \\
+\end{longtable}
+
+La distribución marginal de \(Y_1\) se calcula sumando las probabilidades de cada fila (fijando \(y_1\) y sumando sobre los valores de \(y_2\)):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Para \(y_1 = 0\):
+  \[
+  P(Y_1 = 0) = \frac{1}{9} + \frac{2}{9} + \frac{1}{9} = \frac{4}{9}
+  \]
+\item
+  Para \(y_1 = 1\):
+  \[
+  P(Y_1 = 1) = \frac{2}{9} + \frac{2}{9} + 0 = \frac{4}{9}
+  \]
+\item
+  Para \(y_1 = 2\):
+  \[
+  P(Y_1 = 2) = \frac{1}{9} + 0 + 0 = \frac{1}{9}
+  \]
+\end{enumerate}
+
+Por lo tanto, la distribución marginal de \(Y_1\) es:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+\(y_1\) & 0 & 1 & 2 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(p_{Y_1}(y_1)\) & \(\frac{4}{9}\) & \(\frac{4}{9}\) & \(\frac{1}{9}\) \\
+\end{longtable}
+
+\subsubsection{Parte b: Comparación con la distribución binomial}\label{parte-b-comparaciuxf3n-con-la-distribuciuxf3n-binomial}
+
+Se sugiere que \(Y_1\) sigue una distribución binomial con parámetros \(n = 2\) y \(p = \frac{1}{3}\). Veamos si esta afirmación concuerda con los resultados obtenidos en la parte a.
+
+Para una variable aleatoria binomial \(Y_1 \sim \text{Binomial}(n=2, p=1/3)\), la función de probabilidad es:
+
+\[
+P(Y_1 = k) = \binom{n}{k} p^k (1 - p)^{n - k}
+\]
+
+Calculamos las probabilidades para cada valor de \(k\):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Para \(k = 0\):
+  \[
+  P(Y_1 = 0) = \binom{2}{0} \left(\frac{1}{3}\right)^0 \left(\frac{2}{3}\right)^2 = 1 \cdot 1 \cdot \frac{4}{9} = \frac{4}{9}
+  \]
+\item
+  Para \(k = 1\):
+  \[
+  P(Y_1 = 1) = \binom{2}{1} \left(\frac{1}{3}\right)^1 \left(\frac{2}{3}\right)^1 = 2 \cdot \frac{1}{3} \cdot \frac{2}{3} = \frac{4}{9}
+  \]
+\item
+  Para \(k = 2\):
+  \[
+  P(Y_1 = 2) = \binom{2}{2} \left(\frac{1}{3}\right)^2 \left(\frac{2}{3}\right)^0 = 1 \cdot \frac{1}{9} \cdot 1 = \frac{1}{9}
+  \]
+\end{enumerate}
+
+Las probabilidades obtenidas para la binomial son exactamente las mismas que encontramos en la distribución marginal de \(Y_1\), lo que confirma que \(Y_1 \sim \text{Binomial}(2, 1/3)\).
+
+\subsubsection{Conclusión}\label{conclusiuxf3n-2}
+
+No hay conflicto entre la distribución marginal de \(Y_1\) obtenida en la parte a y el hecho de que \(Y_1\) tenga una distribución binomial con parámetros \(n = 2\) y \(p = \frac{1}{3}\).
 
 \subsection{Ejercicio 4}\label{ejercicio-4}
 
@@ -1777,30 +2046,118 @@ Un ingeniero ambiental mide la cantidad (en peso) de partículas contaminantes e
 Suponga que el comportamiento de frecuencia relativa de \(Y_{1}\) y \(Y_{2}\) puede ser modelado por
 
 \[
-f\left(y_{1}, y_{2}\right)= \begin{cases}k, & 0 \leq y_{1} \leq 2,\quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\ 0, & \text { en cualquier otro punto. }\end{cases}
+f\left(y_{1}, y_{2}\right)=\left\{\begin{array}{l}
+k, \quad 0 \leq y_{1} \leq 2, \quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\
+0, \quad \text { en cualquier otro punto. }
+\end{array}\right.
 \]
 
 Esto es, \(Y_{1}\) y \(Y_{2}\) están uniformemente distribuidas sobre la región dentro del triángulo limitado por \(y_{1}=2, y_{2}=0\) y \(2 y_{2}=y_{1}\).
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   Encuentre el valor de \(k\) que haga de ésta una función de densidad de probabilidad.
 \item
   Encuentre \(P\left(Y_{1} \geq 3 Y_{2}\right)\). Esto es, encuentre la probabilidad de que el aparato limpiador reduzca la cantidad de contaminante en un tercio o más.
 \end{enumerate}
 
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{1. Encontrar el valor de \(k\) que haga de ésta una función de densidad de probabilidad}{1. Encontrar el valor de k que haga de ésta una función de densidad de probabilidad}}\label{encontrar-el-valor-de-k-que-haga-de-uxe9sta-una-funciuxf3n-de-densidad-de-probabilidad}
+
+Para que \(f(y_1, y_2)\) sea una función de densidad de probabilidad válida, la integral de \(f(y_1, y_2)\) sobre toda la región de soporte debe ser igual a 1:
+
+\[
+\iint_{\text{región de soporte}} f(y_1, y_2) \, dy_1 \, dy_2 = 1
+\]
+
+La función de densidad es constante y toma el valor \(k\) sobre la región triangular definida por \(0 \leq y_1 \leq 2\), \(0 \leq y_2 \leq 1\) y \(2 y_2 \leq y_1\). Esta región corresponde a un triángulo en el plano \(y_1\)-\(y_2\) con los vértices en \((0,0)\), \((2,0)\), y \((2,1)\).
+
+\paragraph{Paso 1: Determinar el área de la región triangular}\label{paso-1-determinar-el-uxe1rea-de-la-regiuxf3n-triangular}
+
+La región triangular tiene una base de longitud 2 (a lo largo del eje \(y_1\)) y una altura de 1 (a lo largo del eje \(y_2\)). El área del triángulo es:
+
+\[
+\text{Área} = \frac{1}{2} \times \text{base} \times \text{altura} = \frac{1}{2} \times 2 \times 1 = 1
+\]
+
+\paragraph{\texorpdfstring{Paso 2: Integrar \(f(y_1, y_2)\) sobre la región triangular}{Paso 2: Integrar f(y\_1, y\_2) sobre la región triangular}}\label{paso-2-integrar-fy_1-y_2-sobre-la-regiuxf3n-triangular}
+
+Dado que \(f(y_1, y_2) = k\) en esta región y la función de densidad es uniforme, la integral sobre esta área es simplemente \(k\) multiplicado por el área:
+
+\[
+\iint_{\text{región}} f(y_1, y_2) \, dy_1 \, dy_2 = k \times \text{Área} = k \times 1 = k
+\]
+
+Para que \(f(y_1, y_2)\) sea una función de densidad, necesitamos que esta integral sea igual a 1, entonces:
+
+\[
+k = 1
+\]
+
+\subsubsection{\texorpdfstring{2. Encontrar \(P(Y_{1} \geq 3 Y_{2})\)}{2. Encontrar P(Y\_\{1\} \textbackslash geq 3 Y\_\{2\})}}\label{encontrar-py_1-geq-3-y_2}
+
+Queremos encontrar la probabilidad de que \(Y_{1} \geq 3 Y_{2}\) en la región triangular donde \(f(y_1, y_2) = k = 1\).
+
+\paragraph{\texorpdfstring{Paso 1: Identificar la subregión definida por \(Y_{1} \geq 3 Y_{2}\)}{Paso 1: Identificar la subregión definida por Y\_\{1\} \textbackslash geq 3 Y\_\{2\}}}\label{paso-1-identificar-la-subregiuxf3n-definida-por-y_1-geq-3-y_2}
+
+La desigualdad \(Y_{1} \geq 3 Y_{2}\) corresponde a la recta \(y_1 = 3 y_2\). Para encontrar la intersección de esta recta con la región triangular, notamos que:
+- En \(y_1 = 2\), al sustituir en \(y_1 = 3 y_2\), tenemos \(y_2 = \frac{2}{3}\).
+
+Por lo tanto, la subregión de interés es el triángulo delimitado por los puntos \((0,0)\), \((2,0)\) y \((2, \frac{2}{3})\).
+
+\paragraph{Paso 2: Calcular el área de la subregión}\label{paso-2-calcular-el-uxe1rea-de-la-subregiuxf3n}
+
+La base de este subtriángulo es 2 (a lo largo de \(y_1\)), y la altura es \(\frac{2}{3}\) (a lo largo de \(y_2\)). Su área es:
+
+\[
+\text{Área del subtriángulo} = \frac{1}{2} \times \text{base} \times \text{altura} = \frac{1}{2} \times 2 \times \frac{2}{3} = \frac{2}{3}
+\]
+
+\paragraph{Paso 3: Calcular la probabilidad}\label{paso-3-calcular-la-probabilidad}
+
+La probabilidad buscada es la proporción del área del subtriángulo respecto al área total de la región de soporte:
+
+\[
+P(Y_{1} \geq 3 Y_{2}) = \frac{\text{Área del subtriángulo}}{\text{Área de la región total}} = \frac{\frac{2}{3}}{1} = \frac{2}{3}
+\]
+
+\subsubsection{Respuesta final}\label{respuesta-final}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  El valor de \(k\) que hace de \(f(y_1, y_2)\) una función de densidad de probabilidad es \(k = 1\).
+\item
+  La probabilidad de que \(Y_{1} \geq 3 Y_{2}\) es:
+\end{enumerate}
+
+\[
+P(Y_{1} \geq 3 Y_{2}) = \frac{2}{3}
+\]
+
 \subsection{Ejercicio 5}\label{ejercicio-5}
 
 En el Ejercicio 4 hemos establecido que
 
 \[
-f\left(y_{1}, y_{2}\right)= \begin{cases}k, & 0 \leq y_{1} \leq 2,\quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\ 0, & \text { en cualquier otro punto. }\end{cases}
+f\left(y_{1}, y_{2}\right)=\left\{\begin{array}{l}
+k, \quad 0 \leq y_{1} \leq 2, \quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\
+0, \quad \text { en cualquier otro punto. }
+\end{array}\right.
 \]
 
 es una función de densidad de probabilidad conjunta válida para \(Y_{1}\), la cantidad de contaminante por muestra recolectada arriba de la chimenea que no tenía el aparato limpiador, y para \(Y_{2}\), la cantidad recolectada arriba de la chimenea con el aparato limpiador.
 
-a, Si consideramos la chimenea con el limpiador instalado, encuentre la probabilidad de que la cantidad de contaminante en una muestra determinada sea mayor que \(0.5\).
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Si consideramos la chimenea con el limpiador instalado, encuentre la probabilidad de que la cantidad de contaminante en una muestra determinada sea mayor que 0.5.
+\end{enumerate}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1810,17 +2167,123 @@ a, Si consideramos la chimenea con el limpiador instalado, encuentre la probabil
   Dado que se observa que la cantidad de contaminante en una muestra tomada arriba de la chimenea con el limpiador es 0.5 , encuentre la probabilidad de que la cantidad de contaminante exceda de 1.5 arriba de la otra chimenea (la que no tiene limpiador).
 \end{enumerate}
 
+\textbf{Solución}
+
+\subsubsection{1. Probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5}\label{probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5}
+
+Queremos encontrar la probabilidad de que \(Y_2 > 0.5\), donde \(Y_2\) representa la cantidad de contaminante en la chimenea con el aparato limpiador. Recordando que \(f(y_1, y_2)\) es la función de densidad conjunta y que hemos hallado \(k = 1\), calcularemos la probabilidad integrando sobre la región correspondiente a \(y_2 > 0.5\) y \(y_1\) dentro de su rango definido por la condición \(2y_2 \leq y_1 \leq 2\).
+
+La probabilidad se calcula como:
+
+\[
+P(Y_2 > 0.5) = \iint_{\{y_2 > 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \, dy_1 \, dy_2
+\]
+
+\paragraph{Paso 1: Establecer los límites de integración}\label{paso-1-establecer-los-luxedmites-de-integraciuxf3n}
+
+Para \(y_2 > 0.5\), los límites de \(y_1\) están restringidos por la región triangular dada:
+- \(2 y_2 \leq y_1 \leq 2\)
+
+Entonces, los límites de integración son:
+- \(y_2\): desde 0.5 hasta 1
+- \(y_1\): desde \(2 y_2\) hasta 2
+
+\paragraph{Paso 2: Integrar la función de densidad conjunta}\label{paso-2-integrar-la-funciuxf3n-de-densidad-conjunta}
+
+Dado que \(f(y_1, y_2) = 1\) en esta región, la probabilidad es la integral de 1 sobre el área triangular correspondiente:
+
+\[
+P(Y_2 > 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
+\]
+
+Evaluamos esta integral en dos pasos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Calculo de la probabilidad con R}
+
+\DocumentationTok{\#\# Definir la función de integración para y1}
+\NormalTok{integrate\_y1 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(y2) \{}
+  \FunctionTok{integrate}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(y1) }\DecValTok{1}\NormalTok{, }\AttributeTok{lower =} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ y2, }\AttributeTok{upper =} \DecValTok{2}\NormalTok{)}\SpecialCharTok{$}\NormalTok{value}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# Integrar respecto a y2}
+\NormalTok{result }\OtherTok{\textless{}{-}} \FunctionTok{integrate}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(y2) }\FunctionTok{integrate\_y1}\NormalTok{(y2), }\AttributeTok{lower =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{upper =} \DecValTok{1}\NormalTok{)}
+\NormalTok{result}\SpecialCharTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{Resultado}\label{resultado}
+
+Al resolver esta integral, obtenemos la probabilidad:
+
+\[
+P(Y_2 > 0.5) \approx 0.25
+\]
+
+\subsubsection{\texorpdfstring{2. Probabilidad condicional dada una observación de \(Y_2 = 0.5\)}{2. Probabilidad condicional dada una observación de Y\_2 = 0.5}}\label{probabilidad-condicional-dada-una-observaciuxf3n-de-y_2-0.5}
+
+Queremos calcular \(P(Y_1 > 1.5 \mid Y_2 = 0.5)\), la probabilidad de que la cantidad de contaminante en la chimenea sin limpiador (representada por \(Y_1\)) sea mayor que 1.5, dado que en la chimenea con limpiador se observó \(Y_2 = 0.5\).
+
+\paragraph{Paso 1: Identificar la función de densidad condicional}\label{paso-1-identificar-la-funciuxf3n-de-densidad-condicional}
+
+Para la función de densidad condicional \(f_{Y_1|Y_2}(y_1 | y_2)\), aplicamos:
+
+\[
+f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = \frac{f(y_1, 0.5)}{f_{Y_2}(0.5)}
+\]
+
+Calcularemos \(f_{Y_2}(0.5)\) integrando \(f(y_1, y_2)\) sobre los valores de \(y_1\) en la región donde \(Y_2 = 0.5\):
+
+\[
+f_{Y_2}(0.5) = \int_{y_1 = 2 \cdot 0.5}^{2} f(y_1, 0.5) \, dy_1 = \int_{1}^{2} 1 \, dy_1
+\]
+
+Evaluamos la integral:
+
+\[
+f_{Y_2}(0.5) = \int_{1}^{2} 1 \, dy_1 = (2 - 1) = 1
+\]
+
+Por lo tanto, \(f_{Y_2}(0.5) = 1\).
+
+\paragraph{Paso 2: Calcular la probabilidad condicional}\label{paso-2-calcular-la-probabilidad-condicional}
+
+La probabilidad de interés es:
+
+\[
+P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) \, dy_1
+\]
+
+Como \(f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = 1\) para \(1 \leq y_1 \leq 2\), tenemos:
+
+\[
+P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
+\]
+
+\subsubsection{Respuesta final}\label{respuesta-final-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5 es aproximadamente 0.25.
+\item
+  La probabilidad de que la cantidad de contaminante en la chimenea sin limpiador exceda 1.5, dado que en la otra chimenea se observó 0.5, es 0.5.
+\end{enumerate}
+
 \subsection{Ejercicio 6}\label{ejercicio-6}
 
 En el ejercicio 1 determinamos que la distribución conjunta de \(Y_{1}\), el número de análisis asignados al laboratorio A, y \(Y_{2}\), el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.
 
 \begin{longtable}[]{@{}cccc@{}}
 \toprule\noalign{}
-& \(y_{1}\) & & \\
+\(y_{1}\) & & & \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
+& & & \\
 \(y_{2}\) & 0 & 1 & 2 \\
 0 & \(1 / 9\) & \(2 / 9\) & \(1 / 9\) \\
 1 & \(2 / 9\) & \(2 / 9\) & 0 \\
@@ -1829,10 +2292,223 @@ En el ejercicio 1 determinamos que la distribución conjunta de \(Y_{1}\), el n�
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
+\tightlist
 \item
-  Encuentre \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right) \cdot{ }_{¿}\)
+  Encuentre \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right) \cdot{ }_{i}\)
 \item
   Le sorprende que \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\) sea negativa? \({ }_{\text {¿Por qué? }}\)
+\end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{Parte a: Cálculo de la covarianza \(\operatorname{Cov}(Y_1, Y_2)\)}{Parte a: Cálculo de la covarianza \textbackslash operatorname\{Cov\}(Y\_1, Y\_2)}}\label{parte-a-cuxe1lculo-de-la-covarianza-operatornamecovy_1-y_2}
+
+La covarianza entre dos variables aleatorias \(Y_1\) y \(Y_2\) se define como:
+
+\[
+\operatorname{Cov}(Y_1, Y_2) = E(Y_1 Y_2) - E(Y_1)E(Y_2)
+\]
+
+Para calcular la covarianza, necesitamos obtener los valores de \(E(Y_1)\), \(E(Y_2)\) y \(E(Y_1 Y_2)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Cálculo de \(E(Y_1)\) y \(E(Y_2)\)}
+
+  A partir de la distribución conjunta dada en la tabla, podemos calcular la esperanza de \(Y_1\) y \(Y_2\) sumando las posibles combinaciones de valores ponderadas por sus probabilidades.
+
+  \[ E(Y_1) = \sum_{y_1} y_1 \cdot P(Y_1 = y_1) \]
+  \[ E(Y_2) = \sum_{y_2} y_2 \cdot P(Y_2 = y_2) \]
+
+  Usamos la tabla para estos cálculos:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+   \DocumentationTok{\#\# Probabilidades conjuntas}
+\NormalTok{   probs }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{2}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{2}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{2}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+   
+   \DocumentationTok{\#\# Valores de Y1 y Y2}
+\NormalTok{   y1\_values }\OtherTok{\textless{}{-}} \DecValTok{0}\SpecialCharTok{:}\DecValTok{2}
+\NormalTok{   y2\_values }\OtherTok{\textless{}{-}} \DecValTok{0}\SpecialCharTok{:}\DecValTok{2}
+   
+   \DocumentationTok{\#\# Esperanza de Y1}
+\NormalTok{   E\_Y1 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(y1\_values }\SpecialCharTok{*} \FunctionTok{rowSums}\NormalTok{(probs))}
+   \DocumentationTok{\#\# Esperanza de Y2}
+\NormalTok{   E\_Y2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(y2\_values }\SpecialCharTok{*} \FunctionTok{colSums}\NormalTok{(probs))}
+   
+\NormalTok{   E\_Y1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6666667
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{   E\_Y2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6666667
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Cálculo de \(E(Y_1 Y_2)\)}
+
+  Para calcular \(E(Y_1 Y_2)\), sumamos el producto \(y_1 \cdot y_2\) ponderado por la probabilidad conjunta \(p(y_1, y_2)\).
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+   \DocumentationTok{\#\# Producto de Y1 * Y2 * probabilidad conjunta}
+\NormalTok{   E\_Y1Y2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{outer}\NormalTok{(y1\_values, y2\_values, }\StringTok{"*"}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ probs)}
+   
+\NormalTok{   E\_Y1Y2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2222222
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Calcular la covarianza}
+
+  Sustituyendo los valores obtenidos:
+
+  \[ \operatorname{Cov}(Y_1, Y_2) = E(Y_1 Y_2) - E(Y_1)E(Y_2) \]
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{   Cov\_Y1Y2 }\OtherTok{\textless{}{-}}\NormalTok{ E\_Y1Y2 }\SpecialCharTok{{-}}\NormalTok{ E\_Y1 }\SpecialCharTok{*}\NormalTok{ E\_Y2}
+\NormalTok{   Cov\_Y1Y2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.2222222
+\end{verbatim}
+
+\subsubsection{Parte b: Interpretación de la covarianza negativa}\label{parte-b-interpretaciuxf3n-de-la-covarianza-negativa}
+
+La covarianza calculada es negativa. Este resultado tiene sentido en el contexto del problema. Dado que los estudios se asignan a tres laboratorios y cada laboratorio recibe un número limitado de estudios, un incremento en el número de estudios asignados a un laboratorio reduce la cantidad disponible para los otros. Así, si \(Y_1\) aumenta, \(Y_2\) tiende a disminuir, lo que explica una relación inversa entre ambas variables y resulta en una covarianza negativa.
+
+\textbf{Solución}
+
+\subsubsection{Ejercicio}\label{ejercicio}
+
+\paragraph{1. Probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5}\label{probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5-1}
+
+Queremos encontrar la probabilidad de que \(Y_2 > 0.5\), donde \(Y_2\) representa la cantidad de contaminante en la chimenea con el aparato limpiador. Recordando que \(f(y_1, y_2)\) es la función de densidad conjunta y que hemos hallado \(k = 1\), calcularemos la probabilidad integrando sobre la región correspondiente a \(y_2 > 0.5\) y \(y_1\) dentro de su rango definido por la condición \(2y_2 \leq y_1 \leq 2\).
+
+La probabilidad se calcula como:
+
+\[
+P(Y_2 > 0.5) = \iint_{\{y_2 > 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \, dy_1 \, dy_2
+\]
+
+\subparagraph{Paso 1: Establecer los límites de integración}\label{paso-1-establecer-los-luxedmites-de-integraciuxf3n-1}
+
+Para \(y_2 > 0.5\), los límites de \(y_1\) están restringidos por la región triangular dada:
+- \(2 y_2 \leq y_1 \leq 2\)
+
+Entonces, los límites de integración son:
+- \(y_2\): desde 0.5 hasta 1
+- \(y_1\): desde \(2 y_2\) hasta 2
+
+\subparagraph{Paso 2: Integrar la función de densidad conjunta}\label{paso-2-integrar-la-funciuxf3n-de-densidad-conjunta-1}
+
+Dado que \(f(y_1, y_2) = 1\) en esta región, la probabilidad es la integral de 1 sobre el área triangular correspondiente:
+
+\[
+P(Y_2 > 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
+\]
+
+Evaluamos esta integral en dos pasos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Calculo de la probabilidad con R}
+
+\DocumentationTok{\#\# Definir la función de integración para y1}
+\NormalTok{integrate\_y1 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(y2) \{}
+  \FunctionTok{integrate}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(y1) }\DecValTok{1}\NormalTok{, }\AttributeTok{lower =} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ y2, }\AttributeTok{upper =} \DecValTok{2}\NormalTok{)}\SpecialCharTok{$}\NormalTok{value}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# Integrar respecto a y2}
+\NormalTok{result }\OtherTok{\textless{}{-}} \FunctionTok{integrate}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(y2) }\FunctionTok{integrate\_y1}\NormalTok{(y2), }\AttributeTok{lower =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{upper =} \DecValTok{1}\NormalTok{)}
+\NormalTok{result}\SpecialCharTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\subparagraph{Resultado}\label{resultado-1}
+
+Al resolver esta integral, obtenemos la probabilidad:
+
+\[
+P(Y_2 > 0.5) \approx 0.25
+\]
+
+\paragraph{\texorpdfstring{2. Probabilidad condicional dada una observación de \(Y_2 = 0.5\)}{2. Probabilidad condicional dada una observación de Y\_2 = 0.5}}\label{probabilidad-condicional-dada-una-observaciuxf3n-de-y_2-0.5-1}
+
+Queremos calcular \(P(Y_1 > 1.5 \mid Y_2 = 0.5)\), la probabilidad de que la cantidad de contaminante en la chimenea sin limpiador (representada por \(Y_1\)) sea mayor que 1.5, dado que en la chimenea con limpiador se observó \(Y_2 = 0.5\).
+
+\subparagraph{Paso 1: Identificar la función de densidad condicional}\label{paso-1-identificar-la-funciuxf3n-de-densidad-condicional-1}
+
+Para la función de densidad condicional \(f_{Y_1|Y_2}(y_1 | y_2)\), aplicamos:
+
+\[
+f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = \frac{f(y_1, 0.5)}{f_{Y_2}(0.5)}
+\]
+
+Calcularemos \(f_{Y_2}(0.5)\) integrando \(f(y_1, y_2)\) sobre los valores de \(y_1\) en la región donde \(Y_2 = 0.5\):
+
+\[
+f_{Y_2}(0.5) = \int_{y_1 = 2 \cdot 0.5}^{2} f(y_1, 0.5) \, dy_1 = \int_{1}^{2} 1 \, dy_1
+\]
+
+Evaluamos la integral:
+
+\[
+f_{Y_2}(0.5) = \int_{1}^{2} 1 \, dy_1 = (2 - 1) = 1
+\]
+
+Por lo tanto, \(f_{Y_2}(0.5) = 1\).
+
+\subparagraph{Paso 2: Calcular la probabilidad condicional}\label{paso-2-calcular-la-probabilidad-condicional-1}
+
+La probabilidad de interés es:
+
+\[
+P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) \, dy_1
+\]
+
+Como \(f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = 1\) para \(1 \leq y_1 \leq 2\), tenemos:
+
+\[
+P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
+\]
+
+\paragraph{Respuesta final}\label{respuesta-final-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5 es aproximadamente 0.25.
+\item
+  La probabilidad de que la cantidad de contaminante en la chimenea sin limpiador exceda 1.5, dado que en la otra chimenea se observó 0.5, es 0.5.
 \end{enumerate}
 
 \subsection{Ejercicio 7}\label{ejercicio-7}
@@ -1840,21 +2516,73 @@ En el ejercicio 1 determinamos que la distribución conjunta de \(Y_{1}\), el n�
 Las variables aleatorias \(Y_{1}\) y \(Y_{2}\) son tales que \(E\left(Y_{1}\right)=4, E\left(Y_{2}\right)=-1, V\left(Y_{1}\right)=2\) y \(V\left(Y_{2}\right)=8\).
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   ¿Cuál es \(\operatorname{Cov}\left(Y_{1}, Y_{1}\right)\) ?
 \item
-  Suponiendo que las medias y las varianzas sean correctas, ¿es posible que \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\) ? {[}Sugerencia: \(\operatorname{si} \operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\), ¿cuál es el valor de \(\rho\), el coeficiente de correlación?{]}
+  Suponiendo que las medias y las varianzas sean correctas, ¿es posible que \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\) ? {[}Sugerencia: si \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\), ¿cuál es el valor de \(\rho\), el coeficiente de correlación?{]}
 \item
-  Suponiendo que las medias y las varianzas sean correctas, ¿cuál es el máximo valor posible para \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right) ? \operatorname{Si} \operatorname{Cov}\left(Y_{1}, Y_{2}\right)\) alcanza este valor máximo, ¿qué implica eso acerca de la relación entre \(Y_{1}\) y \(Y_{2}\) ?
+  Suponiendo que las medias y las varianzas sean correctas, ¿cuál es el máximo valor posible para \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\) ? Si \(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\) alcanza este valor máximo, ¿qué implica eso acerca de la relación entre \(Y_{1}\) y \(Y_{2}\) ?
 \end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{Parte a: Cálculo de \(\operatorname{Cov}(Y_1, Y_1)\)}{Parte a: Cálculo de \textbackslash operatorname\{Cov\}(Y\_1, Y\_1)}}\label{parte-a-cuxe1lculo-de-operatornamecovy_1-y_1}
+
+Para cualquier variable aleatoria \(Y\), la covarianza de \(Y\) consigo misma es igual a su varianza. Es decir:
+
+\[
+\operatorname{Cov}(Y_1, Y_1) = V(Y_1)
+\]
+
+Dado que \(V(Y_1) = 2\), tenemos que:
+
+\[
+\operatorname{Cov}(Y_1, Y_1) = 2
+\]
+
+\subsubsection{\texorpdfstring{Parte b: Verificación de \(\operatorname{Cov}(Y_1, Y_2) = 7\)}{Parte b: Verificación de \textbackslash operatorname\{Cov\}(Y\_1, Y\_2) = 7}}\label{parte-b-verificaciuxf3n-de-operatornamecovy_1-y_2-7}
+
+Si se supone que \(\operatorname{Cov}(Y_1, Y_2) = 7\), podemos calcular el coeficiente de correlación \(\rho\), que se define como:
+
+\[
+\rho = \frac{\operatorname{Cov}(Y_1, Y_2)}{\sqrt{V(Y_1) \cdot V(Y_2)}}
+\]
+
+Sustituyendo los valores dados:
+
+\[
+\rho = \frac{7}{\sqrt{2 \cdot 8}} = \frac{7}{4} = 1.75
+\]
+
+Dado que el coeficiente de correlación \(\rho\) debe estar en el rango de \(-1 \leq \rho \leq 1\), obtener \(\rho = 1.75\) es imposible. Esto implica que no es posible que \(\operatorname{Cov}(Y_1, Y_2) = 7\) con los valores de varianza y media proporcionados.
+
+\subsubsection{\texorpdfstring{Parte c: Valor máximo posible de \(\operatorname{Cov}(Y_1, Y_2)\) y su interpretación}{Parte c: Valor máximo posible de \textbackslash operatorname\{Cov\}(Y\_1, Y\_2) y su interpretación}}\label{parte-c-valor-muxe1ximo-posible-de-operatornamecovy_1-y_2-y-su-interpretaciuxf3n}
+
+Para determinar el valor máximo posible de \(\operatorname{Cov}(Y_1, Y_2)\), consideramos que el valor absoluto del coeficiente de correlación \(\rho\) puede ser como máximo \(1\). Esto ocurre en los casos de correlación lineal perfecta (positiva o negativa). Entonces, el valor máximo de \(\operatorname{Cov}(Y_1, Y_2)\) es:
+
+\[
+\operatorname{Cov}(Y_1, Y_2) = \rho \cdot \sqrt{V(Y_1) \cdot V(Y_2)} 
+\]
+
+Si \(\rho = 1\), lo cual indica una asociación lineal positiva perfecta, obtenemos:
+
+\[
+\operatorname{Cov}(Y_1, Y_2) = 1 \cdot \sqrt{2 \cdot 8} = 4
+\]
+
+Esto significa que el valor máximo posible de \(\operatorname{Cov}(Y_1, Y_2)\) es \(4\). De manera similar, si \(\rho = -1\), el valor mínimo posible de \(\operatorname{Cov}(Y_1, Y_2)\) sería \(-4\), indicando una asociación lineal negativa perfecta.
+
+Cuando \(\operatorname{Cov}(Y_1, Y_2) = 4\), significa que \(Y_1\) y \(Y_2\) están perfectamente correlacionadas en forma positiva, es decir, existe una relación lineal exacta en la que un aumento en \(Y_1\) siempre corresponde a un aumento proporcional en \(Y_2\).
 
 \subsection{Ejercicio 8}\label{ejercicio-8}
 
 Un experimento de aprendizaje requiere que una rata corra por un laberinto (una red de pasillos) hasta que localice una de tres posibles salidas. La salida 1 presenta una recompensa de alimento, no así las salidas 2 y 3. (Si la rata finalmente selecciona la salida 1 casi siempre, puede tener lugar el aprendizaje.) Denote con \(Y_{i}\) el número de veces que la salida \(i\) es seleccionada en corridas sucesivas. Para lo siguiente, suponga que la rata escoge una salida aleatoriamente en cada corrida.
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   Encuentre la probabilidad de que \(n=6\) corridas resulte en \(Y_{1}=3, Y_{2}=1\) y \(Y_{3}=2\).
 \item
@@ -1864,5 +2592,286 @@ Un experimento de aprendizaje requiere que una rata corra por un laberinto (una 
 \item
   Para comprobar la preferencia de la rata entre las salidas 2 y 3 , podemos buscar en \(Y_{2}-Y_{3}\). Encuentre \(E\left(Y_{2}-Y_{3}\right)\) y \(V\left(Y_{2}-Y_{3}\right)\) para \(n\) general.
 \end{enumerate}
+
+\textbf{Solución}
+
+\subsubsection{\texorpdfstring{Parte a: Probabilidad de obtener \(Y_1 = 3\), \(Y_2 = 1\) y \(Y_3 = 2\) en \(n = 6\) corridas}{Parte a: Probabilidad de obtener Y\_1 = 3, Y\_2 = 1 y Y\_3 = 2 en n = 6 corridas}}\label{parte-a-probabilidad-de-obtener-y_1-3-y_2-1-y-y_3-2-en-n-6-corridas}
+
+Este problema puede resolverse utilizando la \textbf{distribución multinomial}, ya que describe el número de veces que ocurre cada posible resultado en un número fijo de ensayos independientes. Aquí, cada una de las tres salidas tiene la misma probabilidad de ser seleccionada en cada corrida, es decir, \(p_1 = p_2 = p_3 = \frac{1}{3}\), y el número total de corridas es \(n = 6\). Por lo tanto, estamos interesados en calcular:
+
+\[
+P(Y_1 = 3, Y_2 = 1, Y_3 = 2) = \frac{6!}{3! \, 1! \, 2!} \left( \frac{1}{3} \right)^6
+\]
+
+Calculando esta expresión:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{6}
+\NormalTok{p }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{/} \DecValTok{3}
+\NormalTok{prob }\OtherTok{\textless{}{-}} \FunctionTok{factorial}\NormalTok{(n) }\SpecialCharTok{/}\NormalTok{ (}\FunctionTok{factorial}\NormalTok{(}\DecValTok{3}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{factorial}\NormalTok{(}\DecValTok{1}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{factorial}\NormalTok{(}\DecValTok{2}\NormalTok{)) }\SpecialCharTok{*}\NormalTok{ p}\SpecialCharTok{\^{}}\NormalTok{n}
+\NormalTok{prob}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.08230453
+\end{verbatim}
+
+El resultado de esta probabilidad es aproximadamente 0.0823.
+
+\subsubsection{\texorpdfstring{Parte b: Esperanza y varianza de \(Y_1\) para un \(n\) general}{Parte b: Esperanza y varianza de Y\_1 para un n general}}\label{parte-b-esperanza-y-varianza-de-y_1-para-un-n-general}
+
+Para una variable aleatoria multinomial, la esperanza y la varianza de cada conteo se puede calcular usando las propiedades de esta distribución. En particular, para \(Y_1\), tenemos que:
+
+\begin{itemize}
+\tightlist
+\item
+  La \textbf{esperanza} es \(E(Y_1) = n \cdot p_1\).
+\item
+  La \textbf{varianza} es \(V(Y_1) = n \cdot p_1 \cdot (1 - p_1)\).
+\end{itemize}
+
+Como \(p_1 = \frac{1}{3}\), obtenemos:
+
+\[
+E(Y_1) = \frac{n}{3}, \quad V(Y_1) = n \cdot \frac{1}{3} \cdot \frac{2}{3} = \frac{2n}{9}
+\]
+
+\subsubsection{\texorpdfstring{Parte c: Covarianza entre \(Y_2\) y \(Y_3\) para un \(n\) general}{Parte c: Covarianza entre Y\_2 y Y\_3 para un n general}}\label{parte-c-covarianza-entre-y_2-y-y_3-para-un-n-general}
+
+La \textbf{covarianza} entre dos variables en una distribución multinomial, \(Y_2\) y \(Y_3\), se puede calcular como:
+
+\[
+\operatorname{Cov}(Y_2, Y_3) = -n \cdot p_2 \cdot p_3
+\]
+
+Dado que \(p_2 = p_3 = \frac{1}{3}\), tenemos:
+
+\[
+\operatorname{Cov}(Y_2, Y_3) = -n \cdot \frac{1}{3} \cdot \frac{1}{3} = -\frac{n}{9}
+\]
+
+\subsubsection{\texorpdfstring{Parte d: Esperanza y varianza de \(Y_2 - Y_3\) para un \(n\) general}{Parte d: Esperanza y varianza de Y\_2 - Y\_3 para un n general}}\label{parte-d-esperanza-y-varianza-de-y_2---y_3-para-un-n-general}
+
+Para evaluar la preferencia de la rata entre las salidas 2 y 3, podemos observar la diferencia \(Y_2 - Y_3\). Calcularemos su esperanza y varianza.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Esperanza de \(Y_2 - Y_3\)}:
+
+  Usamos la linealidad de la esperanza:
+
+  \[
+  E(Y_2 - Y_3) = E(Y_2) - E(Y_3) = \frac{n}{3} - \frac{n}{3} = 0
+  \]
+\item
+  \textbf{Varianza de \(Y_2 - Y_3\)}:
+
+  Para calcular la varianza de \(Y_2 - Y_3\), usamos la fórmula de la varianza de una diferencia:
+
+  \[
+  V(Y_2 - Y_3) = V(Y_2) + V(Y_3) - 2 \operatorname{Cov}(Y_2, Y_3)
+  \]
+
+  Sabemos que \(V(Y_2) = V(Y_3) = \frac{2n}{9}\) y que \(\operatorname{Cov}(Y_2, Y_3) = -\frac{n}{9}\), por lo que:
+
+  \[
+  V(Y_2 - Y_3) = \frac{2n}{9} + \frac{2n}{9} - 2 \cdot \left(-\frac{n}{9}\right) = \frac{6n}{9} = \frac{2n}{3}
+  \]
+\end{enumerate}
+
+\subsubsection{Resumen de Resultados}\label{resumen-de-resultados-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La probabilidad de observar \(Y_1 = 3\), \(Y_2 = 1\) y \(Y_3 = 2\) en 6 corridas es 0.0823.
+\item
+  La esperanza y varianza de \(Y_1\) para \(n\) corridas son \(E(Y_1) = \frac{n}{3}\) y \(V(Y_1) = \frac{2n}{9}\).
+\item
+  La covarianza entre \(Y_2\) y \(Y_3\) es \(\operatorname{Cov}(Y_2, Y_3) = -\frac{n}{9}\).
+\item
+  La esperanza y varianza de \(Y_2 - Y_3\) son \(E(Y_2 - Y_3) = 0\) y \(V(Y_2 - Y_3) = \frac{2n}{3}\).
+\end{enumerate}
+
+\section{Muestreo y Distribuciones en el Muestreo}\label{muestreo-y-distribuciones-en-el-muestreo}
+
+\subsection{Ejercicio 1}\label{ejercicio-1-1}
+
+Un guardabosque, que estudia los efectos de la fertilización en ciertos bosques de pinos en el sureste, está interesado en estimar el promedio de área de la base de los pinos. Al estudiar áreas basales de pinos similares durante muchos años, descubrió que estas mediciones (en pulgadas cuadradas) están distribuidas normalmente con desviación estándar aproximaa de 4 pulgadas cuadradas.
+
+Encuentre la probabilidad de que la media muestral se encuentre a no más de 2 pulgadas cuadradas de la media poblacional si se muestrean \(n=9\) árboles
+
+\subsection{Ejercicio 2}\label{ejercicio-2-1}
+
+Suponga que al guardabosque del 1 le gustaría que la media muestral estuviera a no más de 1 pulgada cuadrada de la media poblacional, con probabilidad 90\%. ¿Cuántos árboles debe medir para asegurar este grado de precisión?
+
+\subsection{Ejercicio 3}\label{ejercicio-3-1}
+
+La Agencia de Protección AMbiental se ocupa del problema de establecer criterios para las cantidades de sustancias químicas tóxicas permitidas en lagos y ríos de agua dulce.
+
+Una medida común de toxicidad para cualquier contaminante es la concentración de éste que mataría a la mitad de la especie de prueba en un tiempo determinado (por lo general 96 horas para especies de peces).
+
+Esta medida se denomina CL50 (concentración letal que mata 50\% de la especie de prueba). En muchos estudios, los valores contenidos en el logaritmo natural de mediciones del CL50 están distribuidos normalmente y, en consecuencia, el análisis está basado en datos del \(\ln(CL50)\).
+
+Estudios de los efectos del cobre en cierta especie de peces (por ejemplo la especie A) muestran que la varianza de mediciones de \(\ln(CL50)\) es alrededor de 0.4 con mediciones de concentración en miligramos por litro.
+
+Si han de completarse \(n=10\) estudios sobre el CL50 para cobre, encuentre la probabilidad de que la media muestral de \(\ln(CL50)\) difiera de la verdadera media poblacional en no más de 0.5.
+
+\subsection{Ejercicio 5}\label{ejercicio-5-1}
+
+Si en el Ejercicio anterior deseamos que la media muestral difiera de la media poblacional en no más de 0.5 con probabilidad .95 , ¿cuántas pruebas deben realizarse?
+
+\subsection{Ejercicio 6}\label{ejercicio-6-1}
+
+Suponga que \(X_{1}, X_{2}, \ldots, X_{m}\) y \(Y_{1}, Y_{2}, \ldots, Y_{n}\) son muestras aleatorias independientes, con las variables \(X_{i}\) distribuidas normalmente con media \(\mu_{1} \mathrm{y}\) varianza \(\sigma_{1}^{2} \mathrm{y}\) las variables \(Y_{i}\) distribuidas normalmente con media \(\mu_{2}\) y varianza \(\sigma_{2}^{2}\). La diferencia entre las medias muestrales, \(\bar{X}-\bar{Y}\), es entonces una combinación lineal de \(m+n\) variables aleatorias distribuidas normalmente y, por el las propiedades de las distribuciones normales, tiene una distribución normal.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Encuentre \(E(\bar{X}-\bar{Y})\).
+\item
+  Encuentre \(V(\bar{X}-\bar{Y})\).
+\item
+  Suponga que \(\sigma_{1}^{2}=2, \sigma_{2}^{2}=2.5\) y \(m=n\). Encuentre los tamaños muestrales para que \((\bar{X}-\bar{Y})\) se encuentre a no más de 1 unidad de \(\left(\mu_{1}-\mu_{2}\right)\) con probabilidad .95 .
+\end{enumerate}
+
+\subsection{Ejercicio 7}\label{ejercicio-7-1}
+
+Refiriéndose al Ejercicio 3, suponga que los efectos del cobre en una segunda especie (por ejemplo la especie B) de peces muestran la varianza de mediciones de \(\ln(CL50)\) que son de .8 .
+
+Si las medias poblacionales del \(\ln(CL50)\) para las dos especies son iguales, encuentre la probabilidad de que, con muestras aleatorias de diez mediciones de cada especie, la media muestral para la especie A sea mayor a la media muestral para la especie B en al menos 1 unidad.
+
+\subsection{Ejercicio 8}\label{ejercicio-8-1}
+
+La acidez de los suelos se mide mediante una cantidad llamada pH , que varía de 0 (acidez alta) a 14 (alcalinidad alta). Un edafólogo desea calcular el promedio de pH para un campo de grandes dimensiones al seleccionar aleatoriamente \(n\) muestras de núcleos y medir el pH de cada muestra.
+
+Aun cuando la desviación estándar poblacional de mediciones de pH no se conoce, la experiencia del pasado indica que casi todos los suelos tienen un valor de pH de entre 5 y 8. Si el científico selecciona \(n=40\) muestras, encuentre la probabilidad aproximada de que la media muestral de las 40 mediciones de pH esté a .2 unidades del verdadero promedio de pH para el campo.
+
+\subsection{Ejercicio 9}\label{ejercicio-9}
+
+En 1998, el estado de Florida resultó afectado por cuatro huracanes de gran intensidad. En 2005 un estudio indicó que en 2004, \(48 \%\) de las familias en Florida no tenían planes para escapar de un huracán que se aproximaba.
+
+Suponga que una muestra aleatoria reciente de 50 familias se seleccionó en Gainesville y que los miembros de 29 de las familias indicaron que tenían un plan de escape en caso de huracán.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Si los porcentajes estatales de 2004 todavía fueran válidos para las familias recientes de Gainesville. Use R para calcular las probabilidades siguiendo una distribución binomial y también una aproximación Normal a la Binomial para determinar los valores exacto y aproximado de la probabilidad que 29 o más de las familias muestreadas tengan un plan de escape para el huracán.
+\item
+  ¿La aproximación normal es cercana a la probabilidad binomial exacta? Explique por qué.
+\end{enumerate}
+
+\subsection{Ejercicio 10}\label{ejercicio-10}
+
+Para verificar la abundancia relativa de cierta especie de peces en dos lagos, se toman \(n=50\) observaciones relacionadas con los resultados de la captura en cada uno de los lagos. Para cada observación, el experimentador sólo registra si la especie deseada estaba presente en la trampa.
+
+La experiencia del pasado ha demostrado que esta especie aparece en trampas del lago A aproximadamente \(10 \%\) del tiempo y en trampas del lago B, alrededor de \(20 \%\) del tiempo. Use estos resultados para aproximar la probabilidad de que la diferencia entre las proporciones muestrales sea de no más de .1 de la diferencia entre las proporciones reales.
+
+\section{Estimación puntual}\label{estimaciuxf3n-puntual}
+
+\subsection{Ejercicio 1}\label{ejercicio-1-2}
+
+Suponga que \(Y_{1}, Y_{2}, Y_{3}\) denotan una muestra aleatoria de una distribución exponencial con función de densidad
+
+\[
+f(y)= \begin{cases}\left(\frac{1}{\theta}\right) e^{-y / \theta}, & y>0 \\ 0, & \text { en cualquier otro punto. }\end{cases}
+\]
+
+Considere los siguientes cinco estimadores de \(\theta\) :
+
+\[
+\hat{\theta}_{1}=Y_{1}, \quad \hat{\theta}_{2}=\frac{Y_{1}+Y_{2}}{2}, \quad \hat{\theta}_{3}=\frac{Y_{1}+2 Y_{2}}{3}, \quad \hat{\theta}_{4}=min\left(Y_{1}, Y_{2}, Y_{3}\right), \quad \hat{\theta}_{5}=\bar{Y}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  ¿Cuáles de estos estimadores son insesgados?
+\item
+  Entre los estimadores insesgados, ¿cuál tiene la varianza más pequeña?
+  Nota: La esperanza de la distribución exponencial, tal como se define aquí es \(E(Y)= \theta\).
+\end{enumerate}
+
+\subsection{Ejercicio 2}\label{ejercicio-2-2}
+
+Considere una distribución uniforme en el intervalo \((0, \theta)\). Para estimar \(\theta\) se consideran dos estimadores \(\theta_1 = max(X1,...X_n)\) y \(\theta_2 = 2 \overline{X}\) donde \(\overline{X}\) es la media aritmética.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  ¿Alguno de estos estimadores es insesgado?
+\item
+  Simula 1000 muestras de una distribución uniforme \((0,1)\) y a partir de estas estima \(E[\hat \theta_1]\) y \(E[\hat \theta_2 ]\) mediante la media aritmética de los valores de los estimadores sobre las 1000 réplicas de simulación. Que puedes decir en este caso del sesgo de cada estimador?
+\item
+  ¿Como podríamos utilizar las simulaciones anteriores para estimar la varianza de cada estimador? ¿Cual de los dos resulta más eficiente?
+\end{enumerate}
+
+\subsection{Ejercicio 3}\label{ejercicio-3-2}
+
+Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución expoenencial y consideramos \(\hat \theta_1 = X_1\) y \(\hat\theta_2=\overline{X}\).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Si deseamos comparar ambos estimadores: (i) Son estimadores sesgados o insesgados? (ii) Cual de los dos es más eficiente? (iii) Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.
+\item
+  Realice una simulación similar a la del ejercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.
+\end{enumerate}
+
+\subsection{Ejercicio 4}\label{ejercicio-4-1}
+
+La media aritmética y la mediana se consderan ambos buenos estimadores del valor medio de una población cuando la distribución de origen es simétrica. Sin embargo ``buenos estimadores'' es algo que debe precisarse. En general ambos son estimadores centrados y consistentes, pero su eficiencia no resulta tan clara.
+Obtenga muestras, utilizando el método de Montecarlo, de una población normal \(N(0,1)\) y estudie la eficiencia relativa de la media y la mediana muestrales como estimadores de la esperanza de la distribución.
+
+\subsection{Ejercicio 5}\label{ejercicio-5-2}
+
+La función de verosimilitud es una función de gran importancia y utilidad en inferencia estadística. Dicha función se encuentra en la base de muchos procedimientos de estimación y contraste de hipótesis por lo que es bueno entender lo que significa. La función de verosimilitd tiene, para muestras de tamaño 1 , la misma forma que la función de densidad de probabilidad. Sin embargo, mientras que, cuando consideramos la función de densidad estamos suponiendo que los valores de x , varian y los del parámetro son fijos, al considerar la verosimilitud lo hacemos distinto: suponemos que la muestra es fija y los valores del parámetro varían. Ilustra esta diferencia realizando dos gráficos para una distribución de Poisson en los que, por un lado se representa la función de densidad para valores, por ejemplo de 0 a 10, suponiendo \(\lambda=4\) y por el otro la verosimilitud de una observación X=4, suponiendo valores de \(\lambda\) entre 1 y 10.
+
+\subsection{Ejercicios 6}\label{ejercicios-6}
+
+Sean \(X_{1}, X_{2}, \ldots, X_{n}\) variables aleatorias de Bernoulli independientes tales que \(P\left(X_{i}=1\right)=p\) y \(P\left(X_{i}=\right.\) \(0)=1-p\) para cada \(i=1,2,3, \ldots\) Con la variable aleatoria \(Y\) denote el número de intentos necesario para obtener el primer éxito, es decir, el valor de \(i\) para el cual \(X_{i}=1\) ocurre primero. Entonces \(Y\) tiene una distribución geométrica con \(P(Y=y)=(1-p)^{y-1} p\), para \(y=1,2,3, \ldots\) Encuentre el estimador del método de momentos para \(p\) basado en esta única observación de \(Y\).
+
+\subsection{Ejercicio 7}\label{ejercicio-7-2}
+
+Sean \(Y_{1}, Y_{2}, \ldots, Y_{n}\) variables aleatorias uniformes independientes y distribuidas idénticamente en el intervalo \((0,3 \theta)\). Deduzca el estimador del método de momentos para \(\theta\).
+
+\subsection{Ejercicio 8}\label{ejercicio-8-2}
+
+Sean \(Y_{1}, Y_{2}, \ldots, Y_{n}\) variables aleatorias independientes y distribuidas idénticamente de una familia de distribución de potencias con parámetros \(\alpha\) y \(\theta=3\). Entonces, si \(\alpha>0\),
+
+\[
+f(y \mid \alpha)= \begin{cases}\alpha y^{\alpha-1} / 3^{\alpha}, & 0 \leq y \leq 3 \\ 0, & \text { en cualquier otro punto.. }\end{cases}
+\]
+
+Asumiendo que hemos calculado \(E\left(Y_{1}\right)=3 \alpha /(\alpha+1)\) deduzca el estimador del método de momentos para \(\alpha\).
+
+\subsection{Ejercicio 9}\label{ejercicio-9-1}
+
+Suponga que \(Y_{1}, Y_{2}, \ldots, Y_{n}\) denotan una muestra aleatoria de la distribución de Poisson con media \(\lambda\).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Encuentre el MLE \(\hat{\lambda}\) para \(\lambda\).
+\item
+  Encuentre el valor esperado y la varianza de \(\hat{\lambda}\).
+\item
+  Demuestre que el estimador del inciso a es consistente para \(\lambda\).
+\item
+  ¿Cuál es el MLE para \(P(Y=0)=e^{-\lambda}\) ?
+\end{enumerate}
+
+\subsection{Ejercicio 10}\label{ejercicio-10-1}
+
+Suponga que \(Y_{1}, Y_{2}, \ldots, Y_{n}\) denotan una muestra aleatoria de una población distribuida exponencialmente con media \(\theta\). Encuentre el MLE de la varianza poblacional \(\theta^{2}\).
 
 \end{document}

@@ -1,9 +1,8 @@
-book_filename: "Ejercicios de Inferencia Estadistica"
-title: "Ejercicios-de-Inferencia-Estadistica"
+book_filename: "EjerciciosInferenciaEstadistica"
 output_dir: docs
+delete_merged_file: true
 language:
 ui:
     chapter_name: "Capítulo "
-delete_merged_file: true
 edit: https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/edit/main/%s
 view: https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/%s
