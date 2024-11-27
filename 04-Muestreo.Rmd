@@ -68,24 +68,98 @@ p_interval
 ```
 
 
-El resultado obtenido indica la probabilidad de que la media muestral $\bar{X}$ se encuentre dentro de 2 pulgadas cuadradas de la media poblacional $\mu$. La probabilidad calculada es aproximadamente:
+El resultado obtenido indica que, si se selecciona una muestra aleatoria de 9 árboles, la probabilidad de que la media muestral $\bar{X}$ se encuentre dentro de 2 pulgadas cuadradas de la media poblacional $\mu$. La probabilidad calculada es aproximadamente:
 
 $$
 P(-1.5 \leq Z \leq 1.5) \approx 0.8664
 $$
-
-Esto significa que hay aproximadamente un **86.64%** de probabilidad de que la media muestral esté a no más de 2 pulgadas cuadradas de la media poblacional si se selecciona una muestra aleatoria de 9 árboles.
-
 
 ## Ejercicio 2 
 <!-- [W_M 7.12-16] -->
 
 Suponga que al guardabosque del 1 le gustaría que la media muestral estuviera a no más de 1 pulgada cuadrada de la media poblacional, con probabilidad 90%. ¿Cuántos árboles debe medir para asegurar este grado de precisión?
 
+### Solución
+
+El guardabosque desea encontrar el tamaño de la muestra $n$ necesario para que la probabilidad de que la media muestral $\bar{X}$ esté a no más de 1 pulgada cuadrada de la media poblacional $\mu$ sea al menos del 90%. Esto significa que queremos garantizar que:
+
+$$
+P(|\bar{X} - \mu| \leq 1) \geq 0.90
+$$
+
+Reescribiendo la probabilidad:
+
+$$
+P(\mu - 1 \leq \bar{X} \leq \mu + 1) \geq 0.90
+$$
+
+La media muestral $\bar{X}$ sigue una distribución normal con media $\mu$ y desviación estándar $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}$. Esto nos permite transformar la probabilidad a una escala estándar:
+
+$$
+P(\mu - 1 \leq \bar{X} \leq \mu + 1) = P\left(-\frac{1}{\sigma_{\bar{X}}} \leq Z \leq \frac{1}{\sigma_{\bar{X}}}\right)
+$$
+
+Donde $Z$ es la variable normal "estándar", $N(0,1)$.. Sustituyendo $\sigma_{\bar{X}} = \frac{4}{\sqrt{n}}$, la probabilidad se convierte en:
+
+$$
+P\left(-\frac{1 \cdot \sqrt{n}}{4} \leq Z \leq \frac{1 \cdot \sqrt{n}}{4}\right) \geq 0.90
+$$
+
+Sea $z^*$ el valor crítico de la distribución normal estándar tal que $P(-z^* \leq Z \leq z^*) = 0.90$. Esto implica que $z^* = F_Z^{-1}(0.95)$, ya que 90% de la probabilidad está centrada simétricamente, dejando 5% en cada cola.
+
+El intervalo estándar nos lleva a:
+
+$$
+\frac{\sqrt{n}}{4} = z^*
+$$
+
+Resolviendo para $n$:
+
+$$
+n = (4z^*)^2
+$$
+
+
+Usaremos R para calcular $z^*$ y el tamaño de la muestra.
+
+```{r}
+# Cálculo de z* y tamaño de muestra
+z_star <- qnorm(0.95) # Valor crítico para 90% de probabilidad centrada
+n <- (4 * z_star)^2
+z_star
+n
+```
+
+### Resultado
+
+El valor crítico $z^*$ es aproximadamente:
+
+$$
+z^* \approx 1.645
+$$
+
+Sustituyendo en la fórmula para $n$:
+
+$$
+n = (4 \cdot 1.645)^2 = 43.29
+$$
+
+Como el tamaño de muestra debe ser un número entero, redondeamos hacia arriba:
+
+$$
+n = 44
+$$
+
+### Interpretación del resultado
+
+El guardabosque debe medir al menos **44 árboles** para asegurarse de que la media muestral esté a no más de 1 pulgada cuadrada de la media poblacional con una probabilidad de al menos el 90%.
+
+Obervese que, intuitivamente tiene sentido: Con 9 árboles y una diferencia de 1.5 pulgadas cuadradas la probabilidad era inferior a 0.9. Si se desea una probabilidad más alta y un error inferior, razonablemente, necesitaremos una muestra mayor.
+
 ## Ejercicio 3 
 <!-- [W_M 7.13] -->
 
-La Agencia de Protección AMbiental  se ocupa del problema de establecer criterios para las cantidades de sustancias químicas tóxicas permitidas en lagos y ríos de agua dulce. 
+La Agencia de Protección Ambiental  se ocupa del problema de establecer criterios para las cantidades de sustancias químicas tóxicas permitidas en lagos y ríos de agua dulce. 
 
 Una medida común de toxicidad para cualquier contaminante es la concentración de éste que mataría a la mitad de la especie de prueba en un tiempo determinado (por lo general 96 horas para especies de peces).
 
