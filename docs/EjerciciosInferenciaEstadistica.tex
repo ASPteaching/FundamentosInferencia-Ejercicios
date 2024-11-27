@@ -2770,21 +2770,110 @@ Procedemos a calcular \(F_Z(1.5)\) en R.
 ## [1] 0.8663856
 \end{verbatim}
 
-El resultado obtenido indica la probabilidad de que la media muestral \(\bar{X}\) se encuentre dentro de 2 pulgadas cuadradas de la media poblacional \(\mu\). La probabilidad calculada es aproximadamente:
+El resultado obtenido indica que, si se selecciona una muestra aleatoria de 9 árboles, la probabilidad de que la media muestral \(\bar{X}\) se encuentre dentro de 2 pulgadas cuadradas de la media poblacional \(\mu\). La probabilidad calculada es aproximadamente:
 
 \[
 P(-1.5 \leq Z \leq 1.5) \approx 0.8664
 \]
 
-Esto significa que hay aproximadamente un \textbf{86.64\%} de probabilidad de que la media muestral esté a no más de 2 pulgadas cuadradas de la media poblacional si se selecciona una muestra aleatoria de 9 árboles.
-
 \subsection{Ejercicio 2}\label{ejercicio-2-1}
 
 Suponga que al guardabosque del 1 le gustaría que la media muestral estuviera a no más de 1 pulgada cuadrada de la media poblacional, con probabilidad 90\%. ¿Cuántos árboles debe medir para asegurar este grado de precisión?
 
+\subsubsection{Solución}\label{soluciuxf3n-6}
+
+El guardabosque desea encontrar el tamaño de la muestra \(n\) necesario para que la probabilidad de que la media muestral \(\bar{X}\) esté a no más de 1 pulgada cuadrada de la media poblacional \(\mu\) sea al menos del 90\%. Esto significa que queremos garantizar que:
+
+\[
+P(|\bar{X} - \mu| \leq 1) \geq 0.90
+\]
+
+Reescribiendo la probabilidad:
+
+\[
+P(\mu - 1 \leq \bar{X} \leq \mu + 1) \geq 0.90
+\]
+
+La media muestral \(\bar{X}\) sigue una distribución normal con media \(\mu\) y desviación estándar \(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}\). Esto nos permite transformar la probabilidad a una escala estándar:
+
+\[
+P(\mu - 1 \leq \bar{X} \leq \mu + 1) = P\left(-\frac{1}{\sigma_{\bar{X}}} \leq Z \leq \frac{1}{\sigma_{\bar{X}}}\right)
+\]
+
+Donde \(Z\) es la variable normal ``estándar'', \(N(0,1)\).. Sustituyendo \(\sigma_{\bar{X}} = \frac{4}{\sqrt{n}}\), la probabilidad se convierte en:
+
+\[
+P\left(-\frac{1 \cdot \sqrt{n}}{4} \leq Z \leq \frac{1 \cdot \sqrt{n}}{4}\right) \geq 0.90
+\]
+
+Sea \(z^*\) el valor crítico de la distribución normal estándar tal que \(P(-z^* \leq Z \leq z^*) = 0.90\). Esto implica que \(z^* = F_Z^{-1}(0.95)\), ya que 90\% de la probabilidad está centrada simétricamente, dejando 5\% en cada cola.
+
+El intervalo estándar nos lleva a:
+
+\[
+\frac{\sqrt{n}}{4} = z^*
+\]
+
+Resolviendo para \(n\):
+
+\[
+n = (4z^*)^2
+\]
+
+Usaremos R para calcular \(z^*\) y el tamaño de la muestra.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Cálculo de z* y tamaño de muestra}
+\NormalTok{z\_star }\OtherTok{\textless{}{-}} \FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.95}\NormalTok{) }\CommentTok{\# Valor crítico para 90\% de probabilidad centrada}
+\NormalTok{n }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{4} \SpecialCharTok{*}\NormalTok{ z\_star)}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{z\_star}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.644854
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 43.2887
+\end{verbatim}
+
+\subsubsection{Resultado}\label{resultado-2}
+
+El valor crítico \(z^*\) es aproximadamente:
+
+\[
+z^* \approx 1.645
+\]
+
+Sustituyendo en la fórmula para \(n\):
+
+\[
+n = (4 \cdot 1.645)^2 = 43.29
+\]
+
+Como el tamaño de muestra debe ser un número entero, redondeamos hacia arriba:
+
+\[
+n = 44
+\]
+
+\subsubsection{Interpretación del resultado}\label{interpretaciuxf3n-del-resultado}
+
+El guardabosque debe medir al menos \textbf{44 árboles} para asegurarse de que la media muestral esté a no más de 1 pulgada cuadrada de la media poblacional con una probabilidad de al menos el 90\%.
+
+Obervese que, intuitivamente tiene sentido: Con 9 árboles y una diferencia de 1.5 pulgadas cuadradas la probabilidad era inferior a 0.9. Si se desea una probabilidad más alta y un error inferior, razonablemente, necesitaremos una muestra mayor.
+
 \subsection{Ejercicio 3}\label{ejercicio-3-1}
 
-La Agencia de Protección AMbiental se ocupa del problema de establecer criterios para las cantidades de sustancias químicas tóxicas permitidas en lagos y ríos de agua dulce.
+La Agencia de Protección Ambiental se ocupa del problema de establecer criterios para las cantidades de sustancias químicas tóxicas permitidas en lagos y ríos de agua dulce.
 
 Una medida común de toxicidad para cualquier contaminante es la concentración de éste que mataría a la mitad de la especie de prueba en un tiempo determinado (por lo general 96 horas para especies de peces).
 
@@ -2946,5 +3035,160 @@ Suponga que \(Y_{1}, Y_{2}, \ldots, Y_{n}\) denotan una muestra aleatoria de la 
 \subsection{Ejercicio 10}\label{ejercicio-10-1}
 
 Suponga que \(Y_{1}, Y_{2}, \ldots, Y_{n}\) denotan una muestra aleatoria de una población distribuida exponencialmente con media \(\theta\). Encuentre el MLE de la varianza poblacional \(\theta^{2}\).
+
+\section{Intervalos de confianza}\label{intervalos-de-confianza}
+
+\subsection{PROBLEMA 1}\label{problema-1-1}
+
+La distribución del número de huevos puestos por una determinada especie de gallina durante su período de reproducción tiene una media de 35 huevos con una desviación estándar de 18.2. Supongamos que un grupo de investigadores recoge una muestra aleatoria de 45 gallinas de esta especie, cuenta el número de huevos establecidos durante el período de reproducción y registra la media de la muestra. Repiten estas muestras 1.000 veces, y construyen una distribución de las medias de la muestra.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  ¿Cómo se llama esta distribución?\\
+\item
+  ¿Esperaríamos que la forma de esta distribución fuera simétrica, sesgada o no sesgada? Razona la respuesta.\\
+\item
+  Calcula la variabilidad de esta distribución y di cómo se llama el parámetro que la mide.\\
+\item
+  Supongamos que el presupuesto de los investigadores se reduce y solo pueden recoger muestras aleatorias de 10 gallinas. Se registra la media de las muestras del número de huevos y se repite 1.000 veces, construyendo una nueva distribución de las medias de la muestra. ¿Cómo será la variabilidad de esta nueva distribución comparada con la variabilidad de la distribución original?
+\end{enumerate}
+
+\subsection{PROBLEMA 2}\label{problema-2-1}
+
+Un administrador de hospital con la esperanza de mejorar los tiempos de espera decide estimar el tiempo de espera medio de la sala de urgencias (ER) de su hospital. Recopila una muestra aleatoria simple de 64 pacientes y determina el tiempo (en minutos) entre cuando ingresaron al ER hasta que fueron visitados por un médico. Un intervalo de confianza del 95\% basado en esta muestra es (128 minutos, 147 minutos), basado en una distribución normal para la media. Determina y razona si las siguientes afirmaciones son verdaderas o falsas.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Este intervalo de confianza no es válido, ya que no sabemos si la distribución en la población de los tiempos de espera de ER es normal.\\
+\item
+  Tenemos una confianza del 95\% de que el tiempo de espera medio de estos 64 pacientes en una sala de emergencias está entre 128 y 147 minutos.\\
+\item
+  Tenemos una confianza del 95\% de que el tiempo de espera medio de todos los pacientes en la sala de emergencias de este hospital está entre 128 y 147 minutos.\\
+\item
+  El 95\% de las muestras aleatorias tienen una media muestral entre 128 y 147 minutos.\\
+\item
+  Un intervalo de confianza del 99\% sería más estrecho que el intervalo de confianza del 95\%, ya que debemos estar más seguros de nuestra estimación.\\
+\item
+  El margen de error es de 9,5 y la media de la muestra es de 137,5.\\
+\item
+  Para reducir el margen de error de un intervalo de confianza del 95\% a la mitad de lo que es ahora, tendremos que duplicar el tamaño de la muestra.
+\end{enumerate}
+
+\subsection{PROBLEMA 3}\label{problema-3-1}
+
+Las autoridades sanitarias fijan la cantidad de 14 UFP/100ml (UFP=unidades formadoras de placas) como la concentración máxima de un determinado virus entérico en aguas residuales de cualquier punto del estado. Se realiza un control en aguas depuradas de 10 granjas que generan purines. La concentración del virus entérico corresponde a un número muy grande, de forma que podemos asumir que sigue una distribución Normal. Por otro lado, las granjas están suficientemente alejadas como para asumir que los resultados individuales son mutuamente independientes.
+
+Los valores obtenidos han sido:
+
+\begin{longtable}[]{@{}lllllllll@{}}
+\toprule\noalign{}
+14.3 & 15.3 & 13.8 & 15.4 & 15.5 & 14.6 & 13.9 & 15 & 14 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Calcula el intervalo de confianza al 95\% de la concentración media del virus en las aguas que vierten las granjas.\\
+\item
+  Interpreta el resultado en función del valor fijado por la administración.
+\end{enumerate}
+
+\subsection{PROBLEMA 4}\label{problema-4-1}
+
+En un estudio sobre los efectos fisiológicos del alcohol se midió el tiempo que se tarda en reaccionar a un estímulo en un conjunto de seis individuos antes y después de consumir una fuerte dosis de alcohol. El tiempo de latencia medido en milisegundos fue el siguiente:
+
+\begin{longtable}[]{@{}lrrrrrr@{}}
+\toprule\noalign{}
+Individuo & 1 & 2 & 3 & 4 & 5 & 6 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Antes & 3.85 & 3.81 & 3.60 & 3.68 & 3.78 & 3.83 \\
+Después & 3.82 & 3.95 & 3.80 & 3.87 & 3.88 & 3.94 \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Calcula un intervalo de confianza del 95\% para la diferencia de medias: \emph{Después - Antes}.\\
+  ¿Podríamos afirmar que la media después es superior a la media antes?
+\item
+  ¿Cómo cambiará el intervalo si reducimos el nivel de confianza al 90\%?\\
+  ¿Será más amplio? ¿Será más estrecho? ¿O no cambiará?
+\end{enumerate}
+
+\subsection{PROBLEMA 5}\label{problema-5-1}
+
+El estudio sanguíneo de un individuo presenta 125 neutrófilos de un recuento total de 200 glóbulos blancos. Se pide:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Encuentra una estimación puntual para la proporción de neutrófilos.\\
+\item
+  Encuentra un intervalo de confianza al 90\% para la anterior proporción.\\
+\item
+  En un individuo sano, el porcentaje de neutrófilos se encuentra entre el 60\% y el 70\% del total de glóbulos blancos. Según el intervalo del apartado anterior, ¿hay alguna evidencia de desequilibrio de neutrófilos en la muestra de sangre analizada?
+\end{enumerate}
+
+\subsection{PROBLEMA 6}\label{problema-6}
+
+Un proceso químico se lleva a cabo usando un catalizador del que se quiere estimar el rendimiento medio. Una muestra piloto de tamaño 8 estima la desviación típica con un valor de 2.
+
+Decide el tamaño de muestra necesario para obtener intervalos de confianza para la media con un 90\% y un 95\% de confianza de anchura igual a 3 (precisión 1.5), suponiendo que dicha variable sigue un modelo normal.
+
+\subsection{PROBLEMA 7}\label{problema-7}
+
+En un estudio sobre las alteraciones hormonales que se presentan durante la práctica deportiva se ha medido el aumento de cortisol al realizar una prueba específica de resistencia de 30 minutos. El trabajo se ha realizado con voluntarios de edad y peso similares, pero diferenciados según sus hábitos, separando en dos grupos a los participantes: sedentarios y practicantes habituales de algún deporte. Se supone que la variable medida sigue el modelo normal con varianza común. Se han medido 8 personas de cada grupo.
+
+Se han publicado los siguientes intervalos de confianza (con nivel de confianza del 90\%):
+
+\begin{itemize}
+\tightlist
+\item
+  Sedentarios: \((2.85,4.40)\)\\
+\item
+  Practicantes de deporte: \((3.52,5.23)\)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Calcula las medias muestrales de cada grupo.\\
+\item
+  Si la concentración está expresada en \(\mu \mu \mathrm{g} / \mathrm{dl}\) (microgramos por decilitro) y suponemos que se prefiere finalmente presentar los resultados en \(\mathrm{ng} / \mathrm{ml}\) (nanogramos por mililitro), ¿cómo quedarían afectados los intervalos de confianza iniciales?
+\end{enumerate}
+
+\subsection{PROBLEMA 8}\label{problema-8}
+
+Se reporta el siguiente listado del análisis del nivel de colesterol en una muestra de 30 individuos obesos. Desafortunadamente, algunas partes del listado se han vuelto ilegibles y su valor se ha sustituido por 9999.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{One Sample t}\SpecialCharTok{{-}}\NormalTok{test}
+\NormalTok{data}\SpecialCharTok{:}\NormalTok{ x}
+\NormalTok{t }\SpecialCharTok{$}\ErrorTok{=}\FloatTok{301.49}\SpecialCharTok{$}\NormalTok{, df }\SpecialCharTok{$}\ErrorTok{=}\DecValTok{9999}\NormalTok{, \textbackslash{}mathrm\{p\}}\SpecialCharTok{${-}}\NormalTok{value }\SpecialCharTok{$}\ErrorTok{\textless{}}\FloatTok{2.2}\NormalTok{ \textbackslash{}mathrm\{e\}}\SpecialCharTok{{-}}\DecValTok{16}\SpecialCharTok{$}
+\NormalTok{alternative hypothesis}\SpecialCharTok{:}\NormalTok{ true mean is not equal to }\DecValTok{0}
+\DecValTok{95}\NormalTok{ percent confidence interval}\SpecialCharTok{:}
+\FloatTok{246.8329999}\NormalTok{ .}\DecValTok{000}
+\NormalTok{sample estimates}\SpecialCharTok{:}
+\NormalTok{mean of x}
+\FloatTok{248.5179}
+\end{Highlighting}
+\end{Shaded}
+
+Reconstruye los valores incorrectos del listado.
 
 \end{document}

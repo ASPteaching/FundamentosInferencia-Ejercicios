@@ -1,0 +1,94 @@
+# Intervalos de confianza
+
+## PROBLEMA 1
+
+La distribución del número de huevos puestos por una determinada especie de gallina durante su período de reproducción tiene una media de 35 huevos con una desviación estándar de 18.2. Supongamos que un grupo de investigadores recoge una muestra aleatoria de 45 gallinas de esta especie, cuenta el número de huevos establecidos durante el período de reproducción y registra la media de la muestra. Repiten estas muestras 1.000 veces, y construyen una distribución de las medias de la muestra.
+
+a) ¿Cómo se llama esta distribución?  
+b) ¿Esperaríamos que la forma de esta distribución fuera simétrica, sesgada o no sesgada? Razona la respuesta.  
+c) Calcula la variabilidad de esta distribución y di cómo se llama el parámetro que la mide.  
+d) Supongamos que el presupuesto de los investigadores se reduce y solo pueden recoger muestras aleatorias de 10 gallinas. Se registra la media de las muestras del número de huevos y se repite 1.000 veces, construyendo una nueva distribución de las medias de la muestra. ¿Cómo será la variabilidad de esta nueva distribución comparada con la variabilidad de la distribución original?
+
+## PROBLEMA 2
+
+Un administrador de hospital con la esperanza de mejorar los tiempos de espera decide estimar el tiempo de espera medio de la sala de urgencias (ER) de su hospital. Recopila una muestra aleatoria simple de 64 pacientes y determina el tiempo (en minutos) entre cuando ingresaron al ER hasta que fueron visitados por un médico. Un intervalo de confianza del 95% basado en esta muestra es (128 minutos, 147 minutos), basado en una distribución normal para la media. Determina y razona si las siguientes afirmaciones son verdaderas o falsas.
+
+a) Este intervalo de confianza no es válido, ya que no sabemos si la distribución en la población de los tiempos de espera de ER es normal.  
+b) Tenemos una confianza del 95% de que el tiempo de espera medio de estos 64 pacientes en una sala de emergencias está entre 128 y 147 minutos.  
+c) Tenemos una confianza del 95% de que el tiempo de espera medio de todos los pacientes en la sala de emergencias de este hospital está entre 128 y 147 minutos.  
+d) El 95% de las muestras aleatorias tienen una media muestral entre 128 y 147 minutos.  
+e) Un intervalo de confianza del 99% sería más estrecho que el intervalo de confianza del 95%, ya que debemos estar más seguros de nuestra estimación.  
+f) El margen de error es de 9,5 y la media de la muestra es de 137,5.  
+g) Para reducir el margen de error de un intervalo de confianza del 95% a la mitad de lo que es ahora, tendremos que duplicar el tamaño de la muestra.
+
+## PROBLEMA 3
+
+Las autoridades sanitarias fijan la cantidad de 14 UFP/100ml (UFP=unidades formadoras de placas) como la concentración máxima de un determinado virus entérico en aguas residuales de cualquier punto del estado. Se realiza un control en aguas depuradas de 10 granjas que generan purines. La concentración del virus entérico corresponde a un número muy grande, de forma que podemos asumir que sigue una distribución Normal. Por otro lado, las granjas están suficientemente alejadas como para asumir que los resultados individuales son mutuamente independientes.
+
+Los valores obtenidos han sido:
+
+| 14.3 | 15.3 | 13.8 | 15.4 | 15.5 | 14.6 | 13.9 | 15 | 14 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+
+a) Calcula el intervalo de confianza al 95% de la concentración media del virus en las aguas que vierten las granjas.  
+b) Interpreta el resultado en función del valor fijado por la administración.
+
+## PROBLEMA 4
+
+En un estudio sobre los efectos fisiológicos del alcohol se midió el tiempo que se tarda en reaccionar a un estímulo en un conjunto de seis individuos antes y después de consumir una fuerte dosis de alcohol. El tiempo de latencia medido en milisegundos fue el siguiente:
+
+| Individuo | 1 | 2 | 3 | 4 | 5 | 6 |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Antes | 3.85 | 3.81 | 3.60 | 3.68 | 3.78 | 3.83 |
+| Después | 3.82 | 3.95 | 3.80 | 3.87 | 3.88 | 3.94 |
+
+a) Calcula un intervalo de confianza del 95% para la diferencia de medias: _Después - Antes_.  
+¿Podríamos afirmar que la media después es superior a la media antes?  
+
+b) ¿Cómo cambiará el intervalo si reducimos el nivel de confianza al 90%?  
+¿Será más amplio? ¿Será más estrecho? ¿O no cambiará?
+
+## PROBLEMA 5
+
+El estudio sanguíneo de un individuo presenta 125 neutrófilos de un recuento total de 200 glóbulos blancos. Se pide:
+
+a) Encuentra una estimación puntual para la proporción de neutrófilos.  
+b) Encuentra un intervalo de confianza al 90% para la anterior proporción.  
+c) En un individuo sano, el porcentaje de neutrófilos se encuentra entre el 60% y el 70% del total de glóbulos blancos. Según el intervalo del apartado anterior, ¿hay alguna evidencia de desequilibrio de neutrófilos en la muestra de sangre analizada?
+
+## PROBLEMA 6
+
+Un proceso químico se lleva a cabo usando un catalizador del que se quiere estimar el rendimiento medio. Una muestra piloto de tamaño 8 estima la desviación típica con un valor de 2.
+
+Decide el tamaño de muestra necesario para obtener intervalos de confianza para la media con un 90% y un 95% de confianza de anchura igual a 3 (precisión 1.5), suponiendo que dicha variable sigue un modelo normal.
+
+## PROBLEMA 7
+
+En un estudio sobre las alteraciones hormonales que se presentan durante la práctica deportiva se ha medido el aumento de cortisol al realizar una prueba específica de resistencia de 30 minutos. El trabajo se ha realizado con voluntarios de edad y peso similares, pero diferenciados según sus hábitos, separando en dos grupos a los participantes: sedentarios y practicantes habituales de algún deporte. Se supone que la variable medida sigue el modelo normal con varianza común. Se han medido 8 personas de cada grupo.
+
+Se han publicado los siguientes intervalos de confianza (con nivel de confianza del 90%):
+
+- Sedentarios: $(2.85,4.40)$  
+- Practicantes de deporte: $(3.52,5.23)$  
+
+a) Calcula las medias muestrales de cada grupo.  
+b) Si la concentración está expresada en $\mu \mu \mathrm{g} / \mathrm{dl}$ (microgramos por decilitro) y suponemos que se prefiere finalmente presentar los resultados en $\mathrm{ng} / \mathrm{ml}$ (nanogramos por mililitro), ¿cómo quedarían afectados los intervalos de confianza iniciales?
+
+## PROBLEMA 8
+
+Se reporta el siguiente listado del análisis del nivel de colesterol en una muestra de 30 individuos obesos. Desafortunadamente, algunas partes del listado se han vuelto ilegibles y su valor se ha sustituido por 9999.
+
+```{r eval=FALSE}
+
+One Sample t-test
+data: x
+t $=301.49$, df $=9999, \mathrm{p}$-value $<2.2 \mathrm{e}-16$
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+246.8329999 .000
+sample estimates:
+mean of x
+248.5179
+```
+
+Reconstruye los valores incorrectos del listado.
