@@ -275,7 +275,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html"><i class="fa fa-check"></i><b>4</b> Muestreo y Distribuciones en el Muestreo</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-1-1"><i class="fa fa-check"></i><b>4.1</b> Ejercicio 1</a></li>
+<li class="chapter" data-level="4.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-1-1"><i class="fa fa-check"></i><b>4.1</b> Ejercicio 1</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#solución-5"><i class="fa fa-check"></i><b>4.1.1</b> Solución</a></li>
+</ul></li>
 <li class="chapter" data-level="4.2" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-2-1"><i class="fa fa-check"></i><b>4.2</b> Ejercicio 2</a></li>
 <li class="chapter" data-level="4.3" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-3-1"><i class="fa fa-check"></i><b>4.3</b> Ejercicio 3</a></li>
 <li class="chapter" data-level="4.4" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-5-1"><i class="fa fa-check"></i><b>4.4</b> Ejercicio 5</a></li>
@@ -325,6 +328,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- [W_M 7.11]  -->
 <p>Un guardabosque, que estudia los efectos de la fertilización en ciertos bosques de pinos en el sureste, está interesado en estimar el promedio de área de la base de los pinos. Al estudiar áreas basales de pinos similares durante muchos años, descubrió que estas mediciones (en pulgadas cuadradas) están distribuidas normalmente con desviación estándar aproximaa de 4 pulgadas cuadradas.</p>
 <p>Encuentre la probabilidad de que la media muestral se encuentre a no más de 2 pulgadas cuadradas de la media poblacional si se muestrean <span class="math inline">\(n=9\)</span> árboles</p>
+<div id="solución-5" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Solución<a href="muestreo-y-distribuciones-en-el-muestreo.html#solución-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El problema indica que las áreas basales de los pinos están distribuidas normalmente con desviación estándar conocida (<span class="math inline">\(\sigma=4\)</span> pulgadas cuadradas). Deseamos calcular la probabilidad de que la media muestral de <span class="math inline">\(n=9\)</span> árboles difiera en no más de 2 pulgadas cuadradas de la media poblacional <span class="math inline">\(\mu\)</span>. Esto implica que queremos encontrar la probabilidad:</p>
+<p><span class="math display">\[
+P(|\bar{X} - \mu| \leq 2)
+\]</span></p>
+<p>o, de manera equivalente:</p>
+<p><span class="math display">\[
+P(\mu - 2 \leq \bar{X} \leq \mu + 2)
+\]</span></p>
+<p>Dado que la distribución de las áreas basales de los pinos es normal, la distribución de la media muestral <span class="math inline">\(\bar{X}\)</span> también es normal, con media igual a <span class="math inline">\(\mu\)</span> y desviación estándar igual a <span class="math inline">\(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}\)</span>. En este caso:</p>
+<p><span class="math display">\[
+\sigma_{\bar{X}} = \frac{4}{\sqrt{9}} = \frac{4}{3} \approx 1.333
+\]</span></p>
+<p>La probabilidad se puede reescribir en términos de la variable tipificada:</p>
+<p><span class="math display">\[
+P(\mu - 2 \leq \bar{X} \leq \mu + 2) = P\left(\frac{\mu - 2 - \mu}{\sigma_{\bar{X}}} \leq Z \leq \frac{\mu + 2 - \mu}{\sigma_{\bar{X}}}\right)
+\]</span></p>
+<p>Esto simplifica a:</p>
+<p><span class="math display">\[
+P\left(-\frac{2}{\sigma_{\bar{X}}} \leq Z \leq \frac{2}{\sigma_{\bar{X}}}\right)
+\]</span></p>
+<p>Sustituyendo <span class="math inline">\(\sigma_{\bar{X}} = 1.333\)</span>, tenemos:</p>
+<p><span class="math display">\[
+P\left(-\frac{2}{1.333} \leq Z \leq \frac{2}{1.333}\right) = P(-1.5 \leq Z \leq 1.5)
+\]</span></p>
+<p>La probabilidad de un intervalo para <span class="math inline">\(Z\)</span> en una distribución normal estándar se obtiene mediante la función de distribución acumulada <span class="math inline">\(F_Z(z)\)</span>. El cálculo es:</p>
+<p><span class="math display">\[
+P(-1.5 \leq Z \leq 1.5) = F_Z(1.5) - F_Z(-1.5)
+\]</span></p>
+<p>Dado que <span class="math inline">\(F_Z(-1.5) = 1 - F_Z(1.5)\)</span> debido a la simetría de la distribución normal estándar:</p>
+<p><span class="math display">\[
+P(-1.5 \leq Z \leq 1.5) = 2 \cdot F_Z(1.5) - 1
+\]</span></p>
+<p>Procedemos a calcular <span class="math inline">\(F_Z(1.5)\)</span> en R.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb76-1" tabindex="-1"></a><span class="co"># Cálculo de la probabilidad</span></span>
+<span id="cb76-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb76-2" tabindex="-1"></a>p_upper <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fl">1.5</span>) <span class="co"># CDF para Z = 1.5</span></span>
+<span id="cb76-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb76-3" tabindex="-1"></a>p_interval <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> p_upper <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb76-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb76-4" tabindex="-1"></a>p_interval</span></code></pre></div>
+<pre><code>## [1] 0.8663856</code></pre>
+<p>El resultado obtenido indica la probabilidad de que la media muestral <span class="math inline">\(\bar{X}\)</span> se encuentre dentro de 2 pulgadas cuadradas de la media poblacional <span class="math inline">\(\mu\)</span>. La probabilidad calculada es aproximadamente:</p>
+<p><span class="math display">\[
+P(-1.5 \leq Z \leq 1.5) \approx 0.8664
+\]</span></p>
+<p>Esto significa que hay aproximadamente un <strong>86.64%</strong> de probabilidad de que la media muestral esté a no más de 2 pulgadas cuadradas de la media poblacional si se selecciona una muestra aleatoria de 9 árboles.</p>
+</div>
 </div>
 <div id="ejercicio-2-1" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Ejercicio 2<a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>

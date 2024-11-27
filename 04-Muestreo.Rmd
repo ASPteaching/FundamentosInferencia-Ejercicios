@@ -7,6 +7,76 @@ Un guardabosque, que estudia los efectos de la fertilización en ciertos bosques
 
 Encuentre la probabilidad de que la media muestral se encuentre a no más de 2 pulgadas cuadradas de la media poblacional si se muestrean $n=9$ árboles
 
+### Solución
+
+El problema indica que las áreas basales de los pinos están distribuidas normalmente con desviación estándar conocida ($\sigma=4$ pulgadas cuadradas). Deseamos calcular la probabilidad de que la media muestral de $n=9$ árboles difiera en no más de 2 pulgadas cuadradas de la media poblacional $\mu$. Esto implica que queremos encontrar la probabilidad:
+
+$$
+P(|\bar{X} - \mu| \leq 2)
+$$
+
+o, de manera equivalente:
+
+$$
+P(\mu - 2 \leq \bar{X} \leq \mu + 2)
+$$
+
+Dado que la distribución de las áreas basales de los pinos es normal, la distribución de la media muestral $\bar{X}$ también es normal, con media igual a $\mu$ y desviación estándar igual a $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}$. En este caso:
+
+$$
+\sigma_{\bar{X}} = \frac{4}{\sqrt{9}} = \frac{4}{3} \approx 1.333
+$$
+
+La probabilidad se puede reescribir en términos de la variable tipificada:
+
+$$
+P(\mu - 2 \leq \bar{X} \leq \mu + 2) = P\left(\frac{\mu - 2 - \mu}{\sigma_{\bar{X}}} \leq Z \leq \frac{\mu + 2 - \mu}{\sigma_{\bar{X}}}\right)
+$$
+
+Esto simplifica a:
+
+$$
+P\left(-\frac{2}{\sigma_{\bar{X}}} \leq Z \leq \frac{2}{\sigma_{\bar{X}}}\right)
+$$
+
+Sustituyendo $\sigma_{\bar{X}} = 1.333$, tenemos:
+
+$$
+P\left(-\frac{2}{1.333} \leq Z \leq \frac{2}{1.333}\right) = P(-1.5 \leq Z \leq 1.5)
+$$
+
+
+La probabilidad de un intervalo para $Z$ en una distribución normal estándar se obtiene mediante la función de distribución acumulada $F_Z(z)$. El cálculo es:
+
+$$
+P(-1.5 \leq Z \leq 1.5) = F_Z(1.5) - F_Z(-1.5)
+$$
+
+Dado que $F_Z(-1.5) = 1 - F_Z(1.5)$ debido a la simetría de la distribución normal estándar:
+
+$$
+P(-1.5 \leq Z \leq 1.5) = 2 \cdot F_Z(1.5) - 1
+$$
+
+Procedemos a calcular $F_Z(1.5)$ en R.
+
+```{r}
+# Cálculo de la probabilidad
+p_upper <- pnorm(1.5) # CDF para Z = 1.5
+p_interval <- 2 * p_upper - 1
+p_interval
+```
+
+
+El resultado obtenido indica la probabilidad de que la media muestral $\bar{X}$ se encuentre dentro de 2 pulgadas cuadradas de la media poblacional $\mu$. La probabilidad calculada es aproximadamente:
+
+$$
+P(-1.5 \leq Z \leq 1.5) \approx 0.8664
+$$
+
+Esto significa que hay aproximadamente un **86.64%** de probabilidad de que la media muestral esté a no más de 2 pulgadas cuadradas de la media poblacional si se selecciona una muestra aleatoria de 9 árboles.
+
+
 ## Ejercicio 2 
 <!-- [W_M 7.12-16] -->
 
