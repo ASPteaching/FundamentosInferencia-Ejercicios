@@ -1,0 +1,81 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Fundamentos de Inferencia Estadistica"
+  author: "Alex Sanchez Pla y Santiago Pérez Hoyos"
+  search: true
+  repo-url: https://github.com/ASPteaching/Fundamentos_Inferencia_Estadistica/
+  downloads: [pdf]
+  sidebar:
+    style: "docked"
+    background: light
+    contents:
+      - text: "Presentación"
+        href: index.qmd
+      - text: "Probabilidad"
+        href: 01-probabilidad.qmd
+      - text: "Variables aleatorias"
+        href: 02-variablesAleatorias.qmd
+      - text: "Distribuciones notables"
+        href: 03-distribucionesNotables.qmd
+      - text: "Distribuciones multidimensionales"
+        href: 04-vectoresAleatorios.qmd
+      - text: "Grandes muestras"
+        href: 05-grandesMuestras.qmd
+      - text: "Inferencia y estimación"
+        href: 06-introInferencia.qmd
+      - text: "Estimación por intervalos"
+        href: 07-estimacion.qmd
+      - text: "Contrastes de hipótesis"
+        href: 08-pruebasHipotesis.qmd
+      - text: "Aplicaciones"
+        href: 09-inferenciaAplicada.qmd
+      - text: "Computación Intensiva"
+        href: 10-computerintensive.qmd
+      - text: "Referencias"
+        href: referencias.qmd
+  
+  chapters:
+    - index.qmd
+    - 01-probabilidad.qmd
+    - 02-variablesAleatorias.qmd
+    - 03-distribucionesNotables.qmd
+    - 04-vectoresAleatorios.qmd
+    - 05-grandesMuestras.qmd
+    - 06-introInferencia.qmd
+    - 07-estimacion.qmd
+    - 08-pruebasHipotesis.qmd
+    - 09-inferenciaAplicada.qmd
+    - 10-computerintensive.qmd
+    - referencias.qmd
+  
+# bibliography: references.bib
+
+format:
+  html:
+    toc: true
+    toc-title: "Tabla de Contenidos"
+    toc-depth: 2
+    toc-location: right
+    embed-resources: false
+    theme: [cosmo]
+    css: blocks.css
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    number-sections: true
+    colorlinks: true
+    geometry:
+    - top=20mm
+    - left=15mm
+    papersize: A4
+    include-in-header:  
+        - text: |
+            \usepackage{amsfonts}
+            \usepackage{amsmath}
+            \usepackage{graphicx}
+
+
+
