@@ -383,17 +383,137 @@ El resultado indica que $\hat{\theta}_1$ es más eficiente que $\hat{\theta}_2$ 
 
 
 ## Ejercicio 3 
-<!-- [Propi] -->
 
-Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución expoenencial y consideramos $\hat \theta_1 = X_1$ y $\hat\theta_2=\overline{X}$.
+Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución exponencial y consideramos $\hat \theta_1 = X_1$ y $\hat\theta_2=\overline{X}$.
 
-a. Si deseamos comparar ambos estimadores: 
+1. Si deseamos comparar ambos estimadores: 
 
 (i) Son estimadores sesgados o insesgados? 
 (ii) Cual de los dos es más eficiente? 
 (iii) Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.
 
-b. Realice una simulación similar a la del ejercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.
+2. Realice una simulación similar a la del ejercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.
+
+### Solución
+
+Queremos comparar dos estimadores de la esperanza de una distribución exponencial con parámetro $\lambda$ (tasa), donde la esperanza es $\theta = \frac{1}{\lambda}$. Los estimadores son:
+
+- $\hat\theta_1 = X_1$ (el primer valor de la muestra).
+- $\hat\theta_2 = \overline{X}$ (la media muestral).
+
+Analizamos las propiedades de los estimadores y realizamos simulaciones para confirmarlas.
+
+### 1. Análisis teórico
+
+#### (i) ¿Son estimadores sesgados o insesgados?
+
+1. **Para $\hat\theta_1 = X_1$:**
+
+El valor esperado de $X_1$ en una distribución exponencial es:
+
+$$
+E(X_1) = \frac{1}{\lambda} = \theta
+$$
+
+Por lo tanto, $\hat\theta_1$ es un estimador **insesgado**.
+
+2. **Para $\hat\theta_2 = \overline{X}$:**
+
+La media muestral $\overline{X}$ también tiene un valor esperado:
+
+$$
+E(\overline{X}) = \frac{1}{\lambda} = \theta
+$$
+
+Por lo tanto, $\hat\theta_2$ también es un estimador **insesgado**.
+
+#### (ii) ¿Cuál es más eficiente?
+
+La eficiencia de un estimador está relacionada con su varianza.
+
+Calculamos las varianzas de ambos:
+
+1. **Para $\hat\theta_1 = X_1$:**
+
+$$
+V(\hat\theta_1) = \text{Var}(X_1) = \frac{1}{\lambda^2} = \theta^2
+$$
+
+2. **Para $\hat\theta_2 = \overline{X}$:**
+
+La varianza de la media muestral es:
+
+$$
+V(\hat\theta_2) = \frac{\text{Var}(X)}{n} = \frac{\frac{1}{\lambda^2}}{n} = \frac{\theta^2}{n}
+$$
+
+Comparando las varianzas:
+
+$$
+V(\hat\theta_2) = \frac{V(\hat\theta_1)}{n}
+$$
+
+Esto implica que $\hat\theta_2$ es más eficiente que $\hat\theta_1$, ya que su varianza disminuye con el tamaño muestral $n$.
+
+#### (iii) ¿Son estimadores consistentes?
+
+1. **Para $\hat\theta_1$:** 
+
+No es consistente porque su varianza no disminuye a medida que el tamaño muestral $n$ crece. Permanece constante en $\theta^2$.
+
+2. **Para $\hat\theta_2$:**
+
+Es consistente porque su varianza $V(\hat\theta_2) = \frac{\theta^2}{n}$ tiende a 0 cuando $n \to \infty$. Además, por la ley de los grandes números, $\overline{X}$ converge en probabilidad a $\theta$.
+
+### 2. Simulación de Monte Carlo
+
+Realizamos una simulación para confirmar las propiedades teóricas:
+
+1. Generamos muestras de una distribución exponencial con $\lambda = 1/\theta$.
+2. Calculamos $\hat\theta_1$ y $\hat\theta_2$ para diferentes tamaños muestrales.
+3. Estimamos la varianza de cada estimador y verificamos la consistencia de $\hat\theta_2$.
+
+```{r}
+# Parámetros
+set.seed(123)
+theta <- 2   # Verdadera esperanza (1 / lambda)
+n_sim <- 10000 # Número de simulaciones
+sample_sizes <- c(1, 5, 10, 50, 100) # Tamaños muestrales
+
+# Simulación usando la funcion rexp
+results <- data.frame()
+for (n in sample_sizes) {
+  estimates <- replicate(n_sim, {
+    sample <- rexp(n, rate = 1 / theta)
+    c(theta1 = sample[1], theta2 = mean(sample))
+  })
+  
+  # Varianzas y medias
+  var_theta1 <- var(estimates["theta1", ])
+  var_theta2 <- var(estimates["theta2", ])
+  mean_theta1 <- mean(estimates["theta1", ])
+  mean_theta2 <- mean(estimates["theta2", ])
+  
+  results <- rbind(results, data.frame(
+    n = n,
+    mean_theta1 = mean_theta1,
+    var_theta1 = var_theta1,
+    mean_theta2 = mean_theta2,
+    var_theta2 = var_theta2
+  ))
+}
+
+results
+```
+
+
+### Conclusión
+
+1. **Sesgo:** Ambos estimadores son insesgados, como confirman las medias de $\hat\theta_1$ y $\hat\theta_2$ cercanas a $\theta$ en las simulaciones.
+
+2. **Eficiencia:** $\hat\theta_2$ es más eficiente que $\hat\theta_1$, ya que su varianza disminuye con el tamaño muestral $n$, mientras que la varianza de $\hat\theta_1$ permanece constante.
+
+3. **Consistencia:** Las simulaciones muestran que $\hat\theta_2$ se vuelve cada vez más preciso (varianza tiende a 0) a medida que $n$ aumenta, confirmando su consistencia. $\hat\theta_1$ no es consistente, ya que su varianza no depende del tamaño muestral.
 
 ## Ejercicio 4 
 <!-- [7.6 Peña] -->
@@ -406,16 +526,129 @@ Obtenga muestras, utilizando el método de Montecarlo, de una población normal 
 
 La función de verosimilitud es una función de gran importancia y utilidad en inferencia estadística. Dicha función se encuentra en la base de muchos procedimientos de estimación y contraste de hipótesis por lo que es bueno entender lo que significa. La función de verosimilitd tiene, para muestras de tamaño 1 , la misma forma que la función de densidad de probabilidad. Sin embargo, mientras que, cuando consideramos la función de densidad estamos suponiendo que los valores de x , varian y los del parámetro son fijos, al considerar la verosimilitud lo hacemos distinto: suponemos que la muestra es fija y los valores del parámetro varían. Ilustra esta diferencia realizando dos gráficos para una distribución de Poisson en los que, por un lado se representa la función de densidad para valores, por ejemplo de 0 a 10, suponiendo $\lambda=4$ y por el otro la verosimilitud de una observación X=4, suponiendo valores de $\lambda$ entre 1 y 10.
 
+### Solución
+
+En este ejercicio, se busca ilustrar la diferencia conceptual entre la **función de densidad de probabilidad** y la **función de verosimilitud** mediante gráficos:
+
+Empezaremos observando las sutiles diferencias (y similitudes) entre ambas funciones.
+
+#### 1. Función de densidad
+
+La función de densidad de una distribución de Poisson, es una función de la muestra, $x$,  definida como:
+
+$$
+f(x; \lambda) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x = 0, 1, 2, \ldots
+$$
+
+Para este caso, tomaremos $\lambda = 4$ y representaremos $f(x; 4)$ para $x \in [0, 10]$.
+
+#### 2. Función de verosimilitud
+
+La función de verosimilitud de una distribuci´ñon de Poisson, _dada una muestra $x$_ es una función del parámetro $\lambda$, que aunque tiene la misma forma funcional que la función de  densidad, se interpreta de forma distinta, indicánconos cuan verosímiles son los valores de $\lambda$ a la vista de la muestra $x$.
+
+Para una observación $X = 4$, la verosimilitud es:
+
+$$
+L(\lambda; X = 4) = \frac{\lambda^4 e^{-\lambda}}{4!}, \quad \lambda > 0
+$$
+
+Representaremos esta función para valores de $\lambda$ entre 1 y 10.
+
+
+#### 3. Representación gráfica en R
+
+
+```{r}
+# Función de densidad de probabilidad
+x_vals <- 0:10
+lambda_fixed <- 4
+density_vals <- dpois(x_vals, lambda_fixed)
+
+# Función de verosimilitud
+lambda_vals <- seq(1, 10, length.out = 100)
+x_fixed <- 4
+likelihood_vals <- (lambda_vals^x_fixed * exp(-lambda_vals)) / factorial(x_fixed)
+
+opt <-par(mfrow=c(2,1))
+plot(x_vals, density_vals, 
+     type = "h", lwd = 2, col = "blue",
+     xlab = "x", ylab = "f(x; \u03bb)",
+     main = "Función de densidad de Poisson (\u03bb=4)")
+points(x_vals, density_vals, pch = 16, col = "blue")
+
+
+# Gráfico de la función de verosimilitud
+plot(lambda_vals, likelihood_vals, type = "l", lwd = 2, col = "red",
+     xlab = "\u03bb", ylab = "L(\u03bb; X=4)", main = "Función de verosimilitud (X=4)")
+
+par(opt)
+```
+
+### Explicación de los gráficos
+
+1. **Función de densidad**:
+   - Representa cómo varía la probabilidad de observar diferentes valores de $x$ bajo una distribución Poisson con $\lambda = 4$.
+   - Los valores de $x$ son la variable, mientras que $\lambda$ es constante.
+   - Al ser una variable discreta, la función toma valores únicamente en 0, 1, 2 etc.
+
+2. **Función de verosimilitud**:
+   - Muestra cómo cambia cuan  "verosimil" es observar el valor fijo $X = 4$ según sean los valores de $\lambda$.
+   - Aquí, $X$ es fijo y $\lambda$ variable.
+   - Es una función que toma valor para cualquier posible valor de $\lambda$ y por tanto es continua, aunque no es una densidad.
+
+
 ## Ejercicios 6 
 <!-- [W 9.76] -->
 
-Sean $X_{1}, X_{2}, \ldots, X_{n}$ variables aleatorias de Bernoulli independientes tales que $P\left(X_{i}=1\right)=p$ y $P\left(X_{i}=\right.$ $0)=1-p$ para cada $i=1,2,3, \ldots$ Con la variable aleatoria $Y$ denote el número de intentos necesario para obtener el primer éxito, es decir, el valor de $i$ para el cual $X_{i}=1$ ocurre primero. Entonces $Y$ tiene una distribución geométrica con $P(Y=y)=(1-p)^{y-1} p$, para $y=1,2,3, \ldots$ Encuentre el estimador del método de momentos para $p$ basado en esta única observación de $Y$.
+Sean $X_{1}, X_{2}, \ldots, X_{n}$ variables aleatorias de Bernoulli independientes tales que $P\left(X_{i}=1\right)=p$ y $P\left(X_{i}=\right.$ $0)=1-p$ para cada $i=1,2,3, \ldots$ Con la variable aleatoria $Y$ denote el número de intentos necesario para obtener el primer éxito, es decir, el valor de $i$ para el cual $X_{i}=1$ ocurre primero. Entonces $Y$ tiene una distribución geométrica con $P(Y=y)=(1-p)^{y-1} p$, para $y=1,2,3, \ldots$.
+
+Encuentre el estimador del método de momentos para $p$ basado en esta única observación de $Y$.
+
+
 
 ## Ejercicio 7
 <!-- [W 9.77] -->
 
-
 Sean $Y_{1}, Y_{2}, \ldots, Y_{n}$ variables aleatorias uniformes independientes y distribuidas idénticamente en el intervalo $(0,3 \theta)$. Deduzca el estimador del método de momentos para $\theta$.
+
+### Solución
+
+Queremos encontrar el estimador del método de momentos para el parámetro $\theta$ basado en una muestra $Y_1, Y_2, \ldots, Y_n$ de una distribución uniforme en el intervalo $(0, 3\theta)$.
+
+### 1. Media de la distribución uniforme $(0, 3\theta)$
+
+La media (es decir la esperanza matemática o momento de orden uno) de una variable aleatoria uniforme $U(a, b)$ está dada por:
+
+$$
+\mu = \frac{a + b}{2}
+$$
+
+En este caso, los límites de la distribución son $a = 0$ y $b = 3\theta$, por lo que:
+
+$$
+E(Y) = \frac{0 + 3\theta}{2} = \frac{3\theta}{2}
+$$
+
+
+### 2. Estimador del método de momentos
+
+El método de momentos sustituye el momento muestral correspondiente al momento poblacional en la función que relaciona el parámetro con dicho momento poblacional.
+
+Para el primer momento, que, insistimos, es la esperanza matemática ($E(Y^1)$ tenemos, del apartado anterior:
+
+$$
+\theta = \frac{2\cdot E(Y)}{3}
+$$
+
+Sustituyendo el primer momento poblacional, $\mu_1= E(Y)$ por el primer momento muestral $\hat \mu_1=\overline{Y}$, obtenemos el estimador del método de momentos:
+
+$$
+\hat{\theta} = \frac{2\overline{Y}}{3}
+$$
+
+
+Esto significa que para una muestra $Y_1, Y_2, \ldots, Y_n$, podemos calcular $\hat{\theta}$ a partir de la media muestral $\overline{Y}$.
+
 
 ## Ejercicio 8
 <!-- [W 9.78] -->
@@ -434,10 +667,154 @@ Asumiendo que hemos calculado $E\left(Y_{1}\right)=3 \alpha /(\alpha+1)$  deduzc
 
 Suponga que $Y_{1}, Y_{2}, \ldots, Y_{n}$ denotan una muestra aleatoria de la distribución de Poisson con media $\lambda$.
 
-a. Encuentre el MLE $\hat{\lambda}$ para $\lambda$.
-b. Encuentre el valor esperado y la varianza de $\hat{\lambda}$.
-c. Demuestre que el estimador del inciso a es consistente para $\lambda$.
-d. ¿Cuál es el MLE para $P(Y=0)=e^{-\lambda}$ ?
+1. Encuentre el estimador máximo verosímil (EMV) $\hat{\lambda}$ para $\lambda$.
+2. Encuentre el valor esperado y la varianza de $\hat{\lambda}$.
+3. Demuestre que el estimador del inciso a es consistente para $\lambda$.
+4. ¿Cuál es el EMV para $P(Y=0)=e^{-\lambda}$ ?
+
+
+### Solución
+
+#### Estimador máximo verosímil (EMV)
+
+La función de verosimilitud para una muestra aleatoria de tamaño $n$ es:
+
+$$
+L(\lambda; Y_1, \ldots, Y_n) = \prod_{i=1}^n \frac{\lambda^{Y_i} e^{-\lambda}}{Y_i!}
+$$
+
+Tomando el logaritmo de la función de verosimilitud:
+
+$$
+\ell(\lambda) = \sum_{i=1}^n \left(Y_i \ln(\lambda) - \lambda - \ln(Y_i!)\right)
+$$
+
+Derivamos con respecto a $\lambda$ e igualamos a 0 para encontrar el EMV:
+
+$$
+\frac{\partial \ell(\lambda)}{\partial \lambda} = \sum_{i=1}^n \frac{Y_i}{\lambda} - n = 0
+$$
+
+Resolviendo para $\lambda$, obtenemos:
+
+$$
+\hat{\lambda} = \frac{\sum_{i=1}^n Y_i}{n} = \overline{Y}
+$$
+
+Por lo tanto, el estimador máximo verosímil de $\lambda$ es:
+
+$$
+\hat{\lambda} = \overline{Y}
+$$
+
+Estrictamente hablando, para comprobar que el valor obtenido es un máximo debemos verificar que la segunda derivada log-verosimilitud con respecto a $\lambda$ es negativa en $\hat{\lambda}$.
+
+#### Segunda derivada de la log-verosimilitud
+
+La función log-verosimilitud es:
+
+$$
+\ell(\lambda) = \sum_{i=1}^n \left(Y_i \ln(\lambda) - \lambda - \ln(Y_i!)\right)
+$$
+
+Hemos visto que la primera derivada con respecto a $\lambda$ es:
+
+$$
+\frac{\partial \ell(\lambda)}{\partial \lambda} = \sum_{i=1}^n \frac{Y_i}{\lambda} - n
+$$
+
+Por lo que, volviendo a derivar  respecto a $\lambda$ se obtiene:
+
+$$
+\frac{\partial^2 \ell(\lambda)}{\partial \lambda^2} = \sum_{i=1}^n \frac{-Y_i}{\lambda^2}
+$$
+
+Evaluandola en $\hat{\lambda}$, es decir, sustituyendo $\lambda = \hat{\lambda} = \overline{Y}$ en la segunda derivada:
+
+$$
+\frac{\partial^2 \ell(\hat{\lambda})}{\partial \lambda^2} = \sum_{i=1}^n \frac{-Y_i}{\overline{Y}^2}
+$$
+
+Dado que $\overline{Y} = \frac{\sum_{i=1}^n Y_i}{n}$, se tiene que $Y_i / \overline{Y}$ es positivo para todos los $i$. Por lo tanto:
+
+$$
+\frac{\partial^2 \ell(\hat{\lambda})}{\partial \lambda^2} = \frac{-1}{\overline{Y}^2} \sum_{i=1}^n Y_i
+$$
+
+Como $\overline{Y}$ y $\sum_{i=1}^n Y_i$ son positivos, la segunda derivada es negativa:
+
+$$
+\frac{\partial^2 \ell(\hat{\lambda})}{\partial \lambda^2} < 0
+$$
+
+y, por lo tanto
+se confirma que $\hat{\lambda}$ es un máximo local para la función log-verosimilitud. Esto valida que el estimador encontrado es el estimador máximo verosímil (EMV).
+
+
+#### Valor esperado y varianza de $\hat{\lambda}$
+
+##### Valor esperado:
+
+Dado que $\hat{\lambda} = \overline{Y}$ y $\overline{Y}$ es la media muestral de variables Poisson con media $\lambda$, tenemos:
+
+$$
+E(\hat{\lambda}) = E(\overline{Y}) = \lambda
+$$
+
+Por lo tanto, $\hat{\lambda}$ es un estimador **insesgado** de $\lambda$.
+
+##### Varianza:
+
+La varianza de la media muestral $\overline{Y}$ es:
+
+$$
+\text{Var}(\hat{\lambda}) = \text{Var}(\overline{Y}) = \frac{\text{Var}(Y)}{n}
+$$
+
+Dado que $Y \sim \text{Poisson}(\lambda)$, la varianza de $Y$ es $\lambda$, por lo que:
+
+$$
+\text{Var}(\hat{\lambda}) = \frac{\lambda}{n}
+$$
+
+
+#### Consistencia del estimador
+
+Un estimador es consistente si:
+
+1. Es insesgado.
+2. Su varianza tiende a 0 cuando $n \to \infty$.
+
+De los resultados anteriores:
+
+- $E(\hat{\lambda}) = \lambda$, por lo que es insesgado.
+- $\text{Var}(\hat{\lambda}) = \frac{\lambda}{n}$, que tiende a 0 cuando $n \to \infty$.
+
+Por lo tanto, $\hat{\lambda}$ es un estimador **consistente** de $\lambda$.
+
+#### EMV para $P(Y = 0) = e^{-\lambda}$
+
+La probabilidad de $Y = 0$ en una distribución Poisson es:
+
+$$
+P(Y = 0) = e^{-\lambda}
+$$
+
+El EMV de una función momótona de un parámetro es la misma función del EMV del parámetro.
+
+Aplicando esta propiedad, que se conoce como _invariancia funcional del EMV a la función $h(\lambda)= P(Y = 0)= e^{-\lambda}$ se obtiene, reemplazando $\lambda$ por su estimador EMV $\hat{\lambda} = \overline{Y}$ el estimador ma´aximo verosimil de $h(\lambda)$, es decir:
+
+$$
+\widehat{h(\lambda)} =
+\widehat{P(Y=0)} = e^{-\hat{\lambda}} = e^{-\overline{Y}}=h(\hat\lambda)
+$$
+
+#### Resumiendo:
+
+1. El estimador máximo verosímil de $\lambda$ es $\hat{\lambda} = \overline{Y}$.
+2. El valor esperado de $\hat{\lambda}$ es $E(\hat{\lambda}) = \lambda$, y su varianza es $\text{Var}(\hat{\lambda}) = \frac{\lambda}{n}$.
+3. $\hat{\lambda}$ es un estimador consistente para $\lambda$.
+4. El EMV de $P(Y = 0)$ es $\widehat{P(Y = 0)} = e^{-\overline{Y}}$.
 
 ## Ejercicio 10
 <!-- [W-M 80] -->

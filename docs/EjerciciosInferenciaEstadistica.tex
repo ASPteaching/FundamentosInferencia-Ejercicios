@@ -3851,10 +3851,10 @@ El resultado indica que \(\hat{\theta}_1\) es más eficiente que \(\hat{\theta}_
 
 \subsection{Ejercicio 3}\label{ejercicio-3-2}
 
-Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución expoenencial y consideramos \(\hat \theta_1 = X_1\) y \(\hat\theta_2=\overline{X}\).
+Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución exponencial y consideramos \(\hat \theta_1 = X_1\) y \(\hat\theta_2=\overline{X}\).
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Si deseamos comparar ambos estimadores:
@@ -3872,11 +3872,191 @@ Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseam
 \end{enumerate}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \tightlist
 \item
   Realice una simulación similar a la del ejercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.
+\end{enumerate}
+
+\subsubsection{Solución}\label{soluciuxf3n-12}
+
+Queremos comparar dos estimadores de la esperanza de una distribución exponencial con parámetro \(\lambda\) (tasa), donde la esperanza es \(\theta = \frac{1}{\lambda}\). Los estimadores son:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\hat\theta_1 = X_1\) (el primer valor de la muestra).
+\item
+  \(\hat\theta_2 = \overline{X}\) (la media muestral).
+\end{itemize}
+
+Analizamos las propiedades de los estimadores y realizamos simulaciones para confirmarlas.
+
+\subsubsection{1. Análisis teórico}\label{anuxe1lisis-teuxf3rico}
+
+\paragraph{(i) ¿Son estimadores sesgados o insesgados?}\label{i-son-estimadores-sesgados-o-insesgados}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Para \(\hat\theta_1 = X_1\):}
+\end{enumerate}
+
+El valor esperado de \(X_1\) en una distribución exponencial es:
+
+\[
+E(X_1) = \frac{1}{\lambda} = \theta
+\]
+
+Por lo tanto, \(\hat\theta_1\) es un estimador \textbf{insesgado}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Para \(\hat\theta_2 = \overline{X}\):}
+\end{enumerate}
+
+La media muestral \(\overline{X}\) también tiene un valor esperado:
+
+\[
+E(\overline{X}) = \frac{1}{\lambda} = \theta
+\]
+
+Por lo tanto, \(\hat\theta_2\) también es un estimador \textbf{insesgado}.
+
+\paragraph{(ii) ¿Cuál es más eficiente?}\label{ii-cuuxe1l-es-muxe1s-eficiente}
+
+La eficiencia de un estimador está relacionada con su varianza.
+
+Calculamos las varianzas de ambos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Para \(\hat\theta_1 = X_1\):}
+\end{enumerate}
+
+\[
+V(\hat\theta_1) = \text{Var}(X_1) = \frac{1}{\lambda^2} = \theta^2
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Para \(\hat\theta_2 = \overline{X}\):}
+\end{enumerate}
+
+La varianza de la media muestral es:
+
+\[
+V(\hat\theta_2) = \frac{\text{Var}(X)}{n} = \frac{\frac{1}{\lambda^2}}{n} = \frac{\theta^2}{n}
+\]
+
+Comparando las varianzas:
+
+\[
+V(\hat\theta_2) = \frac{V(\hat\theta_1)}{n}
+\]
+
+Esto implica que \(\hat\theta_2\) es más eficiente que \(\hat\theta_1\), ya que su varianza disminuye con el tamaño muestral \(n\).
+
+\paragraph{(iii) ¿Son estimadores consistentes?}\label{iii-son-estimadores-consistentes}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Para \(\hat\theta_1\):}
+\end{enumerate}
+
+No es consistente porque su varianza no disminuye a medida que el tamaño muestral \(n\) crece. Permanece constante en \(\theta^2\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Para \(\hat\theta_2\):}
+\end{enumerate}
+
+Es consistente porque su varianza \(V(\hat\theta_2) = \frac{\theta^2}{n}\) tiende a 0 cuando \(n \to \infty\). Además, por la ley de los grandes números, \(\overline{X}\) converge en probabilidad a \(\theta\).
+
+\subsubsection{2. Simulación de Monte Carlo}\label{simulaciuxf3n-de-monte-carlo}
+
+Realizamos una simulación para confirmar las propiedades teóricas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Generamos muestras de una distribución exponencial con \(\lambda = 1/\theta\).
+\item
+  Calculamos \(\hat\theta_1\) y \(\hat\theta_2\) para diferentes tamaños muestrales.
+\item
+  Estimamos la varianza de cada estimador y verificamos la consistencia de \(\hat\theta_2\).
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parámetros}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{theta }\OtherTok{\textless{}{-}} \DecValTok{2}   \CommentTok{\# Verdadera esperanza (1 / lambda)}
+\NormalTok{n\_sim }\OtherTok{\textless{}{-}} \DecValTok{10000} \CommentTok{\# Número de simulaciones}
+\NormalTok{sample\_sizes }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Tamaños muestrales}
+
+\CommentTok{\# Simulación usando la funcion rexp}
+\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (n }\ControlFlowTok{in}\NormalTok{ sample\_sizes) \{}
+\NormalTok{  estimates }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(n\_sim, \{}
+\NormalTok{    sample }\OtherTok{\textless{}{-}} \FunctionTok{rexp}\NormalTok{(n, }\AttributeTok{rate =} \DecValTok{1} \SpecialCharTok{/}\NormalTok{ theta)}
+    \FunctionTok{c}\NormalTok{(}\AttributeTok{theta1 =}\NormalTok{ sample[}\DecValTok{1}\NormalTok{], }\AttributeTok{theta2 =} \FunctionTok{mean}\NormalTok{(sample))}
+\NormalTok{  \})}
+  
+  \CommentTok{\# Varianzas y medias}
+\NormalTok{  var\_theta1 }\OtherTok{\textless{}{-}} \FunctionTok{var}\NormalTok{(estimates[}\StringTok{"theta1"}\NormalTok{, ])}
+\NormalTok{  var\_theta2 }\OtherTok{\textless{}{-}} \FunctionTok{var}\NormalTok{(estimates[}\StringTok{"theta2"}\NormalTok{, ])}
+\NormalTok{  mean\_theta1 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(estimates[}\StringTok{"theta1"}\NormalTok{, ])}
+\NormalTok{  mean\_theta2 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(estimates[}\StringTok{"theta2"}\NormalTok{, ])}
+  
+\NormalTok{  results }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(results, }\FunctionTok{data.frame}\NormalTok{(}
+    \AttributeTok{n =}\NormalTok{ n,}
+    \AttributeTok{mean\_theta1 =}\NormalTok{ mean\_theta1,}
+    \AttributeTok{var\_theta1 =}\NormalTok{ var\_theta1,}
+    \AttributeTok{mean\_theta2 =}\NormalTok{ mean\_theta2,}
+    \AttributeTok{var\_theta2 =}\NormalTok{ var\_theta2}
+\NormalTok{  ))}
+\NormalTok{\}}
+
+\NormalTok{results}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     n mean_theta1 var_theta1 mean_theta2 var_theta2
+## 1   1    2.007563   3.999058    2.007563 3.99905760
+## 2   5    1.984651   3.949956    1.996753 0.78666813
+## 3  10    1.988760   4.085085    1.991491 0.40478307
+## 4  50    1.988857   3.778938    2.001839 0.07945138
+## 5 100    1.982399   3.968018    1.998176 0.03879560
+\end{verbatim}
+
+\subsubsection{Conclusión}\label{conclusiuxf3n-5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Sesgo:} Ambos estimadores son insesgados, como confirman las medias de \(\hat\theta_1\) y \(\hat\theta_2\) cercanas a \(\theta\) en las simulaciones.
+\item
+  \textbf{Eficiencia:} \(\hat\theta_2\) es más eficiente que \(\hat\theta_1\), ya que su varianza disminuye con el tamaño muestral \(n\), mientras que la varianza de \(\hat\theta_1\) permanece constante.
+\item
+  \textbf{Consistencia:} Las simulaciones muestran que \(\hat\theta_2\) se vuelve cada vez más preciso (varianza tiende a 0) a medida que \(n\) aumenta, confirmando su consistencia. \(\hat\theta_1\) no es consistente, ya que su varianza no depende del tamaño muestral.
 \end{enumerate}
 
 \subsection{Ejercicio 4}\label{ejercicio-4-1}
@@ -3888,13 +4068,146 @@ Obtenga muestras, utilizando el método de Montecarlo, de una población normal 
 
 La función de verosimilitud es una función de gran importancia y utilidad en inferencia estadística. Dicha función se encuentra en la base de muchos procedimientos de estimación y contraste de hipótesis por lo que es bueno entender lo que significa. La función de verosimilitd tiene, para muestras de tamaño 1 , la misma forma que la función de densidad de probabilidad. Sin embargo, mientras que, cuando consideramos la función de densidad estamos suponiendo que los valores de x , varian y los del parámetro son fijos, al considerar la verosimilitud lo hacemos distinto: suponemos que la muestra es fija y los valores del parámetro varían. Ilustra esta diferencia realizando dos gráficos para una distribución de Poisson en los que, por un lado se representa la función de densidad para valores, por ejemplo de 0 a 10, suponiendo \(\lambda=4\) y por el otro la verosimilitud de una observación X=4, suponiendo valores de \(\lambda\) entre 1 y 10.
 
+\subsubsection{Solución}\label{soluciuxf3n-13}
+
+En este ejercicio, se busca ilustrar la diferencia conceptual entre la \textbf{función de densidad de probabilidad} y la \textbf{función de verosimilitud} mediante gráficos:
+
+Empezaremos observando las sutiles diferencias (y similitudes) entre ambas funciones.
+
+\paragraph{1. Función de densidad}\label{funciuxf3n-de-densidad}
+
+La función de densidad de una distribución de Poisson, es una función de la muestra, \(x\), definida como:
+
+\[
+f(x; \lambda) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x = 0, 1, 2, \ldots
+\]
+
+Para este caso, tomaremos \(\lambda = 4\) y representaremos \(f(x; 4)\) para \(x \in [0, 10]\).
+
+\paragraph{2. Función de verosimilitud}\label{funciuxf3n-de-verosimilitud}
+
+La función de verosimilitud de una distribuci´ñon de Poisson, \emph{dada una muestra \(x\)} es una función del parámetro \(\lambda\), que aunque tiene la misma forma funcional que la función de densidad, se interpreta de forma distinta, indicánconos cuan verosímiles son los valores de \(\lambda\) a la vista de la muestra \(x\).
+
+Para una observación \(X = 4\), la verosimilitud es:
+
+\[
+L(\lambda; X = 4) = \frac{\lambda^4 e^{-\lambda}}{4!}, \quad \lambda > 0
+\]
+
+Representaremos esta función para valores de \(\lambda\) entre 1 y 10.
+
+\paragraph{3. Representación gráfica en R}\label{representaciuxf3n-gruxe1fica-en-r}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Función de densidad de probabilidad}
+\NormalTok{x\_vals }\OtherTok{\textless{}{-}} \DecValTok{0}\SpecialCharTok{:}\DecValTok{10}
+\NormalTok{lambda\_fixed }\OtherTok{\textless{}{-}} \DecValTok{4}
+\NormalTok{density\_vals }\OtherTok{\textless{}{-}} \FunctionTok{dpois}\NormalTok{(x\_vals, lambda\_fixed)}
+
+\CommentTok{\# Función de verosimilitud}
+\NormalTok{lambda\_vals }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\AttributeTok{length.out =} \DecValTok{100}\NormalTok{)}
+\NormalTok{x\_fixed }\OtherTok{\textless{}{-}} \DecValTok{4}
+\NormalTok{likelihood\_vals }\OtherTok{\textless{}{-}}\NormalTok{ (lambda\_vals}\SpecialCharTok{\^{}}\NormalTok{x\_fixed }\SpecialCharTok{*} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{lambda\_vals)) }\SpecialCharTok{/} \FunctionTok{factorial}\NormalTok{(x\_fixed)}
+
+\NormalTok{opt }\OtherTok{\textless{}{-}}\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(x\_vals, density\_vals, }
+     \AttributeTok{type =} \StringTok{"h"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"x"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"f(x; \textbackslash{}u03bb)"}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"Función de densidad de Poisson (\textbackslash{}u03bb=4)"}\NormalTok{)}
+\FunctionTok{points}\NormalTok{(x\_vals, density\_vals, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{)}
+
+
+\CommentTok{\# Gráfico de la función de verosimilitud}
+\FunctionTok{plot}\NormalTok{(lambda\_vals, likelihood\_vals, }\AttributeTok{type =} \StringTok{"l"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"\textbackslash{}u03bb"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"L(\textbackslash{}u03bb; X=4)"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Función de verosimilitud (X=4)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EjerciciosInferenciaEstadistica_files/figure-latex/unnamed-chunk-48-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(opt)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Explicación de los gráficos}\label{explicaciuxf3n-de-los-gruxe1ficos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Función de densidad}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Representa cómo varía la probabilidad de observar diferentes valores de \(x\) bajo una distribución Poisson con \(\lambda = 4\).
+  \item
+    Los valores de \(x\) son la variable, mientras que \(\lambda\) es constante.
+  \item
+    Al ser una variable discreta, la función toma valores únicamente en 0, 1, 2 etc.
+  \end{itemize}
+\item
+  \textbf{Función de verosimilitud}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Muestra cómo cambia cuan ``verosimil'' es observar el valor fijo \(X = 4\) según sean los valores de \(\lambda\).
+  \item
+    Aquí, \(X\) es fijo y \(\lambda\) variable.
+  \item
+    Es una función que toma valor para cualquier posible valor de \(\lambda\) y por tanto es continua, aunque no es una densidad.
+  \end{itemize}
+\end{enumerate}
+
 \subsection{Ejercicios 6}\label{ejercicios-6}
 
-Sean \(X_{1}, X_{2}, \ldots, X_{n}\) variables aleatorias de Bernoulli independientes tales que \(P\left(X_{i}=1\right)=p\) y \(P\left(X_{i}=\right.\) \(0)=1-p\) para cada \(i=1,2,3, \ldots\) Con la variable aleatoria \(Y\) denote el número de intentos necesario para obtener el primer éxito, es decir, el valor de \(i\) para el cual \(X_{i}=1\) ocurre primero. Entonces \(Y\) tiene una distribución geométrica con \(P(Y=y)=(1-p)^{y-1} p\), para \(y=1,2,3, \ldots\) Encuentre el estimador del método de momentos para \(p\) basado en esta única observación de \(Y\).
+Sean \(X_{1}, X_{2}, \ldots, X_{n}\) variables aleatorias de Bernoulli independientes tales que \(P\left(X_{i}=1\right)=p\) y \(P\left(X_{i}=\right.\) \(0)=1-p\) para cada \(i=1,2,3, \ldots\) Con la variable aleatoria \(Y\) denote el número de intentos necesario para obtener el primer éxito, es decir, el valor de \(i\) para el cual \(X_{i}=1\) ocurre primero. Entonces \(Y\) tiene una distribución geométrica con \(P(Y=y)=(1-p)^{y-1} p\), para \(y=1,2,3, \ldots\).
+
+Encuentre el estimador del método de momentos para \(p\) basado en esta única observación de \(Y\).
 
 \subsection{Ejercicio 7}\label{ejercicio-7-2}
 
 Sean \(Y_{1}, Y_{2}, \ldots, Y_{n}\) variables aleatorias uniformes independientes y distribuidas idénticamente en el intervalo \((0,3 \theta)\). Deduzca el estimador del método de momentos para \(\theta\).
+
+\subsubsection{Solución}\label{soluciuxf3n-14}
+
+Queremos encontrar el estimador del método de momentos para el parámetro \(\theta\) basado en una muestra \(Y_1, Y_2, \ldots, Y_n\) de una distribución uniforme en el intervalo \((0, 3\theta)\).
+
+\subsubsection{\texorpdfstring{1. Media de la distribución uniforme \((0, 3\theta)\)}{1. Media de la distribución uniforme (0, 3\textbackslash theta)}}\label{media-de-la-distribuciuxf3n-uniforme-0-3theta}
+
+La media (es decir la esperanza matemática o momento de orden uno) de una variable aleatoria uniforme \(U(a, b)\) está dada por:
+
+\[
+\mu = \frac{a + b}{2}
+\]
+
+En este caso, los límites de la distribución son \(a = 0\) y \(b = 3\theta\), por lo que:
+
+\[
+E(Y) = \frac{0 + 3\theta}{2} = \frac{3\theta}{2}
+\]
+
+\subsubsection{2. Estimador del método de momentos}\label{estimador-del-muxe9todo-de-momentos}
+
+El método de momentos sustituye el momento muestral correspondiente al momento poblacional en la función que relaciona el parámetro con dicho momento poblacional.
+
+Para el primer momento, que, insistimos, es la esperanza matemática (\(E(Y^1)\) tenemos, del apartado anterior:
+
+\[
+\theta = \frac{2\cdot E(Y)}{3}
+\]
+
+Sustituyendo el primer momento poblacional, \(\mu_1= E(Y)\) por el primer momento muestral \(\hat \mu_1=\overline{Y}\), obtenemos el estimador del método de momentos:
+
+\[
+\hat{\theta} = \frac{2\overline{Y}}{3}
+\]
+
+Esto significa que para una muestra \(Y_1, Y_2, \ldots, Y_n\), podemos calcular \(\hat{\theta}\) a partir de la media muestral \(\overline{Y}\).
 
 \subsection{Ejercicio 8}\label{ejercicio-8-2}
 
@@ -3911,16 +4224,176 @@ Asumiendo que hemos calculado \(E\left(Y_{1}\right)=3 \alpha /(\alpha+1)\) deduz
 Suponga que \(Y_{1}, Y_{2}, \ldots, Y_{n}\) denotan una muestra aleatoria de la distribución de Poisson con media \(\lambda\).
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Encuentre el MLE \(\hat{\lambda}\) para \(\lambda\).
+  Encuentre el estimador máximo verosímil (EMV) \(\hat{\lambda}\) para \(\lambda\).
 \item
   Encuentre el valor esperado y la varianza de \(\hat{\lambda}\).
 \item
   Demuestre que el estimador del inciso a es consistente para \(\lambda\).
 \item
-  ¿Cuál es el MLE para \(P(Y=0)=e^{-\lambda}\) ?
+  ¿Cuál es el EMV para \(P(Y=0)=e^{-\lambda}\) ?
+\end{enumerate}
+
+\subsubsection{Solución}\label{soluciuxf3n-15}
+
+\paragraph{Estimador máximo verosímil (EMV)}\label{estimador-muxe1ximo-verosuxedmil-emv}
+
+La función de verosimilitud para una muestra aleatoria de tamaño \(n\) es:
+
+\[
+L(\lambda; Y_1, \ldots, Y_n) = \prod_{i=1}^n \frac{\lambda^{Y_i} e^{-\lambda}}{Y_i!}
+\]
+
+Tomando el logaritmo de la función de verosimilitud:
+
+\[
+\ell(\lambda) = \sum_{i=1}^n \left(Y_i \ln(\lambda) - \lambda - \ln(Y_i!)\right)
+\]
+
+Derivamos con respecto a \(\lambda\) e igualamos a 0 para encontrar el EMV:
+
+\[
+\frac{\partial \ell(\lambda)}{\partial \lambda} = \sum_{i=1}^n \frac{Y_i}{\lambda} - n = 0
+\]
+
+Resolviendo para \(\lambda\), obtenemos:
+
+\[
+\hat{\lambda} = \frac{\sum_{i=1}^n Y_i}{n} = \overline{Y}
+\]
+
+Por lo tanto, el estimador máximo verosímil de \(\lambda\) es:
+
+\[
+\hat{\lambda} = \overline{Y}
+\]
+
+Estrictamente hablando, para comprobar que el valor obtenido es un máximo debemos verificar que la segunda derivada log-verosimilitud con respecto a \(\lambda\) es negativa en \(\hat{\lambda}\).
+
+\paragraph{Segunda derivada de la log-verosimilitud}\label{segunda-derivada-de-la-log-verosimilitud}
+
+La función log-verosimilitud es:
+
+\[
+\ell(\lambda) = \sum_{i=1}^n \left(Y_i \ln(\lambda) - \lambda - \ln(Y_i!)\right)
+\]
+
+Hemos visto que la primera derivada con respecto a \(\lambda\) es:
+
+\[
+\frac{\partial \ell(\lambda)}{\partial \lambda} = \sum_{i=1}^n \frac{Y_i}{\lambda} - n
+\]
+
+Por lo que, volviendo a derivar respecto a \(\lambda\) se obtiene:
+
+\[
+\frac{\partial^2 \ell(\lambda)}{\partial \lambda^2} = \sum_{i=1}^n \frac{-Y_i}{\lambda^2}
+\]
+
+Evaluandola en \(\hat{\lambda}\), es decir, sustituyendo \(\lambda = \hat{\lambda} = \overline{Y}\) en la segunda derivada:
+
+\[
+\frac{\partial^2 \ell(\hat{\lambda})}{\partial \lambda^2} = \sum_{i=1}^n \frac{-Y_i}{\overline{Y}^2}
+\]
+
+Dado que \(\overline{Y} = \frac{\sum_{i=1}^n Y_i}{n}\), se tiene que \(Y_i / \overline{Y}\) es positivo para todos los \(i\). Por lo tanto:
+
+\[
+\frac{\partial^2 \ell(\hat{\lambda})}{\partial \lambda^2} = \frac{-1}{\overline{Y}^2} \sum_{i=1}^n Y_i
+\]
+
+Como \(\overline{Y}\) y \(\sum_{i=1}^n Y_i\) son positivos, la segunda derivada es negativa:
+
+\[
+\frac{\partial^2 \ell(\hat{\lambda})}{\partial \lambda^2} < 0
+\]
+
+y, por lo tanto
+se confirma que \(\hat{\lambda}\) es un máximo local para la función log-verosimilitud. Esto valida que el estimador encontrado es el estimador máximo verosímil (EMV).
+
+\paragraph{\texorpdfstring{Valor esperado y varianza de \(\hat{\lambda}\)}{Valor esperado y varianza de \textbackslash hat\{\textbackslash lambda\}}}\label{valor-esperado-y-varianza-de-hatlambda}
+
+\subparagraph{Valor esperado:}\label{valor-esperado}
+
+Dado que \(\hat{\lambda} = \overline{Y}\) y \(\overline{Y}\) es la media muestral de variables Poisson con media \(\lambda\), tenemos:
+
+\[
+E(\hat{\lambda}) = E(\overline{Y}) = \lambda
+\]
+
+Por lo tanto, \(\hat{\lambda}\) es un estimador \textbf{insesgado} de \(\lambda\).
+
+\subparagraph{Varianza:}\label{varianza}
+
+La varianza de la media muestral \(\overline{Y}\) es:
+
+\[
+\text{Var}(\hat{\lambda}) = \text{Var}(\overline{Y}) = \frac{\text{Var}(Y)}{n}
+\]
+
+Dado que \(Y \sim \text{Poisson}(\lambda)\), la varianza de \(Y\) es \(\lambda\), por lo que:
+
+\[
+\text{Var}(\hat{\lambda}) = \frac{\lambda}{n}
+\]
+
+\paragraph{Consistencia del estimador}\label{consistencia-del-estimador}
+
+Un estimador es consistente si:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Es insesgado.
+\item
+  Su varianza tiende a 0 cuando \(n \to \infty\).
+\end{enumerate}
+
+De los resultados anteriores:
+
+\begin{itemize}
+\tightlist
+\item
+  \(E(\hat{\lambda}) = \lambda\), por lo que es insesgado.
+\item
+  \(\text{Var}(\hat{\lambda}) = \frac{\lambda}{n}\), que tiende a 0 cuando \(n \to \infty\).
+\end{itemize}
+
+Por lo tanto, \(\hat{\lambda}\) es un estimador \textbf{consistente} de \(\lambda\).
+
+\paragraph{\texorpdfstring{EMV para \(P(Y = 0) = e^{-\lambda}\)}{EMV para P(Y = 0) = e\^{}\{-\textbackslash lambda\}}}\label{emv-para-py-0-e-lambda}
+
+La probabilidad de \(Y = 0\) en una distribución Poisson es:
+
+\[
+P(Y = 0) = e^{-\lambda}
+\]
+
+El EMV de una función momótona de un parámetro es la misma función del EMV del parámetro.
+
+Aplicando esta propiedad, que se conoce como \_invariancia funcional del EMV a la función \(h(\lambda)= P(Y = 0)= e^{-\lambda}\) se obtiene, reemplazando \(\lambda\) por su estimador EMV \(\hat{\lambda} = \overline{Y}\) el estimador ma´aximo verosimil de \(h(\lambda)\), es decir:
+
+\[
+\widehat{h(\lambda)} =
+\widehat{P(Y=0)} = e^{-\hat{\lambda}} = e^{-\overline{Y}}=h(\hat\lambda)
+\]
+
+\paragraph{Resumiendo:}\label{resumiendo}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  El estimador máximo verosímil de \(\lambda\) es \(\hat{\lambda} = \overline{Y}\).
+\item
+  El valor esperado de \(\hat{\lambda}\) es \(E(\hat{\lambda}) = \lambda\), y su varianza es \(\text{Var}(\hat{\lambda}) = \frac{\lambda}{n}\).
+\item
+  \(\hat{\lambda}\) es un estimador consistente para \(\lambda\).
+\item
+  El EMV de \(P(Y = 0)\) es \(\widehat{P(Y = 0)} = e^{-\overline{Y}}\).
 \end{enumerate}
 
 \subsection{Ejercicio 10}\label{ejercicio-10-1}
