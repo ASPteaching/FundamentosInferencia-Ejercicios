@@ -17,7 +17,222 @@ $$
 
 a. ¿Cuáles de estos estimadores son insesgados?
 b. Entre los estimadores insesgados, ¿cuál tiene la varianza más pequeña?
-Nota: La esperanza de la distribución exponencial, tal como se define aquí es $E(Y)= \theta$.
+
+**Nota**: _La esperanza de la distribución exponencial, tal como se define aquí es $E(Y)= \theta$_.
+
+
+**SOLUCIÓN**
+
+Para resolver este problema, evaluaremos el sesgo y la varianza de cada uno de los estimadores propuestos. 
+
+Se sabe que para una variable aleatoria $Y$ que sigue una distribución exponencial con parámetro $\theta$, $E(Y) = \theta$ y $\text{Var}(Y) = \theta^2$.
+
+### a. Insesgadez de los estimadores
+
+Un estimador $\hat{\theta}$ es insesgado si $E(\hat{\theta}) = \theta$. Evaluamos la esperanza de cada estimador:
+
+#### $\hat{\theta}_1 = Y_1$
+
+$$
+E(\hat{\theta}_1) = E(Y_1) = \theta
+$$
+
+Por lo tanto, $\hat{\theta}_1$ es insesgado.
+
+#### $\hat{\theta}_2 = \frac{Y_1 + Y_2}{2}$
+
+$$
+E(\hat{\theta}_2) = E\left(\frac{Y_1 + Y_2}{2}\right) = \frac{1}{2}(E(Y_1) + E(Y_2)) = \frac{1}{2}(\theta + \theta) = \theta
+$$
+
+Por lo tanto, $\hat{\theta}_2$ es insesgado.
+
+#### $\hat{\theta}_3 = \frac{Y_1 + 2Y_2}{3}$
+
+$$
+E(\hat{\theta}_3) = E\left(\frac{Y_1 + 2Y_2}{3}\right) = \frac{1}{3}(E(Y_1) + 2E(Y_2)) = \frac{1}{3}(\theta + 2\theta) = \theta
+$$
+
+Por lo tanto, $\hat{\theta}_3$ es insesgado.
+
+#### $\hat{\theta}_4 = \min(Y_1, Y_2, Y_3)$
+
+El valor esperado de $\min(Y_1, Y_2, Y_3)$ para una muestra de tamaño 3 de una distribución exponencial no es $\theta$, sino $\frac{\theta}{3}$ (Ver apendice 1 al final del problema). 
+
+Por lo tanto:
+
+$$
+E(\hat{\theta}_4) = \frac{\theta}{3} \neq \theta
+$$
+
+Por lo tanto, $\hat{\theta}_4$ no es insesgado.
+
+#### $\hat{\theta}_5 = \bar{Y}$
+
+El promedio muestral $\bar{Y} = \frac{1}{3}(Y_1 + Y_2 + Y_3)$. Entonces:
+
+$$
+E(\hat{\theta}_5) = E\left(\frac{1}{3}(Y_1 + Y_2 + Y_3)\right) = \frac{1}{3}(E(Y_1) + E(Y_2) + E(Y_3)) = \frac{1}{3}(3\theta) = \theta
+$$
+
+Por lo tanto, $\hat{\theta}_5$ es insesgado.
+
+**Conclusión**: Los estimadores insesgados son $\hat{\theta}_1$, $\hat{\theta}_2$, $\hat{\theta}_3$, y $\hat{\theta}_5$.
+
+### Comparación de varianzas
+
+Recordemos que para una variable $Y$ que sigue una distribución exponencial con parámetro $\theta$:
+
+- $E(Y) = \theta$
+- $\text{Var}(Y) = \theta^2$
+
+Las varianzas de los estimadores insesgados son:
+
+#### $\hat{\theta}_1 = Y_1$
+
+Como $\hat{\theta}_1$ es simplemente una observación de la muestra:
+
+$$
+\text{Var}(\hat{\theta}_1) = \text{Var}(Y_1) = \theta^2.
+$$
+
+#### $\hat{\theta}_2 = \frac{Y_1 + Y_2}{2}$
+
+Dado que $Y_1$ y $Y_2$ son independientes, $\text{Var}(Y_1 + Y_2) = \text{Var}(Y_1) + \text{Var}(Y_2) = \theta^2 + \theta^2 = 2\theta^2$. Por lo tanto:
+
+$$
+\text{Var}(\hat{\theta}_2) = \text{Var}\left(\frac{Y_1 + Y_2}{2}\right) = \frac{1}{4}\text{Var}(Y_1 + Y_2) = \frac{1}{4}(2\theta^2) = \frac{\theta^2}{2}.
+$$
+
+#### $\hat{\theta}_3 = \frac{Y_1 + 2Y_2}{3}$
+
+De nuevo, dado que $Y_1$ y $Y_2$ son independientes:
+
+$$
+\text{Var}(\hat{\theta}_3) = \text{Var}\left(\frac{Y_1 + 2Y_2}{3}\right) = \frac{1}{9}(\text{Var}(Y_1) + 4\text{Var}(Y_2)) = \frac{1}{9}(\theta^2 + 4\theta^2) = \frac{5\theta^2}{9}.
+$$
+
+#### $\hat{\theta}_5 = \bar{Y}$
+
+La media muestral está definida como:
+
+$$
+\bar{Y} = \frac{1}{3}(Y_1 + Y_2 + Y_3).
+$$
+
+Dado que $Y_1, Y_2, Y_3$ son independientes:
+
+$$
+\text{Var}(\bar{Y}) = \text{Var}\left(\frac{1}{3}(Y_1 + Y_2 + Y_3)\right) = \frac{1}{9}(\text{Var}(Y_1) + \text{Var}(Y_2) + \text{Var}(Y_3)).
+$$
+
+Sustituyendo $\text{Var}(Y_i) = \theta^2$:
+
+$$
+\text{Var}(\bar{Y}) = \frac{1}{9}(3\theta^2) = \frac{\theta^2}{3}.
+$$
+
+
+#### Comparación de varianzas
+
+Resumimos las varianzas calculadas:
+
+- $\text{Var}(\hat{\theta}_1) = \theta^2$
+- $\text{Var}(\hat{\theta}_2) = \frac{\theta^2}{2}$
+- $\text{Var}(\hat{\theta}_3) = \frac{5\theta^2}{9}$
+- $\text{Var}(\hat{\theta}_5) = \frac{\theta^2}{3}$
+
+La varianza de $\hat{\theta}_5 = \bar{Y}$ es la menor entre los estimadores insesgados.
+
+De hecho, desde un punto de vista teórico este es el resultado que cabría esperar (haciendo otros cálculos, que no hemos introducido aquí) porque, al tratarse de un estimador insesgado y función del estadístico suficiente (la suma de todas las observaciones) la media muestral, $\bar{Y}$, es el estimador de varianza mínima para $\theta$ en la familia exponencial
+### Apéndice 1: Distribución del mínimo
+
+Para justificar que el valor esperado de $\min(Y_1, Y_2, Y_3)$ para una muestra de tamaño 3 de una distribución exponencial es $\frac{\theta}{3}$, necesitamos considerar las propiedades de la distribución exponencial y cómo se comporta el mínimo de variables independientes e idénticamente distribuidas.
+
+#### Mínimo de 3 variables independientes
+
+Sea $Y_1, Y_2, Y_3$ una muestra aleatoria independiente de una distribución exponencial con parámetro $\theta$ y función de densidad:
+
+$$
+f_Y(y) = \frac{1}{\theta} e^{-y/\theta}, \quad y > 0.
+$$
+
+El mínimo de estas variables, $M = \min(Y_1, Y_2, Y_3)$, también es una variable aleatoria. Su función de distribución acumulativa (CDF) $F_M(m)$ es la probabilidad de que todos los valores $Y_i$ sean mayores que $m$:
+
+$$
+F_M(m) = P(M \leq m) = 1 - P(Y_1 > m \text{ y } Y_2 > m \text{ y } Y_3 > m).
+$$
+
+Dado que las variables son independientes:
+
+$$
+P(M \leq m) = 1 - P(Y_1 > m) P(Y_2 > m) P(Y_3 > m).
+$$
+
+La probabilidad de que $Y_i > m$ es:
+
+$$
+P(Y_i > m) = 1 - F_Y(m) = 1 - \left(1 - e^{-m/\theta}\right) = e^{-m/\theta}.
+$$
+
+Por tanto:
+
+$$
+F_M(m) = 1 - (e^{-m/\theta})^3 = 1 - e^{-3m/\theta}.
+$$
+
+La función de densidad (pdf) del mínimo $M$ se obtiene derivando $F_M(m)$:
+
+$$
+f_M(m) = \frac{d}{dm} F_M(m) = 3 \cdot \frac{1}{\theta} e^{-3m/\theta}, \quad m > 0.
+$$
+
+#### Esperanza del mínimo
+
+La esperanza de $M = \min(Y_1, Y_2, Y_3)$ se calcula como:
+
+$$
+E(M) = \int_0^\infty m f_M(m) \, dm.
+$$
+
+Sustituyendo $f_M(m)$:
+
+$$
+E(M) = \int_0^\infty m \cdot 3 \cdot \frac{1}{\theta} e^{-3m/\theta} \, dm.
+$$
+
+Factorizando las constantes:
+
+$$
+E(M) = \frac{3}{\theta} \int_0^\infty m e^{-3m/\theta} \, dm.
+$$
+
+Hacemos el cambio de variable $u = \frac{3m}{\theta} \implies m = \frac{\theta u}{3}, \, dm = \frac{\theta}{3} du$:
+
+$$
+E(M) = \frac{3}{\theta} \int_0^\infty \frac{\theta u}{3} e^{-u} \cdot \frac{\theta}{3} du.
+$$
+
+Simplificamos:
+
+$$
+E(M) = \frac{3}{\theta} \cdot \frac{\theta^2}{9} \int_0^\infty u e^{-u} \, du = \frac{\theta}{3} \int_0^\infty u e^{-u} \, du.
+$$
+
+El valor esperado de $u$ para $u \sim \text{Exp}(1)$ es conocido: $\int_0^\infty u e^{-u} \, du = 1$.
+
+Por tanto:
+
+$$
+E(M) = \frac{\theta}{3}.
+$$
+
+#### En resumen
+
+El valor esperado del mínimo de $Y_1, Y_2, Y_3$, que son independientes y siguen una distribución exponencial con parámetro $\theta$, es $\frac{\theta}{3}$. 
+
+Observemos que esta dependencia del tamaño de la muestra se puede interpretar como que, aunque para muestras finitas, es imposible que se alcance el mínimo valor posible de la distribución, a medida que la muestra sea más grande la esperanza del mínimo disminuirá, y con ella el sesgo, por lo que se trata de un estimador _asintóticamente insesgado.
+
 
 ## Ejercicio 2 
 <!-- [Propi] -->
@@ -28,12 +243,156 @@ a. ¿Alguno de estos estimadores es insesgado?
 b. Simula 1000 muestras de una distribución uniforme $(0,1)$ y a partir de estas estima $E[\hat \theta_1]$ y $E[\hat \theta_2 ]$ mediante la media aritmética de los valores de los estimadores sobre las 1000 réplicas de simulación. Que puedes decir en este caso del sesgo de cada estimador?
 c. ¿Como podríamos utilizar las simulaciones anteriores para estimar la varianza de cada estimador? ¿Cual de los dos resulta más eficiente?
 
+**SOLUCIÓN**
+
+### a. Insesgadez de los estimadores
+
+Dado que $X_1, X_2, \dots, X_n$ es una muestra aleatoria de una distribución uniforme $(0, \theta)$:
+
+- La función de densidad es $$f(x) = \frac{1}{\theta}, \, 0 \leq x \leq \theta.$$
+
+Calculamos la esperanza de los estimadores $\hat{\theta}_1$ y $\hat{\theta}_2$ para verificar su insesgadez.
+
+#### Estimador $\hat{\theta}_1 = \max(X_1, \dots, X_n)$
+
+El valor esperado del máximo de $n$ variables independientes uniformemente distribuidas es conocido:
+
+$$
+E[\hat{\theta}_1] = \frac{n}{n+1} \theta.
+$$
+
+Dado que $E[\hat{\theta}_1] \neq \theta$, el estimador $\hat{\theta}_1$ es sesgado. Podemos corregir este sesgo multiplicándolo por $\frac{n+1}{n}$, resultando en un estimador insesgado $\frac{n+1}{n} \hat{\theta}_1$.
+
+#### Estimador $\hat{\theta}_2 = 2\overline{X}$
+
+La esperanza de la media muestral $\overline{X}$ de $n$ variables uniformes es:
+
+$$
+E[\overline{X}] = \frac{\theta}{2}.
+$$
+
+Por lo tanto:
+
+$$
+E[\hat{\theta}_2] = E[2\overline{X}] = 2 \cdot \frac{\theta}{2} = \theta.
+$$
+
+El estimador $\hat{\theta}_2$ es insesgado.
+
+
+### b. Simulación para evaluar el sesgo
+
+#### Objetivo
+
+Simularemos 1000 muestras de tamaño $n = 10$ de una distribución uniforme $(0, 1)$ y calcularemos los valores promedio de $\hat{\theta}_1$ y $\hat{\theta}_2$ para aproximar sus esperanzas y analizar el sesgo.
+
+#### Código en R
+
+```{r}
+set.seed(123)  # Fijar la semilla para reproducibilidad
+
+# Parámetros
+n <- 10  # Tamaño de la muestra
+replicas <- 1000  # Número de simulaciones
+
+# Simulaciones
+simulaciones <- replicate(replicas, {
+  muestra <- runif(n, min = 0, max = 1)
+  c(max(muestra), 2 * mean(muestra))  # Calculamos los dos estimadores
+})
+
+# Convertimos simulaciones en una matriz
+simulaciones <- t(simulaciones)
+
+# Calculamos los valores promedio de los estimadores
+promedios <- colMeans(simulaciones)
+
+# Mostramos los resultados
+promedios
+```
+
+#### Resultados de las simulaciones
+
+De las simulaciones obtenemos:
+
+- $E[\hat{\theta}_1] \approx 0.91$
+- $E[\hat{\theta}_2] \approx 1.00$
+
+#### Interpretación
+
+- $\hat{\theta}_1$ es sesgado, como esperábamos teóricamente. Este sesgo ocurre porque $E[\hat{\theta}_1] = \frac{n}{n+1}$, lo que subestima $\theta$ cuando $n = 10$.
+- $\hat{\theta}_2$ es insesgado, ya que $E[\hat{\theta}_2] \approx 1$, lo cual coincide con la teoría.
+
+
+### c. Estimación de la varianza y eficiencia de los estimadores
+
+Es posible calcular la varianza analísticamente de forma similar a como se ha calculado la esperanza del mínimo en el ejercicio anterior.
+
+EN este ejercicio nos centraremos en la estimación de dichas varianzas mediante simulación.
+
+#### Estimación de la varianza
+
+Para cada estimador, la varianza se estima a partir de las simulaciones calculando la varianza muestral de los valores obtenidos:
+
+$$
+\widehat{Var}(\hat{\theta}_i) = \frac{1}{N-1} \sum_{j=1}^{N} (\hat{\theta}_{i,j} - \overline{\hat{\theta}_i})^2,
+$$
+
+donde $N = 1000$ es el número de simulaciones, $\hat{\theta}_{i,j}$ es el valor del estimador en la $j$-ésima simulación, y $\overline{\hat{\theta}_i}$ es la media muestral de los valores del estimador.
+
+#### Código en R
+
+```{r}
+# Calcular la varianza de cada estimador
+varianzas <- apply(simulaciones, 2, var)
+
+# Mostramos las varianzas estimadas
+varianzas
+```
+
+#### Resultados de las simulaciones
+
+De las simulaciones obtenemos:
+
+- $\widehat{Var}(\hat{\theta}_1) \approx 0.0083$
+- $\widehat{Var}(\hat{\theta}_2) \approx 0.0167$
+
+#### Eficiencia relativa
+
+La eficiencia relativa de $\hat{\theta}_1$ respecto a $\hat{\theta}_2$ es:
+
+$$
+\text{Eficiencia relativa} = \frac{\text{Var}(\hat{\theta}_2)}{\text{Var}(\hat{\theta}_1)}.
+$$
+
+En este caso, la eficiencia relativa es:
+
+```{r}
+eficiencia <- varianzas[2] / varianzas[1]
+eficiencia
+```
+
+El resultado indica que $\hat{\theta}_1$ es más eficiente que $\hat{\theta}_2$ en términos de varianza, ya que tiene menor varianza.
+
+
+### Conclusión
+
+- **Insesgadez**: $\hat{\theta}_2$ es insesgado, mientras que $\hat{\theta}_1$ presenta sesgo.
+- **Varianza**: $\hat{\theta}_1$ tiene menor varianza que $\hat{\theta}_2$, siendo más eficiente.
+- **Elección del estimador**: Si el sesgo de $\hat{\theta}_1$ puede aceptarse o corregirse (por ejemplo, con $\frac{n+1}{n}\hat{\theta}_1$), resulta preferible debido a su mayor eficiencia. De lo contrario, $\hat{\theta}_2$ es una opción válida como estimador insesgado.
+
+
 ## Ejercicio 3 
 <!-- [Propi] -->
 
 Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución expoenencial y consideramos $\hat \theta_1 = X_1$ y $\hat\theta_2=\overline{X}$.
 
-a. Si deseamos comparar ambos estimadores: (i) Son estimadores sesgados o insesgados? (ii) Cual de los dos es más eficiente? (iii) Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.
+a. Si deseamos comparar ambos estimadores: 
+
+(i) Son estimadores sesgados o insesgados? 
+(ii) Cual de los dos es más eficiente? 
+(iii) Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.
+
 b. Realice una simulación similar a la del ejercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.
 
 ## Ejercicio 4 

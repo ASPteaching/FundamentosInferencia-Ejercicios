@@ -2883,9 +2883,160 @@ Estudios de los efectos del cobre en cierta especie de peces (por ejemplo la esp
 
 Si han de completarse \(n=10\) estudios sobre el CL50 para cobre, encuentre la probabilidad de que la media muestral de \(\ln(CL50)\) difiera de la verdadera media poblacional en no más de 0.5.
 
+\subsubsection{Solución}\label{soluciuxf3n-7}
+
+El problema plantea una distribución normal para el logaritmo natural de las mediciones de CL50 con una varianza poblacional conocida (\(\sigma^2 = 0.4\)) y un tamaño muestral de \(n=10\). El objetivo es encontrar la probabilidad de que la media muestral \(\bar{X}\) difiera de la verdadera media poblacional \(\mu\) en no más de 0.5, es decir:
+
+\[
+P(|\bar{X} - \mu| \leq 0.5)
+\]
+
+\paragraph{Propiedades de la media muestral}\label{propiedades-de-la-media-muestral}
+
+Dado que \(\ln(CL50)\) sigue una distribución normal, la media muestral \(\bar{X}\) también se distribuye normalmente con:
+
+\begin{itemize}
+\tightlist
+\item
+  Media: \(\mu\)
+\item
+  Varianza: \(\sigma^2 / n\)
+\end{itemize}
+
+Por tanto, la desviación estándar de la media muestral es:
+
+\[
+\sigma_{\bar{X}} = \sqrt{\frac{\sigma^2}{n}} = \sqrt{\frac{0.4}{10}}
+\]
+
+\paragraph{Normalización de la variable aleatoria}\label{normalizaciuxf3n-de-la-variable-aleatoria}
+
+Queremos calcular la probabilidad \(P(|\bar{X} - \mu| \leq 0.5)\). Esto se puede expresar como:
+
+\[
+P(-0.5 \leq \bar{X} - \mu \leq 0.5)
+\]
+
+Dividimos por la desviación estándar \(\sigma_{\bar{X}}\) para normalizar:
+
+\[
+P\left(-\frac{0.5}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.5}{\sigma_{\bar{X}}}\right)
+\]
+
+donde \(Z\) es una variable aleatoria normal estándar.
+
+\paragraph{Cálculo numérico}\label{cuxe1lculo-numuxe9rico}
+
+A continuación, calculamos \(\sigma_{\bar{X}}\) y la probabilidad utilizando R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parámetros}
+\NormalTok{sigma2 }\OtherTok{\textless{}{-}} \FloatTok{0.4}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{10}
+\NormalTok{sigma\_barX }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(sigma2 }\SpecialCharTok{/}\NormalTok{ n)}
+\NormalTok{threshold }\OtherTok{\textless{}{-}} \FloatTok{0.5}
+
+\CommentTok{\# Límites en la escala normal estándar}
+\NormalTok{z }\OtherTok{\textless{}{-}}\NormalTok{ threshold }\SpecialCharTok{/}\NormalTok{ sigma\_barX}
+
+\CommentTok{\# Probabilidad}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{pnorm}\NormalTok{(z) }\SpecialCharTok{{-}} \FunctionTok{pnorm}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{z)}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9875807
+\end{verbatim}
+
+\paragraph{Interpretación del resultado}\label{interpretaciuxf3n-del-resultado-1}
+
+El resultado de \(p\) nos da la probabilidad de que la media muestral difiera de la verdadera media poblacional en no más de 0.5.
+
+\subsubsection{Resultado final}\label{resultado-final}
+
+El valor calculado es aproximadamente:
+
+\[
+P(|\bar{X} - \mu| \leq 0.5) = 0.9875807
+\]
+
+Esto significa que hay un \textbf{99\% de probabilidad} de que la media muestral se encuentre dentro de un rango de 0.5 alrededor de la verdadera media poblacional.
+
 \subsection{Ejercicio 5}\label{ejercicio-5-1}
 
 Si en el Ejercicio anterior deseamos que la media muestral difiera de la media poblacional en no más de 0.5 con probabilidad .95 , ¿cuántas pruebas deben realizarse?
+
+\subsubsection{Solución}\label{soluciuxf3n-8}
+
+En este caso, se desea determinar el tamaño muestral \(n\) necesario para que la media muestral \(\bar{X}\) difiera de la media poblacional \(\mu\) en no más de 0.5 con una probabilidad de al menos 0.95, es decir:
+
+\[
+P(|\bar{X} - \mu| \leq 0.5) = 0.95
+\]
+que, es la misma pregunta que la del ejercicio anterior.
+
+\paragraph{Condición para la probabilidad}\label{condiciuxf3n-para-la-probabilidad}
+
+Dado que la distancia es la misma (0.5) la única forma de que cambie la probabilidad es que se modifique el valor de \(\sigma_{\bar{X}}\), lo que sólo es posible cambiando el valor de \(n\).
+
+Es decir, nos preguntan para que valor de \(n\) se verificará que:
+
+\[
+P\left(-\frac{0.5}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.5}{\sigma_{\bar{X}}}\right) = \\ = P\left(-\frac{0.5}{\sigma\sqrt{n}} \leq Z \leq \frac{0.5}{\sigma/\sqrt{n}}\right)  = 0.95
+\]
+
+Dado que \(Z\) sigue una distribución normal estándar, la probabilidad acumulada de 0.95 implica que los límites se encuentran en los percentiles 2.5\% y 97.5\%. Esto se traduce en un valor crítico de:
+
+\[
+z = 1.96
+\]
+
+\paragraph{\texorpdfstring{Relación entre \(n\), \(z\), y \(\sigma_{\bar{X}}\)}{Relación entre n, z, y \textbackslash sigma\_\{\textbackslash bar\{X\}\}}}\label{relaciuxf3n-entre-n-z-y-sigma_barx}
+
+La desviación estándar de la media muestral es:
+
+\[
+\sigma_{\bar{X}} = \sqrt{\frac{\sigma^2}{n}}
+\]
+
+Reemplazando en la desigualdad \(0.5 / \sigma_{\bar{X}} = z\), tenemos:
+
+\[
+\frac{0.5}{\sqrt{\frac{\sigma^2}{n}}} = z
+\]
+
+Elevamos al cuadrado ambos lados para despejar \(n\):
+
+\[
+n = \frac{\sigma^2 z^2}{0.5^2}
+\]
+
+\paragraph{Sustitución de valores conocidos}\label{sustituciuxf3n-de-valores-conocidos}
+
+Utilizamos \(\sigma^2 = 0.4\) y \(z = 1.96\). Realizamos los cálculos en R para obtener el tamaño muestral mínimo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parámetros}
+\NormalTok{sigma2 }\OtherTok{\textless{}{-}} \FloatTok{0.4}
+\NormalTok{z }\OtherTok{\textless{}{-}} \FloatTok{1.96}
+\NormalTok{threshold }\OtherTok{\textless{}{-}} \FloatTok{0.5}
+
+\CommentTok{\# Cálculo de n}
+\NormalTok{n }\OtherTok{\textless{}{-}}\NormalTok{ (sigma2 }\SpecialCharTok{*}\NormalTok{ z}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{/}\NormalTok{ threshold}\SpecialCharTok{\^{}}\DecValTok{2}
+\FunctionTok{ceiling}\NormalTok{(n) }\CommentTok{\# Tamaño muestral mínimo entero}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7
+\end{verbatim}
+
+\paragraph{Interpretación del resultado}\label{interpretaciuxf3n-del-resultado-2}
+
+El valor calculado de \(n\) indica que deben realizarse al menos \textbf{7 estudios} para garantizar que la media muestral difiera de la media poblacional en no más de 0.5 con una probabilidad de, como mínimo, 0.95.
 
 \subsection{Ejercicio 6}\label{ejercicio-6-1}
 
@@ -2902,6 +3053,139 @@ Suponga que \(X_{1}, X_{2}, \ldots, X_{m}\) y \(Y_{1}, Y_{2}, \ldots, Y_{n}\) so
   Suponga que \(\sigma_{1}^{2}=2, \sigma_{2}^{2}=2.5\) y \(m=n\). Encuentre los tamaños muestrales para que \((\bar{X}-\bar{Y})\) se encuentre a no más de 1 unidad de \(\left(\mu_{1}-\mu_{2}\right)\) con probabilidad .95 .
 \end{enumerate}
 
+\subsubsection{Solución}\label{soluciuxf3n-9}
+
+Tenemos dos muestras aleatorias independientes de tamaños \(m\) y \(n\), donde \(X_i\) se distribuyen como \(N(\mu_1, \sigma_1^2)\) y \(Y_i\) se distribuyen como \(N(\mu_2, \sigma_2^2)\). La variable \(\bar{X} - \bar{Y}\) es una \emph{combinación lineal de variables normales} y, por tanto, también sigue una distribución normal.
+
+\paragraph{\texorpdfstring{\(E(\bar{X} - \bar{Y})\)}{E(\textbackslash bar\{X\} - \textbackslash bar\{Y\})}}\label{ebarx---bary}
+
+Por la linealidad de la esperanza, tenemos:
+
+\[
+E(\bar{X} - \bar{Y}) = E(\bar{X}) - E(\bar{Y})
+\]
+
+Las medias muestrales \(\bar{X}\) y \(\bar{Y}\) son estimadores insesgados de sus respectivas medias poblacionales \(\mu_1\) y \(\mu_2\). Por lo tanto:
+
+\[
+E(\bar{X}) = \mu_1, \quad E(\bar{Y}) = \mu_2
+\]
+
+Sustituyendo, obtenemos:
+
+\[
+E(\bar{X} - \bar{Y}) = \mu_1 - \mu_2
+\]
+
+\paragraph{\texorpdfstring{\(V(\bar{X} - \bar{Y})\)}{V(\textbackslash bar\{X\} - \textbackslash bar\{Y\})}}\label{vbarx---bary}
+
+La varianza de la suma o la resta de dos variables aleatorias independientes es la suma de sus respectivas varianzas.
+
+Si \(X\) e \(Y\) son independientes entonces también lo son \(\bar{X}\) y \(\bar{Y}\) \emph{(piense como lo justificaría!)} por lo que se tendré:
+
+\[
+V(\bar{X} - \bar{Y}) = V(\bar{X}) + V(\bar{Y})
+\]
+
+Las varianzas muestrales son:
+
+\[
+V(\bar{X}) = \frac{\sigma_1^2}{m}, \quad V(\bar{Y}) = \frac{\sigma_2^2}{n}
+\]
+
+Sustituyendo, obtenemos:
+
+\[
+V(\bar{X} - \bar{Y}) = \frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}
+\]
+
+\paragraph{Cálculo de los tamaños muestrales}\label{cuxe1lculo-de-los-tamauxf1os-muestrales}
+
+Queremos que \(\bar{X} - \bar{Y}\) se encuentre a no más de 1 unidad de \(\mu_1 - \mu_2\) con una probabilidad de 0.95:
+
+\[
+P\left(\left|\bar{X} - \bar{Y} - (\mu_1 - \mu_2)\right| \leq 1\right) = 0.95
+\]
+
+Esto se puede reescribir como:
+
+\[
+P\left(-1 \leq \bar{X} - \bar{Y} - (\mu_1 - \mu_2) \leq 1\right) = 0.95
+\]
+
+Estandarizamos usando la desviación estándar \(\sigma_{\bar{X} - \bar{Y}} = \sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}\), lo que nos da:
+
+\[
+P\left(-\frac{1}{\sigma_{\bar{X} - \bar{Y}}} \leq Z \leq \frac{1}{\sigma_{\bar{X} - \bar{Y}}}\right) = 0.95
+\]
+
+Sabemos que para una distribución normal estándar, un intervalo de probabilidad de 0.95 corresponde a \(z_{0.95} = 1.96\). Por tanto, tenemos:
+
+\[
+\frac{1}{\sigma_{\bar{X} - \bar{Y}}} = z_{0.95} \quad \text{o bien} \quad \sigma_{\bar{X} - \bar{Y}} = \frac{1}{z_{0.95}}
+\]
+
+Sustituyendo \(\sigma_{\bar{X} - \bar{Y}}\) con su expresión:
+
+\[
+\sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}} = \frac{1}{z_{0.95}}
+\]
+
+Con \(n = m\) y los valores dados \(\sigma_1^2 = 2\) y \(\sigma_2^2 = 2.5\), la ecuación se convierte en:
+
+\[
+\sqrt{\frac{2}{n} + \frac{2.5}{n}} = \frac{1}{1.96}
+\]
+
+Simplificamos:
+
+\[
+\sqrt{\frac{4.5}{n}} = \frac{1}{1.96}
+\]
+
+Elevamos al cuadrado ambos lados:
+
+\[
+\frac{4.5}{n} = \frac{1}{1.96^2}
+\]
+
+Resolvemos para \(n\):
+
+\[
+n = \frac{4.5 \cdot 1.96^2}{1}
+\]
+
+Realizamos el cálculo en R para obtener el tamaño muestral mínimo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parámetros}
+\NormalTok{sigma1\_sq }\OtherTok{\textless{}{-}} \DecValTok{2}
+\NormalTok{sigma2\_sq }\OtherTok{\textless{}{-}} \FloatTok{2.5}
+\NormalTok{z }\OtherTok{\textless{}{-}} \FloatTok{1.96}
+
+\CommentTok{\# Cálculo de n}
+\NormalTok{numerator }\OtherTok{\textless{}{-}}\NormalTok{ (sigma1\_sq }\SpecialCharTok{+}\NormalTok{ sigma2\_sq)}
+\NormalTok{denominator }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{/}\NormalTok{ z)}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{n }\OtherTok{\textless{}{-}}\NormalTok{ numerator }\SpecialCharTok{/}\NormalTok{ denominator}
+\FunctionTok{ceiling}\NormalTok{(n) }\CommentTok{\# Tamaño muestral mínimo entero}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 18
+\end{verbatim}
+
+\paragraph{Resultado final}\label{resultado-final-1}
+
+El tamaño muestral necesario para que \(\bar{X} - \bar{Y}\) esté a no más de 1 unidad de \(\mu_1 - \mu_2\) con una probabilidad de 0.95 es:
+
+\[
+n = 18
+\]
+
+Esto significa que se requieren al menos \textbf{18 observaciones en cada muestra} para satisfacer el criterio.
+
 \subsection{Ejercicio 7}\label{ejercicio-7-1}
 
 Refiriéndose al Ejercicio 3, suponga que los efectos del cobre en una segunda especie (por ejemplo la especie B) de peces muestran la varianza de mediciones de \(\ln(CL50)\) que son de .8 .
@@ -2913,6 +3197,95 @@ Si las medias poblacionales del \(\ln(CL50)\) para las dos especies son iguales,
 La acidez de los suelos se mide mediante una cantidad llamada pH , que varía de 0 (acidez alta) a 14 (alcalinidad alta). Un edafólogo desea calcular el promedio de pH para un campo de grandes dimensiones al seleccionar aleatoriamente \(n\) muestras de núcleos y medir el pH de cada muestra.
 
 Aun cuando la desviación estándar poblacional de mediciones de pH no se conoce, la experiencia del pasado indica que casi todos los suelos tienen un valor de pH de entre 5 y 8. Si el científico selecciona \(n=40\) muestras, encuentre la probabilidad aproximada de que la media muestral de las 40 mediciones de pH esté a .2 unidades del verdadero promedio de pH para el campo.
+
+\emph{INDICACIÓN: El rango de un conjunto de mediciones es la diferencia entre los valores máximo y mínimo. Una regla empírica sugiere que la desviación estándar de un conjunto de mediciones puede ser aproximada en un cuarto de la amplitud (esto es, amplitud/4). Esto puede justifcarse si se considera que, de forma aproximada:\(\mbox{Rango} \simeq 4\sigma\), de donde con el mismo grado de aproximación, \(\sigma \simeq \mbox{Rango} / 4\)}
+
+\subsubsection{Solución}\label{soluciuxf3n-10}
+
+Queremos determinar la probabilidad de que la media muestral \(\bar{X}\) de \(n = 40\) mediciones de pH esté a 0.2 unidades del verdadero promedio poblacional \(\mu\).
+
+El rango esperado de valores de pH (de 5 a 8) nos permite estimar la desviación estándar poblacional mediante la regla empírica de la indicación. Una vez hecho esto utilizaremos una aproximación normal para calcular la probabilidad.
+
+\paragraph{Aproximación de la desviación estándar poblacional}\label{aproximaciuxf3n-de-la-desviaciuxf3n-estuxe1ndar-poblacional}
+
+La desviación estándar aproximada \(\sigma\) de una distribución es proporcional al rango dividido por 4.
+
+Dado que los valores de pH se encuentran típicamente entre 5 y 8, estimamos:
+
+\[
+\sigma \approx \frac{\text{rango}}{4} = \frac{8 - 5}{4} = 0.75
+\]
+
+La media muestral \(\bar{X}\) se distribuye normalmente con:
+
+\begin{itemize}
+\tightlist
+\item
+  Media: \(\mu\)
+\item
+  Desviación estándar:
+\end{itemize}
+
+\[
+\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{0.75}{\sqrt{40}}
+\]
+
+\paragraph{Cálculo de la Probabilidad}\label{cuxe1lculo-de-la-probabilidad-1}
+
+Queremos calcular:
+
+\[
+P(|\bar{X} - \mu| \leq 0.2)
+\]
+
+Esto es equivalente a:
+
+\[
+P\left(-0.2 \leq \bar{X} - \mu \leq 0.2\right)
+\]
+
+Normalizando con \(\sigma_{\bar{X}}\), se transforma en:
+
+\[
+P\left(-\frac{0.2}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.2}{\sigma_{\bar{X}}}\right)
+\]
+
+donde \(Z\) es una variable normal estándar. Sustituyendo \(\sigma_{\bar{X}}\), calculamos los valores críticos y la probabilidad asociada usando R.
+
+\paragraph{Cálculo numérico en R}\label{cuxe1lculo-numuxe9rico-en-r}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parámetros}
+\NormalTok{sigma }\OtherTok{\textless{}{-}} \FloatTok{0.75}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{40}
+\NormalTok{threshold }\OtherTok{\textless{}{-}} \FloatTok{0.2}
+
+\CommentTok{\# Desviación estándar de la media muestral}
+\NormalTok{sigma\_barX }\OtherTok{\textless{}{-}}\NormalTok{ sigma }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n)}
+
+\CommentTok{\# Valores críticos}
+\NormalTok{z }\OtherTok{\textless{}{-}}\NormalTok{ threshold }\SpecialCharTok{/}\NormalTok{ sigma\_barX}
+
+\CommentTok{\# Probabilidad}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{pnorm}\NormalTok{(z) }\SpecialCharTok{{-}} \FunctionTok{pnorm}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{z)}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9083097
+\end{verbatim}
+
+\paragraph{Resultado final}\label{resultado-final-2}
+
+El valor de la probabilidad calculada es aproximadamente:
+
+\[
+P(|\bar{X} - \mu| \leq 0.2) \approx 0.9083097
+\]
+
+Esto significa que existe una probabilidad aproximada de \textbf{0.908} de que la media muestral esté a 0.2 unidades del verdadero promedio poblacional de pH.
 
 \subsection{Ejercicio 9}\label{ejercicio-9}
 
@@ -2933,6 +3306,105 @@ Suponga que una muestra aleatoria reciente de 50 familias se seleccionó en Gain
 Para verificar la abundancia relativa de cierta especie de peces en dos lagos, se toman \(n=50\) observaciones relacionadas con los resultados de la captura en cada uno de los lagos. Para cada observación, el experimentador sólo registra si la especie deseada estaba presente en la trampa.
 
 La experiencia del pasado ha demostrado que esta especie aparece en trampas del lago A aproximadamente \(10 \%\) del tiempo y en trampas del lago B, alrededor de \(20 \%\) del tiempo. Use estos resultados para aproximar la probabilidad de que la diferencia entre las proporciones muestrales sea de no más de .1 de la diferencia entre las proporciones reales.
+
+\subsubsection{Solución}\label{soluciuxf3n-11}
+
+Se toman \(n = 50\) observaciones en dos lagos, y el interés está en calcular la probabilidad de que la diferencia entre las proporciones muestrales de presencia de una especie en las trampas sea de no más de 0.1 de la diferencia entre las proporciones reales. La proporción de presencia en el lago A es \(p_1 = 0.1\) y en el lago B es \(p_2 = 0.2\).
+
+para resolver el problema nos basaremos en la normalidad aproximada de la diferencia entre proporciones muestrales de proporciones que se deriva del Teorema Central del Límite (TCL).
+
+\paragraph{Propiedades de las proporciones muestrales y sus diferencias.}\label{propiedades-de-las-proporciones-muestrales-y-sus-diferencias.}
+
+Sean \(p_1\) y \(p_2\) las proporciones reales en los lagos A y B, respectivamente, y \(n_1 = n_2 = 50\) el tamaño muestral en cada caso. Las proporciones muestrales \(\hat{p}_1 = Y_1 / n_1\) y \(\hat{p}_2 = Y_2 / n_2\) tienen las siguientes propiedades:
+
+\begin{itemize}
+\item
+  Media de \(\hat{p}_1 - \hat{p}_2\):
+  \[
+  E(\hat{p}_1 - \hat{p}_2) = p_1 - p_2
+  \]
+\item
+  Varianza de \(\hat{p}_1 - \hat{p}_2\):
+  \[
+  V(\hat{p}_1 - \hat{p}_2) = \frac{p_1(1 - p_1)}{n_1} + \frac{p_2(1 - p_2)}{n_2}
+  \]
+\end{itemize}
+
+Dado que las muestras son grandes, el TCL nos permite aproximar la distribución de \(\hat{p}_1 - \hat{p}_2\) por una distribución normal con:
+
+\begin{itemize}
+\tightlist
+\item
+  Media: \(p_1 - p_2\)
+\item
+  Desviación estándar:
+  \[
+  \sigma_{\hat{p}_1 - \hat{p}_2} = \sqrt{\frac{p_1(1 - p_1)}{n_1} + \frac{p_2(1 - p_2)}{n_2}}
+  \]
+\end{itemize}
+
+\paragraph{Cálculo de la probabilidad}\label{cuxe1lculo-de-la-probabilidad-2}
+
+Queremos calcular:
+
+\[
+P(|\hat{p}_1 - \hat{p}_2 - (p_1 - p_2)| \leq 0.1)
+\]
+
+Reescribimos como:
+
+\[
+P\left(-0.1 \leq \hat{p}_1 - \hat{p}_2 - (p_1 - p_2) \leq 0.1\right)
+\]
+
+Estandarizamos usando \(\sigma_{\hat{p}_1 - \hat{p}_2}\) para obtener:
+
+\[
+P\left(-\frac{0.1}{\sigma_{\hat{p}_1 - \hat{p}_2}} \leq Z \leq \frac{0.1}{\sigma_{\hat{p}_1 - \hat{p}_2}}\right)
+\]
+
+donde \(Z\) es una variable normal estándar.
+
+\subsubsection{Cálculo numérico}\label{cuxe1lculo-numuxe9rico-1}
+
+Sustituimos los valores dados:
+
+\begin{itemize}
+\tightlist
+\item
+  \(p_1 = 0.1\), \(p_2 = 0.2\), \(n_1 = n_2 = 50\)
+\end{itemize}
+
+Calculamos la varianza y la probabilidad asociada en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parámetros}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FloatTok{0.1}
+\NormalTok{p2 }\OtherTok{\textless{}{-}} \FloatTok{0.2}
+\NormalTok{n1 }\OtherTok{\textless{}{-}} \DecValTok{50}
+\NormalTok{n2 }\OtherTok{\textless{}{-}} \DecValTok{50}
+\NormalTok{threshold }\OtherTok{\textless{}{-}} \FloatTok{0.1}
+
+\CommentTok{\# Desviación estándar de la diferencia}
+\NormalTok{sigma\_diff }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{((p1 }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p1) }\SpecialCharTok{/}\NormalTok{ n1) }\SpecialCharTok{+}\NormalTok{ (p2 }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p2) }\SpecialCharTok{/}\NormalTok{ n2))}
+
+\CommentTok{\# Valores críticos}
+\NormalTok{z }\OtherTok{\textless{}{-}}\NormalTok{ threshold }\SpecialCharTok{/}\NormalTok{ sigma\_diff}
+
+\CommentTok{\# Probabilidad}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{pnorm}\NormalTok{(z) }\SpecialCharTok{{-}} \FunctionTok{pnorm}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{z)}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8427008
+\end{verbatim}
+
+\subsubsection{Conclusión}\label{conclusiuxf3n-3}
+
+La probabilidad de que la diferencia entre las proporciones muestrales esté dentro de 0.1 de la diferencia entre las proporciones reales es aproximadamente \textbf{0.8427}.
 
 \section{Estimación puntual}\label{estimaciuxf3n-puntual}
 
@@ -2957,8 +3429,232 @@ Considere los siguientes cinco estimadores de \(\theta\) :
   ¿Cuáles de estos estimadores son insesgados?
 \item
   Entre los estimadores insesgados, ¿cuál tiene la varianza más pequeña?
-  Nota: La esperanza de la distribución exponencial, tal como se define aquí es \(E(Y)= \theta\).
 \end{enumerate}
+
+\textbf{Nota}: \emph{La esperanza de la distribución exponencial, tal como se define aquí es \(E(Y)= \theta\)}.
+
+\textbf{SOLUCIÓN}
+
+Para resolver este problema, evaluaremos el sesgo y la varianza de cada uno de los estimadores propuestos.
+
+Se sabe que para una variable aleatoria \(Y\) que sigue una distribución exponencial con parámetro \(\theta\), \(E(Y) = \theta\) y \(\text{Var}(Y) = \theta^2\).
+
+\subsubsection{a. Insesgadez de los estimadores}\label{a.-insesgadez-de-los-estimadores}
+
+Un estimador \(\hat{\theta}\) es insesgado si \(E(\hat{\theta}) = \theta\). Evaluamos la esperanza de cada estimador:
+
+\paragraph{\texorpdfstring{\(\hat{\theta}_1 = Y_1\)}{\textbackslash hat\{\textbackslash theta\}\_1 = Y\_1}}\label{hattheta_1-y_1}
+
+\[
+E(\hat{\theta}_1) = E(Y_1) = \theta
+\]
+
+Por lo tanto, \(\hat{\theta}_1\) es insesgado.
+
+\paragraph{\texorpdfstring{\(\hat{\theta}_2 = \frac{Y_1 + Y_2}{2}\)}{\textbackslash hat\{\textbackslash theta\}\_2 = \textbackslash frac\{Y\_1 + Y\_2\}\{2\}}}\label{hattheta_2-fracy_1-y_22}
+
+\[
+E(\hat{\theta}_2) = E\left(\frac{Y_1 + Y_2}{2}\right) = \frac{1}{2}(E(Y_1) + E(Y_2)) = \frac{1}{2}(\theta + \theta) = \theta
+\]
+
+Por lo tanto, \(\hat{\theta}_2\) es insesgado.
+
+\paragraph{\texorpdfstring{\(\hat{\theta}_3 = \frac{Y_1 + 2Y_2}{3}\)}{\textbackslash hat\{\textbackslash theta\}\_3 = \textbackslash frac\{Y\_1 + 2Y\_2\}\{3\}}}\label{hattheta_3-fracy_1-2y_23}
+
+\[
+E(\hat{\theta}_3) = E\left(\frac{Y_1 + 2Y_2}{3}\right) = \frac{1}{3}(E(Y_1) + 2E(Y_2)) = \frac{1}{3}(\theta + 2\theta) = \theta
+\]
+
+Por lo tanto, \(\hat{\theta}_3\) es insesgado.
+
+\paragraph{\texorpdfstring{\(\hat{\theta}_4 = \min(Y_1, Y_2, Y_3)\)}{\textbackslash hat\{\textbackslash theta\}\_4 = \textbackslash min(Y\_1, Y\_2, Y\_3)}}\label{hattheta_4-miny_1-y_2-y_3}
+
+El valor esperado de \(\min(Y_1, Y_2, Y_3)\) para una muestra de tamaño 3 de una distribución exponencial no es \(\theta\), sino \(\frac{\theta}{3}\) (Ver apendice 1 al final del problema).
+
+Por lo tanto:
+
+\[
+E(\hat{\theta}_4) = \frac{\theta}{3} \neq \theta
+\]
+
+Por lo tanto, \(\hat{\theta}_4\) no es insesgado.
+
+\paragraph{\texorpdfstring{\(\hat{\theta}_5 = \bar{Y}\)}{\textbackslash hat\{\textbackslash theta\}\_5 = \textbackslash bar\{Y\}}}\label{hattheta_5-bary}
+
+El promedio muestral \(\bar{Y} = \frac{1}{3}(Y_1 + Y_2 + Y_3)\). Entonces:
+
+\[
+E(\hat{\theta}_5) = E\left(\frac{1}{3}(Y_1 + Y_2 + Y_3)\right) = \frac{1}{3}(E(Y_1) + E(Y_2) + E(Y_3)) = \frac{1}{3}(3\theta) = \theta
+\]
+
+Por lo tanto, \(\hat{\theta}_5\) es insesgado.
+
+\textbf{Conclusión}: Los estimadores insesgados son \(\hat{\theta}_1\), \(\hat{\theta}_2\), \(\hat{\theta}_3\), y \(\hat{\theta}_5\).
+
+\subsubsection{Comparación de varianzas}\label{comparaciuxf3n-de-varianzas}
+
+Recordemos que para una variable \(Y\) que sigue una distribución exponencial con parámetro \(\theta\):
+
+\begin{itemize}
+\tightlist
+\item
+  \(E(Y) = \theta\)
+\item
+  \(\text{Var}(Y) = \theta^2\)
+\end{itemize}
+
+Las varianzas de los estimadores insesgados son:
+
+\paragraph{\texorpdfstring{\(\hat{\theta}_1 = Y_1\)}{\textbackslash hat\{\textbackslash theta\}\_1 = Y\_1}}\label{hattheta_1-y_1-1}
+
+Como \(\hat{\theta}_1\) es simplemente una observación de la muestra:
+
+\[
+\text{Var}(\hat{\theta}_1) = \text{Var}(Y_1) = \theta^2.
+\]
+
+\paragraph{\texorpdfstring{\(\hat{\theta}_2 = \frac{Y_1 + Y_2}{2}\)}{\textbackslash hat\{\textbackslash theta\}\_2 = \textbackslash frac\{Y\_1 + Y\_2\}\{2\}}}\label{hattheta_2-fracy_1-y_22-1}
+
+Dado que \(Y_1\) y \(Y_2\) son independientes, \(\text{Var}(Y_1 + Y_2) = \text{Var}(Y_1) + \text{Var}(Y_2) = \theta^2 + \theta^2 = 2\theta^2\). Por lo tanto:
+
+\[
+\text{Var}(\hat{\theta}_2) = \text{Var}\left(\frac{Y_1 + Y_2}{2}\right) = \frac{1}{4}\text{Var}(Y_1 + Y_2) = \frac{1}{4}(2\theta^2) = \frac{\theta^2}{2}.
+\]
+
+\paragraph{\texorpdfstring{\(\hat{\theta}_3 = \frac{Y_1 + 2Y_2}{3}\)}{\textbackslash hat\{\textbackslash theta\}\_3 = \textbackslash frac\{Y\_1 + 2Y\_2\}\{3\}}}\label{hattheta_3-fracy_1-2y_23-1}
+
+De nuevo, dado que \(Y_1\) y \(Y_2\) son independientes:
+
+\[
+\text{Var}(\hat{\theta}_3) = \text{Var}\left(\frac{Y_1 + 2Y_2}{3}\right) = \frac{1}{9}(\text{Var}(Y_1) + 4\text{Var}(Y_2)) = \frac{1}{9}(\theta^2 + 4\theta^2) = \frac{5\theta^2}{9}.
+\]
+
+\paragraph{\texorpdfstring{\(\hat{\theta}_5 = \bar{Y}\)}{\textbackslash hat\{\textbackslash theta\}\_5 = \textbackslash bar\{Y\}}}\label{hattheta_5-bary-1}
+
+La media muestral está definida como:
+
+\[
+\bar{Y} = \frac{1}{3}(Y_1 + Y_2 + Y_3).
+\]
+
+Dado que \(Y_1, Y_2, Y_3\) son independientes:
+
+\[
+\text{Var}(\bar{Y}) = \text{Var}\left(\frac{1}{3}(Y_1 + Y_2 + Y_3)\right) = \frac{1}{9}(\text{Var}(Y_1) + \text{Var}(Y_2) + \text{Var}(Y_3)).
+\]
+
+Sustituyendo \(\text{Var}(Y_i) = \theta^2\):
+
+\[
+\text{Var}(\bar{Y}) = \frac{1}{9}(3\theta^2) = \frac{\theta^2}{3}.
+\]
+
+\paragraph{Comparación de varianzas}\label{comparaciuxf3n-de-varianzas-1}
+
+Resumimos las varianzas calculadas:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\text{Var}(\hat{\theta}_1) = \theta^2\)
+\item
+  \(\text{Var}(\hat{\theta}_2) = \frac{\theta^2}{2}\)
+\item
+  \(\text{Var}(\hat{\theta}_3) = \frac{5\theta^2}{9}\)
+\item
+  \(\text{Var}(\hat{\theta}_5) = \frac{\theta^2}{3}\)
+\end{itemize}
+
+La varianza de \(\hat{\theta}_5 = \bar{Y}\) es la menor entre los estimadores insesgados.
+
+De hecho, desde un punto de vista teórico este es el resultado que cabría esperar (haciendo otros cálculos, que no hemos introducido aquí) porque, al tratarse de un estimador insesgado y función del estadístico suficiente (la suma de todas las observaciones) la media muestral, \(\bar{Y}\), es el estimador de varianza mínima para \(\theta\) en la familia exponencial
+\#\#\# Apéndice 1: Distribución del mínimo
+
+Para justificar que el valor esperado de \(\min(Y_1, Y_2, Y_3)\) para una muestra de tamaño 3 de una distribución exponencial es \(\frac{\theta}{3}\), necesitamos considerar las propiedades de la distribución exponencial y cómo se comporta el mínimo de variables independientes e idénticamente distribuidas.
+
+\paragraph{Mínimo de 3 variables independientes}\label{muxednimo-de-3-variables-independientes}
+
+Sea \(Y_1, Y_2, Y_3\) una muestra aleatoria independiente de una distribución exponencial con parámetro \(\theta\) y función de densidad:
+
+\[
+f_Y(y) = \frac{1}{\theta} e^{-y/\theta}, \quad y > 0.
+\]
+
+El mínimo de estas variables, \(M = \min(Y_1, Y_2, Y_3)\), también es una variable aleatoria. Su función de distribución acumulativa (CDF) \(F_M(m)\) es la probabilidad de que todos los valores \(Y_i\) sean mayores que \(m\):
+
+\[
+F_M(m) = P(M \leq m) = 1 - P(Y_1 > m \text{ y } Y_2 > m \text{ y } Y_3 > m).
+\]
+
+Dado que las variables son independientes:
+
+\[
+P(M \leq m) = 1 - P(Y_1 > m) P(Y_2 > m) P(Y_3 > m).
+\]
+
+La probabilidad de que \(Y_i > m\) es:
+
+\[
+P(Y_i > m) = 1 - F_Y(m) = 1 - \left(1 - e^{-m/\theta}\right) = e^{-m/\theta}.
+\]
+
+Por tanto:
+
+\[
+F_M(m) = 1 - (e^{-m/\theta})^3 = 1 - e^{-3m/\theta}.
+\]
+
+La función de densidad (pdf) del mínimo \(M\) se obtiene derivando \(F_M(m)\):
+
+\[
+f_M(m) = \frac{d}{dm} F_M(m) = 3 \cdot \frac{1}{\theta} e^{-3m/\theta}, \quad m > 0.
+\]
+
+\paragraph{Esperanza del mínimo}\label{esperanza-del-muxednimo}
+
+La esperanza de \(M = \min(Y_1, Y_2, Y_3)\) se calcula como:
+
+\[
+E(M) = \int_0^\infty m f_M(m) \, dm.
+\]
+
+Sustituyendo \(f_M(m)\):
+
+\[
+E(M) = \int_0^\infty m \cdot 3 \cdot \frac{1}{\theta} e^{-3m/\theta} \, dm.
+\]
+
+Factorizando las constantes:
+
+\[
+E(M) = \frac{3}{\theta} \int_0^\infty m e^{-3m/\theta} \, dm.
+\]
+
+Hacemos el cambio de variable \(u = \frac{3m}{\theta} \implies m = \frac{\theta u}{3}, \, dm = \frac{\theta}{3} du\):
+
+\[
+E(M) = \frac{3}{\theta} \int_0^\infty \frac{\theta u}{3} e^{-u} \cdot \frac{\theta}{3} du.
+\]
+
+Simplificamos:
+
+\[
+E(M) = \frac{3}{\theta} \cdot \frac{\theta^2}{9} \int_0^\infty u e^{-u} \, du = \frac{\theta}{3} \int_0^\infty u e^{-u} \, du.
+\]
+
+El valor esperado de \(u\) para \(u \sim \text{Exp}(1)\) es conocido: \(\int_0^\infty u e^{-u} \, du = 1\).
+
+Por tanto:
+
+\[
+E(M) = \frac{\theta}{3}.
+\]
+
+\paragraph{En resumen}\label{en-resumen}
+
+El valor esperado del mínimo de \(Y_1, Y_2, Y_3\), que son independientes y siguen una distribución exponencial con parámetro \(\theta\), es \(\frac{\theta}{3}\).
+
+Observemos que esta dependencia del tamaño de la muestra se puede interpretar como que, aunque para muestras finitas, es imposible que se alcance el mínimo valor posible de la distribución, a medida que la muestra sea más grande la esperanza del mínimo disminuirá, y con ella el sesgo, por lo que se trata de un estimador \_asintóticamente insesgado.
 
 \subsection{Ejercicio 2}\label{ejercicio-2-2}
 
@@ -2975,6 +3671,184 @@ Considere una distribución uniforme en el intervalo \((0, \theta)\). Para estim
   ¿Como podríamos utilizar las simulaciones anteriores para estimar la varianza de cada estimador? ¿Cual de los dos resulta más eficiente?
 \end{enumerate}
 
+\textbf{SOLUCIÓN}
+
+\subsubsection{a. Insesgadez de los estimadores}\label{a.-insesgadez-de-los-estimadores-1}
+
+Dado que \(X_1, X_2, \dots, X_n\) es una muestra aleatoria de una distribución uniforme \((0, \theta)\):
+
+\begin{itemize}
+\tightlist
+\item
+  La función de densidad es \[f(x) = \frac{1}{\theta}, \, 0 \leq x \leq \theta.\]
+\end{itemize}
+
+Calculamos la esperanza de los estimadores \(\hat{\theta}_1\) y \(\hat{\theta}_2\) para verificar su insesgadez.
+
+\paragraph{\texorpdfstring{Estimador \(\hat{\theta}_1 = \max(X_1, \dots, X_n)\)}{Estimador \textbackslash hat\{\textbackslash theta\}\_1 = \textbackslash max(X\_1, \textbackslash dots, X\_n)}}\label{estimador-hattheta_1-maxx_1-dots-x_n}
+
+El valor esperado del máximo de \(n\) variables independientes uniformemente distribuidas es conocido:
+
+\[
+E[\hat{\theta}_1] = \frac{n}{n+1} \theta.
+\]
+
+Dado que \(E[\hat{\theta}_1] \neq \theta\), el estimador \(\hat{\theta}_1\) es sesgado. Podemos corregir este sesgo multiplicándolo por \(\frac{n+1}{n}\), resultando en un estimador insesgado \(\frac{n+1}{n} \hat{\theta}_1\).
+
+\paragraph{\texorpdfstring{Estimador \(\hat{\theta}_2 = 2\overline{X}\)}{Estimador \textbackslash hat\{\textbackslash theta\}\_2 = 2\textbackslash overline\{X\}}}\label{estimador-hattheta_2-2overlinex}
+
+La esperanza de la media muestral \(\overline{X}\) de \(n\) variables uniformes es:
+
+\[
+E[\overline{X}] = \frac{\theta}{2}.
+\]
+
+Por lo tanto:
+
+\[
+E[\hat{\theta}_2] = E[2\overline{X}] = 2 \cdot \frac{\theta}{2} = \theta.
+\]
+
+El estimador \(\hat{\theta}_2\) es insesgado.
+
+\subsubsection{b. Simulación para evaluar el sesgo}\label{b.-simulaciuxf3n-para-evaluar-el-sesgo}
+
+\paragraph{Objetivo}\label{objetivo-1}
+
+Simularemos 1000 muestras de tamaño \(n = 10\) de una distribución uniforme \((0, 1)\) y calcularemos los valores promedio de \(\hat{\theta}_1\) y \(\hat{\theta}_2\) para aproximar sus esperanzas y analizar el sesgo.
+
+\paragraph{Código en R}\label{cuxf3digo-en-r}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)  }\CommentTok{\# Fijar la semilla para reproducibilidad}
+
+\CommentTok{\# Parámetros}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{10}  \CommentTok{\# Tamaño de la muestra}
+\NormalTok{replicas }\OtherTok{\textless{}{-}} \DecValTok{1000}  \CommentTok{\# Número de simulaciones}
+
+\CommentTok{\# Simulaciones}
+\NormalTok{simulaciones }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(replicas, \{}
+\NormalTok{  muestra }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(n, }\AttributeTok{min =} \DecValTok{0}\NormalTok{, }\AttributeTok{max =} \DecValTok{1}\NormalTok{)}
+  \FunctionTok{c}\NormalTok{(}\FunctionTok{max}\NormalTok{(muestra), }\DecValTok{2} \SpecialCharTok{*} \FunctionTok{mean}\NormalTok{(muestra))  }\CommentTok{\# Calculamos los dos estimadores}
+\NormalTok{\})}
+
+\CommentTok{\# Convertimos simulaciones en una matriz}
+\NormalTok{simulaciones }\OtherTok{\textless{}{-}} \FunctionTok{t}\NormalTok{(simulaciones)}
+
+\CommentTok{\# Calculamos los valores promedio de los estimadores}
+\NormalTok{promedios }\OtherTok{\textless{}{-}} \FunctionTok{colMeans}\NormalTok{(simulaciones)}
+
+\CommentTok{\# Mostramos los resultados}
+\NormalTok{promedios}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9051482 0.9950987
+\end{verbatim}
+
+\paragraph{Resultados de las simulaciones}\label{resultados-de-las-simulaciones}
+
+De las simulaciones obtenemos:
+
+\begin{itemize}
+\tightlist
+\item
+  \(E[\hat{\theta}_1] \approx 0.91\)
+\item
+  \(E[\hat{\theta}_2] \approx 1.00\)
+\end{itemize}
+
+\paragraph{Interpretación}\label{interpretaciuxf3n}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\hat{\theta}_1\) es sesgado, como esperábamos teóricamente. Este sesgo ocurre porque \(E[\hat{\theta}_1] = \frac{n}{n+1}\), lo que subestima \(\theta\) cuando \(n = 10\).
+\item
+  \(\hat{\theta}_2\) es insesgado, ya que \(E[\hat{\theta}_2] \approx 1\), lo cual coincide con la teoría.
+\end{itemize}
+
+\subsubsection{c.~Estimación de la varianza y eficiencia de los estimadores}\label{c.-estimaciuxf3n-de-la-varianza-y-eficiencia-de-los-estimadores}
+
+Es posible calcular la varianza analísticamente de forma similar a como se ha calculado la esperanza del mínimo en el ejercicio anterior.
+
+EN este ejercicio nos centraremos en la estimación de dichas varianzas mediante simulación.
+
+\paragraph{Estimación de la varianza}\label{estimaciuxf3n-de-la-varianza}
+
+Para cada estimador, la varianza se estima a partir de las simulaciones calculando la varianza muestral de los valores obtenidos:
+
+\[
+\widehat{Var}(\hat{\theta}_i) = \frac{1}{N-1} \sum_{j=1}^{N} (\hat{\theta}_{i,j} - \overline{\hat{\theta}_i})^2,
+\]
+
+donde \(N = 1000\) es el número de simulaciones, \(\hat{\theta}_{i,j}\) es el valor del estimador en la \(j\)-ésima simulación, y \(\overline{\hat{\theta}_i}\) es la media muestral de los valores del estimador.
+
+\paragraph{Código en R}\label{cuxf3digo-en-r-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calcular la varianza de cada estimador}
+\NormalTok{varianzas }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(simulaciones, }\DecValTok{2}\NormalTok{, var)}
+
+\CommentTok{\# Mostramos las varianzas estimadas}
+\NormalTok{varianzas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.007161166 0.031155315
+\end{verbatim}
+
+\paragraph{Resultados de las simulaciones}\label{resultados-de-las-simulaciones-1}
+
+De las simulaciones obtenemos:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\widehat{Var}(\hat{\theta}_1) \approx 0.0083\)
+\item
+  \(\widehat{Var}(\hat{\theta}_2) \approx 0.0167\)
+\end{itemize}
+
+\paragraph{Eficiencia relativa}\label{eficiencia-relativa}
+
+La eficiencia relativa de \(\hat{\theta}_1\) respecto a \(\hat{\theta}_2\) es:
+
+\[
+\text{Eficiencia relativa} = \frac{\text{Var}(\hat{\theta}_2)}{\text{Var}(\hat{\theta}_1)}.
+\]
+
+En este caso, la eficiencia relativa es:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eficiencia }\OtherTok{\textless{}{-}}\NormalTok{ varianzas[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{/}\NormalTok{ varianzas[}\DecValTok{1}\NormalTok{]}
+\NormalTok{eficiencia}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.350592
+\end{verbatim}
+
+El resultado indica que \(\hat{\theta}_1\) es más eficiente que \(\hat{\theta}_2\) en términos de varianza, ya que tiene menor varianza.
+
+\subsubsection{Conclusión}\label{conclusiuxf3n-4}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Insesgadez}: \(\hat{\theta}_2\) es insesgado, mientras que \(\hat{\theta}_1\) presenta sesgo.
+\item
+  \textbf{Varianza}: \(\hat{\theta}_1\) tiene menor varianza que \(\hat{\theta}_2\), siendo más eficiente.
+\item
+  \textbf{Elección del estimador}: Si el sesgo de \(\hat{\theta}_1\) puede aceptarse o corregirse (por ejemplo, con \(\frac{n+1}{n}\hat{\theta}_1\)), resulta preferible debido a su mayor eficiencia. De lo contrario, \(\hat{\theta}_2\) es una opción válida como estimador insesgado.
+\end{itemize}
+
 \subsection{Ejercicio 3}\label{ejercicio-3-2}
 
 Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución expoenencial y consideramos \(\hat \theta_1 = X_1\) y \(\hat\theta_2=\overline{X}\).
@@ -2983,7 +3857,24 @@ Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseam
 \def\labelenumi{\alph{enumi}.}
 \tightlist
 \item
-  Si deseamos comparar ambos estimadores: (i) Son estimadores sesgados o insesgados? (ii) Cual de los dos es más eficiente? (iii) Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.
+  Si deseamos comparar ambos estimadores:
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\tightlist
+\item
+  Son estimadores sesgados o insesgados?
+\item
+  Cual de los dos es más eficiente?
+\item
+  Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
 \item
   Realice una simulación similar a la del ejercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.
 \end{enumerate}
