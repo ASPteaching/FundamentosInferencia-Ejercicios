@@ -4442,6 +4442,28 @@ Un administrador de hospital con la esperanza de mejorar los tiempos de espera d
   Para reducir el margen de error de un intervalo de confianza del 95\% a la mitad de lo que es ahora, tendremos que duplicar el tamaño de la muestra.
 \end{enumerate}
 
+\subsubsection{SOLUCIÓN}\label{soluciuxf3n-16}
+
+Aquí tienes la traducción de las respuestas al castellano:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Falso. El tamaño muestral permite aceptar la normalidad por el TLC.
+\item
+  Falso. La inferencia se realiza sobre el parámetro poblacional, no sobre el parámetro muestral, que siempre estará dentro del intervalo.
+\item
+  Cierto.
+\item
+  Falso. No hacemos inferencia sobre las muestras.
+\item
+  Falso. Sería más amplio.
+\item
+  Cierto. La media es el punto medio del intervalo.
+\item
+  Falso. Deberíamos cuadruplicar el tamaño de la muestra.
+\end{enumerate}
+
 \subsection{PROBLEMA 3}\label{problema-3-1}
 
 Las autoridades sanitarias fijan la cantidad de 14 UFP/100ml (UFP=unidades formadoras de placas) como la concentración máxima de un determinado virus entérico en aguas residuales de cualquier punto del estado. Se realiza un control en aguas depuradas de 10 granjas que generan purines. La concentración del virus entérico corresponde a un número muy grande, de forma que podemos asumir que sigue una distribución Normal. Por otro lado, las granjas están suficientemente alejadas como para asumir que los resultados individuales son mutuamente independientes.
@@ -4458,13 +4480,74 @@ Los valores obtenidos han sido:
 \end{longtable}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Calcula el intervalo de confianza al 95\% de la concentración media del virus en las aguas que vierten las granjas.\\
 \item
   Interpreta el resultado en función del valor fijado por la administración.
 \end{enumerate}
+
+\subsubsection{SOLUCIÓN}\label{soluciuxf3n-17}
+
+\paragraph{Cálculo del intervalo de confianza al 95\% para la concentración media del virus}\label{cuxe1lculo-del-intervalo-de-confianza-al-95-para-la-concentraciuxf3n-media-del-virus}
+
+El intervalo de confianza (IC) para la media de una población normal con varianza desconocida se calcula como:
+
+\[ \bar{x} \pm t_{n-1, 1-\alpha/2} \cdot \frac{s}{\sqrt{n}} \]
+
+Donde:
+- \(\bar{x}\) es la media muestral.
+- \(t_{n-1, 1-\alpha/2}\) es el valor crítico de la distribución \(t\) de Student con \(n-1\) grados de libertad y nivel de confianza \(1-\alpha\).
+- \(s\) es la desviación estándar muestral.
+- \(n\) es el tamaño de la muestra.
+
+Los datos proporcionados son:
+
+\[ \text{concentración} = \{14.3, 15.3, 13.8, 15.4, 15.5, 14.6, 13.9, 15.0, 14.6, 13.8\} \]
+
+El tamaño muestral es \(n=10\). Calculamos la media (\(\bar{x}\)) y la desviación estándar (\(s\)) con R y usamos la función \texttt{t.test} para obtener el intervalo de confianza.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Datos}
+\NormalTok{conc\_virus }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{14.3}\NormalTok{, }\FloatTok{15.3}\NormalTok{, }\FloatTok{13.8}\NormalTok{, }\FloatTok{15.4}\NormalTok{, }\FloatTok{15.5}\NormalTok{, }\FloatTok{14.6}\NormalTok{, }\FloatTok{13.9}\NormalTok{, }\FloatTok{15.0}\NormalTok{, }\FloatTok{14.6}\NormalTok{, }\FloatTok{13.8}\NormalTok{)}
+
+\CommentTok{\# Intervalo de confianza al 95\%}
+\NormalTok{res }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(conc\_virus)}
+\NormalTok{res}\SpecialCharTok{$}\NormalTok{conf.int}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14.14573 15.09427
+## attr(,"conf.level")
+## [1] 0.95
+\end{verbatim}
+
+Resultados obtenidos:
+- Límite inferior del IC: 14.1457
+- Límite superior del IC: 15.0943
+
+Por lo tanto, el intervalo de confianza al 95\% es:
+
+\[ (14.146, 15.094) \]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\paragraph{Interpretación del resultado}\label{interpretaciuxf3n-del-resultado-3}
+
+El valor fijado por la administración como límite máximo aceptable para la concentración de virus es 14 UFP/100ml. Observamos que \textbf{todo el intervalo de confianza calculado está por encima de este valor (14.146, 15.094)}. Esto implica que:
+
+\begin{itemize}
+\tightlist
+\item
+  Es razonable concluir que la media poblacional de la concentración del virus está por encima de 14 UFP/100ml.
+\item
+  Solo el 5\% de los intervalos que construimos a partir de muestras no contiene la verdadera media poblacional, y el intervalo que hemos construido no incluye el valor fijado por la administración.
+\end{itemize}
+
+\textbf{Conclusión}: Existe evidencia estadística para sugerir, con una alta confianza, que las granjas exceden, en promedio, el límite permitido por las autoridades sanitarias.
 
 \subsection{PROBLEMA 4}\label{problema-4-1}
 
@@ -4491,12 +4574,90 @@ Después & 3.82 & 3.95 & 3.80 & 3.87 & 3.88 & 3.94 \\
   ¿Será más amplio? ¿Será más estrecho? ¿O no cambiará?
 \end{enumerate}
 
+\subsubsection{SOLUCIÓN}\label{soluciuxf3n-18}
+
+\paragraph{\texorpdfstring{Cálculo del intervalo de confianza al 95\% para la diferencia de medias: \emph{Después - Antes}}{Cálculo del intervalo de confianza al 95\% para la diferencia de medias: Después - Antes}}\label{cuxe1lculo-del-intervalo-de-confianza-al-95-para-la-diferencia-de-medias-despuuxe9s---antes}
+
+Estamos trabajando con datos apareados, ya que se trata de mediciones realizadas en los mismos individuos antes y después de consumir alcohol. Por lo tanto, calculamos las diferencias entre los valores \emph{Después - Antes} para cada individuo, y procedemos como si fuera un problema de una sola muestra con las diferencias.
+
+El intervalo de confianza para la media de las diferencias se calcula como:
+
+\[ \bar{d} \pm t_{n-1, 1-\alpha/2} \cdot \frac{s_d}{\sqrt{n}} \]
+
+Donde:
+- \(\bar{d}\) es la media de las diferencias.
+- \(t_{n-1, 1-\alpha/2}\) es el valor crítico de la distribución \(t\) de Student con \(n-1\) grados de libertad y nivel de confianza \(1-\alpha\).
+- \(s_d\) es la desviación estándar de las diferencias.
+- \(n\) es el número de pares.
+
+Los datos son:
+- Antes: \([3.85, 3.81, 3.60, 3.68, 3.78, 3.83]\)
+- Después: \([3.82, 3.95, 3.80, 3.87, 3.88, 3.94]\)
+
+Calculemos el intervalo de confianza al 95\% con R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Datos}
+\NormalTok{antes }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{3.85}\NormalTok{, }\FloatTok{3.81}\NormalTok{, }\FloatTok{3.60}\NormalTok{, }\FloatTok{3.68}\NormalTok{, }\FloatTok{3.78}\NormalTok{, }\FloatTok{3.83}\NormalTok{)}
+\NormalTok{despues }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{3.82}\NormalTok{, }\FloatTok{3.95}\NormalTok{, }\FloatTok{3.80}\NormalTok{, }\FloatTok{3.87}\NormalTok{, }\FloatTok{3.88}\NormalTok{, }\FloatTok{3.94}\NormalTok{)}
+
+\CommentTok{\# Intervalo de confianza al 95\% para las diferencias pareadas}
+\NormalTok{res\_95 }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(despues, antes, }\AttributeTok{paired =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{res\_95}\SpecialCharTok{$}\NormalTok{conf.int}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.03092935 0.20573732
+## attr(,"conf.level")
+## [1] 0.95
+\end{verbatim}
+
+Resultados:
+- Límite inferior del IC: 0.03093
+- Límite superior del IC: 0.20574
+
+El intervalo de confianza al 95\% para la diferencia de medias es:
+
+\[ (0.031, 0.206) \]
+
+\textbf{Interpretación}: Como todo el intervalo está en la parte positiva de la recta real, podemos afirmar con un 95\% de confianza que la media después de consumir alcohol es superior a la media antes de consumir alcohol.
+
+\paragraph{Cambio del intervalo al reducir el nivel de confianza al 90\%}\label{cambio-del-intervalo-al-reducir-el-nivel-de-confianza-al-90}
+
+Al reducir el nivel de confianza al 90\%, el valor crítico \(t_{n-1, 1-\alpha/2}\) disminuye, lo que hace que el intervalo de confianza sea más estrecho. Calculemos el nuevo intervalo con R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Intervalo de confianza al 90\% para las diferencias pareadas}
+\NormalTok{res\_90 }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(despues, antes, }\AttributeTok{paired =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{conf.level =} \FloatTok{0.9}\NormalTok{)}
+\NormalTok{res\_90}\SpecialCharTok{$}\NormalTok{conf.int}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0498184 0.1868483
+## attr(,"conf.level")
+## [1] 0.9
+\end{verbatim}
+
+Resultados:
+- Límite inferior del IC: 0.04982
+- Límite superior del IC: 0.18685
+
+El intervalo de confianza al 90\% es:
+
+\[ (0.050, 0.187) \]
+
+\textbf{Conclusión}: Como esperábamos, el intervalo al 90\% es más estrecho que el intervalo al 95\%. Esto ocurre porque reducimos el nivel de confianza, lo que implica un menor margen de error.
+
 \subsection{PROBLEMA 5}\label{problema-5-1}
 
 El estudio sanguíneo de un individuo presenta 125 neutrófilos de un recuento total de 200 glóbulos blancos. Se pide:
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi})}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Encuentra una estimación puntual para la proporción de neutrófilos.\\
@@ -4506,11 +4667,167 @@ El estudio sanguíneo de un individuo presenta 125 neutrófilos de un recuento t
   En un individuo sano, el porcentaje de neutrófilos se encuentra entre el 60\% y el 70\% del total de glóbulos blancos. Según el intervalo del apartado anterior, ¿hay alguna evidencia de desequilibrio de neutrófilos en la muestra de sangre analizada?
 \end{enumerate}
 
+\subsubsection{SOLUCIÓN}\label{soluciuxf3n-19}
+
+\paragraph{Estimación puntual para la proporción de neutrófilos}\label{estimaciuxf3n-puntual-para-la-proporciuxf3n-de-neutruxf3filos}
+
+El estimador (por momentos y por máxima verosimilitud) de la proporción poblacional es la frecuencia relativa (\(\hat{p}\)) que se calcula como:
+
+\[ \hat{p} = \frac{x}{n} \]
+
+Donde:
+- \(x = 125\) es el número de neutrófilos.
+- \(n = 200\) es el total de glóbulos blancos.
+
+Calculamos \(\hat{p}\):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Datos}
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{125}
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{200}
+
+\CommentTok{\# Proporción muestral}
+\NormalTok{p\_hat }\OtherTok{\textless{}{-}}\NormalTok{ x }\SpecialCharTok{/}\NormalTok{ n}
+\NormalTok{p\_hat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.625
+\end{verbatim}
+
+Resultado:
+\[ \hat{p} = 0.625 \]
+
+La estimación puntual para la proporción de neutrófilos es \textbf{0.625} o \textbf{62.5\%}.
+
+\paragraph{Intervalo de confianza al 90\% para la proporción}\label{intervalo-de-confianza-al-90-para-la-proporciuxf3n}
+
+El intervalo de confianza asintótico para una proporción se calcula como:
+
+\[ \hat{p} \pm z_{1-\alpha/2} \cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]
+
+Donde:
+
+\begin{itemize}
+\tightlist
+\item
+  \(z_{1-\alpha/2}\) es el valor crítico de la distribución normal estándar para un nivel de confianza del 90\%.
+\item
+  \(\hat{p}\) es la proporción muestral.
+\item
+  \(n\) es el tamaño de la muestra.
+\end{itemize}
+
+Usamos R para calcular este intervalo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Nivel de confianza}
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.1}
+\NormalTok{z }\OtherTok{\textless{}{-}} \FunctionTok{qnorm}\NormalTok{(}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ alpha }\SpecialCharTok{/} \DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# Error estándar}
+\NormalTok{se }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(p\_hat }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p\_hat) }\SpecialCharTok{/}\NormalTok{ n)}
+
+\CommentTok{\# Intervalo de confianza}
+\NormalTok{lower }\OtherTok{\textless{}{-}}\NormalTok{ p\_hat }\SpecialCharTok{{-}}\NormalTok{ z }\SpecialCharTok{*}\NormalTok{ se}
+\NormalTok{upper }\OtherTok{\textless{}{-}}\NormalTok{ p\_hat }\SpecialCharTok{+}\NormalTok{ z }\SpecialCharTok{*}\NormalTok{ se}
+\FunctionTok{c}\NormalTok{(lower, upper)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5686923 0.6813077
+\end{verbatim}
+
+Resultado:
+- Límite inferior: \textbf{0.569}
+- Límite superior: \textbf{0.681}
+
+El intervalo de confianza al 90\% para la proporción de neutrófilos es:
+
+\[ (0.569, 0.681) \]
+
+\paragraph{Evidencia de desequilibrio de neutrófilos}\label{evidencia-de-desequilibrio-de-neutruxf3filos}
+
+Un individuo sano tiene una proporción de neutrófilos entre 60\% y 70\% (\(0.6 \leq p \leq 0.7\)). Observamos que:
+
+\begin{itemize}
+\item
+  El intervalo de confianza calculado es \((0.569, 0.681)\).
+\item
+  Dado que hay una considerable superposición entre ambos intervalos no podemos concluir que haya evidencia de desequilibrio de neutrófilos.
+\end{itemize}
+
 \subsection{PROBLEMA 6}\label{problema-6}
 
 Un proceso químico se lleva a cabo usando un catalizador del que se quiere estimar el rendimiento medio. Una muestra piloto de tamaño 8 estima la desviación típica con un valor de 2.
 
 Decide el tamaño de muestra necesario para obtener intervalos de confianza para la media con un 90\% y un 95\% de confianza de anchura igual a 3 (precisión 1.5), suponiendo que dicha variable sigue un modelo normal.
+
+\subsubsection{SOLUCIÓN}\label{soluciuxf3n-20}
+
+Queremos determinar el tamaño de muestra necesario para obtener intervalos de confianza para la media con anchura igual a 3 (precisión de 1.5), considerando niveles de confianza del 90\% y 95\%. Se sabe que la desviación estándar estimada del proceso químico es \(\sigma = 2\) y que la variable sigue una distribución normal.
+
+Dado que la desviación estándar es estimada, nos basaremos en la distribución \(t\) de Student en lugar de la normal estándar.
+
+La amplitud del intervalo de confianza para la media basado en la distribución \(t\) se calcula como:
+
+\[ \text{Amplitud} = 2 \cdot t_{n-1, 1-\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \]
+
+Resolviendo para \(n\), a partir de la precisión, es decir la mitad de la amplitud se tiene:
+
+\[ n = \left( \frac{t_{n-1, 1-\alpha/2} \cdot \sigma}{\text{Precisión}} \right)^2 \]
+
+Donde:
+- \(\text{Precisión} = \frac{\text{Anchura}}{2} = 1.5\).
+- \(t_{n-1, 1-\alpha/2}\) es el valor crítico de la distribución \(t\) con \(n-1\) grados de libertad y nivel de confianza \(1-\alpha\).
+- \(\sigma = 2\) es la desviación estándar estimada.
+
+Como \(t_{n-1, 1-\alpha/2}\) depende de \(n\), este cálculo requiere iteración.
+
+Realizaremos manualmente la iteración aunque también es posible usar algun paquete como \texttt{DescTools} para confirmar los resultados.
+
+\paragraph{Cálculo manual con iteración}\label{cuxe1lculo-manual-con-iteraciuxf3n}
+
+Dado que para un valor fijo de \(\alpha\) el valor de \(t\) depende de \(n\) podemos iterar para calcular \(n\), ajustando el valor de \(t_{n-1, 1-\alpha/2}\) en cada paso según el tamaño de muestra estimado.
+
+Podemos empezar con un valor bien bajo de \(n\) y, a partir de éste ir aumentando el tamaño.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{s }\OtherTok{\textless{}{-}} \DecValTok{2}          \CommentTok{\# Desviación estándar}
+\NormalTok{precision }\OtherTok{\textless{}{-}} \FloatTok{1.5}  \CommentTok{\# Precisión deseada}
+
+\NormalTok{find\_n }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(conf\_level) \{}
+\NormalTok{  n }\OtherTok{\textless{}{-}} \DecValTok{4}  \CommentTok{\# Tamaño inicial}
+  \ControlFlowTok{repeat}\NormalTok{ \{}
+\NormalTok{    t\_value }\OtherTok{\textless{}{-}} \FunctionTok{qt}\NormalTok{(}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ conf\_level) }\SpecialCharTok{/} \DecValTok{2}\NormalTok{, }\AttributeTok{df =}\NormalTok{ n }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)}
+\NormalTok{    n\_new }\OtherTok{\textless{}{-}} \FunctionTok{ceiling}\NormalTok{((t\_value }\SpecialCharTok{*}\NormalTok{ s }\SpecialCharTok{/}\NormalTok{ precision)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+    \ControlFlowTok{if}\NormalTok{ (n\_new }\SpecialCharTok{==}\NormalTok{ n) }\ControlFlowTok{break}
+\NormalTok{    n }\OtherTok{\textless{}{-}}\NormalTok{ n\_new}
+\NormalTok{  \}}
+  \FunctionTok{return}\NormalTok{(n)}
+\NormalTok{\}}
+
+\CommentTok{\# Tamaños de muestra para 90\% y 95\%}
+\NormalTok{n\_90\_iter }\OtherTok{\textless{}{-}} \FunctionTok{find\_n}\NormalTok{(}\FloatTok{0.90}\NormalTok{)}
+\NormalTok{n\_95\_iter }\OtherTok{\textless{}{-}} \FunctionTok{find\_n}\NormalTok{(}\FloatTok{0.95}\NormalTok{)}
+\FunctionTok{c}\NormalTok{(n\_90\_iter, n\_95\_iter)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  7 10
+\end{verbatim}
+
+Resultados del cálculo iterativo:
+1. Para un nivel de confianza del \textbf{90\%}, \(n =\) 7.
+2. Para un nivel de confianza del \textbf{95\%}, \(n =\) 10.
+
+Al aumentar el nivel de confianza del 90\% al 95\%, el tamaño de muestra necesario aumenta debido al incremento del valor crítico \(t\), lo que refleja una mayor necesidad de datos para reducir la incertidumbre del intervalo.
 
 \subsection{PROBLEMA 7}\label{problema-7}
 
