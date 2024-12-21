@@ -1,6 +1,6 @@
 # Intervalos de confianza
 
-## PROBLEMA 1
+## EJERCICIO 1
 <!-- Bioestadística UB. Exercici 4.1 (2024-25) -->
 
 La distribución del número de huevos puestos por una determinada especie de gallina durante su período de reproducción tiene una media de 35 huevos con una desviación estándar de 18.2. Supongamos que un grupo de investigadores recoge una muestra aleatoria de 45 gallinas de esta especie, cuenta el número de huevos establecidos durante el período de reproducción y registra la media de la muestra. Repiten estas muestras 1.000 veces, y construyen una distribución de las medias de la muestra.
@@ -10,7 +10,7 @@ b) ¿Esperaríamos que la forma de esta distribución fuera simétrica, sesgada 
 c) Calcula la variabilidad de esta distribución y di cómo se llama el parámetro que la mide.  
 d) Supongamos que el presupuesto de los investigadores se reduce y solo pueden recoger muestras aleatorias de 10 gallinas. Se registra la media de las muestras del número de huevos y se repite 1.000 veces, construyendo una nueva distribución de las medias de la muestra. ¿Cómo será la variabilidad de esta nueva distribución comparada con la variabilidad de la distribución original?
 
-## PROBLEMA 2
+## EJERCICIO 2
 <!-- Bioestadística UB. Exercici 4.2 (2024-25) -->
 
 Un administrador de hospital con la esperanza de mejorar los tiempos de espera decide estimar el tiempo de espera medio de la sala de urgencias (ER) de su hospital. Recopila una muestra aleatoria simple de 64 pacientes y determina el tiempo (en minutos) entre cuando ingresaron al ER hasta que fueron visitados por un médico. Un intervalo de confianza del 95% basado en esta muestra es (128 minutos, 147 minutos), basado en una distribución normal para la media. Determina y razona si las siguientes afirmaciones son verdaderas o falsas.
@@ -41,7 +41,7 @@ f) Cierto. La media es el punto medio del intervalo.
 
 g) Falso. Deberíamos cuadruplicar el tamaño de la muestra.
 
-## PROBLEMA 3
+## EJERCICIO 3
 <!-- Bioestadística UB. Exercici 4.4 (2024-25) -->
 
 Las autoridades sanitarias fijan la cantidad de 14 UFP/100ml (UFP=unidades formadoras de placas) como la concentración máxima de un determinado virus entérico en aguas residuales de cualquier punto del estado. Se realiza un control en aguas depuradas de 10 granjas que generan purines. La concentración del virus entérico corresponde a un número muy grande, de forma que podemos asumir que sigue una distribución Normal. Por otro lado, las granjas están suficientemente alejadas como para asumir que los resultados individuales son mutuamente independientes.
@@ -103,7 +103,7 @@ $$ (14.146, 15.094) $$
 
 **Conclusión**: Existe evidencia estadística para sugerir, con una alta confianza, que las granjas exceden, en promedio, el límite permitido por las autoridades sanitarias.
 
-## PROBLEMA 4
+## EJERCICIO 4
 <!-- Bioestadística UB. Exercici 4.6 (2024-25) -->
 
 En un estudio sobre los efectos fisiológicos del alcohol se midió el tiempo que se tarda en reaccionar a un estímulo en un conjunto de seis individuos antes y después de consumir una fuerte dosis de alcohol. El tiempo de latencia medido en milisegundos fue el siguiente:
@@ -181,7 +181,7 @@ $$ (0.050, 0.187) $$
 
 **Conclusión**: Como esperábamos, el intervalo al 90% es más estrecho que el intervalo al 95%. Esto ocurre porque reducimos el nivel de confianza, lo que implica un menor margen de error.
 
-## PROBLEMA 5
+## EJERCICIO 5
 <!-- Bioestadística UB. Exercici 4.7 (2024-25) -->
 
 El estudio sanguíneo de un individuo presenta 125 neutrófilos de un recuento total de 200 glóbulos blancos. Se pide:
@@ -264,7 +264,7 @@ Un individuo sano tiene una proporción de neutrófilos entre 60% y 70% ($0.6 \l
 - Dado que hay una considerable superposición entre ambos intervalos no podemos concluir que haya evidencia de desequilibrio de neutrófilos.
 
 
-## PROBLEMA 6
+## EJERCICIO 6
 
 Un proceso químico se lleva a cabo usando un catalizador del que se quiere estimar el rendimiento medio. Una muestra piloto de tamaño 8 estima la desviación típica con un valor de 2.
 
@@ -328,7 +328,7 @@ Resultados del cálculo iterativo:
 
 Al aumentar el nivel de confianza del 90% al 95%, el tamaño de muestra necesario aumenta debido al incremento del valor crítico $t$, lo que refleja una mayor necesidad de datos para reducir la incertidumbre del intervalo.
 
-## PROBLEMA 7
+## EJERCICIO 7
 
 En un estudio sobre las alteraciones hormonales que se presentan durante la práctica deportiva se ha medido el aumento de cortisol al realizar una prueba específica de resistencia de 30 minutos. El trabajo se ha realizado con voluntarios de edad y peso similares, pero diferenciados según sus hábitos, separando en dos grupos a los participantes: sedentarios y practicantes habituales de algún deporte. Se supone que la variable medida sigue el modelo normal con varianza común. Se han medido 8 personas de cada grupo.
 
@@ -340,7 +340,7 @@ Se han publicado los siguientes intervalos de confianza (con nivel de confianza 
 a) Calcula las medias muestrales de cada grupo.  
 b) Si la concentración está expresada en $\mu \mu \mathrm{g} / \mathrm{dl}$ (microgramos por decilitro) y suponemos que se prefiere finalmente presentar los resultados en $\mathrm{ng} / \mathrm{ml}$ (nanogramos por mililitro), ¿cómo quedarían afectados los intervalos de confianza iniciales?
 
-## PROBLEMA 8
+## EJERCICIO 8
 
 Se reporta el siguiente listado del análisis del nivel de colesterol en una muestra de 30 individuos obesos. Desafortunadamente, algunas partes del listado se han vuelto ilegibles y su valor se ha sustituido por 9999.
 

@@ -1,0 +1,55 @@
+# Contrastes de Hipótesis
+
+## Ejercicio 1. 
+<!-- W-M-10.2 -->
+
+Un investigador ha preparado un nivel de dosis de droga que según él, inducirá el sueño en $80 \%$ de las personas que sufren de insomnio. Después de examinar la dosis, pensamos que lo dicho por él respecto a la efectividad de la dosis es exagerado. En un intento por refutar su dicho, administramos la dosis prescrita a 20 personas que padecen de insomnio y observamos $Y$, el número de individuos a quienes la dosis induce el sueño. Deseamos probar la hipótesis $H_{0}: p=.8$ contra la alternativa, $H_{a}: p<.8$. Suponga que se usa la región de rechazo $\{y \leq 12\}$.
+
+a. De acuerdo con la información de este problema, ¿qué es un error tipo I?
+b. Encuentre $\alpha$.
+c. Con base en la información de este problema, ¿qué es un error tipo II?
+d. Encuentre $\beta$ cuando $p=.6$.
+e. Encuentre $\beta$ cuando $p=.4$.
+
+## Ejercicio 2
+<!-- W-M-10.3 -->
+
+Continuando con el ejercicio 1
+
+a. Defina la región de rechazo de la forma $\{y \leq c\}$ de modo que $\alpha \approx .01$.
+b. Para la región de rechazo del inciso a, encuentre $\beta$ cuando $p=.6$.
+c. Para la región de rechazo del inciso a, encuentre $\beta$ cuando $p=.4$.
+
+## Ejercicio 3. 
+<!-- W-M-10.6 -->
+
+Nos interesa probar si una moneda está o no balanceada, con base en el número de caras $Y$ en 36 tiros de la moneda. ( $H_{0}: p=.5$ contra $H_{a}: p \neq .5$ ). Si usamos la región de rechazo $|y-18| \geq 4$, $¿$ cuál es
+
+a. el valor de $\alpha$ ?
+b. el valor de $\beta$ si $p=.7$ ?
+
+## Ejercicio 4. 
+<!-- W-M-10.7 -->
+
+Verdadero o falso Consulte el Ejercicio 3
+
+a. El nivel de la prueba calculado en el Ejercicio 3(a) es la probabilidad de que $H_{0}$ sea verdadera.
+b. El valor de $\beta$ calculado en el Ejercicio 3(b) es la probabilidad de que $H_{a}$ sea verdadera.
+c. En el Ejercicio 3(b), $\beta$ se calculó suponiendo que la hipótesis nula era falsa.
+d. Si $\beta$ se calculó cuando $p=0.55$, el valor sería más grande que el valor de $\beta$ obtenido en el Ejercicio 3(b).
+e. La probabilidad de que la prueba equivocadamente rechace $H_{0}$ es $\beta$.
+f. Suponga que la región de rechazo (RR) se cambió a $|y-18| \geq 2$.
+
+    1. Esta RR llevaría a rechazar la hipótesis nula con más frecuencia que la RR empleada en el Ejercicio 3
+    2. Si $\alpha$ se calculó usando esta nueva RR, el valor sería más grande que el valor obtenido en el Ejercicio 3(a)
+    3. Si $\beta$ se calculó cuando $p=.7$ y usando esta nueva RR , el valor sería más grande que el valor obtenido en el Ejercicio 3(b).
+
+## Ejercicio 5. 
+<!-- W-M-10.8 -->
+
+Una prueba clínica en dos etapas está planeada para probar $H_{0}: p=.10$ contra $H_{a}: p>.10$, donde $p$ es la proporción de pacientes que responden a un tratamiento y que fueron tratados según el protocolo. En la primera etapa, 15 pacientes se acumularon y trataron. Si 4 o más de los que responden se observan entre los (primeros) 15 pacientes, $H_{0}$ es rechazada, el estudio se termina y no se acumulan más pacientes. De otro modo, otros 15 pacientes se acumularán y tratarán en la segunda etapa. Si un total de 6 o más de los que responden se observan entre los 30 pacientes acumulados en las dos etapas ( 15 en la primera etapa y 15 más en la segunda etapa), entonces $H_{0}$ es rechazada. Por ejemplo, si 5 de los que responden se encuentran entre los pacientes de la primera etapa, $H_{0}$ es rechazada y el estudio se termina. No obstante, si 2 de los que responden se encuentran entre los pacientes de la primera etapa, se acumulan 15 pacientes de la segunda etapa y se identifican otros 4 o más de los que responden (para un total de 6 o más entre $\operatorname{los} 30$ ), $H_{0}$ es rechazada y el estudio termina. ${ }^{1}$
+
+a. Utilice la tabla binomial para hallar el valor numérico de $\alpha$ para este procedimiento de prueba.
+b. Utilice la tabla binomial para determinar la probabilidad de rechazar la hipótesis nula cuando use esta región de rechazo si $p=.30$.
+c. Para la región de rechazo definida líneas antes, encuentre $\beta$ si $p=.30$.
+

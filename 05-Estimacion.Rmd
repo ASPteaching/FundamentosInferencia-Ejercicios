@@ -572,14 +572,14 @@ likelihood_vals <- (lambda_vals^x_fixed * exp(-lambda_vals)) / factorial(x_fixed
 opt <-par(mfrow=c(2,1))
 plot(x_vals, density_vals, 
      type = "h", lwd = 2, col = "blue",
-     xlab = "x", ylab = "f(x; \u03bb)",
-     main = "Función de densidad de Poisson (\u03bb=4)")
+     xlab = "x", ylab = "f(x; lambda)",
+     main = "Función de densidad de Poisson (lambda=4)")
 points(x_vals, density_vals, pch = 16, col = "blue")
 
 
 # Gráfico de la función de verosimilitud
 plot(lambda_vals, likelihood_vals, type = "l", lwd = 2, col = "red",
-     xlab = "\u03bb", ylab = "L(\u03bb; X=4)", main = "Función de verosimilitud (X=4)")
+     xlab = "lambda", ylab = "L(lambda; X=4)", main = "Función de verosimilitud (X=4)")
 
 par(opt)
 ```

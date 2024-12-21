@@ -4113,14 +4113,14 @@ Representaremos esta función para valores de \(\lambda\) entre 1 y 10.
 \NormalTok{opt }\OtherTok{\textless{}{-}}\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
 \FunctionTok{plot}\NormalTok{(x\_vals, density\_vals, }
      \AttributeTok{type =} \StringTok{"h"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{,}
-     \AttributeTok{xlab =} \StringTok{"x"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"f(x; \textbackslash{}u03bb)"}\NormalTok{,}
-     \AttributeTok{main =} \StringTok{"Función de densidad de Poisson (\textbackslash{}u03bb=4)"}\NormalTok{)}
+     \AttributeTok{xlab =} \StringTok{"x"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"f(x; lambda)"}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"Función de densidad de Poisson (lambda=4)"}\NormalTok{)}
 \FunctionTok{points}\NormalTok{(x\_vals, density\_vals, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{)}
 
 
 \CommentTok{\# Gráfico de la función de verosimilitud}
 \FunctionTok{plot}\NormalTok{(lambda\_vals, likelihood\_vals, }\AttributeTok{type =} \StringTok{"l"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{,}
-     \AttributeTok{xlab =} \StringTok{"\textbackslash{}u03bb"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"L(\textbackslash{}u03bb; X=4)"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Función de verosimilitud (X=4)"}\NormalTok{)}
+     \AttributeTok{xlab =} \StringTok{"lambda"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"L(lambda; X=4)"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Función de verosimilitud (X=4)"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4402,7 +4402,7 @@ Suponga que \(Y_{1}, Y_{2}, \ldots, Y_{n}\) denotan una muestra aleatoria de una
 
 \section{Intervalos de confianza}\label{intervalos-de-confianza}
 
-\subsection{PROBLEMA 1}\label{problema-1-1}
+\subsection{EJERCICIO 1}\label{ejercicio-1-3}
 
 La distribución del número de huevos puestos por una determinada especie de gallina durante su período de reproducción tiene una media de 35 huevos con una desviación estándar de 18.2. Supongamos que un grupo de investigadores recoge una muestra aleatoria de 45 gallinas de esta especie, cuenta el número de huevos establecidos durante el período de reproducción y registra la media de la muestra. Repiten estas muestras 1.000 veces, y construyen una distribución de las medias de la muestra.
 
@@ -4419,7 +4419,7 @@ La distribución del número de huevos puestos por una determinada especie de ga
   Supongamos que el presupuesto de los investigadores se reduce y solo pueden recoger muestras aleatorias de 10 gallinas. Se registra la media de las muestras del número de huevos y se repite 1.000 veces, construyendo una nueva distribución de las medias de la muestra. ¿Cómo será la variabilidad de esta nueva distribución comparada con la variabilidad de la distribución original?
 \end{enumerate}
 
-\subsection{PROBLEMA 2}\label{problema-2-1}
+\subsection{EJERCICIO 2}\label{ejercicio-2-3}
 
 Un administrador de hospital con la esperanza de mejorar los tiempos de espera decide estimar el tiempo de espera medio de la sala de urgencias (ER) de su hospital. Recopila una muestra aleatoria simple de 64 pacientes y determina el tiempo (en minutos) entre cuando ingresaron al ER hasta que fueron visitados por un médico. Un intervalo de confianza del 95\% basado en esta muestra es (128 minutos, 147 minutos), basado en una distribución normal para la media. Determina y razona si las siguientes afirmaciones son verdaderas o falsas.
 
@@ -4464,7 +4464,7 @@ Aquí tienes la traducción de las respuestas al castellano:
   Falso. Deberíamos cuadruplicar el tamaño de la muestra.
 \end{enumerate}
 
-\subsection{PROBLEMA 3}\label{problema-3-1}
+\subsection{EJERCICIO 3}\label{ejercicio-3-3}
 
 Las autoridades sanitarias fijan la cantidad de 14 UFP/100ml (UFP=unidades formadoras de placas) como la concentración máxima de un determinado virus entérico en aguas residuales de cualquier punto del estado. Se realiza un control en aguas depuradas de 10 granjas que generan purines. La concentración del virus entérico corresponde a un número muy grande, de forma que podemos asumir que sigue una distribución Normal. Por otro lado, las granjas están suficientemente alejadas como para asumir que los resultados individuales son mutuamente independientes.
 
@@ -4549,7 +4549,7 @@ El valor fijado por la administración como límite máximo aceptable para la co
 
 \textbf{Conclusión}: Existe evidencia estadística para sugerir, con una alta confianza, que las granjas exceden, en promedio, el límite permitido por las autoridades sanitarias.
 
-\subsection{PROBLEMA 4}\label{problema-4-1}
+\subsection{EJERCICIO 4}\label{ejercicio-4-2}
 
 En un estudio sobre los efectos fisiológicos del alcohol se midió el tiempo que se tarda en reaccionar a un estímulo en un conjunto de seis individuos antes y después de consumir una fuerte dosis de alcohol. El tiempo de latencia medido en milisegundos fue el siguiente:
 
@@ -4652,7 +4652,7 @@ El intervalo de confianza al 90\% es:
 
 \textbf{Conclusión}: Como esperábamos, el intervalo al 90\% es más estrecho que el intervalo al 95\%. Esto ocurre porque reducimos el nivel de confianza, lo que implica un menor margen de error.
 
-\subsection{PROBLEMA 5}\label{problema-5-1}
+\subsection{EJERCICIO 5}\label{ejercicio-5-3}
 
 El estudio sanguíneo de un individuo presenta 125 neutrófilos de un recuento total de 200 glóbulos blancos. Se pide:
 
@@ -4761,7 +4761,7 @@ Un individuo sano tiene una proporción de neutrófilos entre 60\% y 70\% (\(0.6
   Dado que hay una considerable superposición entre ambos intervalos no podemos concluir que haya evidencia de desequilibrio de neutrófilos.
 \end{itemize}
 
-\subsection{PROBLEMA 6}\label{problema-6}
+\subsection{EJERCICIO 6}\label{ejercicio-6-2}
 
 Un proceso químico se lleva a cabo usando un catalizador del que se quiere estimar el rendimiento medio. Una muestra piloto de tamaño 8 estima la desviación típica con un valor de 2.
 
@@ -4829,7 +4829,7 @@ Resultados del cálculo iterativo:
 
 Al aumentar el nivel de confianza del 90\% al 95\%, el tamaño de muestra necesario aumenta debido al incremento del valor crítico \(t\), lo que refleja una mayor necesidad de datos para reducir la incertidumbre del intervalo.
 
-\subsection{PROBLEMA 7}\label{problema-7}
+\subsection{EJERCICIO 7}\label{ejercicio-7-3}
 
 En un estudio sobre las alteraciones hormonales que se presentan durante la práctica deportiva se ha medido el aumento de cortisol al realizar una prueba específica de resistencia de 30 minutos. El trabajo se ha realizado con voluntarios de edad y peso similares, pero diferenciados según sus hábitos, separando en dos grupos a los participantes: sedentarios y practicantes habituales de algún deporte. Se supone que la variable medida sigue el modelo normal con varianza común. Se han medido 8 personas de cada grupo.
 
@@ -4852,7 +4852,7 @@ Se han publicado los siguientes intervalos de confianza (con nivel de confianza 
   Si la concentración está expresada en \(\mu \mu \mathrm{g} / \mathrm{dl}\) (microgramos por decilitro) y suponemos que se prefiere finalmente presentar los resultados en \(\mathrm{ng} / \mathrm{ml}\) (nanogramos por mililitro), ¿cómo quedarían afectados los intervalos de confianza iniciales?
 \end{enumerate}
 
-\subsection{PROBLEMA 8}\label{problema-8}
+\subsection{EJERCICIO 8}\label{ejercicio-8-3}
 
 Se reporta el siguiente listado del análisis del nivel de colesterol en una muestra de 30 individuos obesos. Desafortunadamente, algunas partes del listado se han vuelto ilegibles y su valor se ha sustituido por 9999.
 
@@ -4871,5 +4871,100 @@ Se reporta el siguiente listado del análisis del nivel de colesterol en una mue
 \end{Shaded}
 
 Reconstruye los valores incorrectos del listado.
+
+\section{Contrastes de Hipótesis}\label{contrastes-de-hipuxf3tesis}
+
+\subsection{Ejercicio 1.}\label{ejercicio-1.}
+
+Un investigador ha preparado un nivel de dosis de droga que según él, inducirá el sueño en \(80 \%\) de las personas que sufren de insomnio. Después de examinar la dosis, pensamos que lo dicho por él respecto a la efectividad de la dosis es exagerado. En un intento por refutar su dicho, administramos la dosis prescrita a 20 personas que padecen de insomnio y observamos \(Y\), el número de individuos a quienes la dosis induce el sueño. Deseamos probar la hipótesis \(H_{0}: p=.8\) contra la alternativa, \(H_{a}: p<.8\). Suponga que se usa la región de rechazo \(\{y \leq 12\}\).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  De acuerdo con la información de este problema, ¿qué es un error tipo I?
+\item
+  Encuentre \(\alpha\).
+\item
+  Con base en la información de este problema, ¿qué es un error tipo II?
+\item
+  Encuentre \(\beta\) cuando \(p=.6\).
+\item
+  Encuentre \(\beta\) cuando \(p=.4\).
+\end{enumerate}
+
+\subsection{Ejercicio 2}\label{ejercicio-2-4}
+
+Continuando con el ejercicio 1
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Defina la región de rechazo de la forma \(\{y \leq c\}\) de modo que \(\alpha \approx .01\).
+\item
+  Para la región de rechazo del inciso a, encuentre \(\beta\) cuando \(p=.6\).
+\item
+  Para la región de rechazo del inciso a, encuentre \(\beta\) cuando \(p=.4\).
+\end{enumerate}
+
+\subsection{Ejercicio 3.}\label{ejercicio-3.}
+
+Nos interesa probar si una moneda está o no balanceada, con base en el número de caras \(Y\) en 36 tiros de la moneda. ( \(H_{0}: p=.5\) contra \(H_{a}: p \neq .5\) ). Si usamos la región de rechazo \(|y-18| \geq 4\), \(¿\) cuál es
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  el valor de \(\alpha\) ?
+\item
+  el valor de \(\beta\) si \(p=.7\) ?
+\end{enumerate}
+
+\subsection{Ejercicio 4.}\label{ejercicio-4.}
+
+Verdadero o falso Consulte el Ejercicio 3
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  El nivel de la prueba calculado en el Ejercicio 3(a) es la probabilidad de que \(H_{0}\) sea verdadera.
+\item
+  El valor de \(\beta\) calculado en el Ejercicio 3(b) es la probabilidad de que \(H_{a}\) sea verdadera.
+\item
+  En el Ejercicio 3(b), \(\beta\) se calculó suponiendo que la hipótesis nula era falsa.
+\item
+  Si \(\beta\) se calculó cuando \(p=0.55\), el valor sería más grande que el valor de \(\beta\) obtenido en el Ejercicio 3(b).
+\item
+  La probabilidad de que la prueba equivocadamente rechace \(H_{0}\) es \(\beta\).
+\item
+  Suponga que la región de rechazo (RR) se cambió a \(|y-18| \geq 2\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Esta RR llevaría a rechazar la hipótesis nula con más frecuencia que la RR empleada en el Ejercicio 3
+  \item
+    Si \(\alpha\) se calculó usando esta nueva RR, el valor sería más grande que el valor obtenido en el Ejercicio 3(a)
+  \item
+    Si \(\beta\) se calculó cuando \(p=.7\) y usando esta nueva RR , el valor sería más grande que el valor obtenido en el Ejercicio 3(b).
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Ejercicio 5.}\label{ejercicio-5.}
+
+Una prueba clínica en dos etapas está planeada para probar \(H_{0}: p=.10\) contra \(H_{a}: p>.10\), donde \(p\) es la proporción de pacientes que responden a un tratamiento y que fueron tratados según el protocolo. En la primera etapa, 15 pacientes se acumularon y trataron. Si 4 o más de los que responden se observan entre los (primeros) 15 pacientes, \(H_{0}\) es rechazada, el estudio se termina y no se acumulan más pacientes. De otro modo, otros 15 pacientes se acumularán y tratarán en la segunda etapa. Si un total de 6 o más de los que responden se observan entre los 30 pacientes acumulados en las dos etapas ( 15 en la primera etapa y 15 más en la segunda etapa), entonces \(H_{0}\) es rechazada. Por ejemplo, si 5 de los que responden se encuentran entre los pacientes de la primera etapa, \(H_{0}\) es rechazada y el estudio se termina. No obstante, si 2 de los que responden se encuentran entre los pacientes de la primera etapa, se acumulan 15 pacientes de la segunda etapa y se identifican otros 4 o más de los que responden (para un total de 6 o más entre \(\operatorname{los} 30\) ), \(H_{0}\) es rechazada y el estudio termina. \({ }^{1}\)
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Utilice la tabla binomial para hallar el valor numérico de \(\alpha\) para este procedimiento de prueba.
+\item
+  Utilice la tabla binomial para determinar la probabilidad de rechazar la hipótesis nula cuando use esta región de rechazo si \(p=.30\).
+\item
+  Para la región de rechazo definida líneas antes, encuentre \(\beta\) si \(p=.30\).
+\end{enumerate}
 
 \end{document}
