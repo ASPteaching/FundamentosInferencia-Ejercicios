@@ -1,6 +1,6 @@
 # Aplicaciones de los contrastes de hipótesis
 
-## Elección del tipo de test
+## Elección del tipo de test {.unnumbered}
 
 Estos ejercicios representan situaciones típicas en los que se puede utilizar un contraste de hipótesis para decidir entre dos hipótesis relativas a un problema.
 
@@ -14,7 +14,9 @@ A título de pista podemos decir que los ejercicios 1 al 9 están tomados del ca
 
 Sin embargo, y con el fin de motivar un trabajo reflexivo, os animo a justificar en cada caso porque decidís aplicar el tests que aplicáis. Y, de hecho, cuando sea posible, os animo también a aplicar tanto la versión paramétrica como la no paramétrica de un test y valorar, aparte de cual es el adecuado, si os llevan o no  ala misma conclusión.
 
-## Procedimiento del test (Neymann-Pearson)
+## Procedimiento del test {.unnumbered} 
+
+### Enfoque de Neymann-Pearson {.unnumbered} 
 
 Recordad que la aplicación de un contraste no consiste en escribir un código de R, mirar un p-valor y decidir si rechazamos o no la hipótesis.
 
@@ -48,14 +50,13 @@ _III: **UNA VEZ SE HAN OBTENIDO LOS DATOS**_
 
 9. Interpretar la decisión en términos de la hipótesis científica que ha generado el problema. Diferenciar cuando sea posible si hay significación estadística, clínica/biológica o ambas
 
-
 En la práctica, y en los ejercicios que siguen, podemos encontrarnos con los datos recogidos y desear llevar a cabo el contraste.
 
 En este caso, omitiremos el cálculo del tamaño muestral y la potencia.
 
 Esta lista no es una plantilla para resolver cualquier problema de contraste de hipótesis, pero sí que debe ayudarnos a ver que un test no es tan solo un cálculo y una decisión basada en un p-valor sino un proceso de toma de decisión que, para que tenga sentido  debe de realizarse teniendo en cuenta los elementos que se han descrito.
 
-## ¿Y que hay del p-valor? (Fisher)
+### ¿Y que hay del p-valor? (Fisher) {.unnumbered} 
 
 Obsérvese que el procedimiento descrito no ha hecho referencia al p-valor, [concepto particularmente discutido en la estadística actual](https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf).
 
@@ -73,7 +74,7 @@ Dichas pruebas de significación iban principalmente encaminadas a decidir si se
 
 5. Interpretar los resultados.
 
-## Combinando ambas aproximaciones
+### Combinando ambas aproximaciones {.unnumbered} 
 
 Fisher y Neymann-Pearson debatieron duramente, hace casi un siglo, sobre cual de las dos aproximaciones era la adecuada.
 
@@ -81,12 +82,10 @@ Sin entrar en la polémica entre ambas, el hecho es que con el tiempo, muchos au
 
 En la actualidad, en la que la mayoría de los cálculos se llevan a cabo con ordenador, es inmediato, tras calcular el valor del estadístico de test, obtener el p-valor de la prueba por lo que la decisión sobre si se acepta la hipótesis nula o la alternativa se realiza a menudo comparando el p-valor con la probabilidad de error de tipo I ($\alpha$) en vez de comparar el valor observado del estadístico de test ($t^{obs}$) con el valor crítico ($t_\alpha$). En la práctica, _esta sustitución puede considerarse adecuada si no va más allá de cambiar un criterio de decisión por otro._
 
-## Referencias
+### Referencias {.unnumbered} 
 
 - [Fisher, Neyman-Pearson or NHST? A tutorial for teaching data testing](https://pmc.ncbi.nlm.nih.gov/articles/PMC4347431/)
 
-
-# Ejercicios
 
 ## Ejercicio 1 
 <!-- Barón 9.1 -->
