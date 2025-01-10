@@ -25,8 +25,6 @@ g) Para reducir el margen de error de un intervalo de confianza del 95% a la mit
 
 ### SOLUCIÓN
 
-Aquí tienes la traducción de las respuestas al castellano:
-
 a) Falso. El tamaño muestral permite aceptar la normalidad por el TLC.
 
 b) Falso. La inferencia se realiza sobre el parámetro poblacional, no sobre el parámetro muestral, que siempre estará dentro del intervalo.

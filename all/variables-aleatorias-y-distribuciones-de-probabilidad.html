@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Variables aleatorias y Distribuciones de probabilidad | EjerciciosInferenciaEstadistica.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Variables aleatorias y Distribuciones de probabilidad | EjerciciosInferenciaEstadistica.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Variables aleatorias y Distribuciones de probabilidad | EjerciciosInferenciaEstadistica.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="probabilidad-y-experimentos-aleatorios.html"/>
+<link rel="next" href="distribuciones-de-probabilidad-multidimensionales.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="blocks.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/docs/_main.pdf" title="Version en PDF" target="_blank"><img alt="Versión en pdf" src="./images/archivoPDF.png" width="12" height="15" />    </a>
+</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i>Objetivo</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html"><i class="fa fa-check"></i><b>1</b> Probabilidad y Experimentos aleatorios</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#problema-1"><i class="fa fa-check"></i><b>1.1</b> Problema 1</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#solución"><i class="fa fa-check"></i><b>1.1.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#problema-2"><i class="fa fa-check"></i><b>1.2</b> Problema 2</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#solución-1"><i class="fa fa-check"></i><b>1.2.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#problema-3"><i class="fa fa-check"></i><b>1.3</b> Problema 3</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#solución-2"><i class="fa fa-check"></i><b>1.3.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#problema-4"><i class="fa fa-check"></i><b>1.4</b> Problema 4</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#solución-3"><i class="fa fa-check"></i><b>1.4.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#problema-5"><i class="fa fa-check"></i><b>1.5</b> Problema 5</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#solución-4"><i class="fa fa-check"></i><b>1.5.1</b> Solución</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><i class="fa fa-check"></i><b>2</b> Variables aleatorias y Distribuciones de probabilidad</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.1"><i class="fa fa-check"></i><b>2.1</b> Ejercicio 2.1</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#distribución-de-probabilidad"><i class="fa fa-check"></i><b>2.1.1</b> Distribución de probabilidad</a></li>
+<li class="chapter" data-level="2.1.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-y-varianza"><i class="fa fa-check"></i><b>2.1.2</b> Esperanza y varianza</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.2"><i class="fa fa-check"></i><b>2.2</b> Ejercicio 2.2</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#valor-de-k"><i class="fa fa-check"></i><b>2.2.1</b> Valor de <span class="math inline">\(K\)</span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-y-la-varianza"><i class="fa fa-check"></i><b>2.2.2</b> Esperanza y la varianza</a></li>
+<li class="chapter" data-level="2.2.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidades"><i class="fa fa-check"></i><b>2.2.3</b> Probabilidades</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.3"><i class="fa fa-check"></i><b>2.3</b> Ejercicio 2.3</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#f_xx-es-una-densidad"><i class="fa fa-check"></i><b>2.3.1</b> <span class="math inline">\(f_X(x)\)</span> es una densidad</a></li>
+<li class="chapter" data-level="2.3.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#gráfica-de-f_xx"><i class="fa fa-check"></i><b>2.3.2</b> Gráfica de <span class="math inline">\(f_X(x)\)</span></a></li>
+<li class="chapter" data-level="2.3.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#función-de-distribución"><i class="fa fa-check"></i><b>2.3.3</b> Función de distribución</a></li>
+<li class="chapter" data-level="2.3.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidades-y-f_x1"><i class="fa fa-check"></i><b>2.3.4</b> Probabilidades y <span class="math inline">\(f_X(1)\)</span></a></li>
+<li class="chapter" data-level="2.3.5" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-supervivencia"><i class="fa fa-check"></i><b>2.3.5</b> Probabilidad de supervivencia</a></li>
+<li class="chapter" data-level="2.3.6" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ex-y-operatornamevarx"><i class="fa fa-check"></i><b>2.3.6</b> <span class="math inline">\(E(X)\)</span> y <span class="math inline">\(\operatorname{Var}(X)\)</span></a></li>
+<li class="chapter" data-level="2.3.7" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#modelo-alternativo-g_xx"><i class="fa fa-check"></i><b>2.3.7</b> Modelo alternativo <span class="math inline">\(g_X(x)\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.4"><i class="fa fa-check"></i><b>2.4</b> Ejercicio 2.4</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cálculo-de-la-probabilidad"><i class="fa fa-check"></i><b>2.4.1</b> Cálculo de la probabilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.5"><i class="fa fa-check"></i><b>2.5</b> Ejercicio 2.5</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-haya-exactamente-10-muertes"><i class="fa fa-check"></i><b>2.5.1</b> Probabilidad de que haya exactamente 10 muertes</a></li>
+<li class="chapter" data-level="2.5.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-15-o-más-personas-mueran"><i class="fa fa-check"></i><b>2.5.2</b> Probabilidad de que 15 o más personas mueran</a></li>
+<li class="chapter" data-level="2.5.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-10-o-menos-personas-mueran"><i class="fa fa-check"></i><b>2.5.3</b> Probabilidad de que 10 o menos personas mueran</a></li>
+<li class="chapter" data-level="2.5.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#conclusión"><i class="fa fa-check"></i><b>2.5.4</b> Conclusión</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.6"><i class="fa fa-check"></i><b>2.6</b> Ejercicio 2.6</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#justificación-del-uso-de-distribución-binomial"><i class="fa fa-check"></i><b>2.6.1</b> Justificación del uso de distribución binomial</a></li>
+<li class="chapter" data-level="2.6.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#justificación-del-uso-de-distribución-de-poisson"><i class="fa fa-check"></i><b>2.6.2</b> Justificación del uso de distribución de Poisson</a></li>
+<li class="chapter" data-level="2.6.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#aproximación-del-modelo-binomial-por-el-de-poisson"><i class="fa fa-check"></i><b>2.6.3</b> Aproximación del modelo binomial por el de Poisson</a></li>
+<li class="chapter" data-level="2.6.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#número-esperado-de-mutaciones"><i class="fa fa-check"></i><b>2.6.4</b> Número esperado de mutaciones</a></li>
+<li class="chapter" data-level="2.6.5" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-exactamente-10-mutaciones-se-deban-a-radiaciones"><i class="fa fa-check"></i><b>2.6.5</b> Probabilidad de que exactamente 10 mutaciones se deban a radiaciones</a></li>
+<li class="chapter" data-level="2.6.6" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#conclusión-1"><i class="fa fa-check"></i><b>2.6.6</b> Conclusión</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.7"><i class="fa fa-check"></i><b>2.7</b> Ejercicio 2.7</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#porcentaje-de-diabéticos-con-niveles-de-glucosa-inferiores-a-120-px-leq-120"><i class="fa fa-check"></i><b>2.7.1</b> Porcentaje de diabéticos con niveles de glucosa inferiores a 120 (<span class="math inline">\(P[X \leq 120]\)</span>)</a></li>
+<li class="chapter" data-level="2.7.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#porcentaje-de-diabéticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120"><i class="fa fa-check"></i><b>2.7.2</b> Porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120</a></li>
+<li class="chapter" data-level="2.7.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#hallar-el-nivel-de-glucosa-p25"><i class="fa fa-check"></i><b>2.7.3</b> Hallar el nivel de glucosa “p25”</a></li>
+<li class="chapter" data-level="2.7.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#resumen-de-resultados"><i class="fa fa-check"></i><b>2.7.4</b> Resumen de resultados:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-28"><i class="fa fa-check"></i><b>2.8</b> Ejercicio 28</a></li>
+<li class="chapter" data-level="2.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.9"><i class="fa fa-check"></i><b>2.9</b> Ejercicio 2.9</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html"><i class="fa fa-check"></i><b>3</b> Distribuciones de probabilidad multidimensionales</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejercicio-1"><i class="fa fa-check"></i><b>3.1</b> Ejercicio 1</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-a-función-de-probabilidad-conjunta-para-y_1-y-y_2"><i class="fa fa-check"></i><b>3.1.1</b> Parte a: Función de probabilidad conjunta para <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-b-cálculo-de-f10"><i class="fa fa-check"></i><b>3.1.2</b> Parte b: Cálculo de <span class="math inline">\(F(1,0)\)</span></a></li>
+<li class="chapter" data-level="3.1.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#resumen"><i class="fa fa-check"></i><b>3.1.3</b> Resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejercicio-2"><i class="fa fa-check"></i><b>3.2</b> Ejercicio 2</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#función-de-probabilidad-conjunta-para-y_1-y-y_2"><i class="fa fa-check"></i><b>3.2.1</b> 1. Función de probabilidad conjunta para <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#cálculo-de-f2-1"><i class="fa fa-check"></i><b>3.2.2</b> 2. Cálculo de <span class="math inline">\(F(2, 1)\)</span></a></li>
+<li class="chapter" data-level="3.2.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#resumen-de-resultados-1"><i class="fa fa-check"></i><b>3.2.3</b> Resumen de resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejercicio-3"><i class="fa fa-check"></i><b>3.3</b> Ejercicio 3</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-a-distribución-de-probabilidad-marginal-de-y_1"><i class="fa fa-check"></i><b>3.3.1</b> Parte a: Distribución de probabilidad marginal de <span class="math inline">\(Y_1\)</span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-b-comparación-con-la-distribución-binomial"><i class="fa fa-check"></i><b>3.3.2</b> Parte b: Comparación con la distribución binomial</a></li>
+<li class="chapter" data-level="3.3.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#conclusión-2"><i class="fa fa-check"></i><b>3.3.3</b> Conclusión</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejercicio-4"><i class="fa fa-check"></i><b>3.4</b> Ejercicio 4</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#encontrar-el-valor-de-k-que-haga-de-ésta-una-función-de-densidad-de-probabilidad"><i class="fa fa-check"></i><b>3.4.1</b> 1. Encontrar el valor de <span class="math inline">\(k\)</span> que haga de ésta una función de densidad de probabilidad</a></li>
+<li class="chapter" data-level="3.4.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#encontrar-py_1-geq-3-y_2"><i class="fa fa-check"></i><b>3.4.2</b> 2. Encontrar <span class="math inline">\(P(Y_{1} \geq 3 Y_{2})\)</span></a></li>
+<li class="chapter" data-level="3.4.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#respuesta-final"><i class="fa fa-check"></i><b>3.4.3</b> Respuesta final</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejercicio-5"><i class="fa fa-check"></i><b>3.5</b> Ejercicio 5</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5"><i class="fa fa-check"></i><b>3.5.1</b> 1. Probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5</a></li>
+<li class="chapter" data-level="3.5.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#probabilidad-condicional-dada-una-observación-de-y_2-0.5"><i class="fa fa-check"></i><b>3.5.2</b> 2. Probabilidad condicional dada una observación de <span class="math inline">\(Y_2 = 0.5\)</span></a></li>
+<li class="chapter" data-level="3.5.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#respuesta-final-1"><i class="fa fa-check"></i><b>3.5.3</b> Respuesta final</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejercicio-6"><i class="fa fa-check"></i><b>3.6</b> Ejercicio 6</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-a-cálculo-de-la-covarianza-operatornamecovy_1-y_2"><i class="fa fa-check"></i><b>3.6.1</b> Parte a: Cálculo de la covarianza <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2)\)</span></a></li>
+<li class="chapter" data-level="3.6.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-b-interpretación-de-la-covarianza-negativa"><i class="fa fa-check"></i><b>3.6.2</b> Parte b: Interpretación de la covarianza negativa</a></li>
+<li class="chapter" data-level="3.6.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejercicio"><i class="fa fa-check"></i><b>3.6.3</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejercicio-7"><i class="fa fa-check"></i><b>3.7</b> Ejercicio 7</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-a-cálculo-de-operatornamecovy_1-y_1"><i class="fa fa-check"></i><b>3.7.1</b> Parte a: Cálculo de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_1)\)</span></a></li>
+<li class="chapter" data-level="3.7.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-b-verificación-de-operatornamecovy_1-y_2-7"><i class="fa fa-check"></i><b>3.7.2</b> Parte b: Verificación de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2) = 7\)</span></a></li>
+<li class="chapter" data-level="3.7.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-c-valor-máximo-posible-de-operatornamecovy_1-y_2-y-su-interpretación"><i class="fa fa-check"></i><b>3.7.3</b> Parte c: Valor máximo posible de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2)\)</span> y su interpretación</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejercicio-8"><i class="fa fa-check"></i><b>3.8</b> Ejercicio 8</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-a-probabilidad-de-obtener-y_1-3-y_2-1-y-y_3-2-en-n-6-corridas"><i class="fa fa-check"></i><b>3.8.1</b> Parte a: Probabilidad de obtener <span class="math inline">\(Y_1 = 3\)</span>, <span class="math inline">\(Y_2 = 1\)</span> y <span class="math inline">\(Y_3 = 2\)</span> en <span class="math inline">\(n = 6\)</span> corridas</a></li>
+<li class="chapter" data-level="3.8.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-b-esperanza-y-varianza-de-y_1-para-un-n-general"><i class="fa fa-check"></i><b>3.8.2</b> Parte b: Esperanza y varianza de <span class="math inline">\(Y_1\)</span> para un <span class="math inline">\(n\)</span> general</a></li>
+<li class="chapter" data-level="3.8.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-c-covarianza-entre-y_2-y-y_3-para-un-n-general"><i class="fa fa-check"></i><b>3.8.3</b> Parte c: Covarianza entre <span class="math inline">\(Y_2\)</span> y <span class="math inline">\(Y_3\)</span> para un <span class="math inline">\(n\)</span> general</a></li>
+<li class="chapter" data-level="3.8.4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#parte-d-esperanza-y-varianza-de-y_2---y_3-para-un-n-general"><i class="fa fa-check"></i><b>3.8.4</b> Parte d: Esperanza y varianza de <span class="math inline">\(Y_2 - Y_3\)</span> para un <span class="math inline">\(n\)</span> general</a></li>
+<li class="chapter" data-level="3.8.5" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#resumen-de-resultados-2"><i class="fa fa-check"></i><b>3.8.5</b> Resumen de Resultados</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html"><i class="fa fa-check"></i><b>4</b> Muestreo y Distribuciones en el Muestreo</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-1-1"><i class="fa fa-check"></i><b>4.1</b> Ejercicio 1</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#solución-5"><i class="fa fa-check"></i><b>4.1.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-2-1"><i class="fa fa-check"></i><b>4.2</b> Ejercicio 2</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#solución-6"><i class="fa fa-check"></i><b>4.2.1</b> Solución</a></li>
+<li class="chapter" data-level="4.2.2" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#resultado-2"><i class="fa fa-check"></i><b>4.2.2</b> Resultado</a></li>
+<li class="chapter" data-level="4.2.3" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#interpretación-del-resultado"><i class="fa fa-check"></i><b>4.2.3</b> Interpretación del resultado</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-3-1"><i class="fa fa-check"></i><b>4.3</b> Ejercicio 3</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#solución-7"><i class="fa fa-check"></i><b>4.3.1</b> Solución</a></li>
+<li class="chapter" data-level="4.3.2" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#resultado-final"><i class="fa fa-check"></i><b>4.3.2</b> Resultado final</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-5-1"><i class="fa fa-check"></i><b>4.4</b> Ejercicio 5</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#solución-8"><i class="fa fa-check"></i><b>4.4.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-6-1"><i class="fa fa-check"></i><b>4.5</b> Ejercicio 6</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#solución-9"><i class="fa fa-check"></i><b>4.5.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-7-1"><i class="fa fa-check"></i><b>4.6</b> Ejercicio 7</a></li>
+<li class="chapter" data-level="4.7" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-8-1"><i class="fa fa-check"></i><b>4.7</b> Ejercicio 8</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#solución-10"><i class="fa fa-check"></i><b>4.7.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-9"><i class="fa fa-check"></i><b>4.8</b> Ejercicio 9</a></li>
+<li class="chapter" data-level="4.9" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#ejercicio-10"><i class="fa fa-check"></i><b>4.9</b> Ejercicio 10</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#solución-11"><i class="fa fa-check"></i><b>4.9.1</b> Solución</a></li>
+<li class="chapter" data-level="4.9.2" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cálculo-numérico-1"><i class="fa fa-check"></i><b>4.9.2</b> Cálculo numérico</a></li>
+<li class="chapter" data-level="4.9.3" data-path="muestreo-y-distribuciones-en-el-muestreo.html"><a href="muestreo-y-distribuciones-en-el-muestreo.html#conclusión-3"><i class="fa fa-check"></i><b>4.9.3</b> Conclusión</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estimación-puntual.html"><a href="estimación-puntual.html"><i class="fa fa-check"></i><b>5</b> Estimación puntual</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicio-1-2"><i class="fa fa-check"></i><b>5.1</b> Ejercicio 1</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#a.-insesgadez-de-los-estimadores"><i class="fa fa-check"></i><b>5.1.1</b> a. Insesgadez de los estimadores</a></li>
+<li class="chapter" data-level="5.1.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#comparación-de-varianzas"><i class="fa fa-check"></i><b>5.1.2</b> Comparación de varianzas</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicio-2-2"><i class="fa fa-check"></i><b>5.2</b> Ejercicio 2</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#a.-insesgadez-de-los-estimadores-1"><i class="fa fa-check"></i><b>5.2.1</b> a. Insesgadez de los estimadores</a></li>
+<li class="chapter" data-level="5.2.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#b.-simulación-para-evaluar-el-sesgo"><i class="fa fa-check"></i><b>5.2.2</b> b. Simulación para evaluar el sesgo</a></li>
+<li class="chapter" data-level="5.2.3" data-path="estimación-puntual.html"><a href="estimación-puntual.html#c.-estimación-de-la-varianza-y-eficiencia-de-los-estimadores"><i class="fa fa-check"></i><b>5.2.3</b> c. Estimación de la varianza y eficiencia de los estimadores</a></li>
+<li class="chapter" data-level="5.2.4" data-path="estimación-puntual.html"><a href="estimación-puntual.html#conclusión-4"><i class="fa fa-check"></i><b>5.2.4</b> Conclusión</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicio-3-2"><i class="fa fa-check"></i><b>5.3</b> Ejercicio 3</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#solución-12"><i class="fa fa-check"></i><b>5.3.1</b> Solución</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#análisis-teórico"><i class="fa fa-check"></i><b>5.3.2</b> 1. Análisis teórico</a></li>
+<li class="chapter" data-level="5.3.3" data-path="estimación-puntual.html"><a href="estimación-puntual.html#simulación-de-monte-carlo"><i class="fa fa-check"></i><b>5.3.3</b> 2. Simulación de Monte Carlo</a></li>
+<li class="chapter" data-level="5.3.4" data-path="estimación-puntual.html"><a href="estimación-puntual.html#conclusión-5"><i class="fa fa-check"></i><b>5.3.4</b> Conclusión</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicio-4-1"><i class="fa fa-check"></i><b>5.4</b> Ejercicio 4</a></li>
+<li class="chapter" data-level="5.5" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicio-5-2"><i class="fa fa-check"></i><b>5.5</b> Ejercicio 5</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#solución-13"><i class="fa fa-check"></i><b>5.5.1</b> Solución</a></li>
+<li class="chapter" data-level="5.5.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#explicación-de-los-gráficos"><i class="fa fa-check"></i><b>5.5.2</b> Explicación de los gráficos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicios-6"><i class="fa fa-check"></i><b>5.6</b> Ejercicios 6</a></li>
+<li class="chapter" data-level="5.7" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicio-7-2"><i class="fa fa-check"></i><b>5.7</b> Ejercicio 7</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#solución-14"><i class="fa fa-check"></i><b>5.7.1</b> Solución</a></li>
+<li class="chapter" data-level="5.7.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#media-de-la-distribución-uniforme-0-3theta"><i class="fa fa-check"></i><b>5.7.2</b> 1. Media de la distribución uniforme <span class="math inline">\((0, 3\theta)\)</span></a></li>
+<li class="chapter" data-level="5.7.3" data-path="estimación-puntual.html"><a href="estimación-puntual.html#estimador-del-método-de-momentos"><i class="fa fa-check"></i><b>5.7.3</b> 2. Estimador del método de momentos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicio-8-2"><i class="fa fa-check"></i><b>5.8</b> Ejercicio 8</a></li>
+<li class="chapter" data-level="5.9" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicio-9-1"><i class="fa fa-check"></i><b>5.9</b> Ejercicio 9</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#solución-15"><i class="fa fa-check"></i><b>5.9.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="estimación-puntual.html"><a href="estimación-puntual.html#ejercicio-10-1"><i class="fa fa-check"></i><b>5.10</b> Ejercicio 10</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html"><i class="fa fa-check"></i><b>6</b> Intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#ejercicio-1-3"><i class="fa fa-check"></i><b>6.1</b> EJERCICIO 1</a></li>
+<li class="chapter" data-level="6.2" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#ejercicio-2-3"><i class="fa fa-check"></i><b>6.2</b> EJERCICIO 2</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#solución-16"><i class="fa fa-check"></i><b>6.2.1</b> SOLUCIÓN</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#ejercicio-3-3"><i class="fa fa-check"></i><b>6.3</b> EJERCICIO 3</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#solución-17"><i class="fa fa-check"></i><b>6.3.1</b> SOLUCIÓN</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#ejercicio-4-2"><i class="fa fa-check"></i><b>6.4</b> EJERCICIO 4</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#solución-18"><i class="fa fa-check"></i><b>6.4.1</b> SOLUCIÓN</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#ejercicio-5-3"><i class="fa fa-check"></i><b>6.5</b> EJERCICIO 5</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#solución-19"><i class="fa fa-check"></i><b>6.5.1</b> SOLUCIÓN</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#ejercicio-6-2"><i class="fa fa-check"></i><b>6.6</b> EJERCICIO 6</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#solución-20"><i class="fa fa-check"></i><b>6.6.1</b> SOLUCIÓN</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#ejercicio-7-3"><i class="fa fa-check"></i><b>6.7</b> EJERCICIO 7</a></li>
+<li class="chapter" data-level="6.8" data-path="intervalos-de-confianza.html"><a href="intervalos-de-confianza.html#ejercicio-8-3"><i class="fa fa-check"></i><b>6.8</b> EJERCICIO 8</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>7</b> Contrastes de Hipótesis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#ejercicio-1."><i class="fa fa-check"></i><b>7.1</b> Ejercicio 1.</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#solución-21"><i class="fa fa-check"></i><b>7.1.1</b> SOLUCIÓN</a></li>
+<li class="chapter" data-level="7.1.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#a.-qué-es-un-error-tipo-i"><i class="fa fa-check"></i><b>7.1.2</b> a. ¿Qué es un error tipo I?</a></li>
+<li class="chapter" data-level="7.1.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#b.-encuentre-alpha"><i class="fa fa-check"></i><b>7.1.3</b> b. Encuentre <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="7.1.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#c.-qué-es-un-error-tipo-ii"><i class="fa fa-check"></i><b>7.1.4</b> c. ¿Qué es un error tipo II?</a></li>
+<li class="chapter" data-level="7.1.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#d.-encuentre-beta-cuando-p-0.6"><i class="fa fa-check"></i><b>7.1.5</b> d. Encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.6\)</span></a></li>
+<li class="chapter" data-level="7.1.6" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#e.-encuentre-beta-cuando-p-0.4"><i class="fa fa-check"></i><b>7.1.6</b> e. Encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.4\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#ejercicio-2-4"><i class="fa fa-check"></i><b>7.2</b> Ejercicio 2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#solución-22"><i class="fa fa-check"></i><b>7.2.1</b> SOLUCIÓN</a></li>
+<li class="chapter" data-level="7.2.2" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#a.-defina-la-región-de-rechazo-de-la-forma-y-leq-c-de-modo-que-alpha-approx-0.01"><i class="fa fa-check"></i><b>7.2.2</b> a. Defina la región de rechazo de la forma <span class="math inline">\(\{y \leq c\}\)</span> de modo que <span class="math inline">\(\alpha \approx 0.01\)</span></a></li>
+<li class="chapter" data-level="7.2.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#b.-para-la-región-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.6"><i class="fa fa-check"></i><b>7.2.3</b> b. Para la región de rechazo del inciso a, encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.6\)</span></a></li>
+<li class="chapter" data-level="7.2.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#c.-para-la-región-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.4"><i class="fa fa-check"></i><b>7.2.4</b> c. Para la región de rechazo del inciso a, encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.4\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#ejercicio-3."><i class="fa fa-check"></i><b>7.3</b> Ejercicio 3.</a></li>
+<li class="chapter" data-level="7.4" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#ejercicio-4."><i class="fa fa-check"></i><b>7.4</b> Ejercicio 4.</a></li>
+<li class="chapter" data-level="7.5" data-path="contrastes-de-hipótesis.html"><a href="contrastes-de-hipótesis.html#ejercicio-5."><i class="fa fa-check"></i><b>7.5</b> Ejercicio 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>8</b> Aplicaciones de los contrastes de hipótesis</a>
+<ul>
+<li class="chapter" data-level="" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#elección-del-tipo-de-test"><i class="fa fa-check"></i>Elección del tipo de test</a></li>
+<li class="chapter" data-level="" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#procedimiento-del-test"><i class="fa fa-check"></i>Procedimiento del test</a>
+<ul>
+<li class="chapter" data-level="" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#enfoque-de-neymann-pearson"><i class="fa fa-check"></i>Enfoque de Neymann-Pearson</a></li>
+<li class="chapter" data-level="" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#y-que-hay-del-p-valor-fisher"><i class="fa fa-check"></i>¿Y que hay del p-valor? (Fisher)</a></li>
+<li class="chapter" data-level="" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#combinando-ambas-aproximaciones"><i class="fa fa-check"></i>Combinando ambas aproximaciones</a></li>
+<li class="chapter" data-level="" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#referencias"><i class="fa fa-check"></i>Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="8.1" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-1-4"><i class="fa fa-check"></i><b>8.1</b> Ejercicio 1</a></li>
+<li class="chapter" data-level="8.2" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-2-5"><i class="fa fa-check"></i><b>8.2</b> Ejercicio 2</a></li>
+<li class="chapter" data-level="8.3" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-3-4"><i class="fa fa-check"></i><b>8.3</b> Ejercicio 3</a></li>
+<li class="chapter" data-level="8.4" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-4-3"><i class="fa fa-check"></i><b>8.4</b> Ejercicio 4</a></li>
+<li class="chapter" data-level="8.5" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-5-4"><i class="fa fa-check"></i><b>8.5</b> Ejercicio 5</a></li>
+<li class="chapter" data-level="8.6" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-6-3"><i class="fa fa-check"></i><b>8.6</b> Ejercicio 6</a></li>
+<li class="chapter" data-level="8.7" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-7-4"><i class="fa fa-check"></i><b>8.7</b> Ejercicio 7</a></li>
+<li class="chapter" data-level="8.8" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-8-4"><i class="fa fa-check"></i><b>8.8</b> Ejercicio 8</a></li>
+<li class="chapter" data-level="8.9" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-9-2"><i class="fa fa-check"></i><b>8.9</b> Ejercicio 9</a></li>
+<li class="chapter" data-level="8.10" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-10-2"><i class="fa fa-check"></i><b>8.10</b> Ejercicio 10</a></li>
+<li class="chapter" data-level="8.11" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-11"><i class="fa fa-check"></i><b>8.11</b> Ejercicio 11</a></li>
+<li class="chapter" data-level="8.12" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-12"><i class="fa fa-check"></i><b>8.12</b> Ejercicio 12</a></li>
+<li class="chapter" data-level="8.13" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-13"><i class="fa fa-check"></i><b>8.13</b> Ejercicio 13</a></li>
+<li class="chapter" data-level="8.14" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-14"><i class="fa fa-check"></i><b>8.14</b> Ejercicio 14</a></li>
+<li class="chapter" data-level="8.15" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-15"><i class="fa fa-check"></i><b>8.15</b> Ejercicio 15</a></li>
+<li class="chapter" data-level="8.16" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-16"><i class="fa fa-check"></i><b>8.16</b> Ejercicio 16</a></li>
+<li class="chapter" data-level="8.17" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-17"><i class="fa fa-check"></i><b>8.17</b> Ejercicio 17</a></li>
+<li class="chapter" data-level="8.18" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-18"><i class="fa fa-check"></i><b>8.18</b> Ejercicio 18</a></li>
+<li class="chapter" data-level="8.19" data-path="aplicaciones-de-los-contrastes-de-hipótesis.html"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#ejercicio-19"><i class="fa fa-check"></i><b>8.19</b> Ejercicio 19</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="variables-aleatorias-y-distribuciones-de-probabilidad" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-y-distribuciones-de-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="ejercicio-2.1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Ejercicio 2.1<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Se sabe que la presencia de algunas mutaciones en una región genómica puede influir en la sobreexpresión (“Up”) o la inhibición (“Down”) de dos genes distintos. Se conocen 6 variantes de dicha mutación y, dado que los efectos de la sobreexpresión de los dos genes son muy similares se ha optado por contar únicamente cuántos genes se sobre-expresan en presencia de cada una de ellas (un individuo puede presentar una única variante). Un estudio realizado sobre 300 pacientes ha permitido estimar las siguientes probabilidades de aparición de cada mutación así como el número de genes sobre-expresados asociados a las mismas. Los resultados se encuentran disponibles en la tabla siguiente:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Mutación</th>
+<th align="center">Probabilidad</th>
+<th align="center"><span class="math inline">\(N^{\circ}\)</span> de genes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(e_{1}\)</span></td>
+<td align="center">0.15</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(e_{2}\)</span></td>
+<td align="center">0.13</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(e_{3}\)</span></td>
+<td align="center">0.07</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(e_{4}\)</span></td>
+<td align="center">0.30</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(e_{5}\)</span></td>
+<td align="center">0.20</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(e_{6}\)</span></td>
+<td align="center">0.15</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<p>Consideremos la variable aleatoria: <span class="math inline">\(X=\)</span> “Número de genes sobre expresados”</p>
+<ol style="list-style-type: decimal">
+<li><p>Obtener su distribución de probabilidad y representarla gráficamente</p></li>
+<li><p>Calcular la esperanza y la varianza de dicha variable</p></li>
+</ol>
+<p><strong>SOLUCIÓN</strong></p>
+<p>La variable aleatoria que nos interesa es <span class="math inline">\(X=\)</span> “Número de genes sobre-expresados”.</p>
+<div id="distribución-de-probabilidad" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Distribución de probabilidad<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#distribución-de-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para obtener la distribución de probabilidad de <span class="math inline">\(X\)</span>, necesitamos sumar las probabilidades de las mutaciones que tienen el mismo número de genes sobre-expresados.</p>
+<p>Los posibles valores de <span class="math inline">\(X\)</span> son 0, 1 y 2. A continuación calculamos la probabilidad de cada uno:</p>
+<ul>
+<li>Para <span class="math inline">\(X = 0\)</span>, las mutaciones son <span class="math inline">\(e_1\)</span> y <span class="math inline">\(e_6\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+P(X = 0) = P(e_1) + P(e_6) = 0.15 + 0.15 = 0.30
+\]</span></p>
+<ul>
+<li>Para <span class="math inline">\(X = 1\)</span>, las mutaciones son <span class="math inline">\(e_2\)</span> y <span class="math inline">\(e_3\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+P(X = 1) = P(e_2) + P(e_3) = 0.13 + 0.07 = 0.20
+\]</span></p>
+<ul>
+<li>Para <span class="math inline">\(X = 2\)</span>, las mutaciones son <span class="math inline">\(e_4\)</span> y <span class="math inline">\(e_5\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+P(X = 2) = P(e_4) + P(e_5) = 0.30 + 0.20 = 0.50
+\]</span></p>
+<p>La distribución de probabilidad de <span class="math inline">\(X\)</span> es la siguiente:</p>
+<p><span class="math display">\[
+P(X = x) =
+\begin{cases}
+0.30 &amp; \text{si } x = 0, \\
+0.20 &amp; \text{si } x = 1, \\
+0.50 &amp; \text{si } x = 2.
+\end{cases}
+\]</span></p>
+<p>Podemos representarla gráficamente usando R:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-1" tabindex="-1"></a><span class="co"># Valores de X y sus probabilidades</span></span>
+<span id="cb15-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-2" tabindex="-1"></a>X_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb15-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-3" tabindex="-1"></a>probabilities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.30</span>, <span class="fl">0.20</span>, <span class="fl">0.50</span>)</span>
+<span id="cb15-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-4" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-5" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
+<span id="cb15-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-6" tabindex="-1"></a><span class="fu">barplot</span>(probabilities, <span class="at">names.arg =</span> X_values, <span class="at">col =</span> <span class="st">&quot;lightblue&quot;</span>,</span>
+<span id="cb15-7"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-7" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Distribución de Probabilidad de X&quot;</span>,</span>
+<span id="cb15-8"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-8" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Número de genes sobre-expresados&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probabilidad&quot;</span>)</span></code></pre></div>
+<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="esperanza-y-varianza" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Esperanza y varianza<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-y-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La <strong>esperanza</strong> (o valor esperado) de una variable aleatoria discreta <span class="math inline">\(X\)</span> se calcula como:</p>
+<p><span class="math display">\[
+E(X) = \sum_{x} x \cdot P(X = x)
+\]</span></p>
+<p>Sustituyendo los valores:</p>
+<p><span class="math display">\[
+E(X) = 0 \cdot 0.30 + 1 \cdot 0.20 + 2 \cdot 0.50 = 0 + 0.20 + 1.00 = 1.20
+\]</span></p>
+<p>La <strong>varianza</strong> de <span class="math inline">\(X\)</span> se calcula como:</p>
+<p><span class="math display">\[
+\text{Var}(X) = E(X^2) - [E(X)]^2
+\]</span></p>
+<p>Primero calculamos <span class="math inline">\(E(X^2)\)</span>:</p>
+<p><span class="math display">\[
+E(X^2) = \sum_{x} x^2 \cdot P(X = x)
+\]</span></p>
+<p><span class="math display">\[
+E(X^2) = 0^2 \cdot 0.30 + 1^2 \cdot 0.20 + 2^2 \cdot 0.50 = 0 + 0.20 + 2.00 = 2.20
+\]</span></p>
+<p>Entonces, la varianza es:</p>
+<p><span class="math display">\[
+\text{Var}(X) = 2.20 - (1.20)^2 = 2.20 - 1.44 = 0.76
+\]</span></p>
+<p>Verificamos los cálculos con R:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-1" tabindex="-1"></a><span class="co"># Calcular esperanza y varianza</span></span>
+<span id="cb16-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-2" tabindex="-1"></a>esperanza <span class="ot">&lt;-</span> <span class="fu">sum</span>(X_values <span class="sc">*</span> probabilities)</span>
+<span id="cb16-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-3" tabindex="-1"></a>esperanza_cuadrado <span class="ot">&lt;-</span> <span class="fu">sum</span>(X_values<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> probabilities)</span>
+<span id="cb16-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-4" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-5" tabindex="-1"></a>varianza <span class="ot">&lt;-</span> esperanza_cuadrado <span class="sc">-</span> esperanza<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb16-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-6" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-7" tabindex="-1"></a>esperanza</span></code></pre></div>
+<pre><code>## [1] 1.2</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb18-1" tabindex="-1"></a>varianza</span></code></pre></div>
+<pre><code>## [1] 0.76</code></pre>
+<!-- ## Resultados -->
+<!-- La distribución de probabilidad de la variable $X$, que mide el número de genes sobre-expresados, tiene una esperanza de $1.20$ y una varianza de $0.76$. El gráfico anterior muestra la distribución de probabilidades. -->
+<hr>
+</div>
+</div>
+<div id="ejercicio-2.2" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Ejercicio 2.2<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para describir el número de mutaciones presentes en un volumen estándar de un tumor unos investigadores han propuesto el modelo siguiente</p>
+<p><span class="math display">\[
+p(x)=\frac{K}{2+x}, x=0,1,2,3,4,5
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Determinar qué valor debe de tener <span class="math inline">\(K\)</span> para que <span class="math inline">\(p(x)\)</span> sea una función de masa de probabilidad</li>
+<li>Calcular su esperanza y su varianza</li>
+<li>Calcular las probabilidades de los sucesos:
+<ul>
+<li>1 Un tumor presenta exactamente tres mutaciones</li>
+<li>2 Un tumor presenta al menos una mutación</li>
+<li>3 Un tumor presenta como máximo dos mutaciones.</li>
+</ul></li>
+</ol>
+<p><strong>SOLUCIÓN</strong></p>
+<p>Se considera el modelo para la distribución de probabilidades de mutaciones en un tumor dado por:</p>
+<p><span class="math display">\[
+p(x)=\frac{K}{2+x}, x=0,1,2,3,4,5
+\]</span></p>
+<div id="valor-de-k" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Valor de <span class="math inline">\(K\)</span><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#valor-de-k" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para que <span class="math inline">\(p(x)\)</span> sea una función de masa de probabilidad, la suma de todas las probabilidades debe ser igual a 1. Es decir:</p>
+<p><span class="math display">\[
+\sum_{x=0}^{5} p(x) = 1
+\]</span></p>
+<p>Sustituyendo la fórmula de <span class="math inline">\(p(x)\)</span>:</p>
+<p><span class="math display">\[
+\sum_{x=0}^{5} \frac{K}{2+x} = 1
+\]</span></p>
+<p>Simplificamos la suma:</p>
+<p><span class="math display">\[
+K \sum_{x=0}^{5} \frac{1}{2+x} = 1
+\]</span></p>
+<p>La suma es:</p>
+<p><span class="math display">\[
+\sum_{x=0}^{5} \frac{1}{2+x} = \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7}
+\]</span></p>
+<p>Podemos calcular esta suma numéricamente en R:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb20-1" tabindex="-1"></a><span class="co"># Valores de la suma</span></span>
+<span id="cb20-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb20-2" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="dv">1</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>))</span>
+<span id="cb20-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb20-3" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb20-4" tabindex="-1"></a><span class="co"># Calcular el valor de K</span></span>
+<span id="cb20-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb20-5" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> suma</span>
+<span id="cb20-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb20-6" tabindex="-1"></a>K</span></code></pre></div>
+<pre><code>## [1] 0.6278027</code></pre>
+</div>
+<div id="esperanza-y-la-varianza" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Esperanza y la varianza<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-y-la-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La <strong>esperanza</strong> de <span class="math inline">\(X\)</span> se calcula como:</p>
+<p><span class="math display">\[
+E(X) = \sum_{x=0}^{5} x \cdot p(x) = \sum_{x=0}^{5} x \cdot \frac{K}{2+x}
+\]</span></p>
+<p>La <strong>varianza</strong> se calcula usando:</p>
+<p><span class="math display">\[
+\text{Var}(X) = E(X^2) - [E(X)]^2
+\]</span></p>
+<p>Para esto, primero calculamos <span class="math inline">\(E(X^2)\)</span>:</p>
+<p><span class="math display">\[
+E(X^2) = \sum_{x=0}^{5} x^2 \cdot p(x) = \sum_{x=0}^{5} x^2 \cdot \frac{K}{2+x}
+\]</span></p>
+<p>Podemos calcular la esperanza y la varianza en R de la siguiente forma:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-1" tabindex="-1"></a><span class="co"># Calcular la esperanza</span></span>
+<span id="cb22-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-2" tabindex="-1"></a>esperanza <span class="ot">&lt;-</span> <span class="fu">sum</span>((<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">*</span> K <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>))</span>
+<span id="cb22-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-3" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-4" tabindex="-1"></a><span class="co"># Calcular la esperanza al cuadrado</span></span>
+<span id="cb22-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-5" tabindex="-1"></a>esperanza_cuadrado <span class="ot">&lt;-</span> <span class="fu">sum</span>((<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> K <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>))</span>
+<span id="cb22-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-6" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-7" tabindex="-1"></a><span class="co"># Calcular la varianza</span></span>
+<span id="cb22-8"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-8" tabindex="-1"></a>varianza <span class="ot">&lt;-</span> esperanza_cuadrado <span class="sc">-</span> esperanza<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb22-9"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-9" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-10" tabindex="-1"></a>esperanza</span></code></pre></div>
+<pre><code>## [1] 1.766816</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb24-1" tabindex="-1"></a>varianza</span></code></pre></div>
+<pre><code>## [1] 2.761769</code></pre>
+</div>
+<div id="probabilidades" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Probabilidades<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidades" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Probabilidad de que un tumor presente exactamente tres mutaciones</strong></p>
+<p>La probabilidad de que <span class="math inline">\(X = 3\)</span> es:</p>
+<p><span class="math display">\[
+P(X = 3) = p(3) = \frac{K}{2+3}
+\]</span></p>
+<p>Podemos calcularlo en R:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb26-1" tabindex="-1"></a><span class="co"># Probabilidad de X = 3</span></span>
+<span id="cb26-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb26-2" tabindex="-1"></a>P_X_3 <span class="ot">&lt;-</span> K <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>)</span>
+<span id="cb26-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb26-3" tabindex="-1"></a>P_X_3</span></code></pre></div>
+<pre><code>## [1] 0.1255605</code></pre>
+<p><strong>Probabilidad de que un tumor presente al menos una mutación</strong></p>
+<p>La probabilidad de que <span class="math inline">\(X \geq 1\)</span> es:</p>
+<p><span class="math display">\[
+P(X \geq 1) = 1 - P(X = 0)
+\]</span></p>
+<p>Podemos calcularlo en R:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb28-1" tabindex="-1"></a><span class="co"># Probabilidad de X &gt;= 1</span></span>
+<span id="cb28-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb28-2" tabindex="-1"></a>P_X_1 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> K <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">0</span>)</span>
+<span id="cb28-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb28-3" tabindex="-1"></a>P_X_1</span></code></pre></div>
+<pre><code>## [1] 0.6860987</code></pre>
+<p><strong>Probabilidad de que un tumor presente como máximo dos mutaciones</strong></p>
+<p>La probabilidad de que <span class="math inline">\(X \leq 2\)</span> es:</p>
+<p><span class="math display">\[
+P(X \leq 2) = P(X = 0) + P(X = 1) + P(X = 2)
+\]</span></p>
+<p>Podemos calcularlo en R:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb30-1" tabindex="-1"></a><span class="co"># Probabilidad de X &lt;= 2</span></span>
+<span id="cb30-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb30-2" tabindex="-1"></a>P_X_2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(K <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>))</span>
+<span id="cb30-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb30-3" tabindex="-1"></a>P_X_2</span></code></pre></div>
+<pre><code>## [1] 0.6801196</code></pre>
+</div>
+</div>
+<div id="ejercicio-2.3" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Ejercicio 2.3<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un modelo simplificado del tiempo de supervivencia, en años, tras un diagnóstico de una variante de leucemia es el siguiente:</p>
+<p><span class="math display">\[
+f_{x}(x)=-0.5 \cdot x+1, \quad \text { donde } \quad 0 \leq x \leq 2
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Comprobar que <span class="math inline">\(f_{X}\)</span> es una densidad. Representarla gráficamente.</p></li>
+<li><p>Calcular <span class="math inline">\(\mathrm{F}_{\mathrm{X}} \mathrm{y}\)</span> representarla gráficamente.</p></li>
+<li><p>Calcular <span class="math inline">\(P(X \geq 1), P(X&gt;1), P(X=1), f_{x}(1)\)</span>.</p></li>
+<li><p>Calcular la probabilidad de que un individuo diagnosticado con leucemia sobreviva :</p></li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>menos de seis meses, (ii) entre seis meses y un año, (iii) más de dos años.</li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Calcular <span class="math inline">\(E(X)\)</span> i <span class="math inline">\(\operatorname{Var}(X)\)</span>.</p></li>
+<li><p>En vista que el modelo anterior no ha resultado satisfactorio una bioestadística ha propuesto un modelo alternativo consistente en modelizar la variable como:</p></li>
+</ol>
+<p><span class="math display">\[
+g_{X}(x)=\exp (-k x), \text { dondex } \geq 0
+\]</span></p>
+<p>Calcular la constante <span class="math inline">\(k\)</span> para que <span class="math inline">\(\mathrm{g}_{\mathrm{x}}\)</span> sea una función de densidad de probabilidad. Repetir los cálculos de los apartados b), c), d) y e) con el nuevo modelo. Discutir adecuación de ambos modelos a una situación real.</p>
+<p><strong>SOLUCIÓN</strong></p>
+<div id="f_xx-es-una-densidad" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> <span class="math inline">\(f_X(x)\)</span> es una densidad<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#f_xx-es-una-densidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para comprobar que <span class="math inline">\(f_X(x)\)</span> es una función de densidad, necesitamos verificar que cumple las dos condiciones básicas:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f_X(x) \geq 0\)</span> para todo <span class="math inline">\(x\)</span> en su dominio.</li>
+<li>La integral de <span class="math inline">\(f_X(x)\)</span> sobre todo su dominio debe ser 1, es decir:</li>
+</ol>
+<p><span class="math display">\[
+\int_0^2 f_X(x) \, dx = 1
+\]</span></p>
+<p>La función de densidad dada es <span class="math inline">\(f_X(x) = -0.5 \cdot x + 1\)</span> con <span class="math inline">\(0 \leq x \leq 2\)</span>.</p>
+<p>Primero, comprobamos que <span class="math inline">\(f_X(x) \geq 0\)</span> para <span class="math inline">\(x \in [0, 2]\)</span>. Evaluamos los valores extremos:</p>
+<ul>
+<li><span class="math inline">\(f_X(0) = -0.5 \cdot 0 + 1 = 1\)</span></li>
+<li><span class="math inline">\(f_X(2) = -0.5 \cdot 2 + 1 = 0\)</span></li>
+</ul>
+<p>La función es no negativa en el intervalo dado.</p>
+<p>Ahora, calculamos la integral:</p>
+<p><span class="math display">\[
+\int_0^2 (-0.5 \cdot x + 1) \, dx = \left[ -0.25 \cdot x^2 + x \right]_0^2 = (-0.25 \cdot 4 + 2) - (0) = 1
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(f_X(x)\)</span> cumple con ambas condiciones y es una función de densidad.</p>
+</div>
+<div id="gráfica-de-f_xx" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Gráfica de <span class="math inline">\(f_X(x)\)</span><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#gráfica-de-f_xx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb32-1" tabindex="-1"></a><span class="co"># R code to plot the density function</span></span>
+<span id="cb32-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb32-2" tabindex="-1"></a>f_x <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fl">0.5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb32-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb32-3" tabindex="-1"></a><span class="fu">curve</span>(f_x, <span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">&quot;f_X(x)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>,</span>
+<span id="cb32-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb32-4" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;Densidad f_X(x)&quot;</span>)</span></code></pre></div>
+<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="función-de-distribución" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Función de distribución<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#función-de-distribución" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Calcular <span class="math inline">\(F_X(x)\)</span> y representarla gráficamente</strong></p>
+<p>La función de distribución acumulada (CDF) <span class="math inline">\(F_X(x)\)</span> se obtiene integrando la función de densidad:</p>
+<p><span class="math display">\[
+F_X(x) = \int_0^x (-0.5 \cdot t + 1) \, dt
+\]</span></p>
+<p>Para <span class="math inline">\(x \in [0, 2]\)</span>, tenemos:</p>
+<p><span class="math display">\[
+F_X(x) = \left[-0.25 \cdot t^2 + t\right]_0^x = -0.25 \cdot x^2 + x
+\]</span></p>
+<p>Para <span class="math inline">\(x &lt; 0\)</span>, <span class="math inline">\(F_X(x) = 0\)</span>, y para <span class="math inline">\(x &gt; 2\)</span>, <span class="math inline">\(F_X(x) = 1\)</span>.</p>
+<p><strong>Gráfica de <span class="math inline">\(F_X(x)\)</span>ç</strong></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb33-1" tabindex="-1"></a><span class="co"># R code to plot the CDF function</span></span>
+<span id="cb33-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb33-2" tabindex="-1"></a>F_x <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="sc">-</span><span class="fl">0.25</span> <span class="sc">*</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> x))</span>
+<span id="cb33-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb33-3" tabindex="-1"></a><span class="fu">curve</span>(F_x, <span class="at">from =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">&quot;F_X(x)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>,</span>
+<span id="cb33-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb33-4" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;Distribución acumulada F_X(x)&quot;</span>)</span></code></pre></div>
+<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="probabilidades-y-f_x1" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Probabilidades y <span class="math inline">\(f_X(1)\)</span><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidades-y-f_x1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(P(X \geq 1) = 1 - F_X(1)\)</span>:</li>
+</ol>
+<p><span class="math display">\[
+F_X(1) = -0.25 \cdot 1^2 + 1 = 0.75
+\]</span>
+Por lo tanto, <span class="math inline">\(P(X \geq 1) = 1 - 0.75 = 0.25\)</span>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p><span class="math inline">\(P(X &gt; 1)\)</span>: Como <span class="math inline">\(X\)</span> es una variable continua, <span class="math inline">\(P(X &gt; 1) = P(X \geq 1) = 0.25\)</span>.</p></li>
+<li><p><span class="math inline">\(P(X = 1)\)</span>: Para una variable continua, la probabilidad puntual es 0, es decir, <span class="math inline">\(P(X = 1) = 0\)</span>.</p></li>
+<li><p><span class="math inline">\(f_X(1)\)</span>:</p></li>
+</ol>
+<p><span class="math display">\[
+f_X(1) = -0.5 \cdot 1 + 1 = 0.5
+\]</span></p>
+</div>
+<div id="probabilidad-de-supervivencia" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Probabilidad de supervivencia<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-supervivencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Menos de seis meses (<span class="math inline">\(x = 0.5\)</span>):</li>
+</ol>
+<p><span class="math display">\[
+P(X &lt; 0.5) = F_X(0.5) = -0.25 \cdot 0.5^2 + 0.5 = 0.4375
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Entre seis meses y un año (<span class="math inline">\(x \in [0.5, 1]\)</span>):</li>
+</ol>
+<p><span class="math display">\[
+P(0.5 \leq X \leq 1) = F_X(1) - F_X(0.5) = 0.75 - 0.375 = 0.375
+\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Más de dos años (<span class="math inline">\(x &gt; 2\)</span>): Como el dominio de <span class="math inline">\(X\)</span> es <span class="math inline">\([0, 2]\)</span>, <span class="math inline">\(P(X &gt; 2) = 0\)</span>.</li>
+</ol>
+</div>
+<div id="ex-y-operatornamevarx" class="section level3 hasAnchor" number="2.3.6">
+<h3><span class="header-section-number">2.3.6</span> <span class="math inline">\(E(X)\)</span> y <span class="math inline">\(\operatorname{Var}(X)\)</span><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ex-y-operatornamevarx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>La esperanza de <span class="math inline">\(X\)</span> es:</li>
+</ol>
+<p><span class="math display">\[
+E(X) = \int_0^2 x \cdot f_X(x) \, dx = \int_0^2 x \cdot (-0.5 \cdot x + 1) \, dx
+\]</span></p>
+<p>Desarrollamos:</p>
+<p><span class="math display">\[
+E(X) = \int_0^2 (-0.5 \cdot x^2 + x) \, dx = \left[-\frac{0.5}{3} \cdot x^3 + 0.5 \cdot x^2\right]_0^2
+\]</span></p>
+<p>Calculamos:</p>
+<p><span class="math display">\[
+E(X) = -\frac{0.5}{3} \cdot 8 + 0.5 \cdot 4 = -\frac{4}{3} + 2 = \frac{2}{3}
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>La varianza de <span class="math inline">\(X\)</span> es:</li>
+</ol>
+<p><span class="math display">\[
+\operatorname{Var}(X) = E(X^2) - E(X)^2
+\]</span></p>
+<p>Primero calculamos <span class="math inline">\(E(X^2)\)</span>:</p>
+<p><span class="math display">\[
+E(X^2) = \int_0^2 x^2 \cdot f_X(x) \, dx = \int_0^2 x^2 \cdot (-0.5 \cdot x + 1) \, dx
+\]</span></p>
+<p>Desarrollamos y calculamos:</p>
+<p><span class="math display">\[
+E(X^2) = \int_0^2 (-0.5 \cdot x^3 + x^2) \, dx = \left[-\frac{0.5}{4} \cdot x^4 + \frac{1}{3} \cdot x^3\right]_0^2
+\]</span></p>
+<p><span class="math display">\[
+E(X^2) = -\frac{0.5}{4} \cdot 16 + \frac{1}{3} \cdot 8 = -2 + \frac{8}{3} = \frac{2}{3}
+\]</span></p>
+<p>Finalmente:</p>
+<p><span class="math display">\[
+\operatorname{Var}(X) = E(X^2) - E(X)^2 = \frac{2}{3} - \left(\frac{2}{3}\right)^2 = \frac{2}{3} - \frac{4}{9} = \frac{2}{9}
+\]</span></p>
+</div>
+<div id="modelo-alternativo-g_xx" class="section level3 hasAnchor" number="2.3.7">
+<h3><span class="header-section-number">2.3.7</span> Modelo alternativo <span class="math inline">\(g_X(x)\)</span><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#modelo-alternativo-g_xx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dado el modelo alternativo <span class="math inline">\(g_X(x) = \exp(-k \cdot x)\)</span> para <span class="math inline">\(x \geq 0\)</span>, la constante <span class="math inline">\(k\)</span> se determina imponiendo que la integral de la función de densidad debe ser 1:</p>
+<p><span class="math display">\[
+\int_0^\infty \exp(-k \cdot x) \, dx = 1
+\]</span></p>
+<p>Resolviendo:</p>
+<p><span class="math display">\[
+\frac{1}{k} = 1 \implies k = 1
+\]</span></p>
+<p>Por lo tanto, el nuevo modelo de densidad es <span class="math inline">\(g_X(x) = \exp(-x)\)</span>.</p>
+</div>
+</div>
+<div id="ejercicio-2.4" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Ejercicio 2.4<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para estudiar la regulación hormonal de una línea metabólica se inyectan ratas albinas con un fármaco que inhibe la síntesis de proteínas del organismo. En general, 4 de cada 20 ratas mueren a causa del fármaco antes de que el experimento haya concluido. Si se trata a 10 animales con el fármaco, ¿cuál es la probabilidad de que al menos 8 lleguen vivas al final del experimento?</p>
+<p><strong>SOLUCION</strong></p>
+<p>En este problema en el que tenemos grupos de 10 animales independientes, cada uno de los cuales puede sobrevivir o no resulta apropiada <strong>la distribución binomial</strong>.</p>
+<ul>
+<li><p>La probabilidad de que una rata sobreviva al fármaco es <span class="math inline">\(p = \frac{16}{20} = 0.8\)</span>, dado que 4 de cada 20 ratas mueren.</p></li>
+<li><p>El experimento se realiza con 10 ratas, por lo que tenemos <span class="math inline">\(n = 10\)</span>.</p></li>
+<li><p>Queremos calcular la probabilidad de que al menos 8 ratas sobrevivan. Matemáticamente, esto corresponde a:</p></li>
+</ul>
+<p><span class="math display">\[
+P(X \geq 8)
+\]</span></p>
+<p>donde <span class="math inline">\(X\)</span> es el número de ratas que sobreviven y sigue una <strong>distribución binomial</strong>:</p>
+<p><span class="math display">\[
+X \sim \text{Binomial}(n=10, p=0.8)
+\]</span></p>
+<div id="cálculo-de-la-probabilidad" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Cálculo de la probabilidad<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cálculo-de-la-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La probabilidad de que exactamente <span class="math inline">\(k\)</span> ratas sobrevivan está dada por la fórmula de la binomial:</p>
+<p><span class="math display">\[
+P(X = k) = \binom{n}{k} p^k (1 - p)^{n-k}
+\]</span></p>
+<p>Para responder la pregunta debemos calcular:</p>
+<p><span class="math display">\[
+P(X \geq 8) = P(X = 8) + P(X = 9) + P(X = 10)
+\]</span>
+Esto puede calcularse:</p>
+<ul>
+<li>directamente usando la función de probabilidad acumulada implementada en R</li>
+<li>indirectamente calculando las probabilidades individuales y sumándolas.</li>
+</ul>
+<p>En todo caso debemos recordar que al tratarse de una variable discreta si queremos usar <span class="math inline">\(F_X(x)\)</span> para calcular <span class="math inline">\(P(X\geq k)\)</span> deberemos tener en cuenta que:
+<span class="math display">\[
+P(X\geq k) = 1-P(X\leq k-1)
+\]</span>
+En primer lugar calculamos esta suma utilizando la función de masa de probabilidad:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-1" tabindex="-1"></a><span class="co"># Parámetros del problema</span></span>
+<span id="cb34-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb34-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-3" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb34-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-4" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-5" tabindex="-1"></a><span class="co"># Probabilidades P(X = 8), P(X = 9) y P(X = 10)</span></span>
+<span id="cb34-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-6" tabindex="-1"></a>prob_8 <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">8</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
+<span id="cb34-7"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-7" tabindex="-1"></a>prob_9 <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">9</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
+<span id="cb34-8"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-8" tabindex="-1"></a>prob_10 <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">10</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span>
+<span id="cb34-9"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-9" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-10" tabindex="-1"></a><span class="co"># Probabilidad total P(X &gt;= 8)</span></span>
+<span id="cb34-11"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-11" tabindex="-1"></a>prob_total <span class="ot">&lt;-</span> prob_8 <span class="sc">+</span> prob_9 <span class="sc">+</span> prob_10</span>
+<span id="cb34-12"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-12" tabindex="-1"></a>prob_total</span></code></pre></div>
+<pre><code>## [1] 0.6777995</code></pre>
+<p>Si usamos la funcion de distribución, <code>pbinom</code></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb36-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pbinom</span> (<span class="dv">7</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span></code></pre></div>
+<pre><code>## [1] 0.6777995</code></pre>
+<p>Naturalmente ambos resultados coinciden. Obsérvese que al ser <span class="math inline">\(p=0.8\)</span> valores altos resultan bastante probables, con lo que la</p>
+</div>
+</div>
+<div id="ejercicio-2.5" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Ejercicio 2.5<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En una cierta población se ha observado un número medio anual de 12 muertes por cáncer de pulmón. Si el número de muertes causadas por la enfermedad sigue una distribución de Poisson, ¿cuál es la probabilidad de que durante el año en curso:
+1. haya exactamente 10 muertes por cáncer de pulmón?
+2. 15 o más personas mueran a causa de la enfermedad?
+3. 10 o menos personas mueran a causa de la enfermedad?</p>
+<p>El número de muertes por cáncer de pulmón sigue una distribución de Poisson, que se usa para modelar la ocurrencia de eventos discretos dentro de un intervalo de tiempo, donde el valor esperado es proporcional al tamaño del intervalo. En este caso, el valor esperado es el número medio de muertes por año, que es 12. La función de masa de probabilidad (PMF) de una variable aleatoria <span class="math inline">\(X\)</span> con distribución de Poisson y parámetro <span class="math inline">\(\lambda\)</span> es:</p>
+<p><span class="math display">\[ P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!} \]</span></p>
+<p>donde <span class="math inline">\(k\)</span> es el número de eventos, <span class="math inline">\(\lambda\)</span> es el valor esperado (12 en nuestro caso) y <span class="math inline">\(k!\)</span> es el factorial de <span class="math inline">\(k\)</span>. Usaremos este modelo para resolver los apartados.</p>
+<div id="probabilidad-de-que-haya-exactamente-10-muertes" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Probabilidad de que haya exactamente 10 muertes<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-haya-exactamente-10-muertes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La probabilidad de observar exactamente <span class="math inline">\(k = 10\)</span> muertes se puede calcular usando la PMF de la distribución de Poisson con <span class="math inline">\(\lambda = 12\)</span>:</p>
+<p><span class="math display">\[ P(X = 10) = \frac{12^{10} e^{-12}}{10!} \]</span></p>
+<p>Podemos calcular este valor con R.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb38-1" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb38-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb38-2" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb38-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb38-3" tabindex="-1"></a>prob_10_muertes <span class="ot">&lt;-</span> <span class="fu">dpois</span>(k, lambda)</span>
+<span id="cb38-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb38-4" tabindex="-1"></a>prob_10_muertes</span></code></pre></div>
+<pre><code>## [1] 0.1048373</code></pre>
+</div>
+<div id="probabilidad-de-que-15-o-más-personas-mueran" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Probabilidad de que 15 o más personas mueran<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-15-o-más-personas-mueran" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para obtener la probabilidad de que 15 o más personas mueran, necesitamos calcular la probabilidad acumulada de <span class="math inline">\(X \geq 15\)</span>. Esto se puede obtener restando de 1 la probabilidad acumulada de <span class="math inline">\(X &lt; 15\)</span>, es decir:</p>
+<p><span class="math display">\[ P(X \geq 15) = 1 - P(X &lt; 15) = 1 - P(X \leq 14) \]</span></p>
+<p>Usamos la función de probabilidad acumulada (CDF) de la Poisson en R.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb40-1" tabindex="-1"></a>k_15 <span class="ot">&lt;-</span> <span class="dv">14</span></span>
+<span id="cb40-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb40-2" tabindex="-1"></a>prob_15_o_mas <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">ppois</span>(k_15, lambda)</span>
+<span id="cb40-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb40-3" tabindex="-1"></a>prob_15_o_mas</span></code></pre></div>
+<pre><code>## [1] 0.2279755</code></pre>
+</div>
+<div id="probabilidad-de-que-10-o-menos-personas-mueran" class="section level3 hasAnchor" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Probabilidad de que 10 o menos personas mueran<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-10-o-menos-personas-mueran" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La probabilidad de que 10 o menos personas mueran es simplemente la probabilidad acumulada de <span class="math inline">\(X \leq 10\)</span>, que se puede calcular directamente con la CDF de la distribución de Poisson.</p>
+<p><span class="math display">\[ P(X \leq 10) \]</span></p>
+<p>Calculamos esto en R:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb42-1" tabindex="-1"></a>prob_10_o_menos <span class="ot">&lt;-</span> <span class="fu">ppois</span>(k, lambda)</span>
+<span id="cb42-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb42-2" tabindex="-1"></a>prob_10_o_menos</span></code></pre></div>
+<pre><code>## [1] 0.3472294</code></pre>
+</div>
+<div id="conclusión" class="section level3 hasAnchor" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Conclusión<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#conclusión" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>La probabilidad de que haya exactamente 10 muertes es:</li>
+</ol>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb44-1" tabindex="-1"></a>prob_10_muertes</span></code></pre></div>
+<pre><code>## [1] 0.1048373</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>La probabilidad de que 15 o más personas mueran es:</li>
+</ol>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb46-1" tabindex="-1"></a>prob_15_o_mas</span></code></pre></div>
+<pre><code>## [1] 0.2279755</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>La probabilidad de que 10 o menos personas mueran es:</li>
+</ol>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb48-1" tabindex="-1"></a>prob_10_o_menos</span></code></pre></div>
+<pre><code>## [1] 0.3472294</code></pre>
+</div>
+</div>
+<div id="ejercicio-2.6" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Ejercicio 2.6<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Los daños a los cromosomas del óvulo o del espermatozoide, pueden causar mutaciones que conducen a abortos, defectos de nacimiento, u otras deficiencias genéticas. Un estudio sobre los efectos teratogénicos de la radiación ha determinado que la probabilidad de que tal mutación se produzca por radiación es del 10%. El resto son atribuibles a otras causas.
+Una vez detectadas 150 mutaciones,</p>
+<ol style="list-style-type: decimal">
+<li>¿cuántas se esperaría que se debiesen a radiaciones?</li>
+<li>¿Cuál es la probabilidad de que solamente 10 se debiesen a radiaciones?</li>
+</ol>
+<p><strong>Solución</strong></p>
+<p>Para analizar el número de mutaciones que se deben a radiaciones, podemos considera dos modelos diferentes: uno basado en la distribución binomial y otro en la distribución de Poisson.</p>
+<div id="justificación-del-uso-de-distribución-binomial" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Justificación del uso de distribución binomial<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#justificación-del-uso-de-distribución-binomial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La distribución binomial es adecuada cuando tenemos un número fijo de ensayos independientes y cada ensayo tiene dos posibles resultados: éxito (la mutación es debida a radiación) o fracaso (la mutación no es debida a radiación). En cada ensayo, la probabilidad de éxito es constante.</p>
+<p>Esto se ajusta perfectamente a las condiciones del problema:
+- Hay 150 ensayos independientes (cada mutación observada puede estar o no causada por radiación).
+- Cada ensayo tiene dos posibles resultados: mutación por radiación o mutación por otra causa.
+- La probabilidad de éxito es constante y pequeña (<span class="math inline">\(p = 0.1\)</span>).
+Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien mediante una distribución binomial <span class="math inline">\(X \sim \text{Binomial}(n = 150, p = 0.1)\)</span>.</p>
+</div>
+<div id="justificación-del-uso-de-distribución-de-poisson" class="section level3 hasAnchor" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Justificación del uso de distribución de Poisson<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#justificación-del-uso-de-distribución-de-poisson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La distribución de Poisson es adecuada para modelar el número de eventos raros que ocurren en un intervalo de tiempo, espacio, o cualquier otra unidad, cuando estos eventos ocurren de forma independiente y su probabilidad de ocurrencia es baja.</p>
+<p>En este caso las “mutaciones debidas a radiación” pueden considerarse eventos raros dentro de un gran conjunto de mutaciones (150 mutaciones observadas, pero solo un 10% de ellas son debidas a radiación).</p>
+<p>Puede considerarse además, que las mutaciones individuales pueden ocurrir de forma independiente entre sí, ya que la probabilidad de que una mutación se deba a radiación no afecta a la probabilidad de que otra mutación sea causada por radiación.</p>
+<p>Estas condiciones son características de los <em>procesos de Poisson</em> y por tanto la distribución de Poisson es una elección natural para describir procesos en los que los eventos ocurren de manera aleatoria en un intervalo dado (por ejemplo, en un periodo de tiempo o un espacio), siempre que:</p>
+<ul>
+<li>Los eventos ocurran con una tasa promedio constante (en este caso, la tasa de mutaciones debidas a radiaciones es proporcional a la tasa global de mutaciones, multiplicada por la probabilidad <span class="math inline">\(p = 0.1\)</span>).</li>
+<li>No haya límite teórico en el número de eventos que puedan ocurrir en un intervalo (aunque observamos un total de 150 mutaciones, teóricamente podríamos seguir detectando más mutaciones).</li>
+</ul>
+<p>En el modelo de Poisson, el parámetro <span class="math inline">\(\lambda\)</span> representa la tasa promedio de ocurrencia de los eventos (en este caso, mutaciones debidas a radiación). Si conocemos la tasa promedio de aparición de mutaciones por radiación (<span class="math inline">\(\lambda = n \cdot p\)</span> en el contexto binomial, pero también se puede calcular directamente si conocemos la tasa de aparición de eventos raros), entonces podemos usar directamente la distribución de Poisson para modelar el número de eventos.</p>
+<p>En este caso, <span class="math inline">\(\lambda = 150 \cdot 0.1 = 15\)</span>, que representa el número esperado de mutaciones debidas a radiación en el total observado de mutaciones.</p>
+</div>
+<div id="aproximación-del-modelo-binomial-por-el-de-poisson" class="section level3 hasAnchor" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> Aproximación del modelo binomial por el de Poisson<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#aproximación-del-modelo-binomial-por-el-de-poisson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La distribución de Poisson puede considerarse una aproximación de la binomial cuando el número de ensayos (<span class="math inline">\(n\)</span>) es grande y la probabilidad de éxito (<span class="math inline">\(p\)</span>) es pequeña. En este caso, el número esperado de éxitos, <span class="math inline">\(n \cdot p\)</span>, se mantiene moderado (en este caso, <span class="math inline">\(n \cdot p = 15\)</span>).</p>
+<p>Este resultado que se conoce como <em>límite de Poisson</em> establece que si:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> es grande (muchos ensayos),</li>
+<li><span class="math inline">\(p\)</span> es pequeño (baja probabilidad de éxito),</li>
+<li>el producto <span class="math inline">\(n \cdot p = \lambda\)</span> es moderado,</li>
+</ul>
+<p>entonces la binomial <span class="math inline">\(X \sim \text{Binomial}(n, p)\)</span> se puede aproximar por una distribución de Poisson con parámetro <span class="math inline">\(\lambda = n \cdot p\)</span>.</p>
+<p>En este caso:</p>
+<ul>
+<li><span class="math inline">\(n = 150\)</span> es suficientemente grande.</li>
+<li><span class="math inline">\(p = 0.1\)</span> es pequeño.</li>
+<li><span class="math inline">\(n \cdot p = 15\)</span>, lo cual es un valor razonable para usar la aproximación de Poisson.</li>
+</ul>
+<p>Por tanto, el número de mutaciones debidas a radiaciones puede aproximarse por una distribución de Poisson <span class="math inline">\(X \sim \text{Poisson}(\lambda = 15)\)</span>.</p>
+</div>
+<div id="número-esperado-de-mutaciones" class="section level3 hasAnchor" number="2.6.4">
+<h3><span class="header-section-number">2.6.4</span> Número esperado de mutaciones<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#número-esperado-de-mutaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En ambos modelos, la esperanza del número de mutaciones debidas a radiaciones es <span class="math inline">\(E[X] = n \cdot p\)</span>. Esto representa el número promedio de mutaciones debidas a radiaciones. Lo calculamos:</p>
+<p><span class="math display">\[ E[X] = 150 \cdot 0.1 = 15 \]</span></p>
+<p>Por lo tanto, se espera que alrededor de 15 mutaciones se deban a radiaciones.</p>
+</div>
+<div id="probabilidad-de-que-exactamente-10-mutaciones-se-deban-a-radiaciones" class="section level3 hasAnchor" number="2.6.5">
+<h3><span class="header-section-number">2.6.5</span> Probabilidad de que exactamente 10 mutaciones se deban a radiaciones<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-exactamente-10-mutaciones-se-deban-a-radiaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="usando-la-distribución-binomial" class="section level4 hasAnchor" number="2.6.5.1">
+<h4><span class="header-section-number">2.6.5.1</span> Usando la distribución Binomial<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#usando-la-distribución-binomial" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La probabilidad de que exactamente 10 mutaciones se deban a radiaciones se puede calcular usando la PMF de la binomial:</p>
+<p><span class="math display">\[ P(X = 10) = \binom{150}{10} (0.1)^{10} (0.9)^{140} \]</span></p>
+<p>Usando R tenemos:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb50-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">150</span></span>
+<span id="cb50-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb50-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb50-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb50-3" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb50-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb50-4" tabindex="-1"></a>prob_binom_10 <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(k, n, p)</span>
+<span id="cb50-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb50-5" tabindex="-1"></a>prob_binom_10</span></code></pre></div>
+<pre><code>## [1] 0.04591681</code></pre>
+</div>
+<div id="usando-la-aproximación-de-poisson" class="section level4 hasAnchor" number="2.6.5.2">
+<h4><span class="header-section-number">2.6.5.2</span> Usando la aproximación de Poisson<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#usando-la-aproximación-de-poisson" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La distribución de Poisson con <span class="math inline">\(\lambda = n \cdot p = 15\)</span> también se puede usar para aproximar esta probabilidad. La probabilidad de obtener exactamente 10 mutaciones se calcula como:</p>
+<p><span class="math display">\[ P(X = 10) = \frac{15^{10} e^{-15}}{10!} \]</span></p>
+<p>Con R:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb52-1" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb52-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb52-2" tabindex="-1"></a>prob_pois_10 <span class="ot">&lt;-</span> <span class="fu">dpois</span>(k, lambda)</span>
+<span id="cb52-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb52-3" tabindex="-1"></a>prob_pois_10</span></code></pre></div>
+<pre><code>## [1] 0.04861075</code></pre>
+</div>
+</div>
+<div id="conclusión-1" class="section level3 hasAnchor" number="2.6.6">
+<h3><span class="header-section-number">2.6.6</span> Conclusión<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#conclusión-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Se espera que 15 de las 150 mutaciones se deban a radiaciones.</p></li>
+<li><p>La probabilidad de que exactamente 10 mutaciones se deban a radiaciones es:</p>
+<ul>
+<li>Usando la distribución binomial:</li>
+</ul>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb54-1" tabindex="-1"></a>prob_binom_10</span></code></pre></div>
+<pre><code>## [1] 0.04591681</code></pre>
+<ul>
+<li>Usando la aproximación de Poisson:</li>
+</ul>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb56-1" tabindex="-1"></a>prob_pois_10</span></code></pre></div>
+<pre><code>## [1] 0.04861075</code></pre></li>
+</ul>
+<p>Ambos métodos dan resultados similares, pero el modelo de Poisson es útil para simplificar los cálculos cuando el número total de mutaciones es grande y la probabilidad de cada evento es pequeña.</p>
+</div>
+</div>
+<div id="ejercicio-2.7" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Ejercicio 2.7<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Entre los diabéticos, el nivel de glucosa en sangre <span class="math inline">\(X\)</span>, en ayunas, puede suponerse de distribución aproximadamente normal, con media <span class="math inline">\(106 \mathrm{mg} / 100 \mathrm{ml}\)</span> y desviación típica <span class="math inline">\(8 \mathrm{mg} / 100 \mathrm{ml}\)</span>, es decir : <span class="math inline">\(X \sim N\left(\mu=106, \sigma^{2}=64\right)\)</span>.</p>
+<p>Hallar;
+1. El porcentaje de diabéticos con niveles de glucosa inferiores a 120 ( <span class="math inline">\(P[X \leq 120]\)</span>
+2. ¿Qué porcentaje de diabéticos tienen niveles comprendidos entre 90 y 120?
+3. Hallar el nivel de glucosa “p25”, caracterizado por la propiedad de que el <span class="math inline">\(25 \%\)</span> de todos los diabéticos tiene un nivel de glucosa en ayunas inferior o igual a <span class="math inline">\(x\)</span>.</p>
+<p><strong>SOLUCIÓN</strong></p>
+<p>Según el enunciado el nivel de glucosa <span class="math inline">\(X\)</span> se distribuye según una distribución normal con media <span class="math inline">\(\mu = 106\)</span> y varianza <span class="math inline">\(\sigma^2 = 64\)</span>, es decir, <span class="math inline">\(X \sim N(106, 64)\)</span>, o equivalentemente <span class="math inline">\(X \sim N(106, 8^2)\)</span>.</p>
+<div id="porcentaje-de-diabéticos-con-niveles-de-glucosa-inferiores-a-120-px-leq-120" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Porcentaje de diabéticos con niveles de glucosa inferiores a 120 (<span class="math inline">\(P[X \leq 120]\)</span>)<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#porcentaje-de-diabéticos-con-niveles-de-glucosa-inferiores-a-120-px-leq-120" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para calcular esta probabilidad, necesitamos estandarizar la variable <span class="math inline">\(X\)</span> a una normal estándar <span class="math inline">\(Z \sim N(0, 1)\)</span>. La fórmula de estandarización es:</p>
+<p><span class="math display">\[ Z = \frac{X - \mu}{\sigma} \]</span></p>
+<p>Sustituyendo los valores de <span class="math inline">\(\mu = 106\)</span> y <span class="math inline">\(\sigma = 8\)</span>:</p>
+<p><span class="math display">\[ Z = \frac{120 - 106}{8} = 1.75 \]</span></p>
+<p>Ahora calculamos <span class="math inline">\(P(Z \leq 1.75)\)</span>, es decir, la probabilidad de que la variable estándar normal sea menor o igual que 1.75. Esta probabilidad la obtenemos a partir de la tabla de la normal estándar o usando R.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb58-1" tabindex="-1"></a><span class="co"># Calculamos la probabilidad con la función pnorm</span></span>
+<span id="cb58-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb58-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fl">1.75</span>)</span>
+<span id="cb58-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb58-3" tabindex="-1"></a>p1</span></code></pre></div>
+<pre><code>## [1] 0.9599408</code></pre>
+</div>
+<div id="porcentaje-de-diabéticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120" class="section level3 hasAnchor" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#porcentaje-de-diabéticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este caso queremos calcular <span class="math inline">\(P(90 \leq X \leq 120)\)</span>. Para hacerlo, calculamos las probabilidades individuales de <span class="math inline">\(P(X \leq 120)\)</span> y <span class="math inline">\(P(X \leq 90)\)</span>, y restamos la segunda de la primera:</p>
+<p><span class="math display">\[ P(90 \leq X \leq 120) = P(X \leq 120) - P(X \leq 90) \]</span></p>
+<p>Primero estandarizamos ambas variables:</p>
+<p><span class="math display">\[ Z_{120} = \frac{120 - 106}{8} = 1.75 \]</span>
+<span class="math display">\[ Z_{90} = \frac{90 - 106}{8} = -2.00 \]</span></p>
+<p>Ahora calculamos <span class="math inline">\(P(Z \leq 1.75)\)</span> y <span class="math inline">\(P(Z \leq -2.00)\)</span> usando R.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-1" tabindex="-1"></a><span class="co"># Calculamos ambas probabilidades</span></span>
+<span id="cb60-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-2" tabindex="-1"></a>p2_120 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fl">1.75</span>)</span>
+<span id="cb60-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-3" tabindex="-1"></a>p2_90 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">2.00</span>)</span>
+<span id="cb60-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-4" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p2_120 <span class="sc">-</span> p2_90</span>
+<span id="cb60-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-5" tabindex="-1"></a>p2</span></code></pre></div>
+<pre><code>## [1] 0.9371907</code></pre>
+</div>
+<div id="hallar-el-nivel-de-glucosa-p25" class="section level3 hasAnchor" number="2.7.3">
+<h3><span class="header-section-number">2.7.3</span> Hallar el nivel de glucosa “p25”<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#hallar-el-nivel-de-glucosa-p25" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para encontrar el percentil 25 de la distribución, necesitamos resolver la ecuación:</p>
+<p><span class="math display">\[ P(X \leq p_{25}) = 0.25 \]</span></p>
+<p>Sabemos que <span class="math inline">\(X \sim N(106, 64)\)</span>, así que estandarizamos el valor <span class="math inline">\(p_{25}\)</span>:</p>
+<p><span class="math display">\[ Z_{p25} = \frac{p_{25} - 106}{8} \]</span></p>
+<p>Luego, encontramos el valor de <span class="math inline">\(Z_{p25}\)</span> que corresponde al percentil 25 de la distribución normal estándar, es decir, <span class="math inline">\(P(Z \leq Z_{p25}) = 0.25\)</span>. Esto lo obtenemos con la función inversa de la distribución normal estándar.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-1" tabindex="-1"></a><span class="co"># Calculamos el valor z correspondiente al percentil 25</span></span>
+<span id="cb62-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-2" tabindex="-1"></a>z_p25 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.25</span>)</span>
+<span id="cb62-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-3" tabindex="-1"></a><span class="co"># Calculamos el p25 en la escala original</span></span>
+<span id="cb62-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-4" tabindex="-1"></a>p25 <span class="ot">&lt;-</span> <span class="dv">106</span> <span class="sc">+</span> z_p25 <span class="sc">*</span> <span class="dv">8</span></span>
+<span id="cb62-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-5" tabindex="-1"></a>p25</span></code></pre></div>
+<pre><code>## [1] 100.6041</code></pre>
+</div>
+<div id="resumen-de-resultados" class="section level3 hasAnchor" number="2.7.4">
+<h3><span class="header-section-number">2.7.4</span> Resumen de resultados:<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#resumen-de-resultados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>La probabilidad de que el nivel de glucosa sea menor o igual a 120 es aproximadamente:</li>
+</ol>
+<p><span class="math display">\[ P[X \leq 120] = 0.9599 \]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>El porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120 es aproximadamente:</li>
+</ol>
+<p><span class="math display">\[ P[90 \leq X \leq 120] = 0.9104 \]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>El nivel de glucosa correspondiente al percentil 25, es decir, el valor <span class="math inline">\(p_{25}\)</span>, es aproximadamente:</li>
+</ol>
+<p><span class="math display">\[ p_{25} \approx 100.61 \, \mathrm{mg/100ml} \]</span></p>
+</div>
+</div>
+<div id="ejercicio-28" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Ejercicio 28<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-28" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Se supone que la glucemia basal en individuos sanos, <span class="math inline">\(X_{s}\)</span> sigue una distribución <span class="math inline">\(X \sim N(\mu=80, \sigma=10)\)</span>, mientras que en los diabéticos <span class="math inline">\(X_{d}\)</span>, sigue una distribución <span class="math inline">\(X \sim N(\mu=160, \sigma=31.4)\)</span>. Si se conviene en clasificar como sanos al <span class="math inline">\(2 \%\)</span> de los diabéticos:
+a) ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?
+b) Se sabe que en la población en general el <span class="math inline">\(10 \%\)</span> de los individuos son diabéticos ¿cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?</p>
+</div>
+<div id="ejercicio-2.9" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Ejercicio 2.9<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Supóngase que se van a utilizar 20 ratas en un estudio de agentes coagulantes de la sangre. Como primera experiencia, se dio un anticoagulante a 10 de ellos, pero por inadvertencia se pusieron todas sin marcas en el mismo recinto. Se necesitaron 12 ratas para la segunda fase del estudio y se le tomó al azar sin reemplazamiento. ¿Cuál es la probabilidad de que de las 12 elegidas 6 tengan la droga y 6 no la tengan?</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="probabilidad-y-experimentos-aleatorios.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distribuciones-de-probabilidad-multidimensionales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/02-VariablesAleatorias_y_Distribuciones.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/02-VariablesAleatorias_y_Distribuciones.Rmd",
+"text": null
+},
+"download": "https://github.com/ASPteaching/FundamentosInferencia-Ejercicios/blob/main/docs/_main.pdf",
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
