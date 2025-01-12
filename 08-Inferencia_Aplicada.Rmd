@@ -100,6 +100,99 @@ Las guías médicas recomiendan realizar una campaña de educación e higiene de
 En una población con 12.637 niños, ¿debe hacerse la campaña si, de 387 de ellos, 70 tenían algún diente cariado?
 
 
+### SOLUCIÓN
+
+Fijémonos que el objetivo del problema es decidir si a partir de la muestra se puede afirmar que más del 15% de la población tiene dientes cariados.
+
+Dado que "más de 15%" no se corresponde con ningún valor concreto, replanteamos el problema como un contraste de hipótesis, con una hipótesis nula, que en realidad no nos interesa, y una alternativa que es el objeto de nuestro estudio.
+
+- Hipótesis nula:  la proporción de niños con dientes cariados es igual a 0.15 ($H_0: p = 0.15$), 
+- Hipótesis alternativa: esta proporción es mayor de 0.15 ($H_1: p > 0.15$). 
+
+Se trata, por tanto, de un contraste unilateral a la derecha.
+
+Podemos estimar la proporción a partir de la muestra y utilizar el test para decidir hasta que punto los datos son compatibles con la hipótesis nula.
+
+Para ello utilizamos la proporción muestral que se calcula como el cociente entre el número de niños con dientes cariados en la muestra y el tamaño total de la muestra. 
+
+$$ \hat{p} = \frac{x}{n} $$
+
+Para este contraste, dado el tamaño muestral considerable, podemos utilizar una aproximación normal a la distribución de la proporción muestral, con lo que  el estadístico de test será:
+
+$$ z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0 (1 - p_0)}{n}}} $$
+
+donde $p_0 = 0.15$ es la proporción bajo la hipótesis nula. 
+
+Fijamos un nivel de significación de $\alpha = 0.05$ y determinamos el valor $z_\alpha$ que nos permitirá decidir si el valor de $z$ nos lleva a rechazar $H_0$ o no.
+
+Dado que la hipótesis alternativa es unilateral por la derecha ($p> p_0$) el criterio de decsión será: **rechazar $H_0$ si $z > Z_\alpha$**.
+
+Alternativamente podemos utilizar el p-valor para fundamentar nuestra decisión. El p-valor, que es la probabilidad de que el estadístico de test supere el valor en la muestra bajo $H_0,$ se calcula buscando la probabilidad de obtener valores superiores a `z0` con una $N(0,1)$ que es la distribución del estadístico de test bajo $H_0$:
+
+Si nos basamos en el p-valor, el criterio de decisiónserá **rechazar $H_0$ si $\alpha > pval$
+
+Podemos ahora realizar los cálculos:
+
+
+El valor crítico es:
+
+```{r}
+alpha<- 0.05
+zalpha <- qnorm(1-alpha)
+zalpha
+```
+
+La proporción muestral, $\hat{p}$
+
+```{r}
+# Datos del problema
+x <- 70
+n <- 387
+p0 <- 0.15
+
+# Proporción muestral
+phat <- x / n
+phat
+```
+
+El valor del estadístico de test, calculado sobre la muestra será:
+
+```{r}
+# Estadístico z0
+z0 <- (phat - p0) / sqrt(p0 * (1 - p0) / n)
+z0
+```
+El p-valor se calcula como:
+
+```{r}
+pval <- pnorm(z0, lower.tail=FALSE)
+pval
+```
+
+Finalmente, para tomar la decisión comparamos
+
+- `z0`con $z_\alpha$: Si $z0 > z_\alpha$ rechazamos $H_0$
+
+- `pval`con $\alpha$: Si $pval < \alpha$ rechazamos $H_0$
+
+```{r}
+cat("zalpha vale: ", zalpha)
+cat("z0 vale    : ", z0)
+```
+Es decir $Z0 > Z_\alpha$ lo que nos lleva a rechazar la hipótesis nula y
+
+```{r}
+cat("alpha vale : ", alpha)
+cat("pval vale  : ", pval)
+```
+
+El pvalor es $pval < \alpha$ lo que también lleva a rechazar $H_0$.
+
+Ambos criterios nos llevan a rechazar la hipótesis nula, es decir
+a concluir que la proporción de niños con dientes cariados en la población es significativamente mayor que el 15%, con una probabilidad de error de tipo I igual a `r alpha`.
+
+En los términos del enunciado, esta decisión nos llevará a que recomendemos llevar a cabo la campaña de educación e higiene dental, ya que los datos sugieren que el porcentaje de niños con dientes cariados supera el límite del 15%. Si no rechazamos $H_0$, no sería justificable iniciar la campaña basándonos en estos datos.
+
 ## Ejercicio 3
 <!-- Barón 9.10 -->
 
@@ -120,6 +213,62 @@ $$
 
 La prueba de la d-xilosa permite la diferenciación entre una esteatorrea originada por una mala absorción intestinal y la debida a una insuficiencia pancreática, de modo que cifras inferiores a 4 grs. de d-xilosa, indican una mala absorción intestinal. Se realiza dicha prueba a 10 individuos, obteniéndose una media de 3,5 grs. y una desviación típica de 0,5 grs. ¿Se puede decir que esos pacientes padecen una mala absorción intestinal?
 
+### SOLUCIÓN
+
+El objetivo del problema es determinar si los pacientes de la muestra padecen una mala absorción intestinal, lo que ocurre si el promedio de d-xilosa es inferior a 4 gramos. Esto se puede plantear como un contraste de hipótesis donde:
+
+- La hipótesis nula establece que la media es igual a 4 ($H_0: \mu = 4$).
+- La hipótesis alternativa plantea que la media es menor de 4 ($H_1: \mu < 4$).
+
+Como la hipotesis alternativa es que la media poblacional es inferior a un valor, el contraste se plantea como un _contraste unilateral por la izquierda_.
+
+Una vez más, observemos que, aunque nos interesa determinar si la media es inferior a 4, la hipótesis nula no es esta inferioridad, sino una igualdad a 4. Esto es así  porque necesitamos un valor concreto para poder hacer los cálculos "bajo la hipótesis nula", por ejemplo para calcular el valor del estadístico de test, o el p-valor.
+
+Dado que no disponemos de los datos, tan sólo podemos realizar un test asumiendo normalidad de los mismos. Aunque esto es una suposición que deberíamos comprobar, tampoco es muy disparatado, por no decir que al basarnos en la media, que por el Teorema Central del Límite, tiende a la normalidad, es bastante razonable utilizar un test basado en el estadístico t de Student. Esta "flexibilidad" del test se describe afirmando que _"el test t de student es robusto frente a la falta de normalidad"_.
+
+El estadístico de test es:
+
+$$ t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} $$
+
+donde:
+- $\bar{x} = 3.5$ es la media muestral,
+- $\mu_0 = 4$ es la media bajo la hipótesis nula,
+- $s = 0.5$ es la desviación estándar muestral (asumimos que la desviación estandar corregida, resultante de dividir por $n-1$).
+- $n = 10$ es el tamaño de la muestra.
+
+Fijaremos el nivel de significación $\alpha = 0.05$ y determinaremos el valor crítico $t_\alpha$, que será el cuantil correspondiente en una $t$ con $n - 1 = 9$ grados de libertad. Alternativamente, calcularemos el p-valor para decidir si rechazamos $H_0$, en caso que éste sea inferior al nivel de significación del test.
+
+Procedemos a realizar los cálculos:
+
+```{r}
+# Datos
+xbar <- 3.5
+mu0 <- 4
+s <- 0.5
+n <- 10
+alpha <- 0.05
+
+# Estadístico  de test
+t_stat <- (xbar - mu0) / (s / sqrt(n))
+
+# Valor crítico t_alpha
+t_alpha <- qt(alpha, df = n - 1)
+
+# P-valor
+p_value <- pt(t_stat, df = n - 1)
+
+list(t_stat = t_stat, t_alpha = t_alpha, p_value = p_value)
+```
+
+A la vista de los resultados dado que el valor del estadístico de test es  $t_{stat}< t_\alpha$ podemos rechazar $H_0$.
+
+Llegamos a la misma conclusión si comparamos el p-valor con $\alpha$:  $pval < \alpha$.
+
+Podemos concluir que los datos proporcionan suficiente evidencia para afirmar que la media de d-xilosa en los pacientes es menor de 4 gramos lo que implica, con una probabilidad de error de tipo I del 0.05, que los pacientes sufren de mala absorción intestinal.
+
+Desde el punto de vista práctico esto indicaría que los pacientes analizados podrían beneficiarse de un diagnóstico de mala absorción intestinal para guiar el tratamiento adecuado.
+
+
 ## Ejercicio 5
 <!-- Barón 9.13 -->
 
@@ -129,8 +278,119 @@ La tabla siguiente muestra los efectos de un placebo y de la hidroclorotiacida s
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | H-cloro | 181 | 172 | 196 | 191 | 167 | 161 | 178 | 160 | 149 | 119 | 156 |
 
-Según estos datos experimentales, ¿podemos afirmar que existe diferencia en la presión sistólica media durante la utilización de estos dos fármacos?
+Según estos datos experimentales, ¿podemos afirmar que el tratamiento con hidroclorotiacida disminuye la tensión arterial al menos en 10 unidades?
 
+### SOLUCIÓN
+
+Queremos determinar si el tratamiento con hidroclorotiacida hace bajar la tensión arterial, y si este descenso es, como mínimo de 10 unidades (menos que esto puede considerarse variación aleatoria segun el estándar clínico utilizado).
+
+Este problema se puede abordar con un contraste de hipótesis que compare los valores medias de dos muestras apareadas (dependientes), ya que las mediciones provienen de los mismos pacientes bajo dos condiciones diferentes.
+
+No disponemos de infomación sobre la normalidad de los datos y con 11 observaciones no tienen mucho sentido hacer un test de normalidad.
+
+Así pues podemos optar, segun que hipótesis asumamos, por dos contrastes distintos:
+
+- Si asumimos normalidad o basándonos en la robustez del test t podemos realizar unn test t- de Student
+
+- Si no realizamos la suposición anterior podemos realizar un test no paramétrico como el test de los rangos con signo de Wilcoxon.
+
+Estrictamente hablando, ambos contrastes comparan la tendecia central pero el test t se basa en la media de las diferencias mientras que el test de rangos se basa en la mediana de las diferencias.
+
+Si para simplificar llamamos $m_d$ a ambas:
+
+- Hipótesis nula ($H_0$): $m_d = 10$.
+- Hipótesis alternativa ($H_1$): $m_d < 10$.
+
+Obsérvese que, en este caso el valor de la hipótesis nula es 10, aunque el complementario de la alternativa seria $m_d \leq 10$.
+
+1. **Aproximación paramétrica**: Usaremos el test t de Student para muestras emparejadas. El estadístico de prueba es:
+
+   $$ t = \frac{\bar{d}}{s_d / \sqrt{n}} $$
+
+   donde:
+   - $\bar{d}$ es la media de las diferencias,
+   - $s_d$ es la desviación estándar de las diferencias,
+   - $n$ es el número de pares.
+
+2. **Aproximación no paramétrica**: Usaremos el test de rangos con signo de Wilcoxon, que evalúa si la mediana de las diferencias es distinta de cero.
+
+El estadístico de prueba del test de Wilcoxon para datos emparejados se define como:
+
+$$ W = \min\left(W^+, W^-\right) $$
+
+donde:
+- $$ W^+ = \sum_{i \in \{d_i > 0\}} R_i $$ es la suma de los rangos correspondientes a las diferencias positivas,
+- $$ W^- = \sum_{i \in \{d_i < 0\}} R_i $$ es la suma de los rangos correspondientes a las diferencias negativas,
+- $$ R_i $$ es el rango absoluto asignado a la diferencia $$ |d_i| $$, ordenada en valor absoluto.
+
+El valor observado de $$ W $$ se compara con su distribución teórica bajo la hipótesis nula para calcular el p-valor. Dicha distribución puede ser exacta o aproximada, pero aquí no profundizaremos en ello.
+
+Procedemos a realizar los cálculos con R:
+
+```{r}
+# Datos
+placebo <- c(211, 210, 210, 203, 196, 190, 191, 177, 173, 170, 163)
+h_cloro <- c(181, 172, 196, 191, 167, 161, 178, 160, 149, 119, 156)
+
+# Diferencias
+meandiff <- mean(h_cloro - placebo)
+
+# Paramétrico: Test t de Student
+t_test <- t.test(h_cloro, placebo, mu = -10, alternative = "less", paired = TRUE)
+
+# No paramétrico: Test de Wilcoxon
+wilcoxon_test <- wilcox.test(h_cloro, placebo, mu = -10, alternative = "less", paired = TRUE)
+
+list(
+  mean_difference = meandiff,
+  t_test_statistic = t_test$statistic,
+  t_test_p_value = t_test$p.value,
+  wilcoxon_statistic = wilcoxon_test$statistic,
+  wilcoxon_p_value = wilcoxon_test$p.value
+)
+```
+
+En ambos casos, el p-valor del test es muy) inferior al nivel de significación pre-fijado $\alpha=0.05$ por lo que concluiremos que hay evidencia suficiente para afirmar que existe una diferencia significativa entre el tratamiento y el placebo.
+
+Ambos tests nos llevan a concluir que la presión arterial sistólica media ha descendido en más de 10 unidades entre los pacientes que han recibido el tratamiento frente a los que tan sólo recibieron el placebo. `
+
+NOTA: Obsérves como se realiza el test de datos pareados. R no indica explícitamente el orden en que realiza la diferencia por lo que, en caso de duda lo mejor es verificar si el signo del estadístico de test concuerda con el de la diferencia de medias que se ha añadido como verificación.
+
+En este caso la diferencia ha sido entre el primer vector y el segundo por lo que, si $H_0$ es cierta y la diferencia es, como mínimo de 10 unidades el valor de la diferencia media será de -10, porque hemos substraido la cntidad grande ("placebo") de la pequeña ("hidroclorotiazida").
+
+Un diagrama de lineas para datos apareados sirve para reforzar la conclusión:
+
+```{r}
+# Datos
+placebo <- c(211, 210, 210, 203, 196, 190, 191, 177, 173, 170, 163)
+h_cloro <- c(181, 172, 196, 191, 167, 161, 178, 160, 149, 119, 156)
+
+# Crear un data frame para los valores emparejados
+data <- data.frame(
+  Paciente = 1:length(placebo),
+  Placebo = placebo,
+  Hidroclorotiacida = h_cloro
+)
+
+# Transformar a formato largo para ggplot
+library(tidyr)
+data_long <- pivot_longer(data, cols = c("Placebo", "Hidroclorotiacida"), 
+                          names_to = "Tratamiento", values_to = "Presión")
+
+# Generar el gráfico
+library(ggplot2)
+ggplot(data_long, aes(x = Tratamiento, y = Presión, group = Paciente)) +
+  geom_point(aes(color = Tratamiento), size = 3) +
+  geom_line(aes(color = factor(Paciente)), alpha = 0.5) +
+  labs(title = "Presión Arterial por Paciente y Tratamiento",
+       x = "Tratamiento",
+       y = "Presión Arterial (mmHg)") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
+
+Como vemos, y comoparece razonable en un tratamiento para la tensión, los pacientes tratados con hidroclorotiacida presentan un descenso de la tensión.
 
 ## Ejercicio 6 
 <!-- Barón 9.15 -->
@@ -319,5 +579,3 @@ Presión sanguínea sistólica
 | Después | 119 | 116 | 117 | 122 | 127 | 122 | 110 | 120 | 112 | 110 | 111 |
 
 ¿Hay un descenso significativo de la presión sanguínea sistólica tras la ingestión de etanol?
-
-

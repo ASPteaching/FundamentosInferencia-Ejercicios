@@ -257,9 +257,12 @@ ejercicio-5.
 aplicaciones-de-los-contrastes-de-hipótesis
 ejercicio-1-4
 ejercicio-2-5
+solución-25
 ejercicio-3-4
 ejercicio-4-3
+solución-26
 ejercicio-5-4
+solución-27
 ejercicio-6-3
 ejercicio-7-4
 ejercicio-8-4
