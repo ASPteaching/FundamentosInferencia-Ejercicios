@@ -287,7 +287,7 @@ VP+ & = P[SMS | T+]= \frac {P[T+ | SMS]\times P[SMS]}{P[T+]} =\\
 {P[T+|SMS]\times P[SMS]+ P[T+|SMS^c]\times P[SMS^c]}=\\
 & = \frac{\text {Sensibilidad}\times \text{Prevalencia}}
 {\text {Sensibilidad}\times \text{Prevalencia}+
-\text {1-Especificidad}\times \text{1-Prevalencia}}
+(\text {1-Especificidad})\times (\text{1-Prevalencia})}
 \end{aligned}
 $$
 
@@ -297,9 +297,9 @@ $$
 \begin{aligned}
 VP- & = P[SMS^c | T-]= \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T-]} =\\
 & = \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T- | SMS^c]\times P[SMS^c] + P[T- | SMS]\times P[SMS]}=\\
-& = \frac{\text {Especificidad}\times \text{1-Prevalencia}}
-{\text {Especificidad}\times \text{1-Prevalencia}+
-\text {1-Sensibilidad}\times \text{Prevalencia}}
+& = \frac{\text {Especificidad}\times (\text{1-Prevalencia})}
+{\text {Especificidad}\times (\text{1-Prevalencia})+
+(\text {1-Sensibilidad})\times \text{Prevalencia}}
 \end{aligned}
 $$
 

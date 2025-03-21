@@ -687,7 +687,7 @@ VP+ &amp; = P[SMS | T+]= \frac {P[T+ | SMS]\times P[SMS]}{P[T+]} =\\
 {P[T+|SMS]\times P[SMS]+ P[T+|SMS^c]\times P[SMS^c]}=\\
 &amp; = \frac{\text {Sensibilidad}\times \text{Prevalencia}}
 {\text {Sensibilidad}\times \text{Prevalencia}+
-\text {1-Especificidad}\times \text{1-Prevalencia}}
+(\text {1-Especificidad})\times (\text{1-Prevalencia})}
 \end{aligned}
 \]</span></p>
 <p>De forma análoga:</p>
@@ -695,9 +695,9 @@ VP+ &amp; = P[SMS | T+]= \frac {P[T+ | SMS]\times P[SMS]}{P[T+]} =\\
 \begin{aligned}
 VP- &amp; = P[SMS^c | T-]= \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T-]} =\\
 &amp; = \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T- | SMS^c]\times P[SMS^c] + P[T- | SMS]\times P[SMS]}=\\
-&amp; = \frac{\text {Especificidad}\times \text{1-Prevalencia}}
-{\text {Especificidad}\times \text{1-Prevalencia}+
-\text {1-Sensibilidad}\times \text{Prevalencia}}
+&amp; = \frac{\text {Especificidad}\times (\text{1-Prevalencia})}
+{\text {Especificidad}\times (\text{1-Prevalencia})+
+(\text {1-Sensibilidad})\times \text{Prevalencia}}
 \end{aligned}
 \]</span></p>
 <p>Estos cálculos se reañlizan de forma imediata usando R:</p>

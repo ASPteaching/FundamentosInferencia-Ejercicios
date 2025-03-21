@@ -773,8 +773,8 @@ a concluir que la proporción de niños con dientes cariados en la población es
 <span id="cb151-10"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb151-10" tabindex="-1"></a></span>
 <span id="cb151-11"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb151-11" tabindex="-1"></a><span class="co"># No paramétrico: Test de Wilcoxon</span></span>
 <span id="cb151-12"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb151-12" tabindex="-1"></a>wilcoxon_test <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(h_cloro, placebo, <span class="at">mu =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## Warning in wilcox.test.default(h_cloro, placebo, mu = -10, alternative = &quot;less&quot;, : cannot
-## compute exact p-value with ties</code></pre>
+<pre><code>## Warning in wilcox.test.default(h_cloro, placebo, mu = -10, alternative =
+## &quot;less&quot;, : cannot compute exact p-value with ties</code></pre>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb153-1" tabindex="-1"></a><span class="fu">list</span>(</span>
 <span id="cb153-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb153-2" tabindex="-1"></a>  <span class="at">mean_difference =</span> meandiff,</span>
 <span id="cb153-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb153-3" tabindex="-1"></a>  <span class="at">t_test_statistic =</span> t_test<span class="sc">$</span>statistic,</span>
@@ -829,7 +829,7 @@ a concluir que la proporción de niños con dientes cariados en la población es
 <span id="cb155-24"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb155-24" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Presión Arterial (mmHg)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb155-25"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb155-25" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb155-26"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb155-26" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
-<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 <p>Como vemos, y comoparece razonable en un tratamiento para la tensión, los pacientes tratados con hidroclorotiacida presentan un descenso de la tensión.</p>
 </div>
 </div>

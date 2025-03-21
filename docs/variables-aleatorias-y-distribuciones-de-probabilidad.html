@@ -560,7 +560,7 @@ P(X = x) =
 <span id="cb15-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-6" tabindex="-1"></a><span class="fu">barplot</span>(probabilities, <span class="at">names.arg =</span> X_values, <span class="at">col =</span> <span class="st">&quot;lightblue&quot;</span>,</span>
 <span id="cb15-7"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-7" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Distribución de Probabilidad de X&quot;</span>,</span>
 <span id="cb15-8"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb15-8" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Número de genes sobre-expresados&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Probabilidad&quot;</span>)</span></code></pre></div>
-<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div id="esperanza-y-varianza" class="section level3 hasAnchor" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> Esperanza y varianza<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-y-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -767,7 +767,7 @@ g_{X}(x)=\exp (-k x), \text { dondex } \geq 0
 <span id="cb32-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb32-2" tabindex="-1"></a>f_x <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span><span class="fl">0.5</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb32-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb32-3" tabindex="-1"></a><span class="fu">curve</span>(f_x, <span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">&quot;f_X(x)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>,</span>
 <span id="cb32-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb32-4" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;Densidad f_X(x)&quot;</span>)</span></code></pre></div>
-<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="función-de-distribución" class="section level3 hasAnchor" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> Función de distribución<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#función-de-distribución" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -786,7 +786,7 @@ F_X(x) = \left[-0.25 \cdot t^2 + t\right]_0^x = -0.25 \cdot x^2 + x
 <span id="cb33-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb33-2" tabindex="-1"></a>F_x <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="sc">-</span><span class="fl">0.25</span> <span class="sc">*</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> x))</span>
 <span id="cb33-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb33-3" tabindex="-1"></a><span class="fu">curve</span>(F_x, <span class="at">from =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">&quot;F_X(x)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>,</span>
 <span id="cb33-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb33-4" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;Distribución acumulada F_X(x)&quot;</span>)</span></code></pre></div>
-<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 <div id="probabilidades-y-f_x1" class="section level3 hasAnchor" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> Probabilidades y <span class="math inline">\(f_X(1)\)</span><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidades-y-f_x1" class="anchor-section" aria-label="Anchor link to header"></a></h3>

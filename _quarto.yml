@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "Fundamentos de Inferencia Estadistica"
+  title: "Fundamentos de Inferencia Estadistica. Ejercicios"
   author: "Alex Sanchez Pla y Santiago Pérez Hoyos"
   search: true
   repo-url: https://github.com/ASPteaching/Fundamentos_Inferencia_Estadistica/
