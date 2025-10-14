@@ -816,11 +816,166 @@ $$ P[90 \leq X \leq 120] = 0.9104 $$
 
 $$ p_{25} \approx 100.61 \, \mathrm{mg/100ml} $$
 
-## Ejercicio 28 
+## Ejercicio 2.8 
 
 Se supone que la glucemia basal en individuos sanos, $X_{s}$ sigue una distribución $X \sim N(\mu=80, \sigma=10)$, mientras que en los diabéticos $X_{d}$, sigue una distribución $X \sim N(\mu=160, \sigma=31.4)$. Si se conviene en clasificar como sanos al $2 \%$ de los diabéticos:
 a) ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?
 b) Se sabe que en la población en general el $10 \%$ de los individuos son diabéticos ¿cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?
+
+Se supone que la glucemia basal en individuos sanos, $X_{s}$ sigue una distribución $X \sim N(\mu=80, \sigma=10)$, mientras que en los diabéticos $X_{d}$, sigue una distribución $X \sim N(\mu=160, \sigma=31.4)$. Si se conviene en clasificar como sanos al $2 \%$ de los diabéticos:
+
+1. ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?
+2. Se sabe que en la población en general el $10 \%$ de los individuos son diabéticos ¿cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?
+
+
+**Solución**
+
+## ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?
+
+Para determinar el valor por debajo del cual un individuo se considera sano, necesitamos encontrar el cuantil correspondiente al 2% superior de la distribución de la glucemia basal en diabéticos, $X_d \sim N(\mu = 160, \sigma = 31.4)$. Es decir, debemos encontrar el valor de $X_d$ tal que:
+
+$$
+P(X_d \leq x) = 0.02
+$$
+
+Esto corresponde al percentil 2% de la distribución normal de $X_d$. Utilizamos la función cuantil de la distribución normal para calcularlo:
+
+```{r}
+# Nivel de glucosa límite para clasificar como sano
+percentil_sano <- qnorm(0.02, mean = 160, sd = 31.4)
+percentil_sano
+```
+
+El valor obtenido nos da el límite de glucosa por debajo del cual un individuo será considerado sano. Ahora, para calcular cuántos individuos sanos serán clasificados como diabéticos, necesitamos calcular el porcentaje de individuos sanos cuya glucemia será superior a este valor límite. Dado que $X_s \sim N(\mu = 80, \sigma = 10)$, calculamos la probabilidad:
+
+$$
+P(X_s > \text{percentil\_sano})
+$$
+
+Esto se puede hacer usando la función de distribución acumulada de la normal para la distribución de los sanos:
+
+```{r}
+# Probabilidad de que un sano sea clasificado como diabético
+prob_sano_como_diabetico <- 1 - pnorm(percentil_sano, mean = 80, sd = 10)
+prob_sano_como_diabetico
+```
+
+Esto nos dará la probabilidad de que un individuo sano sea clasificado erróneamente como diabético. Para encontrar el número de sanos clasificados como diabéticos en una población, multiplicamos esta probabilidad por el número total de sanos en la población.
+
+```{r }
+# Parámetros de las distribuciones
+mu_s <- 80;  sigma_s <- 10       # sanos
+mu_d <- 160; sigma_d <- 31.4     # diabéticos
+
+# 1. Punto de corte: 2% de los diabéticos por debajo
+corte <- qnorm(0.02, mean = mu_d, sd = sigma_d)
+
+# 2. Probabilidad de que un sano sea clasificado como diabético
+p_error_sano <- 1 - pnorm(corte, mean = mu_s, sd = sigma_s)
+
+# Mostrar resultados
+cat("Punto de corte:", round(corte, 2), "\n")
+cat("Proporción de sanos mal clasificados:", round(100 * p_error_sano, 2), "%\n")
+```
+
+
+```{r, fig.align='center', out.width="100%"} 
+require(ggplot2)
+require(dplyr)
+
+# Datos para las curvas
+x <- seq(40, 240, length.out = 1000)
+df <- data.frame(
+  x = x,
+  sano = dnorm(x, mu_s, sigma_s),
+  diabetico = dnorm(x, mu_d, sigma_d)
+)
+
+# Datos para el sombreado
+zona_sanos_mal <- df %>% filter(x > percentil_sano) %>% mutate(dens = sano)
+zona_diabeticos_mal <- df %>% filter(x <= percentil_sano) %>% mutate(dens = diabetico)
+
+# Gráficos
+  
+ggplot(data = df, mapping = aes(x = x)) +
+  geom_line(aes(y = sano, color = "Sanos"), size = 1.2) +
+  geom_line(aes(y = diabetico, color = "Diabéticos"), size = 1.2) +
+  geom_area(data = zona_sanos_mal, aes(y = dens, fill = "Sanos → diagnóstico diabético"), alpha = 0.4) +
+  geom_area(data = zona_diabeticos_mal, aes(y = dens, fill = "Diabéticos → diagnóstico sano"), alpha = 0.4) +
+  geom_vline(xintercept = percentil_sano, linetype = "dashed", color = "black") +
+  annotate("text", x = percentil_sano + 5, y = 0.004, 
+           label = paste0("Corte = ", round(percentil_sano, 1)), hjust = 0, size = 4) +
+  scale_color_manual(values = c("Sanos" = "blue", "Diabéticos" = "red")) +
+  scale_fill_manual(values = c("Sanos → diagnóstico diabético" = "skyblue", 
+                               "Diabéticos → diagnóstico sano" = "salmon")) +
+  labs(title = "Distribuciones de glucemia en sanos y diabéticos",
+       y = "Densidad", x = "Glucemia (mg/dL)",
+       color = "Distribución", fill = "Zona sombreada") +
+  theme_minimal(base_size = 12)
+```
+
+
+##  ¿Cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?
+
+Este problema es un caso de probabilidad condicional. Sabemos que:
+
+- El 10% de la población son diabéticos, por lo que la probabilidad de que un individuo seleccionado al azar sea diabético es $P(D) = 0.10$.
+- La probabilidad de que un diabético sea diagnosticado como diabético es $P(\text{diagnóstico} | D)$, lo cual corresponde a la probabilidad de que un individuo con glucosa $X_d \sim N(160, 31.4)$ sea diagnosticado como diabético, es decir, que su nivel de glucosa sea superior al valor límite de clasificación.
+
+Para calcular $P(\text{diagnóstico} | D)$, primero calculamos la probabilidad de que un diabético sea diagnosticado como tal. Es decir, que su nivel de glucosa sea superior al valor que hemos calculado anteriormente para los sanos:
+
+```{r}
+# Probabilidad de que un diabético sea diagnosticado como diabético
+prob_diabetico_diagnosticado <- 1 - pnorm(percentil_sano, mean = 160, sd = 31.4)
+prob_diabetico_diagnosticado
+```
+
+La probabilidad de que un individuo seleccionado al azar y diagnosticado como diabético realmente lo sea se puede obtener usando la fórmula de probabilidad condicional de Bayes:
+
+$$
+P(D | \text{diagnóstico}) = \frac{P(\text{diagnóstico} | D) P(D)}{P(\text{diagnóstico})}
+$$
+
+Donde $P(\text{diagnóstico})$ es la probabilidad total de que un individuo sea diagnosticado como diabético. Esta probabilidad es la probabilidad de que un diabético sea diagnosticado como tal más la probabilidad de que un sano sea diagnosticado erróneamente como diabético:
+
+$$
+P(\text{diagnóstico}) = P(\text{diagnóstico} | D) P(D) + P(\text{diagnóstico} | S) P(S)
+$$
+
+Donde $P(\text{diagnóstico} | S)$ es la probabilidad de que un sano sea diagnosticado erróneamente como diabético, y $P(S) = 0.90$ es la probabilidad de que un individuo seleccionado al azar sea sano.
+
+Primero, calculamos la probabilidad dwe que estando sano, sea diagnosticado como diabético, es decir que su glucosa supere el punto de corte que hemos denominado `percentil_sano`.
+
+```{r}
+prob_sano_diagnosticado <- 
+ 1- pnorm(percentil_sano, mean = 80, sd = 10)
+prob_sano_diagnosticado
+```
+
+A partir de aquí podemos aplicar la fórmula de las probabilidades totales para calcular la probabilidad de ser diagnosticado.
+
+$P(\text{diagnóstico})$:
+
+```{r}
+# Probabilidad de diagnóstico en la población general
+prob_diagnostico_total <- 
+  prob_diabetico_diagnosticado * 0.10 + 
+  prob_sano_diagnosticado * 0.90
+prob_diagnostico_total
+```
+
+Luego, calculamos la probabilidad condicional:
+
+```{r}
+# Probabilidad de que un individuo diagnosticado como diabético realmente lo sea
+prob_diagnostico_given_diabetico <- 
+  (prob_diabetico_diagnosticado * 0.10) / 
+  prob_diagnostico_total
+prob_diagnostico_given_diabetico
+```
+
+Este valor es la probabilidad de que un individuo diagnosticado como diabético realmente lo sea, teniendo en cuenta tanto los errores de diagnóstico como las probabilidades de ser diabético o sano en la población.
+
 
 ## Ejercicio 2.9 
 

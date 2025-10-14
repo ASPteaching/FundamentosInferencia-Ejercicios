@@ -30,35 +30,6 @@ b. $P\left(A^{c}\right)=1-P(A)=1-0.3=0.7$
 
 c. $P\left(A^{c} \cap B\right)=P(B)-P(A \cap B)=0.6-0.1=0.5$
 
-```{r, echo=FALSE}
-plot.new()
-plot.window(xlim=c(-2,2), ylim=c(-1.5,1.5), asp=1)
-rect(-2,-1.5,2,1.5, border="black", lwd=2)  # univers
-
-# Círculs A i B
-symbols(-0.7, 0, circles=1, inches=FALSE, add=TRUE, fg="black")
-symbols( 0.7, 0, circles=1, inches=FALSE, add=TRUE, fg="black")
-
-# Ombregem la part de B fora d'A (A^c ∩ B)
-symbols(0.7, 0, circles=1, inches=FALSE, add=TRUE,
-        bg=rgb(0.2,0.5,1,0.3), fg=NA)
-
-# Ombregem la intersecció A ∩ B en un altre color
-symbols(-0.7, 0, circles=1, inches=FALSE, add=TRUE,
-        bg=rgb(1,0.2,0.2,0.3), fg=NA)
-
-# Tornem a dibuixar els contorns
-symbols(-0.7, 0, circles=1, inches=FALSE, add=TRUE, fg="black")
-symbols( 0.7, 0, circles=1, inches=FALSE, add=TRUE, fg="black")
-
-# Etiquetes dels conjunts
-text(-0.7,1.2,"A", cex=1.2)
-text( 0.7,1.2,"B", cex=1.2)
-
-# Títol en notació matemàtica
-
-```
-
 
 d. $P\left(A \cap B^{c}\right)=P(A)-P(A \cap B)=0.3-0.1=0.2$
 
