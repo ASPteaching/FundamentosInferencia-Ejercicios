@@ -824,7 +824,7 @@ b) Se sabe que en la población en general el $10 \%$ de los individuos son diab
 
 Se supone que la glucemia basal en individuos sanos, $X_{s}$ sigue una distribución $X \sim N(\mu=80, \sigma=10)$, mientras que en los diabéticos $X_{d}$, sigue una distribución $X \sim N(\mu=160, \sigma=31.4)$. Si se conviene en clasificar como sanos al $2 \%$ de los diabéticos:
 
-## ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?
+### ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?
 
 
 **Solución**
@@ -912,7 +912,7 @@ ggplot(data = df, mapping = aes(x = x)) +
 ```
 
 
-##  ¿Cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?
+###  ¿Cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?
 
 **Solución**
 
@@ -979,5 +979,43 @@ Este valor es la probabilidad de que un individuo diagnosticado como diabético 
 ## Ejercicio 2.9 
 
 Supóngase que se van a utilizar 20 ratas en un estudio de agentes coagulantes de la sangre. Como primera experiencia, se dio un anticoagulante a 10 de ellos, pero por inadvertencia se pusieron todas sin marcas en el mismo recinto. Se necesitaron 12 ratas para la segunda fase del estudio y se le tomó al azar sin reemplazamiento. ¿Cuál es la probabilidad de que de las 12 elegidas 6 tengan la droga y 6 no la tengan?
+
+**Solución**
+
+
+Este ejercicio puede resolverse usando una distribución **hipergeométrica** debido a que estamos extrayendo ratas sin reemplazo de un grupo finito y buscamos la probabilidad de que haya una combinación específica de ratas con y sin droga en una muestra.
+
+La fórmula de la distribución hipergeométrica se expresa de la siguiente forma:
+
+$$
+P(X = k) = \frac{\binom{M}{k} \binom{N-M}{n-k}}{\binom{N}{n}}
+$$
+
+Donde:
+
+- $N$ es el tamaño total de la población (20 ratas).
+- $M$ es el número de ratas que tienen la droga (10 ratas con droga).
+- $n$ es el tamaño de la muestra seleccionada (12 ratas).
+- $k$ es el número de ratas con la droga que queremos en nuestra muestra (6 ratas con droga).
+
+La probabilidad de que 6 ratas de las 12 seleccionadas tengan la droga y 6 no la tengan se calcula usando la fórmula anterior, con los siguientes valores:
+
+- $N = 20$
+- $M = 10$
+- $n = 12$
+- $k = 6$
+
+Podemos calcular esta probabilidad utilizando la función `dhyper` en R, que calcula la probabilidad de un valor específico en una distribución hipergeométrica.
+
+```{r}
+# Calcular la probabilidad usando la distribución hipergeométrica
+probabilidad <- dhyper(6, 10, 10, 12)
+probabilidad
+```
+
+Este cálculo nos dará la probabilidad de que, al seleccionar al azar 12 ratas sin reemplazo, exactamente 6 tengan la droga y 6 no la tengan.
+
+
+
 
 

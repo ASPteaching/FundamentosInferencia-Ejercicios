@@ -218,10 +218,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#hallar-el-nivel-de-glucosa-p25"><i class="fa fa-check"></i><b>2.7.3</b> Hallar el nivel de glucosa “p25”</a></li>
 <li class="chapter" data-level="2.7.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#resumen-de-resultados"><i class="fa fa-check"></i><b>2.7.4</b> Resumen de resultados:</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.8"><i class="fa fa-check"></i><b>2.8</b> Ejercicio 2.8</a></li>
-<li class="chapter" data-level="2.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#por-debajo-de-qu%C3%A9-valor-se-considera-sano-a-un-individuo-cu%C3%A1ntos-sanos-ser%C3%A1n-clasificados-como-diab%C3%A9ticos"><i class="fa fa-check"></i><b>2.9</b> ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?</a></li>
-<li class="chapter" data-level="2.10" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cu%C3%A1l-es-la-probabilidad-de-que-un-individuo-elegido-al-azar-y-diagnosticado-como-diab%C3%A9tico-realmente-lo-sea"><i class="fa fa-check"></i><b>2.10</b> ¿Cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?</a></li>
-<li class="chapter" data-level="2.11" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.9"><i class="fa fa-check"></i><b>2.11</b> Ejercicio 2.9</a></li>
+<li class="chapter" data-level="2.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.8"><i class="fa fa-check"></i><b>2.8</b> Ejercicio 2.8</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#por-debajo-de-qu%C3%A9-valor-se-considera-sano-a-un-individuo-cu%C3%A1ntos-sanos-ser%C3%A1n-clasificados-como-diab%C3%A9ticos"><i class="fa fa-check"></i><b>2.8.1</b> ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?</a></li>
+<li class="chapter" data-level="2.8.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cu%C3%A1l-es-la-probabilidad-de-que-un-individuo-elegido-al-azar-y-diagnosticado-como-diab%C3%A9tico-realmente-lo-sea"><i class="fa fa-check"></i><b>2.8.2</b> ¿Cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.9"><i class="fa fa-check"></i><b>2.9</b> Ejercicio 2.9</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html"><i class="fa fa-check"></i><b>3</b> Distribuciones de probabilidad multidimensionales</a>
 <ul>
@@ -940,16 +942,16 @@ P(Y_2 &gt; 0.5) = \iint_{\{y_2 &gt; 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \,
 P(Y_2 &gt; 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
 \]</span></p>
 <p>Evaluamos esta integral en dos pasos.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-1" tabindex="-1"></a><span class="do">## Calculo de la probabilidad con R</span></span>
-<span id="cb81-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-2" tabindex="-1"></a></span>
-<span id="cb81-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-3" tabindex="-1"></a><span class="do">## Definir la función de integración para y1</span></span>
-<span id="cb81-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-4" tabindex="-1"></a>integrate_y1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y2) {</span>
-<span id="cb81-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-5" tabindex="-1"></a>  <span class="fu">integrate</span>(<span class="cf">function</span>(y1) <span class="dv">1</span>, <span class="at">lower =</span> <span class="dv">2</span> <span class="sc">*</span> y2, <span class="at">upper =</span> <span class="dv">2</span>)<span class="sc">$</span>value</span>
-<span id="cb81-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-6" tabindex="-1"></a>}</span>
-<span id="cb81-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-7" tabindex="-1"></a></span>
-<span id="cb81-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-8" tabindex="-1"></a><span class="do">## Integrar respecto a y2</span></span>
-<span id="cb81-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-9" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">integrate</span>(<span class="cf">function</span>(y2) <span class="fu">integrate_y1</span>(y2), <span class="at">lower =</span> <span class="fl">0.5</span>, <span class="at">upper =</span> <span class="dv">1</span>)</span>
-<span id="cb81-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb81-10" tabindex="-1"></a>result<span class="sc">$</span>value</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-1" tabindex="-1"></a><span class="do">## Calculo de la probabilidad con R</span></span>
+<span id="cb83-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-2" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-3" tabindex="-1"></a><span class="do">## Definir la función de integración para y1</span></span>
+<span id="cb83-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-4" tabindex="-1"></a>integrate_y1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y2) {</span>
+<span id="cb83-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-5" tabindex="-1"></a>  <span class="fu">integrate</span>(<span class="cf">function</span>(y1) <span class="dv">1</span>, <span class="at">lower =</span> <span class="dv">2</span> <span class="sc">*</span> y2, <span class="at">upper =</span> <span class="dv">2</span>)<span class="sc">$</span>value</span>
+<span id="cb83-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-6" tabindex="-1"></a>}</span>
+<span id="cb83-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-7" tabindex="-1"></a></span>
+<span id="cb83-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-8" tabindex="-1"></a><span class="do">## Integrar respecto a y2</span></span>
+<span id="cb83-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-9" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">integrate</span>(<span class="cf">function</span>(y2) <span class="fu">integrate_y1</span>(y2), <span class="at">lower =</span> <span class="fl">0.5</span>, <span class="at">upper =</span> <span class="dv">1</span>)</span>
+<span id="cb83-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb83-10" tabindex="-1"></a>result<span class="sc">$</span>value</span></code></pre></div>
 </div>
 <div id="resultado" class="section level4 hasAnchor" number="3.5.1.3">
 <h4><span class="header-section-number">3.5.1.3</span> Resultado<a href="distribuciones-de-probabilidad-multidimensionales.html#resultado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1062,38 +1064,38 @@ P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
 <span class="math display">\[ E(Y_2) = \sum_{y_2} y_2 \cdot P(Y_2 = y_2) \]</span></p>
 <p>Usamos la tabla para estos cálculos:</p></li>
 </ol>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-1" tabindex="-1"></a>   <span class="do">## Probabilidades conjuntas</span></span>
-<span id="cb82-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-2" tabindex="-1"></a>   probs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb82-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-3" tabindex="-1"></a>   </span>
-<span id="cb82-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-4" tabindex="-1"></a>   <span class="do">## Valores de Y1 y Y2</span></span>
-<span id="cb82-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-5" tabindex="-1"></a>   y1_values <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">2</span></span>
-<span id="cb82-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-6" tabindex="-1"></a>   y2_values <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">2</span></span>
-<span id="cb82-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-7" tabindex="-1"></a>   </span>
-<span id="cb82-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-8" tabindex="-1"></a>   <span class="do">## Esperanza de Y1</span></span>
-<span id="cb82-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-9" tabindex="-1"></a>   E_Y1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y1_values <span class="sc">*</span> <span class="fu">rowSums</span>(probs))</span>
-<span id="cb82-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-10" tabindex="-1"></a>   <span class="do">## Esperanza de Y2</span></span>
-<span id="cb82-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-11" tabindex="-1"></a>   E_Y2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y2_values <span class="sc">*</span> <span class="fu">colSums</span>(probs))</span>
-<span id="cb82-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-12" tabindex="-1"></a>   </span>
-<span id="cb82-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb82-13" tabindex="-1"></a>   E_Y1</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-1" tabindex="-1"></a>   <span class="do">## Probabilidades conjuntas</span></span>
+<span id="cb84-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-2" tabindex="-1"></a>   probs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb84-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-3" tabindex="-1"></a>   </span>
+<span id="cb84-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-4" tabindex="-1"></a>   <span class="do">## Valores de Y1 y Y2</span></span>
+<span id="cb84-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-5" tabindex="-1"></a>   y1_values <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">2</span></span>
+<span id="cb84-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-6" tabindex="-1"></a>   y2_values <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">2</span></span>
+<span id="cb84-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-7" tabindex="-1"></a>   </span>
+<span id="cb84-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-8" tabindex="-1"></a>   <span class="do">## Esperanza de Y1</span></span>
+<span id="cb84-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-9" tabindex="-1"></a>   E_Y1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y1_values <span class="sc">*</span> <span class="fu">rowSums</span>(probs))</span>
+<span id="cb84-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-10" tabindex="-1"></a>   <span class="do">## Esperanza de Y2</span></span>
+<span id="cb84-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-11" tabindex="-1"></a>   E_Y2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y2_values <span class="sc">*</span> <span class="fu">colSums</span>(probs))</span>
+<span id="cb84-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-12" tabindex="-1"></a>   </span>
+<span id="cb84-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-13" tabindex="-1"></a>   E_Y1</span></code></pre></div>
 <pre><code>## [1] 0.6666667</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb84-1" tabindex="-1"></a>   E_Y2</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb86-1" tabindex="-1"></a>   E_Y2</span></code></pre></div>
 <pre><code>## [1] 0.6666667</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p><strong>Cálculo de <span class="math inline">\(E(Y_1 Y_2)\)</span></strong></p>
 <p>Para calcular <span class="math inline">\(E(Y_1 Y_2)\)</span>, sumamos el producto <span class="math inline">\(y_1 \cdot y_2\)</span> ponderado por la probabilidad conjunta <span class="math inline">\(p(y_1, y_2)\)</span>.</p></li>
 </ol>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb86-1" tabindex="-1"></a>   <span class="do">## Producto de Y1 * Y2 * probabilidad conjunta</span></span>
-<span id="cb86-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb86-2" tabindex="-1"></a>   E_Y1Y2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">outer</span>(y1_values, y2_values, <span class="st">&quot;*&quot;</span>) <span class="sc">*</span> probs)</span>
-<span id="cb86-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb86-3" tabindex="-1"></a>   </span>
-<span id="cb86-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb86-4" tabindex="-1"></a>   E_Y1Y2</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb88-1" tabindex="-1"></a>   <span class="do">## Producto de Y1 * Y2 * probabilidad conjunta</span></span>
+<span id="cb88-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb88-2" tabindex="-1"></a>   E_Y1Y2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">outer</span>(y1_values, y2_values, <span class="st">&quot;*&quot;</span>) <span class="sc">*</span> probs)</span>
+<span id="cb88-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb88-3" tabindex="-1"></a>   </span>
+<span id="cb88-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb88-4" tabindex="-1"></a>   E_Y1Y2</span></code></pre></div>
 <pre><code>## [1] 0.2222222</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li><p><strong>Calcular la covarianza</strong></p>
 <p>Sustituyendo los valores obtenidos:</p>
 <p><span class="math display">\[ \operatorname{Cov}(Y_1, Y_2) = E(Y_1 Y_2) - E(Y_1)E(Y_2) \]</span></p></li>
 </ol>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb88-1" tabindex="-1"></a>   Cov_Y1Y2 <span class="ot">&lt;-</span> E_Y1Y2 <span class="sc">-</span> E_Y1 <span class="sc">*</span> E_Y2</span>
-<span id="cb88-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb88-2" tabindex="-1"></a>   Cov_Y1Y2</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-1" tabindex="-1"></a>   Cov_Y1Y2 <span class="ot">&lt;-</span> E_Y1Y2 <span class="sc">-</span> E_Y1 <span class="sc">*</span> E_Y2</span>
+<span id="cb90-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-2" tabindex="-1"></a>   Cov_Y1Y2</span></code></pre></div>
 <pre><code>## [1] -0.2222222</code></pre>
 </div>
 <div id="parte-b-interpretación-de-la-covarianza-negativa" class="section level3 hasAnchor" number="3.6.2">
@@ -1125,16 +1127,16 @@ P(Y_2 &gt; 0.5) = \iint_{\{y_2 &gt; 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \,
 P(Y_2 &gt; 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
 \]</span></p>
 <p>Evaluamos esta integral en dos pasos.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-1" tabindex="-1"></a><span class="do">## Calculo de la probabilidad con R</span></span>
-<span id="cb90-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-2" tabindex="-1"></a></span>
-<span id="cb90-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-3" tabindex="-1"></a><span class="do">## Definir la función de integración para y1</span></span>
-<span id="cb90-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-4" tabindex="-1"></a>integrate_y1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y2) {</span>
-<span id="cb90-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-5" tabindex="-1"></a>  <span class="fu">integrate</span>(<span class="cf">function</span>(y1) <span class="dv">1</span>, <span class="at">lower =</span> <span class="dv">2</span> <span class="sc">*</span> y2, <span class="at">upper =</span> <span class="dv">2</span>)<span class="sc">$</span>value</span>
-<span id="cb90-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-6" tabindex="-1"></a>}</span>
-<span id="cb90-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-7" tabindex="-1"></a></span>
-<span id="cb90-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-8" tabindex="-1"></a><span class="do">## Integrar respecto a y2</span></span>
-<span id="cb90-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-9" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">integrate</span>(<span class="cf">function</span>(y2) <span class="fu">integrate_y1</span>(y2), <span class="at">lower =</span> <span class="fl">0.5</span>, <span class="at">upper =</span> <span class="dv">1</span>)</span>
-<span id="cb90-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb90-10" tabindex="-1"></a>result<span class="sc">$</span>value</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-1" tabindex="-1"></a><span class="do">## Calculo de la probabilidad con R</span></span>
+<span id="cb92-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-2" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-3" tabindex="-1"></a><span class="do">## Definir la función de integración para y1</span></span>
+<span id="cb92-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-4" tabindex="-1"></a>integrate_y1 <span class="ot">&lt;-</span> <span class="cf">function</span>(y2) {</span>
+<span id="cb92-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-5" tabindex="-1"></a>  <span class="fu">integrate</span>(<span class="cf">function</span>(y1) <span class="dv">1</span>, <span class="at">lower =</span> <span class="dv">2</span> <span class="sc">*</span> y2, <span class="at">upper =</span> <span class="dv">2</span>)<span class="sc">$</span>value</span>
+<span id="cb92-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-6" tabindex="-1"></a>}</span>
+<span id="cb92-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-7" tabindex="-1"></a></span>
+<span id="cb92-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-8" tabindex="-1"></a><span class="do">## Integrar respecto a y2</span></span>
+<span id="cb92-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-9" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">integrate</span>(<span class="cf">function</span>(y2) <span class="fu">integrate_y1</span>(y2), <span class="at">lower =</span> <span class="fl">0.5</span>, <span class="at">upper =</span> <span class="dv">1</span>)</span>
+<span id="cb92-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb92-10" tabindex="-1"></a>result<span class="sc">$</span>value</span></code></pre></div>
 </div>
 <div id="resultado-1" class="section level5 hasAnchor" number="3.6.3.1.3">
 <h5><span class="header-section-number">3.6.3.1.3</span> Resultado<a href="distribuciones-de-probabilidad-multidimensionales.html#resultado-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
@@ -1247,10 +1249,10 @@ P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
 P(Y_1 = 3, Y_2 = 1, Y_3 = 2) = \frac{6!}{3! \, 1! \, 2!} \left( \frac{1}{3} \right)^6
 \]</span></p>
 <p>Calculando esta expresión:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb91-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">6</span></span>
-<span id="cb91-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb91-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span></span>
-<span id="cb91-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb91-3" tabindex="-1"></a>prob <span class="ot">&lt;-</span> <span class="fu">factorial</span>(n) <span class="sc">/</span> (<span class="fu">factorial</span>(<span class="dv">3</span>) <span class="sc">*</span> <span class="fu">factorial</span>(<span class="dv">1</span>) <span class="sc">*</span> <span class="fu">factorial</span>(<span class="dv">2</span>)) <span class="sc">*</span> p<span class="sc">^</span>n</span>
-<span id="cb91-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb91-4" tabindex="-1"></a>prob</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb93-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb93-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb93-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span></span>
+<span id="cb93-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb93-3" tabindex="-1"></a>prob <span class="ot">&lt;-</span> <span class="fu">factorial</span>(n) <span class="sc">/</span> (<span class="fu">factorial</span>(<span class="dv">3</span>) <span class="sc">*</span> <span class="fu">factorial</span>(<span class="dv">1</span>) <span class="sc">*</span> <span class="fu">factorial</span>(<span class="dv">2</span>)) <span class="sc">*</span> p<span class="sc">^</span>n</span>
+<span id="cb93-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb93-4" tabindex="-1"></a>prob</span></code></pre></div>
 <pre><code>## [1] 0.08230453</code></pre>
 <p>El resultado de esta probabilidad es aproximadamente 0.0823.</p>
 </div>

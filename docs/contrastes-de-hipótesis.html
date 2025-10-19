@@ -218,10 +218,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#hallar-el-nivel-de-glucosa-p25"><i class="fa fa-check"></i><b>2.7.3</b> Hallar el nivel de glucosa “p25”</a></li>
 <li class="chapter" data-level="2.7.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#resumen-de-resultados"><i class="fa fa-check"></i><b>2.7.4</b> Resumen de resultados:</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.8"><i class="fa fa-check"></i><b>2.8</b> Ejercicio 2.8</a></li>
-<li class="chapter" data-level="2.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#por-debajo-de-qu%C3%A9-valor-se-considera-sano-a-un-individuo-cu%C3%A1ntos-sanos-ser%C3%A1n-clasificados-como-diab%C3%A9ticos"><i class="fa fa-check"></i><b>2.9</b> ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?</a></li>
-<li class="chapter" data-level="2.10" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cu%C3%A1l-es-la-probabilidad-de-que-un-individuo-elegido-al-azar-y-diagnosticado-como-diab%C3%A9tico-realmente-lo-sea"><i class="fa fa-check"></i><b>2.10</b> ¿Cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?</a></li>
-<li class="chapter" data-level="2.11" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.9"><i class="fa fa-check"></i><b>2.11</b> Ejercicio 2.9</a></li>
+<li class="chapter" data-level="2.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.8"><i class="fa fa-check"></i><b>2.8</b> Ejercicio 2.8</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#por-debajo-de-qu%C3%A9-valor-se-considera-sano-a-un-individuo-cu%C3%A1ntos-sanos-ser%C3%A1n-clasificados-como-diab%C3%A9ticos"><i class="fa fa-check"></i><b>2.8.1</b> ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?</a></li>
+<li class="chapter" data-level="2.8.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cu%C3%A1l-es-la-probabilidad-de-que-un-individuo-elegido-al-azar-y-diagnosticado-como-diab%C3%A9tico-realmente-lo-sea"><i class="fa fa-check"></i><b>2.8.2</b> ¿Cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejercicio-2.9"><i class="fa fa-check"></i><b>2.9</b> Ejercicio 2.9</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html"><i class="fa fa-check"></i><b>3</b> Distribuciones de probabilidad multidimensionales</a>
 <ul>
@@ -494,14 +496,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.1.3</span> b. Encuentre <span class="math inline">\(\alpha\)</span><a href="contrastes-de-hipótesis.html#b.-encuentre-alpha" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La probabilidad de cometer un error tipo I es <span class="math inline">\(\alpha\)</span>. En este caso, <span class="math inline">\(\alpha = P(Y \leq 12 \mid p = 0.8)\)</span>, donde <span class="math inline">\(Y\)</span> sigue una distribución binomial con parámetros <span class="math inline">\(n = 20\)</span> y <span class="math inline">\(p = 0.8\)</span>.</p>
 <p>Calculamos <span class="math inline">\(\alpha\)</span>:</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="contrastes-de-hipótesis.html#cb132-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
-<span id="cb132-2"><a href="contrastes-de-hipótesis.html#cb132-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb132-3"><a href="contrastes-de-hipótesis.html#cb132-3" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
-<span id="cb132-4"><a href="contrastes-de-hipótesis.html#cb132-4" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">12</span></span>
-<span id="cb132-5"><a href="contrastes-de-hipótesis.html#cb132-5" tabindex="-1"></a></span>
-<span id="cb132-6"><a href="contrastes-de-hipótesis.html#cb132-6" tabindex="-1"></a><span class="co"># Cálculo de alpha</span></span>
-<span id="cb132-7"><a href="contrastes-de-hipótesis.html#cb132-7" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(c, <span class="at">size =</span> n, <span class="at">prob =</span> p0)</span>
-<span id="cb132-8"><a href="contrastes-de-hipótesis.html#cb132-8" tabindex="-1"></a>alpha</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="contrastes-de-hipótesis.html#cb134-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb134-2"><a href="contrastes-de-hipótesis.html#cb134-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb134-3"><a href="contrastes-de-hipótesis.html#cb134-3" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb134-4"><a href="contrastes-de-hipótesis.html#cb134-4" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb134-5"><a href="contrastes-de-hipótesis.html#cb134-5" tabindex="-1"></a></span>
+<span id="cb134-6"><a href="contrastes-de-hipótesis.html#cb134-6" tabindex="-1"></a><span class="co"># Cálculo de alpha</span></span>
+<span id="cb134-7"><a href="contrastes-de-hipótesis.html#cb134-7" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(c, <span class="at">size =</span> n, <span class="at">prob =</span> p0)</span>
+<span id="cb134-8"><a href="contrastes-de-hipótesis.html#cb134-8" tabindex="-1"></a>alpha</span></code></pre></div>
 <pre><code>## [1] 0.03214266</code></pre>
 <p><strong>Resultado:</strong></p>
 <p><span class="math inline">\(\alpha = P(Y \leq 12 \mid p = 0.8) \approx \texttt{0.0321427}\)</span></p>
@@ -513,12 +515,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="d.-encuentre-beta-cuando-p-0.6" class="section level3 hasAnchor" number="7.1.5">
 <h3><span class="header-section-number">7.1.5</span> d. Encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.6\)</span><a href="contrastes-de-hipótesis.html#d.-encuentre-beta-cuando-p-0.6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La probabilidad de cometer un error tipo II es <span class="math inline">\(\beta = P(Y &gt; 12 \mid p = 0.6)\)</span>. Como <span class="math inline">\(Y\)</span> sigue una distribución binomial con <span class="math inline">\(n = 20\)</span> y <span class="math inline">\(p = 0.6\)</span>, calculamos:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="contrastes-de-hipótesis.html#cb134-1" tabindex="-1"></a><span class="co"># Parámetros para p = 0.6</span></span>
-<span id="cb134-2"><a href="contrastes-de-hipótesis.html#cb134-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
-<span id="cb134-3"><a href="contrastes-de-hipótesis.html#cb134-3" tabindex="-1"></a></span>
-<span id="cb134-4"><a href="contrastes-de-hipótesis.html#cb134-4" tabindex="-1"></a><span class="co"># Cálculo de beta para p = 0.6</span></span>
-<span id="cb134-5"><a href="contrastes-de-hipótesis.html#cb134-5" tabindex="-1"></a>beta_06 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c, <span class="at">size =</span> n, <span class="at">prob =</span> p1)</span>
-<span id="cb134-6"><a href="contrastes-de-hipótesis.html#cb134-6" tabindex="-1"></a>beta_06</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="contrastes-de-hipótesis.html#cb136-1" tabindex="-1"></a><span class="co"># Parámetros para p = 0.6</span></span>
+<span id="cb136-2"><a href="contrastes-de-hipótesis.html#cb136-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
+<span id="cb136-3"><a href="contrastes-de-hipótesis.html#cb136-3" tabindex="-1"></a></span>
+<span id="cb136-4"><a href="contrastes-de-hipótesis.html#cb136-4" tabindex="-1"></a><span class="co"># Cálculo de beta para p = 0.6</span></span>
+<span id="cb136-5"><a href="contrastes-de-hipótesis.html#cb136-5" tabindex="-1"></a>beta_06 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c, <span class="at">size =</span> n, <span class="at">prob =</span> p1)</span>
+<span id="cb136-6"><a href="contrastes-de-hipótesis.html#cb136-6" tabindex="-1"></a>beta_06</span></code></pre></div>
 <pre><code>## [1] 0.4158929</code></pre>
 <p><strong>Resultado:</strong></p>
 <p><span class="math inline">\(\beta = P(Y &gt; 12 \mid p = 0.6) \approx \texttt{0.4158929}\)</span></p>
@@ -526,12 +528,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="e.-encuentre-beta-cuando-p-0.4" class="section level3 hasAnchor" number="7.1.6">
 <h3><span class="header-section-number">7.1.6</span> e. Encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.4\)</span><a href="contrastes-de-hipótesis.html#e.-encuentre-beta-cuando-p-0.4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Repetimos el cálculo para <span class="math inline">\(p = 0.4\)</span>:</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="contrastes-de-hipótesis.html#cb136-1" tabindex="-1"></a><span class="co"># Parámetros para p = 0.4</span></span>
-<span id="cb136-2"><a href="contrastes-de-hipótesis.html#cb136-2" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb136-3"><a href="contrastes-de-hipótesis.html#cb136-3" tabindex="-1"></a></span>
-<span id="cb136-4"><a href="contrastes-de-hipótesis.html#cb136-4" tabindex="-1"></a><span class="co"># Cálculo de beta para p = 0.4</span></span>
-<span id="cb136-5"><a href="contrastes-de-hipótesis.html#cb136-5" tabindex="-1"></a>beta_04 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c, <span class="at">size =</span> n, <span class="at">prob =</span> p2)</span>
-<span id="cb136-6"><a href="contrastes-de-hipótesis.html#cb136-6" tabindex="-1"></a>beta_04</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="contrastes-de-hipótesis.html#cb138-1" tabindex="-1"></a><span class="co"># Parámetros para p = 0.4</span></span>
+<span id="cb138-2"><a href="contrastes-de-hipótesis.html#cb138-2" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb138-3"><a href="contrastes-de-hipótesis.html#cb138-3" tabindex="-1"></a></span>
+<span id="cb138-4"><a href="contrastes-de-hipótesis.html#cb138-4" tabindex="-1"></a><span class="co"># Cálculo de beta para p = 0.4</span></span>
+<span id="cb138-5"><a href="contrastes-de-hipótesis.html#cb138-5" tabindex="-1"></a>beta_04 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c, <span class="at">size =</span> n, <span class="at">prob =</span> p2)</span>
+<span id="cb138-6"><a href="contrastes-de-hipótesis.html#cb138-6" tabindex="-1"></a>beta_04</span></code></pre></div>
 <pre><code>## [1] 0.02102893</code></pre>
 <p><strong>Resultado:</strong>
 <span class="math display">\[\beta = P(Y &gt; 12 \mid p = 0.4) \approx \texttt{0.0210289}\]</span></p>
@@ -552,12 +554,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="a.-defina-la-región-de-rechazo-de-la-forma-y-leq-c-de-modo-que-alpha-approx-0.01" class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> a. Defina la región de rechazo de la forma <span class="math inline">\(\{y \leq c\}\)</span> de modo que <span class="math inline">\(\alpha \approx 0.01\)</span><a href="contrastes-de-hipótesis.html#a.-defina-la-regi%C3%B3n-de-rechazo-de-la-forma-y-leq-c-de-modo-que-alpha-approx-0.01" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Queremos encontrar el valor crítico <span class="math inline">\(c\)</span> tal que <span class="math inline">\(\alpha = P(Y \leq c \mid p = 0.8) \approx 0.01\)</span>. Para esto, usamos una búsqueda iterativa:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="contrastes-de-hipótesis.html#cb138-1" tabindex="-1"></a><span class="co"># Buscar el valor crítico c para alpha ≈ 0.01</span></span>
-<span id="cb138-2"><a href="contrastes-de-hipótesis.html#cb138-2" tabindex="-1"></a>c_new <span class="ot">&lt;-</span> <span class="fu">qbinom</span>(<span class="fl">0.01</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p0)</span>
-<span id="cb138-3"><a href="contrastes-de-hipótesis.html#cb138-3" tabindex="-1"></a>c_new</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="contrastes-de-hipótesis.html#cb140-1" tabindex="-1"></a><span class="co"># Buscar el valor crítico c para alpha ≈ 0.01</span></span>
+<span id="cb140-2"><a href="contrastes-de-hipótesis.html#cb140-2" tabindex="-1"></a>c_new <span class="ot">&lt;-</span> <span class="fu">qbinom</span>(<span class="fl">0.01</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p0)</span>
+<span id="cb140-3"><a href="contrastes-de-hipótesis.html#cb140-3" tabindex="-1"></a>c_new</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="contrastes-de-hipótesis.html#cb140-1" tabindex="-1"></a>alpha_new <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(c_new, <span class="at">size =</span> n, <span class="at">prob =</span> p0)</span>
-<span id="cb140-2"><a href="contrastes-de-hipótesis.html#cb140-2" tabindex="-1"></a>alpha_new</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="contrastes-de-hipótesis.html#cb142-1" tabindex="-1"></a>alpha_new <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(c_new, <span class="at">size =</span> n, <span class="at">prob =</span> p0)</span>
+<span id="cb142-2"><a href="contrastes-de-hipótesis.html#cb142-2" tabindex="-1"></a>alpha_new</span></code></pre></div>
 <pre><code>## [1] 0.03214266</code></pre>
 <p><strong>Resultado:</strong></p>
 <p>El valor crítico es <span class="math inline">\(c = \texttt{12}\)</span>, con:
@@ -566,9 +568,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="b.-para-la-región-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.6" class="section level3 hasAnchor" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> b. Para la región de rechazo del inciso a, encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.6\)</span><a href="contrastes-de-hipótesis.html#b.-para-la-regi%C3%B3n-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calculamos <span class="math inline">\(\beta = P(Y &gt; 10 \mid p = 0.6)\)</span>:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="contrastes-de-hipótesis.html#cb142-1" tabindex="-1"></a><span class="co"># Cálculo de beta para p = 0.6 con c = 10</span></span>
-<span id="cb142-2"><a href="contrastes-de-hipótesis.html#cb142-2" tabindex="-1"></a>beta_06_new <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c_new, <span class="at">size =</span> n, <span class="at">prob =</span> p1)</span>
-<span id="cb142-3"><a href="contrastes-de-hipótesis.html#cb142-3" tabindex="-1"></a>beta_06_new</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="contrastes-de-hipótesis.html#cb144-1" tabindex="-1"></a><span class="co"># Cálculo de beta para p = 0.6 con c = 10</span></span>
+<span id="cb144-2"><a href="contrastes-de-hipótesis.html#cb144-2" tabindex="-1"></a>beta_06_new <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c_new, <span class="at">size =</span> n, <span class="at">prob =</span> p1)</span>
+<span id="cb144-3"><a href="contrastes-de-hipótesis.html#cb144-3" tabindex="-1"></a>beta_06_new</span></code></pre></div>
 <pre><code>## [1] 0.4158929</code></pre>
 <p><strong>Resultado:</strong>
 <span class="math display">\[\beta = P(Y &gt; 10 \mid p = 0.6) \approx \texttt{0.4158929}\]</span></p>
@@ -576,9 +578,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="c.-para-la-región-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.4" class="section level3 hasAnchor" number="7.2.4">
 <h3><span class="header-section-number">7.2.4</span> c. Para la región de rechazo del inciso a, encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.4\)</span><a href="contrastes-de-hipótesis.html#c.-para-la-regi%C3%B3n-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Repetimos el cálculo para <span class="math inline">\(p = 0.4\)</span>:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="contrastes-de-hipótesis.html#cb144-1" tabindex="-1"></a><span class="co"># Cálculo de beta para p = 0.4 con c = 10</span></span>
-<span id="cb144-2"><a href="contrastes-de-hipótesis.html#cb144-2" tabindex="-1"></a>beta_04_new <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c_new, <span class="at">size =</span> n, <span class="at">prob =</span> p2)</span>
-<span id="cb144-3"><a href="contrastes-de-hipótesis.html#cb144-3" tabindex="-1"></a>beta_04_new</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="contrastes-de-hipótesis.html#cb146-1" tabindex="-1"></a><span class="co"># Cálculo de beta para p = 0.4 con c = 10</span></span>
+<span id="cb146-2"><a href="contrastes-de-hipótesis.html#cb146-2" tabindex="-1"></a>beta_04_new <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c_new, <span class="at">size =</span> n, <span class="at">prob =</span> p2)</span>
+<span id="cb146-3"><a href="contrastes-de-hipótesis.html#cb146-3" tabindex="-1"></a>beta_04_new</span></code></pre></div>
 <pre><code>## [1] 0.02102893</code></pre>
 <p><strong>Resultado:</strong>
 <span class="math display">\[\beta = P(Y &gt; 10 \mid p = 0.4) \approx \texttt{0.0210289}\]</span></p>
@@ -602,15 +604,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Esto equivale a:</p>
 <p><span class="math display">\[\alpha = P(Y \leq 14 \mid p = 0.5) + P(Y \geq 22 \mid p = 0.5)\]</span></p>
 <p>Dado que <span class="math inline">\(Y \sim \text{Binomial}(n = 36, p = 0.5)\)</span>, calculamos <span class="math inline">\(\alpha\)</span> con R:</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="contrastes-de-hipótesis.html#cb146-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
-<span id="cb146-2"><a href="contrastes-de-hipótesis.html#cb146-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">36</span></span>
-<span id="cb146-3"><a href="contrastes-de-hipótesis.html#cb146-3" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb146-4"><a href="contrastes-de-hipótesis.html#cb146-4" tabindex="-1"></a>c_lower <span class="ot">&lt;-</span> <span class="dv">14</span></span>
-<span id="cb146-5"><a href="contrastes-de-hipótesis.html#cb146-5" tabindex="-1"></a>c_upper <span class="ot">&lt;-</span> <span class="dv">22</span></span>
-<span id="cb146-6"><a href="contrastes-de-hipótesis.html#cb146-6" tabindex="-1"></a></span>
-<span id="cb146-7"><a href="contrastes-de-hipótesis.html#cb146-7" tabindex="-1"></a><span class="co"># Cálculo de alpha</span></span>
-<span id="cb146-8"><a href="contrastes-de-hipótesis.html#cb146-8" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(c_lower, <span class="at">size =</span> n, <span class="at">prob =</span> p0) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c_upper <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p0))</span>
-<span id="cb146-9"><a href="contrastes-de-hipótesis.html#cb146-9" tabindex="-1"></a>alpha</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="contrastes-de-hipótesis.html#cb148-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb148-2"><a href="contrastes-de-hipótesis.html#cb148-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">36</span></span>
+<span id="cb148-3"><a href="contrastes-de-hipótesis.html#cb148-3" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb148-4"><a href="contrastes-de-hipótesis.html#cb148-4" tabindex="-1"></a>c_lower <span class="ot">&lt;-</span> <span class="dv">14</span></span>
+<span id="cb148-5"><a href="contrastes-de-hipótesis.html#cb148-5" tabindex="-1"></a>c_upper <span class="ot">&lt;-</span> <span class="dv">22</span></span>
+<span id="cb148-6"><a href="contrastes-de-hipótesis.html#cb148-6" tabindex="-1"></a></span>
+<span id="cb148-7"><a href="contrastes-de-hipótesis.html#cb148-7" tabindex="-1"></a><span class="co"># Cálculo de alpha</span></span>
+<span id="cb148-8"><a href="contrastes-de-hipótesis.html#cb148-8" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(c_lower, <span class="at">size =</span> n, <span class="at">prob =</span> p0) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(c_upper <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p0))</span>
+<span id="cb148-9"><a href="contrastes-de-hipótesis.html#cb148-9" tabindex="-1"></a>alpha</span></code></pre></div>
 <pre><code>## [1] 0.242985</code></pre>
 <p>Por lo tanto,
 <span class="math display">\[\alpha = P(|Y - 18| \geq 4 \mid p = 0.5) \approx \texttt{0.242985}\]</span></p>
@@ -622,10 +624,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Esto equivale a:</p>
 <p><span class="math display">\[\beta = P(15 \leq Y \leq 21 \mid p = 0.7)\]</span></p>
 <p>Calculamos <span class="math inline">\(\beta\)</span> con R:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="contrastes-de-hipótesis.html#cb148-1" tabindex="-1"></a><span class="co"># Parámetros para p = 0.7</span></span>
-<span id="cb148-2"><a href="contrastes-de-hipótesis.html#cb148-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fl">0.7</span></span>
-<span id="cb148-3"><a href="contrastes-de-hipótesis.html#cb148-3" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(c_upper <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p1) <span class="sc">-</span> <span class="fu">pbinom</span>(c_lower <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p1)</span>
-<span id="cb148-4"><a href="contrastes-de-hipótesis.html#cb148-4" tabindex="-1"></a>beta</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="contrastes-de-hipótesis.html#cb150-1" tabindex="-1"></a><span class="co"># Parámetros para p = 0.7</span></span>
+<span id="cb150-2"><a href="contrastes-de-hipótesis.html#cb150-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fl">0.7</span></span>
+<span id="cb150-3"><a href="contrastes-de-hipótesis.html#cb150-3" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(c_upper <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p1) <span class="sc">-</span> <span class="fu">pbinom</span>(c_lower <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p1)</span>
+<span id="cb150-4"><a href="contrastes-de-hipótesis.html#cb150-4" tabindex="-1"></a>beta</span></code></pre></div>
 <pre><code>## [1] 0.09163513</code></pre>
 <p>Por lo tanto,
 <span class="math display">\[\beta = P(|Y - 18| &lt; 4 \mid p = 0.7) \approx \texttt{0.0916351}\]</span></p>
