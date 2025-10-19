@@ -700,26 +700,26 @@ E[\hat{\theta}_2] = E[2\overline{X}] = 2 \cdot \frac{\theta}{2} = \theta.
 </div>
 <div id="código-en-r" class="section level4 hasAnchor" number="5.2.2.2">
 <h4><span class="header-section-number">5.2.2.2</span> Código en R<a href="estimación-puntual.html#c%C3%B3digo-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="estimación-puntual.html#cb118-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Fijar la semilla para reproducibilidad</span></span>
-<span id="cb118-2"><a href="estimación-puntual.html#cb118-2" tabindex="-1"></a></span>
-<span id="cb118-3"><a href="estimación-puntual.html#cb118-3" tabindex="-1"></a><span class="co"># Parámetros</span></span>
-<span id="cb118-4"><a href="estimación-puntual.html#cb118-4" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span>  <span class="co"># Tamaño de la muestra</span></span>
-<span id="cb118-5"><a href="estimación-puntual.html#cb118-5" tabindex="-1"></a>replicas <span class="ot">&lt;-</span> <span class="dv">1000</span>  <span class="co"># Número de simulaciones</span></span>
-<span id="cb118-6"><a href="estimación-puntual.html#cb118-6" tabindex="-1"></a></span>
-<span id="cb118-7"><a href="estimación-puntual.html#cb118-7" tabindex="-1"></a><span class="co"># Simulaciones</span></span>
-<span id="cb118-8"><a href="estimación-puntual.html#cb118-8" tabindex="-1"></a>simulaciones <span class="ot">&lt;-</span> <span class="fu">replicate</span>(replicas, {</span>
-<span id="cb118-9"><a href="estimación-puntual.html#cb118-9" tabindex="-1"></a>  muestra <span class="ot">&lt;-</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
-<span id="cb118-10"><a href="estimación-puntual.html#cb118-10" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">max</span>(muestra), <span class="dv">2</span> <span class="sc">*</span> <span class="fu">mean</span>(muestra))  <span class="co"># Calculamos los dos estimadores</span></span>
-<span id="cb118-11"><a href="estimación-puntual.html#cb118-11" tabindex="-1"></a>})</span>
-<span id="cb118-12"><a href="estimación-puntual.html#cb118-12" tabindex="-1"></a></span>
-<span id="cb118-13"><a href="estimación-puntual.html#cb118-13" tabindex="-1"></a><span class="co"># Convertimos simulaciones en una matriz</span></span>
-<span id="cb118-14"><a href="estimación-puntual.html#cb118-14" tabindex="-1"></a>simulaciones <span class="ot">&lt;-</span> <span class="fu">t</span>(simulaciones)</span>
-<span id="cb118-15"><a href="estimación-puntual.html#cb118-15" tabindex="-1"></a></span>
-<span id="cb118-16"><a href="estimación-puntual.html#cb118-16" tabindex="-1"></a><span class="co"># Calculamos los valores promedio de los estimadores</span></span>
-<span id="cb118-17"><a href="estimación-puntual.html#cb118-17" tabindex="-1"></a>promedios <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(simulaciones)</span>
-<span id="cb118-18"><a href="estimación-puntual.html#cb118-18" tabindex="-1"></a></span>
-<span id="cb118-19"><a href="estimación-puntual.html#cb118-19" tabindex="-1"></a><span class="co"># Mostramos los resultados</span></span>
-<span id="cb118-20"><a href="estimación-puntual.html#cb118-20" tabindex="-1"></a>promedios</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="estimación-puntual.html#cb109-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Fijar la semilla para reproducibilidad</span></span>
+<span id="cb109-2"><a href="estimación-puntual.html#cb109-2" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="estimación-puntual.html#cb109-3" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb109-4"><a href="estimación-puntual.html#cb109-4" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span>  <span class="co"># Tamaño de la muestra</span></span>
+<span id="cb109-5"><a href="estimación-puntual.html#cb109-5" tabindex="-1"></a>replicas <span class="ot">&lt;-</span> <span class="dv">1000</span>  <span class="co"># Número de simulaciones</span></span>
+<span id="cb109-6"><a href="estimación-puntual.html#cb109-6" tabindex="-1"></a></span>
+<span id="cb109-7"><a href="estimación-puntual.html#cb109-7" tabindex="-1"></a><span class="co"># Simulaciones</span></span>
+<span id="cb109-8"><a href="estimación-puntual.html#cb109-8" tabindex="-1"></a>simulaciones <span class="ot">&lt;-</span> <span class="fu">replicate</span>(replicas, {</span>
+<span id="cb109-9"><a href="estimación-puntual.html#cb109-9" tabindex="-1"></a>  muestra <span class="ot">&lt;-</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
+<span id="cb109-10"><a href="estimación-puntual.html#cb109-10" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">max</span>(muestra), <span class="dv">2</span> <span class="sc">*</span> <span class="fu">mean</span>(muestra))  <span class="co"># Calculamos los dos estimadores</span></span>
+<span id="cb109-11"><a href="estimación-puntual.html#cb109-11" tabindex="-1"></a>})</span>
+<span id="cb109-12"><a href="estimación-puntual.html#cb109-12" tabindex="-1"></a></span>
+<span id="cb109-13"><a href="estimación-puntual.html#cb109-13" tabindex="-1"></a><span class="co"># Convertimos simulaciones en una matriz</span></span>
+<span id="cb109-14"><a href="estimación-puntual.html#cb109-14" tabindex="-1"></a>simulaciones <span class="ot">&lt;-</span> <span class="fu">t</span>(simulaciones)</span>
+<span id="cb109-15"><a href="estimación-puntual.html#cb109-15" tabindex="-1"></a></span>
+<span id="cb109-16"><a href="estimación-puntual.html#cb109-16" tabindex="-1"></a><span class="co"># Calculamos los valores promedio de los estimadores</span></span>
+<span id="cb109-17"><a href="estimación-puntual.html#cb109-17" tabindex="-1"></a>promedios <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(simulaciones)</span>
+<span id="cb109-18"><a href="estimación-puntual.html#cb109-18" tabindex="-1"></a></span>
+<span id="cb109-19"><a href="estimación-puntual.html#cb109-19" tabindex="-1"></a><span class="co"># Mostramos los resultados</span></span>
+<span id="cb109-20"><a href="estimación-puntual.html#cb109-20" tabindex="-1"></a>promedios</span></code></pre></div>
 <pre><code>## [1] 0.9051482 0.9950987</code></pre>
 </div>
 <div id="resultados-de-las-simulaciones" class="section level4 hasAnchor" number="5.2.2.3">
@@ -752,11 +752,11 @@ E[\hat{\theta}_2] = E[2\overline{X}] = 2 \cdot \frac{\theta}{2} = \theta.
 </div>
 <div id="código-en-r-1" class="section level4 hasAnchor" number="5.2.3.2">
 <h4><span class="header-section-number">5.2.3.2</span> Código en R<a href="estimación-puntual.html#c%C3%B3digo-en-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="estimación-puntual.html#cb120-1" tabindex="-1"></a><span class="co"># Calcular la varianza de cada estimador</span></span>
-<span id="cb120-2"><a href="estimación-puntual.html#cb120-2" tabindex="-1"></a>varianzas <span class="ot">&lt;-</span> <span class="fu">apply</span>(simulaciones, <span class="dv">2</span>, var)</span>
-<span id="cb120-3"><a href="estimación-puntual.html#cb120-3" tabindex="-1"></a></span>
-<span id="cb120-4"><a href="estimación-puntual.html#cb120-4" tabindex="-1"></a><span class="co"># Mostramos las varianzas estimadas</span></span>
-<span id="cb120-5"><a href="estimación-puntual.html#cb120-5" tabindex="-1"></a>varianzas</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="estimación-puntual.html#cb111-1" tabindex="-1"></a><span class="co"># Calcular la varianza de cada estimador</span></span>
+<span id="cb111-2"><a href="estimación-puntual.html#cb111-2" tabindex="-1"></a>varianzas <span class="ot">&lt;-</span> <span class="fu">apply</span>(simulaciones, <span class="dv">2</span>, var)</span>
+<span id="cb111-3"><a href="estimación-puntual.html#cb111-3" tabindex="-1"></a></span>
+<span id="cb111-4"><a href="estimación-puntual.html#cb111-4" tabindex="-1"></a><span class="co"># Mostramos las varianzas estimadas</span></span>
+<span id="cb111-5"><a href="estimación-puntual.html#cb111-5" tabindex="-1"></a>varianzas</span></code></pre></div>
 <pre><code>## [1] 0.007161166 0.031155315</code></pre>
 </div>
 <div id="resultados-de-las-simulaciones-1" class="section level4 hasAnchor" number="5.2.3.3">
@@ -774,8 +774,8 @@ E[\hat{\theta}_2] = E[2\overline{X}] = 2 \cdot \frac{\theta}{2} = \theta.
 \text{Eficiencia relativa} = \frac{\text{Var}(\hat{\theta}_2)}{\text{Var}(\hat{\theta}_1)}.
 \]</span></p>
 <p>En este caso, la eficiencia relativa es:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="estimación-puntual.html#cb122-1" tabindex="-1"></a>eficiencia <span class="ot">&lt;-</span> varianzas[<span class="dv">2</span>] <span class="sc">/</span> varianzas[<span class="dv">1</span>]</span>
-<span id="cb122-2"><a href="estimación-puntual.html#cb122-2" tabindex="-1"></a>eficiencia</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="estimación-puntual.html#cb113-1" tabindex="-1"></a>eficiencia <span class="ot">&lt;-</span> varianzas[<span class="dv">2</span>] <span class="sc">/</span> varianzas[<span class="dv">1</span>]</span>
+<span id="cb113-2"><a href="estimación-puntual.html#cb113-2" tabindex="-1"></a>eficiencia</span></code></pre></div>
 <pre><code>## [1] 4.350592</code></pre>
 <p>El resultado indica que <span class="math inline">\(\hat{\theta}_1\)</span> es más eficiente que <span class="math inline">\(\hat{\theta}_2\)</span> en términos de varianza, ya que tiene menor varianza.</p>
 </div>
@@ -876,36 +876,36 @@ V(\hat\theta_2) = \frac{V(\hat\theta_1)}{n}
 <li>Calculamos <span class="math inline">\(\hat\theta_1\)</span> y <span class="math inline">\(\hat\theta_2\)</span> para diferentes tamaños muestrales.</li>
 <li>Estimamos la varianza de cada estimador y verificamos la consistencia de <span class="math inline">\(\hat\theta_2\)</span>.</li>
 </ol>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="estimación-puntual.html#cb124-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
-<span id="cb124-2"><a href="estimación-puntual.html#cb124-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb124-3"><a href="estimación-puntual.html#cb124-3" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">2</span>   <span class="co"># Verdadera esperanza (1 / lambda)</span></span>
-<span id="cb124-4"><a href="estimación-puntual.html#cb124-4" tabindex="-1"></a>n_sim <span class="ot">&lt;-</span> <span class="dv">10000</span> <span class="co"># Número de simulaciones</span></span>
-<span id="cb124-5"><a href="estimación-puntual.html#cb124-5" tabindex="-1"></a>sample_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>) <span class="co"># Tamaños muestrales</span></span>
-<span id="cb124-6"><a href="estimación-puntual.html#cb124-6" tabindex="-1"></a></span>
-<span id="cb124-7"><a href="estimación-puntual.html#cb124-7" tabindex="-1"></a><span class="co"># Simulación usando la funcion rexp</span></span>
-<span id="cb124-8"><a href="estimación-puntual.html#cb124-8" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
-<span id="cb124-9"><a href="estimación-puntual.html#cb124-9" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> sample_sizes) {</span>
-<span id="cb124-10"><a href="estimación-puntual.html#cb124-10" tabindex="-1"></a>  estimates <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_sim, {</span>
-<span id="cb124-11"><a href="estimación-puntual.html#cb124-11" tabindex="-1"></a>    sample <span class="ot">&lt;-</span> <span class="fu">rexp</span>(n, <span class="at">rate =</span> <span class="dv">1</span> <span class="sc">/</span> theta)</span>
-<span id="cb124-12"><a href="estimación-puntual.html#cb124-12" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">theta1 =</span> sample[<span class="dv">1</span>], <span class="at">theta2 =</span> <span class="fu">mean</span>(sample))</span>
-<span id="cb124-13"><a href="estimación-puntual.html#cb124-13" tabindex="-1"></a>  })</span>
-<span id="cb124-14"><a href="estimación-puntual.html#cb124-14" tabindex="-1"></a>  </span>
-<span id="cb124-15"><a href="estimación-puntual.html#cb124-15" tabindex="-1"></a>  <span class="co"># Varianzas y medias</span></span>
-<span id="cb124-16"><a href="estimación-puntual.html#cb124-16" tabindex="-1"></a>  var_theta1 <span class="ot">&lt;-</span> <span class="fu">var</span>(estimates[<span class="st">&quot;theta1&quot;</span>, ])</span>
-<span id="cb124-17"><a href="estimación-puntual.html#cb124-17" tabindex="-1"></a>  var_theta2 <span class="ot">&lt;-</span> <span class="fu">var</span>(estimates[<span class="st">&quot;theta2&quot;</span>, ])</span>
-<span id="cb124-18"><a href="estimación-puntual.html#cb124-18" tabindex="-1"></a>  mean_theta1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(estimates[<span class="st">&quot;theta1&quot;</span>, ])</span>
-<span id="cb124-19"><a href="estimación-puntual.html#cb124-19" tabindex="-1"></a>  mean_theta2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(estimates[<span class="st">&quot;theta2&quot;</span>, ])</span>
-<span id="cb124-20"><a href="estimación-puntual.html#cb124-20" tabindex="-1"></a>  </span>
-<span id="cb124-21"><a href="estimación-puntual.html#cb124-21" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">rbind</span>(results, <span class="fu">data.frame</span>(</span>
-<span id="cb124-22"><a href="estimación-puntual.html#cb124-22" tabindex="-1"></a>    <span class="at">n =</span> n,</span>
-<span id="cb124-23"><a href="estimación-puntual.html#cb124-23" tabindex="-1"></a>    <span class="at">mean_theta1 =</span> mean_theta1,</span>
-<span id="cb124-24"><a href="estimación-puntual.html#cb124-24" tabindex="-1"></a>    <span class="at">var_theta1 =</span> var_theta1,</span>
-<span id="cb124-25"><a href="estimación-puntual.html#cb124-25" tabindex="-1"></a>    <span class="at">mean_theta2 =</span> mean_theta2,</span>
-<span id="cb124-26"><a href="estimación-puntual.html#cb124-26" tabindex="-1"></a>    <span class="at">var_theta2 =</span> var_theta2</span>
-<span id="cb124-27"><a href="estimación-puntual.html#cb124-27" tabindex="-1"></a>  ))</span>
-<span id="cb124-28"><a href="estimación-puntual.html#cb124-28" tabindex="-1"></a>}</span>
-<span id="cb124-29"><a href="estimación-puntual.html#cb124-29" tabindex="-1"></a></span>
-<span id="cb124-30"><a href="estimación-puntual.html#cb124-30" tabindex="-1"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="estimación-puntual.html#cb115-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb115-2"><a href="estimación-puntual.html#cb115-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb115-3"><a href="estimación-puntual.html#cb115-3" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="dv">2</span>   <span class="co"># Verdadera esperanza (1 / lambda)</span></span>
+<span id="cb115-4"><a href="estimación-puntual.html#cb115-4" tabindex="-1"></a>n_sim <span class="ot">&lt;-</span> <span class="dv">10000</span> <span class="co"># Número de simulaciones</span></span>
+<span id="cb115-5"><a href="estimación-puntual.html#cb115-5" tabindex="-1"></a>sample_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>) <span class="co"># Tamaños muestrales</span></span>
+<span id="cb115-6"><a href="estimación-puntual.html#cb115-6" tabindex="-1"></a></span>
+<span id="cb115-7"><a href="estimación-puntual.html#cb115-7" tabindex="-1"></a><span class="co"># Simulación usando la funcion rexp</span></span>
+<span id="cb115-8"><a href="estimación-puntual.html#cb115-8" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb115-9"><a href="estimación-puntual.html#cb115-9" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> sample_sizes) {</span>
+<span id="cb115-10"><a href="estimación-puntual.html#cb115-10" tabindex="-1"></a>  estimates <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_sim, {</span>
+<span id="cb115-11"><a href="estimación-puntual.html#cb115-11" tabindex="-1"></a>    sample <span class="ot">&lt;-</span> <span class="fu">rexp</span>(n, <span class="at">rate =</span> <span class="dv">1</span> <span class="sc">/</span> theta)</span>
+<span id="cb115-12"><a href="estimación-puntual.html#cb115-12" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">theta1 =</span> sample[<span class="dv">1</span>], <span class="at">theta2 =</span> <span class="fu">mean</span>(sample))</span>
+<span id="cb115-13"><a href="estimación-puntual.html#cb115-13" tabindex="-1"></a>  })</span>
+<span id="cb115-14"><a href="estimación-puntual.html#cb115-14" tabindex="-1"></a>  </span>
+<span id="cb115-15"><a href="estimación-puntual.html#cb115-15" tabindex="-1"></a>  <span class="co"># Varianzas y medias</span></span>
+<span id="cb115-16"><a href="estimación-puntual.html#cb115-16" tabindex="-1"></a>  var_theta1 <span class="ot">&lt;-</span> <span class="fu">var</span>(estimates[<span class="st">&quot;theta1&quot;</span>, ])</span>
+<span id="cb115-17"><a href="estimación-puntual.html#cb115-17" tabindex="-1"></a>  var_theta2 <span class="ot">&lt;-</span> <span class="fu">var</span>(estimates[<span class="st">&quot;theta2&quot;</span>, ])</span>
+<span id="cb115-18"><a href="estimación-puntual.html#cb115-18" tabindex="-1"></a>  mean_theta1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(estimates[<span class="st">&quot;theta1&quot;</span>, ])</span>
+<span id="cb115-19"><a href="estimación-puntual.html#cb115-19" tabindex="-1"></a>  mean_theta2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(estimates[<span class="st">&quot;theta2&quot;</span>, ])</span>
+<span id="cb115-20"><a href="estimación-puntual.html#cb115-20" tabindex="-1"></a>  </span>
+<span id="cb115-21"><a href="estimación-puntual.html#cb115-21" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">rbind</span>(results, <span class="fu">data.frame</span>(</span>
+<span id="cb115-22"><a href="estimación-puntual.html#cb115-22" tabindex="-1"></a>    <span class="at">n =</span> n,</span>
+<span id="cb115-23"><a href="estimación-puntual.html#cb115-23" tabindex="-1"></a>    <span class="at">mean_theta1 =</span> mean_theta1,</span>
+<span id="cb115-24"><a href="estimación-puntual.html#cb115-24" tabindex="-1"></a>    <span class="at">var_theta1 =</span> var_theta1,</span>
+<span id="cb115-25"><a href="estimación-puntual.html#cb115-25" tabindex="-1"></a>    <span class="at">mean_theta2 =</span> mean_theta2,</span>
+<span id="cb115-26"><a href="estimación-puntual.html#cb115-26" tabindex="-1"></a>    <span class="at">var_theta2 =</span> var_theta2</span>
+<span id="cb115-27"><a href="estimación-puntual.html#cb115-27" tabindex="-1"></a>  ))</span>
+<span id="cb115-28"><a href="estimación-puntual.html#cb115-28" tabindex="-1"></a>}</span>
+<span id="cb115-29"><a href="estimación-puntual.html#cb115-29" tabindex="-1"></a></span>
+<span id="cb115-30"><a href="estimación-puntual.html#cb115-30" tabindex="-1"></a>results</span></code></pre></div>
 <pre><code>##     n mean_theta1 var_theta1 mean_theta2 var_theta2
 ## 1   1    2.007563   3.999058    2.007563 3.99905760
 ## 2   5    1.984651   3.949956    1.996753 0.78666813
@@ -955,29 +955,29 @@ L(\lambda; X = 4) = \frac{\lambda^4 e^{-\lambda}}{4!}, \quad \lambda &gt; 0
 </div>
 <div id="representación-gráfica-en-r" class="section level4 hasAnchor" number="5.5.1.3">
 <h4><span class="header-section-number">5.5.1.3</span> 3. Representación gráfica en R<a href="estimación-puntual.html#representaci%C3%B3n-gr%C3%A1fica-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="estimación-puntual.html#cb126-1" tabindex="-1"></a><span class="co"># Función de densidad de probabilidad</span></span>
-<span id="cb126-2"><a href="estimación-puntual.html#cb126-2" tabindex="-1"></a>x_vals <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb126-3"><a href="estimación-puntual.html#cb126-3" tabindex="-1"></a>lambda_fixed <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb126-4"><a href="estimación-puntual.html#cb126-4" tabindex="-1"></a>density_vals <span class="ot">&lt;-</span> <span class="fu">dpois</span>(x_vals, lambda_fixed)</span>
-<span id="cb126-5"><a href="estimación-puntual.html#cb126-5" tabindex="-1"></a></span>
-<span id="cb126-6"><a href="estimación-puntual.html#cb126-6" tabindex="-1"></a><span class="co"># Función de verosimilitud</span></span>
-<span id="cb126-7"><a href="estimación-puntual.html#cb126-7" tabindex="-1"></a>lambda_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
-<span id="cb126-8"><a href="estimación-puntual.html#cb126-8" tabindex="-1"></a>x_fixed <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb126-9"><a href="estimación-puntual.html#cb126-9" tabindex="-1"></a>likelihood_vals <span class="ot">&lt;-</span> (lambda_vals<span class="sc">^</span>x_fixed <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>lambda_vals)) <span class="sc">/</span> <span class="fu">factorial</span>(x_fixed)</span>
-<span id="cb126-10"><a href="estimación-puntual.html#cb126-10" tabindex="-1"></a></span>
-<span id="cb126-11"><a href="estimación-puntual.html#cb126-11" tabindex="-1"></a>opt <span class="ot">&lt;-</span><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
-<span id="cb126-12"><a href="estimación-puntual.html#cb126-12" tabindex="-1"></a><span class="fu">plot</span>(x_vals, density_vals, </span>
-<span id="cb126-13"><a href="estimación-puntual.html#cb126-13" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;h&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb126-14"><a href="estimación-puntual.html#cb126-14" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x; lambda)&quot;</span>,</span>
-<span id="cb126-15"><a href="estimación-puntual.html#cb126-15" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Función de densidad de Poisson (lambda=4)&quot;</span>)</span>
-<span id="cb126-16"><a href="estimación-puntual.html#cb126-16" tabindex="-1"></a><span class="fu">points</span>(x_vals, density_vals, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb126-17"><a href="estimación-puntual.html#cb126-17" tabindex="-1"></a></span>
-<span id="cb126-18"><a href="estimación-puntual.html#cb126-18" tabindex="-1"></a></span>
-<span id="cb126-19"><a href="estimación-puntual.html#cb126-19" tabindex="-1"></a><span class="co"># Gráfico de la función de verosimilitud</span></span>
-<span id="cb126-20"><a href="estimación-puntual.html#cb126-20" tabindex="-1"></a><span class="fu">plot</span>(lambda_vals, likelihood_vals, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb126-21"><a href="estimación-puntual.html#cb126-21" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;lambda&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;L(lambda; X=4)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Función de verosimilitud (X=4)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="estimación-puntual.html#cb117-1" tabindex="-1"></a><span class="co"># Función de densidad de probabilidad</span></span>
+<span id="cb117-2"><a href="estimación-puntual.html#cb117-2" tabindex="-1"></a>x_vals <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb117-3"><a href="estimación-puntual.html#cb117-3" tabindex="-1"></a>lambda_fixed <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb117-4"><a href="estimación-puntual.html#cb117-4" tabindex="-1"></a>density_vals <span class="ot">&lt;-</span> <span class="fu">dpois</span>(x_vals, lambda_fixed)</span>
+<span id="cb117-5"><a href="estimación-puntual.html#cb117-5" tabindex="-1"></a></span>
+<span id="cb117-6"><a href="estimación-puntual.html#cb117-6" tabindex="-1"></a><span class="co"># Función de verosimilitud</span></span>
+<span id="cb117-7"><a href="estimación-puntual.html#cb117-7" tabindex="-1"></a>lambda_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb117-8"><a href="estimación-puntual.html#cb117-8" tabindex="-1"></a>x_fixed <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb117-9"><a href="estimación-puntual.html#cb117-9" tabindex="-1"></a>likelihood_vals <span class="ot">&lt;-</span> (lambda_vals<span class="sc">^</span>x_fixed <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>lambda_vals)) <span class="sc">/</span> <span class="fu">factorial</span>(x_fixed)</span>
+<span id="cb117-10"><a href="estimación-puntual.html#cb117-10" tabindex="-1"></a></span>
+<span id="cb117-11"><a href="estimación-puntual.html#cb117-11" tabindex="-1"></a>opt <span class="ot">&lt;-</span><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb117-12"><a href="estimación-puntual.html#cb117-12" tabindex="-1"></a><span class="fu">plot</span>(x_vals, density_vals, </span>
+<span id="cb117-13"><a href="estimación-puntual.html#cb117-13" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;h&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb117-14"><a href="estimación-puntual.html#cb117-14" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x; lambda)&quot;</span>,</span>
+<span id="cb117-15"><a href="estimación-puntual.html#cb117-15" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Función de densidad de Poisson (lambda=4)&quot;</span>)</span>
+<span id="cb117-16"><a href="estimación-puntual.html#cb117-16" tabindex="-1"></a><span class="fu">points</span>(x_vals, density_vals, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb117-17"><a href="estimación-puntual.html#cb117-17" tabindex="-1"></a></span>
+<span id="cb117-18"><a href="estimación-puntual.html#cb117-18" tabindex="-1"></a></span>
+<span id="cb117-19"><a href="estimación-puntual.html#cb117-19" tabindex="-1"></a><span class="co"># Gráfico de la función de verosimilitud</span></span>
+<span id="cb117-20"><a href="estimación-puntual.html#cb117-20" tabindex="-1"></a><span class="fu">plot</span>(lambda_vals, likelihood_vals, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb117-21"><a href="estimación-puntual.html#cb117-21" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;lambda&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;L(lambda; X=4)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Función de verosimilitud (X=4)&quot;</span>)</span></code></pre></div>
 <p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="estimación-puntual.html#cb127-1" tabindex="-1"></a><span class="fu">par</span>(opt)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="estimación-puntual.html#cb118-1" tabindex="-1"></a><span class="fu">par</span>(opt)</span></code></pre></div>
 </div>
 </div>
 <div id="explicación-de-los-gráficos" class="section level3 hasAnchor" number="5.5.2">
