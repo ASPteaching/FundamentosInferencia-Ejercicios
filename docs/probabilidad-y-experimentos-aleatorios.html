@@ -625,7 +625,7 @@ P(Neg)&amp;=P(Neg|A) \cdot  P(A)+P(Neg|B) \cdot  P(B)=
 <span id="cb1-4"><a href="probabilidad-y-experimentos-aleatorios.html#cb1-4" tabindex="-1"></a>ppB<span class="ot">&lt;-</span><span class="fl">0.06</span></span>
 <span id="cb1-5"><a href="probabilidad-y-experimentos-aleatorios.html#cb1-5" tabindex="-1"></a>pn<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">-</span>ppA)<span class="sc">*</span>pA<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>ppB)<span class="sc">*</span>pB</span>
 <span id="cb1-6"><a href="probabilidad-y-experimentos-aleatorios.html#cb1-6" tabindex="-1"></a>pn</span></code></pre></div>
-<pre><code>[1] 0.63</code></pre>
+<pre><code>## [1] 0.63</code></pre>
 </div>
 </div>
 <div id="problema-4" class="section level2 hasAnchor" number="1.4">
@@ -650,7 +650,7 @@ V P+=P(\text { Embolismo } / \text { Test }+)=\frac{\text { Sens}\times\text{Pre
 <span id="cb3-3"><a href="probabilidad-y-experimentos-aleatorios.html#cb3-3" tabindex="-1"></a>prev<span class="ot">&lt;-</span><span class="fl">0.20</span></span>
 <span id="cb3-4"><a href="probabilidad-y-experimentos-aleatorios.html#cb3-4" tabindex="-1"></a>vpp<span class="ot">&lt;-</span>(sens<span class="sc">*</span>prev)<span class="sc">/</span>(sens<span class="sc">*</span>prev<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>esp)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev))</span>
 <span id="cb3-5"><a href="probabilidad-y-experimentos-aleatorios.html#cb3-5" tabindex="-1"></a>vpp</span></code></pre></div>
-<pre><code>[1] 0.4871795</code></pre>
+<pre><code>## [1] 0.4871795</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Calcula el valor predictivo negativo del test</li>
 </ol>
@@ -659,7 +659,7 @@ V P-=\frac{\operatorname{Esp}(1-\operatorname{Prev})}{\operatorname{Esp}(1-\oper
 \]</span></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb5-1" tabindex="-1"></a>vpn<span class="ot">&lt;-</span>(esp<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev))<span class="sc">/</span>(esp<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>sens)<span class="sc">*</span>prev)</span>
 <span id="cb5-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb5-2" tabindex="-1"></a>vpn</span></code></pre></div>
-<pre><code>[1] 0.9836066</code></pre>
+<pre><code>## [1] 0.9836066</code></pre>
 <p>Como se observa al tratarse de una prueba muy sensible y poco específica hay pocos falsos negativos y cuando el test da negativo hay una probabilidad muy alta (0.98) de que el individuo sea sano. No así cuando da positivo. Sólo el <span class="math inline">\(48 \%\)</span> serán verdaderos enfermos.</p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Responde a las preguntas anteriores si la prevalencia fuera del 80%</li>
@@ -667,10 +667,10 @@ V P-=\frac{\operatorname{Esp}(1-\operatorname{Prev})}{\operatorname{Esp}(1-\oper
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb7-1" tabindex="-1"></a>prev<span class="ot">&lt;-</span><span class="fl">0.80</span></span>
 <span id="cb7-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb7-2" tabindex="-1"></a>vpp<span class="ot">&lt;-</span>(sens<span class="sc">*</span>prev)<span class="sc">/</span>(sens<span class="sc">*</span>prev<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>esp)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev))</span>
 <span id="cb7-3"><a href="probabilidad-y-experimentos-aleatorios.html#cb7-3" tabindex="-1"></a>vpp</span></code></pre></div>
-<pre><code>[1] 0.9382716</code></pre>
+<pre><code>## [1] 0.9382716</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb9-1" tabindex="-1"></a>vpn<span class="ot">&lt;-</span>(esp<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev))<span class="sc">/</span>(esp<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>sens)<span class="sc">*</span>prev)</span>
 <span id="cb9-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb9-2" tabindex="-1"></a>vpn</span></code></pre></div>
-<pre><code>[1] 0.7894737</code></pre>
+<pre><code>## [1] 0.7894737</code></pre>
 <p>Si la prevalencia es más alta, el VP- sigue siendo alto, aunque no tanto pero hemos aumentado el VP+ hasta el 93% y no habrá tantos falsos positivos. Lo que está claro es el VPN y el VPP dependen de la prevalencia de la enfermedad.</p>
 </div>
 </div>
@@ -712,10 +712,10 @@ VP- &amp; = P[SMS^c | T-]= \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T-]} =\\
 <span id="cb11-3"><a href="probabilidad-y-experimentos-aleatorios.html#cb11-3" tabindex="-1"></a>prev <span class="ot">&lt;-</span> <span class="fl">0.0021</span></span>
 <span id="cb11-4"><a href="probabilidad-y-experimentos-aleatorios.html#cb11-4" tabindex="-1"></a>vp.pos <span class="ot">&lt;-</span> (sensi <span class="sc">*</span> prev )<span class="sc">/</span> (sensi <span class="sc">*</span> prev <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>espec)<span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>prev))</span>
 <span id="cb11-5"><a href="probabilidad-y-experimentos-aleatorios.html#cb11-5" tabindex="-1"></a><span class="fu">cat</span> (<span class="st">&quot;El valor predictivo positivo es: &quot;</span>, vp.pos)</span></code></pre></div>
-<pre><code>El valor predictivo positivo es:  0.007887324</code></pre>
+<pre><code>## El valor predictivo positivo es:  0.007887324</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="probabilidad-y-experimentos-aleatorios.html#cb13-1" tabindex="-1"></a>vp.neg <span class="ot">&lt;-</span> (espec <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>prev) )<span class="sc">/</span> (espec <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>prev) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>sensi)<span class="sc">*</span> (prev))</span>
 <span id="cb13-2"><a href="probabilidad-y-experimentos-aleatorios.html#cb13-2" tabindex="-1"></a><span class="fu">cat</span> (<span class="st">&quot;El valor predictivo negativo es: &quot;</span>, vp.neg)</span></code></pre></div>
-<pre><code>El valor predictivo negativo es:  0.9991794</code></pre>
+<pre><code>## El valor predictivo negativo es:  0.9991794</code></pre>
 <p>Como en el caso anterior, podemos ver que. al ser la prevalencia muy baja, el valor predicpositivo del test también lo es puesto que un test + tan solo indica en un 0,79% de veces la presencia del síndrome, correctamente.</p>
 
 </div>

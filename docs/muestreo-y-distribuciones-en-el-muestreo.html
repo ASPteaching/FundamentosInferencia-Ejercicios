@@ -512,11 +512,11 @@ P(-1.5 \leq Z \leq 1.5) = F_Z(1.5) - F_Z(-1.5)
 P(-1.5 \leq Z \leq 1.5) = 2 \cdot F_Z(1.5) - 1
 \]</span></p>
 <p>Procedemos a calcular <span class="math inline">\(F_Z(1.5)\)</span> en R.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb93-1" tabindex="-1"></a><span class="co"># Cálculo de la probabilidad</span></span>
-<span id="cb93-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb93-2" tabindex="-1"></a>p_upper <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fl">1.5</span>) <span class="co"># CDF para Z = 1.5</span></span>
-<span id="cb93-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb93-3" tabindex="-1"></a>p_interval <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> p_upper <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb93-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb93-4" tabindex="-1"></a>p_interval</span></code></pre></div>
-<pre><code>[1] 0.8663856</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb102-1" tabindex="-1"></a><span class="co"># Cálculo de la probabilidad</span></span>
+<span id="cb102-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb102-2" tabindex="-1"></a>p_upper <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fl">1.5</span>) <span class="co"># CDF para Z = 1.5</span></span>
+<span id="cb102-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb102-3" tabindex="-1"></a>p_interval <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> p_upper <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb102-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb102-4" tabindex="-1"></a>p_interval</span></code></pre></div>
+<pre><code>## [1] 0.8663856</code></pre>
 <p>El resultado obtenido indica que, si se selecciona una muestra aleatoria de 9 árboles, la probabilidad de que la media muestral <span class="math inline">\(\bar{X}\)</span> se encuentre dentro de 2 pulgadas cuadradas de la media poblacional <span class="math inline">\(\mu\)</span>. La probabilidad calculada es aproximadamente:</p>
 <p><span class="math display">\[
 P(-1.5 \leq Z \leq 1.5) \approx 0.8664
@@ -555,13 +555,13 @@ P\left(-\frac{1 \cdot \sqrt{n}}{4} \leq Z \leq \frac{1 \cdot \sqrt{n}}{4}\right)
 n = (4z^*)^2
 \]</span></p>
 <p>Usaremos R para calcular <span class="math inline">\(z^*\)</span> y el tamaño de la muestra.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb95-1" tabindex="-1"></a><span class="co"># Cálculo de z* y tamaño de muestra</span></span>
-<span id="cb95-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb95-2" tabindex="-1"></a>z_star <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>) <span class="co"># Valor crítico para 90% de probabilidad centrada</span></span>
-<span id="cb95-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb95-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> (<span class="dv">4</span> <span class="sc">*</span> z_star)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb95-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb95-4" tabindex="-1"></a>z_star</span></code></pre></div>
-<pre><code>[1] 1.644854</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb97-1" tabindex="-1"></a>n</span></code></pre></div>
-<pre><code>[1] 43.2887</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb104-1" tabindex="-1"></a><span class="co"># Cálculo de z* y tamaño de muestra</span></span>
+<span id="cb104-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb104-2" tabindex="-1"></a>z_star <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>) <span class="co"># Valor crítico para 90% de probabilidad centrada</span></span>
+<span id="cb104-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb104-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> (<span class="dv">4</span> <span class="sc">*</span> z_star)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb104-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb104-4" tabindex="-1"></a>z_star</span></code></pre></div>
+<pre><code>## [1] 1.644854</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb106-1" tabindex="-1"></a>n</span></code></pre></div>
+<pre><code>## [1] 43.2887</code></pre>
 </div>
 <div id="resultado-2" class="section level3 hasAnchor" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Resultado<a href="muestreo-y-distribuciones-en-el-muestreo.html#resultado-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -625,19 +625,19 @@ P\left(-\frac{0.5}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.5}{\sigma_{\bar{X}}}\ri
 <div id="cálculo-numérico" class="section level4 hasAnchor" number="4.3.1.3">
 <h4><span class="header-section-number">4.3.1.3</span> Cálculo numérico<a href="muestreo-y-distribuciones-en-el-muestreo.html#c%C3%A1lculo-num%C3%A9rico" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A continuación, calculamos <span class="math inline">\(\sigma_{\bar{X}}\)</span> y la probabilidad utilizando R.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
-<span id="cb99-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-2" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb99-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb99-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-4" tabindex="-1"></a>sigma_barX <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(sigma2 <span class="sc">/</span> n)</span>
-<span id="cb99-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-5" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb99-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-6" tabindex="-1"></a></span>
-<span id="cb99-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-7" tabindex="-1"></a><span class="co"># Límites en la escala normal estándar</span></span>
-<span id="cb99-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-8" tabindex="-1"></a>z <span class="ot">&lt;-</span> threshold <span class="sc">/</span> sigma_barX</span>
-<span id="cb99-9"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-9" tabindex="-1"></a></span>
-<span id="cb99-10"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-10" tabindex="-1"></a><span class="co"># Probabilidad</span></span>
-<span id="cb99-11"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-11" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z)</span>
-<span id="cb99-12"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb99-12" tabindex="-1"></a>p</span></code></pre></div>
-<pre><code>[1] 0.9875807</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb108-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-2" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb108-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb108-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-4" tabindex="-1"></a>sigma_barX <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(sigma2 <span class="sc">/</span> n)</span>
+<span id="cb108-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-5" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb108-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-6" tabindex="-1"></a></span>
+<span id="cb108-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-7" tabindex="-1"></a><span class="co"># Límites en la escala normal estándar</span></span>
+<span id="cb108-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-8" tabindex="-1"></a>z <span class="ot">&lt;-</span> threshold <span class="sc">/</span> sigma_barX</span>
+<span id="cb108-9"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-9" tabindex="-1"></a></span>
+<span id="cb108-10"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-10" tabindex="-1"></a><span class="co"># Probabilidad</span></span>
+<span id="cb108-11"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-11" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z)</span>
+<span id="cb108-12"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb108-12" tabindex="-1"></a>p</span></code></pre></div>
+<pre><code>## [1] 0.9875807</code></pre>
 </div>
 <div id="interpretación-del-resultado-1" class="section level4 hasAnchor" number="4.3.1.4">
 <h4><span class="header-section-number">4.3.1.4</span> Interpretación del resultado<a href="muestreo-y-distribuciones-en-el-muestreo.html#interpretaci%C3%B3n-del-resultado-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -694,15 +694,15 @@ n = \frac{\sigma^2 z^2}{0.5^2}
 <div id="sustitución-de-valores-conocidos" class="section level4 hasAnchor" number="4.4.1.3">
 <h4><span class="header-section-number">4.4.1.3</span> Sustitución de valores conocidos<a href="muestreo-y-distribuciones-en-el-muestreo.html#sustituci%C3%B3n-de-valores-conocidos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Utilizamos <span class="math inline">\(\sigma^2 = 0.4\)</span> y <span class="math inline">\(z = 1.96\)</span>. Realizamos los cálculos en R para obtener el tamaño muestral mínimo.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb101-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
-<span id="cb101-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb101-2" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb101-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb101-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fl">1.96</span></span>
-<span id="cb101-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb101-4" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb101-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb101-5" tabindex="-1"></a></span>
-<span id="cb101-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb101-6" tabindex="-1"></a><span class="co"># Cálculo de n</span></span>
-<span id="cb101-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb101-7" tabindex="-1"></a>n <span class="ot">&lt;-</span> (sigma2 <span class="sc">*</span> z<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> threshold<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb101-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb101-8" tabindex="-1"></a><span class="fu">ceiling</span>(n) <span class="co"># Tamaño muestral mínimo entero</span></span></code></pre></div>
-<pre><code>[1] 7</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb110-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb110-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb110-2" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb110-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb110-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fl">1.96</span></span>
+<span id="cb110-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb110-4" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb110-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb110-5" tabindex="-1"></a></span>
+<span id="cb110-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb110-6" tabindex="-1"></a><span class="co"># Cálculo de n</span></span>
+<span id="cb110-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb110-7" tabindex="-1"></a>n <span class="ot">&lt;-</span> (sigma2 <span class="sc">*</span> z<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> threshold<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb110-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb110-8" tabindex="-1"></a><span class="fu">ceiling</span>(n) <span class="co"># Tamaño muestral mínimo entero</span></span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
 </div>
 <div id="interpretación-del-resultado-2" class="section level4 hasAnchor" number="4.4.1.4">
 <h4><span class="header-section-number">4.4.1.4</span> Interpretación del resultado<a href="muestreo-y-distribuciones-en-el-muestreo.html#interpretaci%C3%B3n-del-resultado-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -791,17 +791,17 @@ P\left(-\frac{1}{\sigma_{\bar{X} - \bar{Y}}} \leq Z \leq \frac{1}{\sigma_{\bar{X
 n = \frac{4.5 \cdot 1.96^2}{1}
 \]</span></p>
 <p>Realizamos el cálculo en R para obtener el tamaño muestral mínimo.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
-<span id="cb103-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-2" tabindex="-1"></a>sigma1_sq <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb103-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-3" tabindex="-1"></a>sigma2_sq <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
-<span id="cb103-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-4" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fl">1.96</span></span>
-<span id="cb103-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-5" tabindex="-1"></a></span>
-<span id="cb103-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-6" tabindex="-1"></a><span class="co"># Cálculo de n</span></span>
-<span id="cb103-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-7" tabindex="-1"></a>numerator <span class="ot">&lt;-</span> (sigma1_sq <span class="sc">+</span> sigma2_sq)</span>
-<span id="cb103-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-8" tabindex="-1"></a>denominator <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">/</span> z)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb103-9"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-9" tabindex="-1"></a>n <span class="ot">&lt;-</span> numerator <span class="sc">/</span> denominator</span>
-<span id="cb103-10"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb103-10" tabindex="-1"></a><span class="fu">ceiling</span>(n) <span class="co"># Tamaño muestral mínimo entero</span></span></code></pre></div>
-<pre><code>[1] 18</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb112-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-2" tabindex="-1"></a>sigma1_sq <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb112-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-3" tabindex="-1"></a>sigma2_sq <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
+<span id="cb112-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-4" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fl">1.96</span></span>
+<span id="cb112-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-5" tabindex="-1"></a></span>
+<span id="cb112-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-6" tabindex="-1"></a><span class="co"># Cálculo de n</span></span>
+<span id="cb112-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-7" tabindex="-1"></a>numerator <span class="ot">&lt;-</span> (sigma1_sq <span class="sc">+</span> sigma2_sq)</span>
+<span id="cb112-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-8" tabindex="-1"></a>denominator <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">/</span> z)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb112-9"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-9" tabindex="-1"></a>n <span class="ot">&lt;-</span> numerator <span class="sc">/</span> denominator</span>
+<span id="cb112-10"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb112-10" tabindex="-1"></a><span class="fu">ceiling</span>(n) <span class="co"># Tamaño muestral mínimo entero</span></span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
 </div>
 <div id="resultado-final-1" class="section level4 hasAnchor" number="4.5.1.4">
 <h4><span class="header-section-number">4.5.1.4</span> Resultado final<a href="muestreo-y-distribuciones-en-el-muestreo.html#resultado-final-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -861,21 +861,21 @@ P\left(-\frac{0.2}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.2}{\sigma_{\bar{X}}}\ri
 </div>
 <div id="cálculo-numérico-en-r" class="section level4 hasAnchor" number="4.7.1.3">
 <h4><span class="header-section-number">4.7.1.3</span> Cálculo numérico en R<a href="muestreo-y-distribuciones-en-el-muestreo.html#c%C3%A1lculo-num%C3%A9rico-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
-<span id="cb105-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-2" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">0.75</span></span>
-<span id="cb105-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">40</span></span>
-<span id="cb105-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-4" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
-<span id="cb105-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-5" tabindex="-1"></a></span>
-<span id="cb105-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-6" tabindex="-1"></a><span class="co"># Desviación estándar de la media muestral</span></span>
-<span id="cb105-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-7" tabindex="-1"></a>sigma_barX <span class="ot">&lt;-</span> sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
-<span id="cb105-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-8" tabindex="-1"></a></span>
-<span id="cb105-9"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-9" tabindex="-1"></a><span class="co"># Valores críticos</span></span>
-<span id="cb105-10"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-10" tabindex="-1"></a>z <span class="ot">&lt;-</span> threshold <span class="sc">/</span> sigma_barX</span>
-<span id="cb105-11"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-11" tabindex="-1"></a></span>
-<span id="cb105-12"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-12" tabindex="-1"></a><span class="co"># Probabilidad</span></span>
-<span id="cb105-13"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-13" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z)</span>
-<span id="cb105-14"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb105-14" tabindex="-1"></a>p</span></code></pre></div>
-<pre><code>[1] 0.9083097</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb114-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-2" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">0.75</span></span>
+<span id="cb114-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">40</span></span>
+<span id="cb114-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-4" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb114-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-5" tabindex="-1"></a></span>
+<span id="cb114-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-6" tabindex="-1"></a><span class="co"># Desviación estándar de la media muestral</span></span>
+<span id="cb114-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-7" tabindex="-1"></a>sigma_barX <span class="ot">&lt;-</span> sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb114-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-8" tabindex="-1"></a></span>
+<span id="cb114-9"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-9" tabindex="-1"></a><span class="co"># Valores críticos</span></span>
+<span id="cb114-10"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-10" tabindex="-1"></a>z <span class="ot">&lt;-</span> threshold <span class="sc">/</span> sigma_barX</span>
+<span id="cb114-11"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-11" tabindex="-1"></a></span>
+<span id="cb114-12"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-12" tabindex="-1"></a><span class="co"># Probabilidad</span></span>
+<span id="cb114-13"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-13" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z)</span>
+<span id="cb114-14"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb114-14" tabindex="-1"></a>p</span></code></pre></div>
+<pre><code>## [1] 0.9083097</code></pre>
 </div>
 <div id="resultado-final-2" class="section level4 hasAnchor" number="4.7.1.4">
 <h4><span class="header-section-number">4.7.1.4</span> Resultado final<a href="muestreo-y-distribuciones-en-el-muestreo.html#resultado-final-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -951,23 +951,23 @@ P\left(-\frac{0.1}{\sigma_{\hat{p}_1 - \hat{p}_2}} \leq Z \leq \frac{0.1}{\sigma
 <li><span class="math inline">\(p_1 = 0.1\)</span>, <span class="math inline">\(p_2 = 0.2\)</span>, <span class="math inline">\(n_1 = n_2 = 50\)</span></li>
 </ul>
 <p>Calculamos la varianza y la probabilidad asociada en R:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
-<span id="cb107-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
-<span id="cb107-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-3" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
-<span id="cb107-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-4" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb107-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-5" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb107-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-6" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
-<span id="cb107-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-7" tabindex="-1"></a></span>
-<span id="cb107-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-8" tabindex="-1"></a><span class="co"># Desviación estándar de la diferencia</span></span>
-<span id="cb107-9"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-9" tabindex="-1"></a>sigma_diff <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((p1 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p1) <span class="sc">/</span> n1) <span class="sc">+</span> (p2 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p2) <span class="sc">/</span> n2))</span>
-<span id="cb107-10"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-10" tabindex="-1"></a></span>
-<span id="cb107-11"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-11" tabindex="-1"></a><span class="co"># Valores críticos</span></span>
-<span id="cb107-12"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-12" tabindex="-1"></a>z <span class="ot">&lt;-</span> threshold <span class="sc">/</span> sigma_diff</span>
-<span id="cb107-13"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-13" tabindex="-1"></a></span>
-<span id="cb107-14"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-14" tabindex="-1"></a><span class="co"># Probabilidad</span></span>
-<span id="cb107-15"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-15" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z)</span>
-<span id="cb107-16"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb107-16" tabindex="-1"></a>p</span></code></pre></div>
-<pre><code>[1] 0.8427008</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-1" tabindex="-1"></a><span class="co"># Parámetros</span></span>
+<span id="cb116-2"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb116-3"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-3" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb116-4"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-4" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb116-5"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-5" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb116-6"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-6" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb116-7"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-7" tabindex="-1"></a></span>
+<span id="cb116-8"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-8" tabindex="-1"></a><span class="co"># Desviación estándar de la diferencia</span></span>
+<span id="cb116-9"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-9" tabindex="-1"></a>sigma_diff <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((p1 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p1) <span class="sc">/</span> n1) <span class="sc">+</span> (p2 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p2) <span class="sc">/</span> n2))</span>
+<span id="cb116-10"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-10" tabindex="-1"></a></span>
+<span id="cb116-11"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-11" tabindex="-1"></a><span class="co"># Valores críticos</span></span>
+<span id="cb116-12"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-12" tabindex="-1"></a>z <span class="ot">&lt;-</span> threshold <span class="sc">/</span> sigma_diff</span>
+<span id="cb116-13"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-13" tabindex="-1"></a></span>
+<span id="cb116-14"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-14" tabindex="-1"></a><span class="co"># Probabilidad</span></span>
+<span id="cb116-15"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-15" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z)</span>
+<span id="cb116-16"><a href="muestreo-y-distribuciones-en-el-muestreo.html#cb116-16" tabindex="-1"></a>p</span></code></pre></div>
+<pre><code>## [1] 0.8427008</code></pre>
 </div>
 <div id="conclusión-3" class="section level3 hasAnchor" number="4.9.3">
 <h3><span class="header-section-number">4.9.3</span> Conclusión<a href="muestreo-y-distribuciones-en-el-muestreo.html#conclusi%C3%B3n-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>

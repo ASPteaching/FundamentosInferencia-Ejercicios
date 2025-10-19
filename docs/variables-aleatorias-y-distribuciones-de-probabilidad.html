@@ -598,9 +598,9 @@ E(X^2) = 0^2 \cdot 0.30 + 1^2 \cdot 0.20 + 2^2 \cdot 0.50 = 0 + 0.20 + 2.00 = 2.
 <span id="cb16-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-5" tabindex="-1"></a>varianza <span class="ot">&lt;-</span> esperanza_cuadrado <span class="sc">-</span> esperanza<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb16-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-6" tabindex="-1"></a></span>
 <span id="cb16-7"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb16-7" tabindex="-1"></a>esperanza</span></code></pre></div>
-<pre><code>[1] 1.2</code></pre>
+<pre><code>## [1] 1.2</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb18-1" tabindex="-1"></a>varianza</span></code></pre></div>
-<pre><code>[1] 0.76</code></pre>
+<pre><code>## [1] 0.76</code></pre>
 <!-- ## Resultados -->
 <!-- La distribución de probabilidad de la variable $X$, que mide el número de genes sobre-expresados, tiene una esperanza de $1.20$ y una varianza de $0.76$. El gráfico anterior muestra la distribución de probabilidades. -->
 <hr>
@@ -652,7 +652,7 @@ K \sum_{x=0}^{5} \frac{1}{2+x} = 1
 <span id="cb20-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb20-4" tabindex="-1"></a><span class="co"># Calcular el valor de K</span></span>
 <span id="cb20-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb20-5" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> suma</span>
 <span id="cb20-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb20-6" tabindex="-1"></a>K</span></code></pre></div>
-<pre><code>[1] 0.6278027</code></pre>
+<pre><code>## [1] 0.6278027</code></pre>
 </div>
 <div id="esperanza-y-la-varianza" class="section level3 hasAnchor" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Esperanza y la varianza<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-y-la-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -679,9 +679,9 @@ E(X^2) = \sum_{x=0}^{5} x^2 \cdot p(x) = \sum_{x=0}^{5} x^2 \cdot \frac{K}{2+x}
 <span id="cb22-8"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-8" tabindex="-1"></a>varianza <span class="ot">&lt;-</span> esperanza_cuadrado <span class="sc">-</span> esperanza<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb22-9"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-9" tabindex="-1"></a></span>
 <span id="cb22-10"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb22-10" tabindex="-1"></a>esperanza</span></code></pre></div>
-<pre><code>[1] 1.766816</code></pre>
+<pre><code>## [1] 1.766816</code></pre>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb24-1" tabindex="-1"></a>varianza</span></code></pre></div>
-<pre><code>[1] 2.761769</code></pre>
+<pre><code>## [1] 2.761769</code></pre>
 </div>
 <div id="probabilidades" class="section level3 hasAnchor" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Probabilidades<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidades" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -694,7 +694,7 @@ P(X = 3) = p(3) = \frac{K}{2+3}
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb26-1" tabindex="-1"></a><span class="co"># Probabilidad de X = 3</span></span>
 <span id="cb26-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb26-2" tabindex="-1"></a>P_X_3 <span class="ot">&lt;-</span> K <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>)</span>
 <span id="cb26-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb26-3" tabindex="-1"></a>P_X_3</span></code></pre></div>
-<pre><code>[1] 0.1255605</code></pre>
+<pre><code>## [1] 0.1255605</code></pre>
 <p><strong>Probabilidad de que un tumor presente al menos una mutación</strong></p>
 <p>La probabilidad de que <span class="math inline">\(X \geq 1\)</span> es:</p>
 <p><span class="math display">\[
@@ -704,7 +704,7 @@ P(X \geq 1) = 1 - P(X = 0)
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb28-1" tabindex="-1"></a><span class="co"># Probabilidad de X &gt;= 1</span></span>
 <span id="cb28-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb28-2" tabindex="-1"></a>P_X_1 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> K <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">0</span>)</span>
 <span id="cb28-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb28-3" tabindex="-1"></a>P_X_1</span></code></pre></div>
-<pre><code>[1] 0.6860987</code></pre>
+<pre><code>## [1] 0.6860987</code></pre>
 <p><strong>Probabilidad de que un tumor presente como máximo dos mutaciones</strong></p>
 <p>La probabilidad de que <span class="math inline">\(X \leq 2\)</span> es:</p>
 <p><span class="math display">\[
@@ -714,7 +714,7 @@ P(X \leq 2) = P(X = 0) + P(X = 1) + P(X = 2)
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb30-1" tabindex="-1"></a><span class="co"># Probabilidad de X &lt;= 2</span></span>
 <span id="cb30-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb30-2" tabindex="-1"></a>P_X_2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(K <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>))</span>
 <span id="cb30-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb30-3" tabindex="-1"></a>P_X_2</span></code></pre></div>
-<pre><code>[1] 0.6801196</code></pre>
+<pre><code>## [1] 0.6801196</code></pre>
 </div>
 </div>
 <div id="ejercicio-2.3" class="section level2 hasAnchor" number="2.3">
@@ -927,10 +927,10 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <span id="cb34-10"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-10" tabindex="-1"></a><span class="co"># Probabilidad total P(X &gt;= 8)</span></span>
 <span id="cb34-11"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-11" tabindex="-1"></a>prob_total <span class="ot">&lt;-</span> prob_8 <span class="sc">+</span> prob_9 <span class="sc">+</span> prob_10</span>
 <span id="cb34-12"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb34-12" tabindex="-1"></a>prob_total</span></code></pre></div>
-<pre><code>[1] 0.6777995</code></pre>
+<pre><code>## [1] 0.6777995</code></pre>
 <p>Si usamos la funcion de distribución, <code>pbinom</code></p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb36-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pbinom</span> (<span class="dv">7</span>, <span class="at">size =</span> n, <span class="at">prob =</span> p)</span></code></pre></div>
-<pre><code>[1] 0.6777995</code></pre>
+<pre><code>## [1] 0.6777995</code></pre>
 <p>Naturalmente ambos resultados coinciden. Obsérvese que al ser <span class="math inline">\(p=0.8\)</span> valores altos resultan bastante probables, con lo que la</p>
 </div>
 </div>
@@ -952,7 +952,7 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <span id="cb38-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb38-2" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb38-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb38-3" tabindex="-1"></a>prob_10_muertes <span class="ot">&lt;-</span> <span class="fu">dpois</span>(k, lambda)</span>
 <span id="cb38-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb38-4" tabindex="-1"></a>prob_10_muertes</span></code></pre></div>
-<pre><code>[1] 0.1048373</code></pre>
+<pre><code>## [1] 0.1048373</code></pre>
 </div>
 <div id="probabilidad-de-que-15-o-más-personas-mueran" class="section level3 hasAnchor" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Probabilidad de que 15 o más personas mueran<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-15-o-m%C3%A1s-personas-mueran" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -962,7 +962,7 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb40-1" tabindex="-1"></a>k_15 <span class="ot">&lt;-</span> <span class="dv">14</span></span>
 <span id="cb40-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb40-2" tabindex="-1"></a>prob_15_o_mas <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">ppois</span>(k_15, lambda)</span>
 <span id="cb40-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb40-3" tabindex="-1"></a>prob_15_o_mas</span></code></pre></div>
-<pre><code>[1] 0.2279755</code></pre>
+<pre><code>## [1] 0.2279755</code></pre>
 </div>
 <div id="probabilidad-de-que-10-o-menos-personas-mueran" class="section level3 hasAnchor" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> Probabilidad de que 10 o menos personas mueran<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-que-10-o-menos-personas-mueran" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -971,7 +971,7 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <p>Calculamos esto en R:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb42-1" tabindex="-1"></a>prob_10_o_menos <span class="ot">&lt;-</span> <span class="fu">ppois</span>(k, lambda)</span>
 <span id="cb42-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb42-2" tabindex="-1"></a>prob_10_o_menos</span></code></pre></div>
-<pre><code>[1] 0.3472294</code></pre>
+<pre><code>## [1] 0.3472294</code></pre>
 </div>
 <div id="conclusión" class="section level3 hasAnchor" number="2.5.4">
 <h3><span class="header-section-number">2.5.4</span> Conclusión<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#conclusi%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -979,17 +979,17 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <li>La probabilidad de que haya exactamente 10 muertes es:</li>
 </ol>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb44-1" tabindex="-1"></a>prob_10_muertes</span></code></pre></div>
-<pre><code>[1] 0.1048373</code></pre>
+<pre><code>## [1] 0.1048373</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>La probabilidad de que 15 o más personas mueran es:</li>
 </ol>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb46-1" tabindex="-1"></a>prob_15_o_mas</span></code></pre></div>
-<pre><code>[1] 0.2279755</code></pre>
+<pre><code>## [1] 0.2279755</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>La probabilidad de que 10 o menos personas mueran es:</li>
 </ol>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb48-1" tabindex="-1"></a>prob_10_o_menos</span></code></pre></div>
-<pre><code>[1] 0.3472294</code></pre>
+<pre><code>## [1] 0.3472294</code></pre>
 </div>
 </div>
 <div id="ejercicio-2.6" class="section level2 hasAnchor" number="2.6">
@@ -1060,7 +1060,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <span id="cb50-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb50-3" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb50-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb50-4" tabindex="-1"></a>prob_binom_10 <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(k, n, p)</span>
 <span id="cb50-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb50-5" tabindex="-1"></a>prob_binom_10</span></code></pre></div>
-<pre><code>[1] 0.04591681</code></pre>
+<pre><code>## [1] 0.04591681</code></pre>
 </div>
 <div id="usando-la-aproximación-de-poisson" class="section level4 hasAnchor" number="2.6.5.2">
 <h4><span class="header-section-number">2.6.5.2</span> Usando la aproximación de Poisson<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#usando-la-aproximaci%C3%B3n-de-poisson" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1070,7 +1070,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb52-1" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">15</span></span>
 <span id="cb52-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb52-2" tabindex="-1"></a>prob_pois_10 <span class="ot">&lt;-</span> <span class="fu">dpois</span>(k, lambda)</span>
 <span id="cb52-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb52-3" tabindex="-1"></a>prob_pois_10</span></code></pre></div>
-<pre><code>[1] 0.04861075</code></pre>
+<pre><code>## [1] 0.04861075</code></pre>
 </div>
 </div>
 <div id="conclusión-1" class="section level3 hasAnchor" number="2.6.6">
@@ -1082,12 +1082,12 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <li>Usando la distribución binomial:</li>
 </ul>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb54-1" tabindex="-1"></a>prob_binom_10</span></code></pre></div>
-<pre><code>[1] 0.04591681</code></pre>
+<pre><code>## [1] 0.04591681</code></pre>
 <ul>
 <li>Usando la aproximación de Poisson:</li>
 </ul>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb56-1" tabindex="-1"></a>prob_pois_10</span></code></pre></div>
-<pre><code>[1] 0.04861075</code></pre></li>
+<pre><code>## [1] 0.04861075</code></pre></li>
 </ul>
 <p>Ambos métodos dan resultados similares, pero el modelo de Poisson es útil para simplificar los cálculos cuando el número total de mutaciones es grande y la probabilidad de cada evento es pequeña.</p>
 </div>
@@ -1111,7 +1111,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb58-1" tabindex="-1"></a><span class="co"># Calculamos la probabilidad con la función pnorm</span></span>
 <span id="cb58-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb58-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fl">1.75</span>)</span>
 <span id="cb58-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb58-3" tabindex="-1"></a>p1</span></code></pre></div>
-<pre><code>[1] 0.9599408</code></pre>
+<pre><code>## [1] 0.9599408</code></pre>
 </div>
 <div id="porcentaje-de-diabéticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120" class="section level3 hasAnchor" number="2.7.2">
 <h3><span class="header-section-number">2.7.2</span> Porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#porcentaje-de-diab%C3%A9ticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1126,7 +1126,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <span id="cb60-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-3" tabindex="-1"></a>p2_90 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">2.00</span>)</span>
 <span id="cb60-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-4" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p2_120 <span class="sc">-</span> p2_90</span>
 <span id="cb60-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb60-5" tabindex="-1"></a>p2</span></code></pre></div>
-<pre><code>[1] 0.9371907</code></pre>
+<pre><code>## [1] 0.9371907</code></pre>
 </div>
 <div id="hallar-el-nivel-de-glucosa-p25" class="section level3 hasAnchor" number="2.7.3">
 <h3><span class="header-section-number">2.7.3</span> Hallar el nivel de glucosa “p25”<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#hallar-el-nivel-de-glucosa-p25" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1140,7 +1140,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <span id="cb62-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-3" tabindex="-1"></a><span class="co"># Calculamos el p25 en la escala original</span></span>
 <span id="cb62-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-4" tabindex="-1"></a>p25 <span class="ot">&lt;-</span> <span class="dv">106</span> <span class="sc">+</span> z_p25 <span class="sc">*</span> <span class="dv">8</span></span>
 <span id="cb62-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb62-5" tabindex="-1"></a>p25</span></code></pre></div>
-<pre><code>[1] 100.6041</code></pre>
+<pre><code>## [1] 100.6041</code></pre>
 </div>
 <div id="resumen-de-resultados" class="section level3 hasAnchor" number="2.7.4">
 <h3><span class="header-section-number">2.7.4</span> Resumen de resultados:<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#resumen-de-resultados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1180,7 +1180,7 @@ P(X_d \leq x) = 0.02
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb64-1" tabindex="-1"></a><span class="co"># Nivel de glucosa límite para clasificar como sano</span></span>
 <span id="cb64-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb64-2" tabindex="-1"></a>percentil_sano <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.02</span>, <span class="at">mean =</span> <span class="dv">160</span>, <span class="at">sd =</span> <span class="fl">31.4</span>)</span>
 <span id="cb64-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb64-3" tabindex="-1"></a>percentil_sano</span></code></pre></div>
-<pre><code>[1] 95.51228</code></pre>
+<pre><code>## [1] 95.51228</code></pre>
 <p>El valor obtenido nos da el límite de glucosa por debajo del cual un individuo será considerado sano. Ahora, para calcular cuántos individuos sanos serán clasificados como diabéticos, necesitamos calcular el porcentaje de individuos sanos cuya glucemia será superior a este valor límite. Dado que <span class="math inline">\(X_s \sim N(\mu = 80, \sigma = 10)\)</span>, calculamos la probabilidad:</p>
 <p><span class="math display">\[
 P(X_s &gt; \text{percentil\_sano})
@@ -1189,7 +1189,7 @@ P(X_s &gt; \text{percentil\_sano})
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb66-1" tabindex="-1"></a><span class="co"># Probabilidad de que un sano sea clasificado como diabético</span></span>
 <span id="cb66-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb66-2" tabindex="-1"></a>prob_sano_como_diabetico <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(percentil_sano, <span class="at">mean =</span> <span class="dv">80</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
 <span id="cb66-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb66-3" tabindex="-1"></a>prob_sano_como_diabetico</span></code></pre></div>
-<pre><code>[1] 0.06042348</code></pre>
+<pre><code>## [1] 0.06042348</code></pre>
 <p>Esto nos dará la probabilidad de que un individuo sano sea clasificado erróneamente como diabético. Para encontrar el número de sanos clasificados como diabéticos en una población, multiplicamos esta probabilidad por el número total de sanos en la población.</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb68-1" tabindex="-1"></a><span class="co"># Parámetros de las distribuciones</span></span>
 <span id="cb68-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb68-2" tabindex="-1"></a>mu_s <span class="ot">&lt;-</span> <span class="dv">80</span>;  sigma_s <span class="ot">&lt;-</span> <span class="dv">10</span>       <span class="co"># sanos</span></span>
@@ -1203,41 +1203,56 @@ P(X_s &gt; \text{percentil\_sano})
 <span id="cb68-10"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb68-10" tabindex="-1"></a></span>
 <span id="cb68-11"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb68-11" tabindex="-1"></a><span class="co"># Mostrar resultados</span></span>
 <span id="cb68-12"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb68-12" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Punto de corte:&quot;</span>, <span class="fu">round</span>(corte, <span class="dv">2</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>Punto de corte: 95.51 </code></pre>
+<pre><code>## Punto de corte: 95.51</code></pre>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb70-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Proporción de sanos mal clasificados:&quot;</span>, <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> p_error_sano, <span class="dv">2</span>), <span class="st">&quot;%</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>Proporción de sanos mal clasificados: 6.04 %</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-1" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span>
-<span id="cb72-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-2" tabindex="-1"></a><span class="fu">require</span>(dplyr)</span>
-<span id="cb72-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-3" tabindex="-1"></a></span>
-<span id="cb72-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-4" tabindex="-1"></a><span class="co"># Datos para las curvas</span></span>
-<span id="cb72-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">240</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
-<span id="cb72-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-6" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb72-7"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-7" tabindex="-1"></a>  <span class="at">x =</span> x,</span>
-<span id="cb72-8"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-8" tabindex="-1"></a>  <span class="at">sano =</span> <span class="fu">dnorm</span>(x, mu_s, sigma_s),</span>
-<span id="cb72-9"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-9" tabindex="-1"></a>  <span class="at">diabetico =</span> <span class="fu">dnorm</span>(x, mu_d, sigma_d)</span>
-<span id="cb72-10"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-10" tabindex="-1"></a>)</span>
-<span id="cb72-11"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-11" tabindex="-1"></a></span>
-<span id="cb72-12"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-12" tabindex="-1"></a><span class="co"># Datos para el sombreado</span></span>
-<span id="cb72-13"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-13" tabindex="-1"></a>zona_sanos_mal <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(x <span class="sc">&gt;</span> percentil_sano) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">dens =</span> sano)</span>
-<span id="cb72-14"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-14" tabindex="-1"></a>zona_diabeticos_mal <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(x <span class="sc">&lt;=</span> percentil_sano) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">dens =</span> diabetico)</span>
-<span id="cb72-15"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-15" tabindex="-1"></a></span>
-<span id="cb72-16"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-16" tabindex="-1"></a><span class="co"># Gráficos</span></span>
-<span id="cb72-17"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-17" tabindex="-1"></a>  </span>
-<span id="cb72-18"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-18" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb72-19"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-19" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> sano, <span class="at">color =</span> <span class="st">&quot;Sanos&quot;</span>), <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb72-20"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-20" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> diabetico, <span class="at">color =</span> <span class="st">&quot;Diabéticos&quot;</span>), <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb72-21"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-21" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> zona_sanos_mal, <span class="fu">aes</span>(<span class="at">y =</span> dens, <span class="at">fill =</span> <span class="st">&quot;Sanos → diagnóstico diabético&quot;</span>), <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb72-22"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-22" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> zona_diabeticos_mal, <span class="fu">aes</span>(<span class="at">y =</span> dens, <span class="at">fill =</span> <span class="st">&quot;Diabéticos → diagnóstico sano&quot;</span>), <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb72-23"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-23" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> percentil_sano, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb72-24"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-24" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> percentil_sano <span class="sc">+</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="fl">0.004</span>, </span>
-<span id="cb72-25"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-25" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">&quot;Corte = &quot;</span>, <span class="fu">round</span>(percentil_sano, <span class="dv">1</span>)), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb72-26"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-26" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Sanos&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;Diabéticos&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb72-27"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-27" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Sanos → diagnóstico diabético&quot;</span> <span class="ot">=</span> <span class="st">&quot;skyblue&quot;</span>, </span>
-<span id="cb72-28"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-28" tabindex="-1"></a>                               <span class="st">&quot;Diabéticos → diagnóstico sano&quot;</span> <span class="ot">=</span> <span class="st">&quot;salmon&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb72-29"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-29" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribuciones de glucemia en sanos y diabéticos&quot;</span>,</span>
-<span id="cb72-30"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-30" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Glucemia (mg/dL)&quot;</span>,</span>
-<span id="cb72-31"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-31" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Distribución&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Zona sombreada&quot;</span>) <span class="sc">+</span></span>
-<span id="cb72-32"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-32" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div>
+<pre><code>## Proporción de sanos mal clasificados: 6.04 %</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb72-1" tabindex="-1"></a><span class="fu">require</span>(ggplot2)</span></code></pre></div>
+<pre><code>## Cargando paquete requerido: ggplot2</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.4.3</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb75-1" tabindex="-1"></a><span class="fu">require</span>(dplyr)</span></code></pre></div>
+<pre><code>## Cargando paquete requerido: dplyr</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-1" tabindex="-1"></a><span class="co"># Datos para las curvas</span></span>
+<span id="cb80-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">240</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb80-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb80-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-4" tabindex="-1"></a>  <span class="at">x =</span> x,</span>
+<span id="cb80-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-5" tabindex="-1"></a>  <span class="at">sano =</span> <span class="fu">dnorm</span>(x, mu_s, sigma_s),</span>
+<span id="cb80-6"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-6" tabindex="-1"></a>  <span class="at">diabetico =</span> <span class="fu">dnorm</span>(x, mu_d, sigma_d)</span>
+<span id="cb80-7"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-7" tabindex="-1"></a>)</span>
+<span id="cb80-8"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-8" tabindex="-1"></a></span>
+<span id="cb80-9"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-9" tabindex="-1"></a><span class="co"># Datos para el sombreado</span></span>
+<span id="cb80-10"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-10" tabindex="-1"></a>zona_sanos_mal <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(x <span class="sc">&gt;</span> percentil_sano) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">dens =</span> sano)</span>
+<span id="cb80-11"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-11" tabindex="-1"></a>zona_diabeticos_mal <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(x <span class="sc">&lt;=</span> percentil_sano) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">dens =</span> diabetico)</span>
+<span id="cb80-12"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-12" tabindex="-1"></a></span>
+<span id="cb80-13"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-13" tabindex="-1"></a><span class="co"># Gráficos</span></span>
+<span id="cb80-14"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-14" tabindex="-1"></a>  </span>
+<span id="cb80-15"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-15" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb80-16"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-16" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> sano, <span class="at">color =</span> <span class="st">&quot;Sanos&quot;</span>), <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb80-17"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-17" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> diabetico, <span class="at">color =</span> <span class="st">&quot;Diabéticos&quot;</span>), <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb80-18"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-18" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> zona_sanos_mal, <span class="fu">aes</span>(<span class="at">y =</span> dens, <span class="at">fill =</span> <span class="st">&quot;Sanos → diagnóstico diabético&quot;</span>), <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb80-19"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-19" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> zona_diabeticos_mal, <span class="fu">aes</span>(<span class="at">y =</span> dens, <span class="at">fill =</span> <span class="st">&quot;Diabéticos → diagnóstico sano&quot;</span>), <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb80-20"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-20" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> percentil_sano, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb80-21"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-21" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> percentil_sano <span class="sc">+</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="fl">0.004</span>, </span>
+<span id="cb80-22"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-22" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">&quot;Corte = &quot;</span>, <span class="fu">round</span>(percentil_sano, <span class="dv">1</span>)), <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb80-23"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-23" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Sanos&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;Diabéticos&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb80-24"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-24" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Sanos → diagnóstico diabético&quot;</span> <span class="ot">=</span> <span class="st">&quot;skyblue&quot;</span>, </span>
+<span id="cb80-25"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-25" tabindex="-1"></a>                               <span class="st">&quot;Diabéticos → diagnóstico sano&quot;</span> <span class="ot">=</span> <span class="st">&quot;salmon&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb80-26"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-26" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribuciones de glucemia en sanos y diabéticos&quot;</span>,</span>
+<span id="cb80-27"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-27" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Glucemia (mg/dL)&quot;</span>,</span>
+<span id="cb80-28"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-28" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Distribución&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Zona sombreada&quot;</span>) <span class="sc">+</span></span>
+<span id="cb80-29"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb80-29" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-34-1.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="cuál-es-la-probabilidad-de-que-un-individuo-elegido-al-azar-y-diagnosticado-como-diabético-realmente-lo-sea" class="section level2 hasAnchor" number="2.10">
@@ -1248,10 +1263,10 @@ P(X_s &gt; \text{percentil\_sano})
 <li>La probabilidad de que un diabético sea diagnosticado como diabético es <span class="math inline">\(P(\text{diagnóstico} | D)\)</span>, lo cual corresponde a la probabilidad de que un individuo con glucosa <span class="math inline">\(X_d \sim N(160, 31.4)\)</span> sea diagnosticado como diabético, es decir, que su nivel de glucosa sea superior al valor límite de clasificación.</li>
 </ul>
 <p>Para calcular <span class="math inline">\(P(\text{diagnóstico} | D)\)</span>, primero calculamos la probabilidad de que un diabético sea diagnosticado como tal. Es decir, que su nivel de glucosa sea superior al valor que hemos calculado anteriormente para los sanos:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb73-1" tabindex="-1"></a><span class="co"># Probabilidad de que un diabético sea diagnosticado como diabético</span></span>
-<span id="cb73-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb73-2" tabindex="-1"></a>prob_diabetico_diagnosticado <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(percentil_sano, <span class="at">mean =</span> <span class="dv">160</span>, <span class="at">sd =</span> <span class="fl">31.4</span>)</span>
-<span id="cb73-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb73-3" tabindex="-1"></a>prob_diabetico_diagnosticado</span></code></pre></div>
-<pre><code>[1] 0.98</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb82-1" tabindex="-1"></a><span class="co"># Probabilidad de que un diabético sea diagnosticado como diabético</span></span>
+<span id="cb82-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb82-2" tabindex="-1"></a>prob_diabetico_diagnosticado <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(percentil_sano, <span class="at">mean =</span> <span class="dv">160</span>, <span class="at">sd =</span> <span class="fl">31.4</span>)</span>
+<span id="cb82-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb82-3" tabindex="-1"></a>prob_diabetico_diagnosticado</span></code></pre></div>
+<pre><code>## [1] 0.98</code></pre>
 <p>La probabilidad de que un individuo seleccionado al azar y diagnosticado como diabético realmente lo sea se puede obtener usando la fórmula de probabilidad condicional de Bayes:</p>
 <p><span class="math display">\[
 P(D | \text{diagnóstico}) = \frac{P(\text{diagnóstico} | D) P(D)}{P(\text{diagnóstico})}
@@ -1262,25 +1277,25 @@ P(\text{diagnóstico}) = P(\text{diagnóstico} | D) P(D) + P(\text{diagnóstico}
 \]</span></p>
 <p>Donde <span class="math inline">\(P(\text{diagnóstico} | S)\)</span> es la probabilidad de que un sano sea diagnosticado erróneamente como diabético, y <span class="math inline">\(P(S) = 0.90\)</span> es la probabilidad de que un individuo seleccionado al azar sea sano.</p>
 <p>Primero, calculamos la probabilidad dwe que estando sano, sea diagnosticado como diabético, es decir que su glucosa supere el punto de corte que hemos denominado <code>percentil_sano</code>.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb75-1" tabindex="-1"></a>prob_sano_diagnosticado <span class="ot">&lt;-</span> </span>
-<span id="cb75-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb75-2" tabindex="-1"></a> <span class="dv">1</span><span class="sc">-</span> <span class="fu">pnorm</span>(percentil_sano, <span class="at">mean =</span> <span class="dv">80</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb75-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb75-3" tabindex="-1"></a>prob_sano_diagnosticado</span></code></pre></div>
-<pre><code>[1] 0.06042348</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb84-1" tabindex="-1"></a>prob_sano_diagnosticado <span class="ot">&lt;-</span> </span>
+<span id="cb84-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb84-2" tabindex="-1"></a> <span class="dv">1</span><span class="sc">-</span> <span class="fu">pnorm</span>(percentil_sano, <span class="at">mean =</span> <span class="dv">80</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb84-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb84-3" tabindex="-1"></a>prob_sano_diagnosticado</span></code></pre></div>
+<pre><code>## [1] 0.06042348</code></pre>
 <p>A partir de aquí podemos aplicar la fórmula de las probabilidades totales para calcular la probabilidad de ser diagnosticado.</p>
 <p><span class="math inline">\(P(\text{diagnóstico})\)</span>:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb77-1" tabindex="-1"></a><span class="co"># Probabilidad de diagnóstico en la población general</span></span>
-<span id="cb77-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb77-2" tabindex="-1"></a>prob_diagnostico_total <span class="ot">&lt;-</span> </span>
-<span id="cb77-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb77-3" tabindex="-1"></a>  prob_diabetico_diagnosticado <span class="sc">*</span> <span class="fl">0.10</span> <span class="sc">+</span> </span>
-<span id="cb77-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb77-4" tabindex="-1"></a>  prob_sano_diagnosticado <span class="sc">*</span> <span class="fl">0.90</span></span>
-<span id="cb77-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb77-5" tabindex="-1"></a>prob_diagnostico_total</span></code></pre></div>
-<pre><code>[1] 0.1523811</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb86-1" tabindex="-1"></a><span class="co"># Probabilidad de diagnóstico en la población general</span></span>
+<span id="cb86-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb86-2" tabindex="-1"></a>prob_diagnostico_total <span class="ot">&lt;-</span> </span>
+<span id="cb86-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb86-3" tabindex="-1"></a>  prob_diabetico_diagnosticado <span class="sc">*</span> <span class="fl">0.10</span> <span class="sc">+</span> </span>
+<span id="cb86-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb86-4" tabindex="-1"></a>  prob_sano_diagnosticado <span class="sc">*</span> <span class="fl">0.90</span></span>
+<span id="cb86-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb86-5" tabindex="-1"></a>prob_diagnostico_total</span></code></pre></div>
+<pre><code>## [1] 0.1523811</code></pre>
 <p>Luego, calculamos la probabilidad condicional:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb79-1" tabindex="-1"></a><span class="co"># Probabilidad de que un individuo diagnosticado como diabético realmente lo sea</span></span>
-<span id="cb79-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb79-2" tabindex="-1"></a>prob_diagnostico_given_diabetico <span class="ot">&lt;-</span> </span>
-<span id="cb79-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb79-3" tabindex="-1"></a>  (prob_diabetico_diagnosticado <span class="sc">*</span> <span class="fl">0.10</span>) <span class="sc">/</span> </span>
-<span id="cb79-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb79-4" tabindex="-1"></a>  prob_diagnostico_total</span>
-<span id="cb79-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb79-5" tabindex="-1"></a>prob_diagnostico_given_diabetico</span></code></pre></div>
-<pre><code>[1] 0.6431243</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb88-1" tabindex="-1"></a><span class="co"># Probabilidad de que un individuo diagnosticado como diabético realmente lo sea</span></span>
+<span id="cb88-2"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb88-2" tabindex="-1"></a>prob_diagnostico_given_diabetico <span class="ot">&lt;-</span> </span>
+<span id="cb88-3"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb88-3" tabindex="-1"></a>  (prob_diabetico_diagnosticado <span class="sc">*</span> <span class="fl">0.10</span>) <span class="sc">/</span> </span>
+<span id="cb88-4"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb88-4" tabindex="-1"></a>  prob_diagnostico_total</span>
+<span id="cb88-5"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#cb88-5" tabindex="-1"></a>prob_diagnostico_given_diabetico</span></code></pre></div>
+<pre><code>## [1] 0.6431243</code></pre>
 <p>Este valor es la probabilidad de que un individuo diagnosticado como diabético realmente lo sea, teniendo en cuenta tanto los errores de diagnóstico como las probabilidades de ser diabético o sano en la población.</p>
 </div>
 <div id="ejercicio-2.9" class="section level2 hasAnchor" number="2.11">

@@ -566,43 +566,43 @@ En una población con 12.637 niños, ¿debe hacerse la campaña si, de 387 de el
 <p>Si nos basamos en el p-valor, el criterio de decisiónserá **rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\alpha &gt; pval\)</span></p>
 <p>Podemos ahora realizar los cálculos:</p>
 <p>El valor crítico es:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb150-1" tabindex="-1"></a>alpha<span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
-<span id="cb150-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb150-2" tabindex="-1"></a>zalpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="sc">-</span>alpha)</span>
-<span id="cb150-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb150-3" tabindex="-1"></a>zalpha</span></code></pre></div>
-<pre><code>[1] 1.644854</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb159-1" tabindex="-1"></a>alpha<span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb159-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb159-2" tabindex="-1"></a>zalpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="sc">-</span>alpha)</span>
+<span id="cb159-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb159-3" tabindex="-1"></a>zalpha</span></code></pre></div>
+<pre><code>## [1] 1.644854</code></pre>
 <p>La proporción muestral, <span class="math inline">\(\hat{p}\)</span></p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb152-1" tabindex="-1"></a><span class="co"># Datos del problema</span></span>
-<span id="cb152-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb152-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">70</span></span>
-<span id="cb152-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb152-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">387</span></span>
-<span id="cb152-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb152-4" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fl">0.15</span></span>
-<span id="cb152-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb152-5" tabindex="-1"></a></span>
-<span id="cb152-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb152-6" tabindex="-1"></a><span class="co"># Proporción muestral</span></span>
-<span id="cb152-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb152-7" tabindex="-1"></a>phat <span class="ot">&lt;-</span> x <span class="sc">/</span> n</span>
-<span id="cb152-8"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb152-8" tabindex="-1"></a>phat</span></code></pre></div>
-<pre><code>[1] 0.1808786</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb161-1" tabindex="-1"></a><span class="co"># Datos del problema</span></span>
+<span id="cb161-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb161-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb161-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb161-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">387</span></span>
+<span id="cb161-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb161-4" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fl">0.15</span></span>
+<span id="cb161-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb161-5" tabindex="-1"></a></span>
+<span id="cb161-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb161-6" tabindex="-1"></a><span class="co"># Proporción muestral</span></span>
+<span id="cb161-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb161-7" tabindex="-1"></a>phat <span class="ot">&lt;-</span> x <span class="sc">/</span> n</span>
+<span id="cb161-8"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb161-8" tabindex="-1"></a>phat</span></code></pre></div>
+<pre><code>## [1] 0.1808786</code></pre>
 <p>El valor del estadístico de test, calculado sobre la muestra será:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb154-1" tabindex="-1"></a><span class="co"># Estadístico z0</span></span>
-<span id="cb154-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb154-2" tabindex="-1"></a>z0 <span class="ot">&lt;-</span> (phat <span class="sc">-</span> p0) <span class="sc">/</span> <span class="fu">sqrt</span>(p0 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p0) <span class="sc">/</span> n)</span>
-<span id="cb154-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb154-3" tabindex="-1"></a>z0</span></code></pre></div>
-<pre><code>[1] 1.701208</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb163-1" tabindex="-1"></a><span class="co"># Estadístico z0</span></span>
+<span id="cb163-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb163-2" tabindex="-1"></a>z0 <span class="ot">&lt;-</span> (phat <span class="sc">-</span> p0) <span class="sc">/</span> <span class="fu">sqrt</span>(p0 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p0) <span class="sc">/</span> n)</span>
+<span id="cb163-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb163-3" tabindex="-1"></a>z0</span></code></pre></div>
+<pre><code>## [1] 1.701208</code></pre>
 <p>El p-valor se calcula como:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb156-1" tabindex="-1"></a>pval <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z0, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span>
-<span id="cb156-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb156-2" tabindex="-1"></a>pval</span></code></pre></div>
-<pre><code>[1] 0.044452</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb165-1" tabindex="-1"></a>pval <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z0, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span>
+<span id="cb165-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb165-2" tabindex="-1"></a>pval</span></code></pre></div>
+<pre><code>## [1] 0.044452</code></pre>
 <p>Finalmente, para tomar la decisión comparamos</p>
 <ul>
 <li><p><code>z0</code>con <span class="math inline">\(z_\alpha\)</span>: Si <span class="math inline">\(z0 &gt; z_\alpha\)</span> rechazamos <span class="math inline">\(H_0\)</span></p></li>
 <li><p><code>pval</code>con <span class="math inline">\(\alpha\)</span>: Si <span class="math inline">\(pval &lt; \alpha\)</span> rechazamos <span class="math inline">\(H_0\)</span></p></li>
 </ul>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb158-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;zalpha vale: &quot;</span>, zalpha)</span></code></pre></div>
-<pre><code>zalpha vale:  1.644854</code></pre>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb160-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;z0 vale    : &quot;</span>, z0)</span></code></pre></div>
-<pre><code>z0 vale    :  1.701208</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb167-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;zalpha vale: &quot;</span>, zalpha)</span></code></pre></div>
+<pre><code>## zalpha vale:  1.644854</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb169-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;z0 vale    : &quot;</span>, z0)</span></code></pre></div>
+<pre><code>## z0 vale    :  1.701208</code></pre>
 <p>Es decir <span class="math inline">\(Z0 &gt; Z_\alpha\)</span> lo que nos lleva a rechazar la hipótesis nula y</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb162-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;alpha vale : &quot;</span>, alpha)</span></code></pre></div>
-<pre><code>alpha vale :  0.05</code></pre>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb164-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;pval vale  : &quot;</span>, pval)</span></code></pre></div>
-<pre><code>pval vale  :  0.044452</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb171-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;alpha vale : &quot;</span>, alpha)</span></code></pre></div>
+<pre><code>## alpha vale :  0.05</code></pre>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb173-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;pval vale  : &quot;</span>, pval)</span></code></pre></div>
+<pre><code>## pval vale  :  0.044452</code></pre>
 <p>El pvalor es <span class="math inline">\(pval &lt; \alpha\)</span> lo que también lleva a rechazar <span class="math inline">\(H_0\)</span>.</p>
 <p>Ambos criterios nos llevan a rechazar la hipótesis nula, es decir
 a concluir que la proporción de niños con dientes cariados en la población es significativamente mayor que el 15%, con una probabilidad de error de tipo I igual a 0.05.</p>
@@ -644,31 +644,31 @@ a concluir que la proporción de niños con dientes cariados en la población es
 - <span class="math inline">\(n = 10\)</span> es el tamaño de la muestra.</p>
 <p>Fijaremos el nivel de significación <span class="math inline">\(\alpha = 0.05\)</span> y determinaremos el valor crítico <span class="math inline">\(t_\alpha\)</span>, que será el cuantil correspondiente en una <span class="math inline">\(t\)</span> con <span class="math inline">\(n - 1 = 9\)</span> grados de libertad. Alternativamente, calcularemos el p-valor para decidir si rechazamos <span class="math inline">\(H_0\)</span>, en caso que éste sea inferior al nivel de significación del test.</p>
 <p>Procedemos a realizar los cálculos:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-1" tabindex="-1"></a><span class="co"># Datos</span></span>
-<span id="cb166-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-2" tabindex="-1"></a>xbar <span class="ot">&lt;-</span> <span class="fl">3.5</span></span>
-<span id="cb166-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-3" tabindex="-1"></a>mu0 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb166-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-4" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb166-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-5" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb166-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-6" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
-<span id="cb166-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-7" tabindex="-1"></a></span>
-<span id="cb166-8"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-8" tabindex="-1"></a><span class="co"># Estadístico  de test</span></span>
-<span id="cb166-9"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-9" tabindex="-1"></a>t_stat <span class="ot">&lt;-</span> (xbar <span class="sc">-</span> mu0) <span class="sc">/</span> (s <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
-<span id="cb166-10"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-10" tabindex="-1"></a></span>
-<span id="cb166-11"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-11" tabindex="-1"></a><span class="co"># Valor crítico t_alpha</span></span>
-<span id="cb166-12"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-12" tabindex="-1"></a>t_alpha <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb166-13"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-13" tabindex="-1"></a></span>
-<span id="cb166-14"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-14" tabindex="-1"></a><span class="co"># P-valor</span></span>
-<span id="cb166-15"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-15" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="fu">pt</span>(t_stat, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb166-16"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-16" tabindex="-1"></a></span>
-<span id="cb166-17"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb166-17" tabindex="-1"></a><span class="fu">list</span>(<span class="at">t_stat =</span> t_stat, <span class="at">t_alpha =</span> t_alpha, <span class="at">p_value =</span> p_value)</span></code></pre></div>
-<pre><code>$t_stat
-[1] -3.162278
-
-$t_alpha
-[1] -1.833113
-
-$p_value
-[1] 0.005753993</code></pre>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-1" tabindex="-1"></a><span class="co"># Datos</span></span>
+<span id="cb175-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-2" tabindex="-1"></a>xbar <span class="ot">&lt;-</span> <span class="fl">3.5</span></span>
+<span id="cb175-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-3" tabindex="-1"></a>mu0 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb175-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-4" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb175-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-5" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb175-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-6" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb175-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-7" tabindex="-1"></a></span>
+<span id="cb175-8"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-8" tabindex="-1"></a><span class="co"># Estadístico  de test</span></span>
+<span id="cb175-9"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-9" tabindex="-1"></a>t_stat <span class="ot">&lt;-</span> (xbar <span class="sc">-</span> mu0) <span class="sc">/</span> (s <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
+<span id="cb175-10"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-10" tabindex="-1"></a></span>
+<span id="cb175-11"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-11" tabindex="-1"></a><span class="co"># Valor crítico t_alpha</span></span>
+<span id="cb175-12"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-12" tabindex="-1"></a>t_alpha <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb175-13"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-13" tabindex="-1"></a></span>
+<span id="cb175-14"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-14" tabindex="-1"></a><span class="co"># P-valor</span></span>
+<span id="cb175-15"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-15" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="fu">pt</span>(t_stat, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb175-16"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-16" tabindex="-1"></a></span>
+<span id="cb175-17"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb175-17" tabindex="-1"></a><span class="fu">list</span>(<span class="at">t_stat =</span> t_stat, <span class="at">t_alpha =</span> t_alpha, <span class="at">p_value =</span> p_value)</span></code></pre></div>
+<pre><code>## $t_stat
+## [1] -3.162278
+## 
+## $t_alpha
+## [1] -1.833113
+## 
+## $p_value
+## [1] 0.005753993</code></pre>
 <p>A la vista de los resultados dado que el valor del estadístico de test es <span class="math inline">\(t_{stat}&lt; t_\alpha\)</span> podemos rechazar <span class="math inline">\(H_0\)</span>.</p>
 <p>Llegamos a la misma conclusión si comparamos el p-valor con <span class="math inline">\(\alpha\)</span>: <span class="math inline">\(pval &lt; \alpha\)</span>.</p>
 <p>Podemos concluir que los datos proporcionan suficiente evidencia para afirmar que la media de d-xilosa en los pacientes es menor de 4 gramos lo que implica, con una probabilidad de error de tipo I del 0.05, que los pacientes sufren de mala absorción intestinal.</p>
@@ -764,74 +764,74 @@ $p_value
 - <span class="math display">\[ R_i \]</span> es el rango absoluto asignado a la diferencia <span class="math display">\[ |d_i| \]</span>, ordenada en valor absoluto.</p>
 <p>El valor observado de <span class="math display">\[ W \]</span> se compara con su distribución teórica bajo la hipótesis nula para calcular el p-valor. Dicha distribución puede ser exacta o aproximada, pero aquí no profundizaremos en ello.</p>
 <p>Procedemos a realizar los cálculos con R:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-1" tabindex="-1"></a><span class="co"># Datos</span></span>
-<span id="cb168-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-2" tabindex="-1"></a>placebo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">211</span>, <span class="dv">210</span>, <span class="dv">210</span>, <span class="dv">203</span>, <span class="dv">196</span>, <span class="dv">190</span>, <span class="dv">191</span>, <span class="dv">177</span>, <span class="dv">173</span>, <span class="dv">170</span>, <span class="dv">163</span>)</span>
-<span id="cb168-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-3" tabindex="-1"></a>h_cloro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">181</span>, <span class="dv">172</span>, <span class="dv">196</span>, <span class="dv">191</span>, <span class="dv">167</span>, <span class="dv">161</span>, <span class="dv">178</span>, <span class="dv">160</span>, <span class="dv">149</span>, <span class="dv">119</span>, <span class="dv">156</span>)</span>
-<span id="cb168-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-4" tabindex="-1"></a></span>
-<span id="cb168-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-5" tabindex="-1"></a><span class="co"># Diferencias</span></span>
-<span id="cb168-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-6" tabindex="-1"></a>meandiff <span class="ot">&lt;-</span> <span class="fu">mean</span>(h_cloro <span class="sc">-</span> placebo)</span>
-<span id="cb168-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-7" tabindex="-1"></a></span>
-<span id="cb168-8"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-8" tabindex="-1"></a><span class="co"># Paramétrico: Test t de Student</span></span>
-<span id="cb168-9"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-9" tabindex="-1"></a>t_test <span class="ot">&lt;-</span> <span class="fu">t.test</span>(h_cloro, placebo, <span class="at">mu =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb168-10"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-10" tabindex="-1"></a></span>
-<span id="cb168-11"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-11" tabindex="-1"></a><span class="co"># No paramétrico: Test de Wilcoxon</span></span>
-<span id="cb168-12"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb168-12" tabindex="-1"></a>wilcoxon_test <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(h_cloro, placebo, <span class="at">mu =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>Warning in wilcox.test.default(h_cloro, placebo, mu = -10, alternative = &quot;less&quot;, :
-cannot compute exact p-value with ties</code></pre>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb170-1" tabindex="-1"></a><span class="fu">list</span>(</span>
-<span id="cb170-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb170-2" tabindex="-1"></a>  <span class="at">mean_difference =</span> meandiff,</span>
-<span id="cb170-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb170-3" tabindex="-1"></a>  <span class="at">t_test_statistic =</span> t_test<span class="sc">$</span>statistic,</span>
-<span id="cb170-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb170-4" tabindex="-1"></a>  <span class="at">t_test_p_value =</span> t_test<span class="sc">$</span>p.value,</span>
-<span id="cb170-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb170-5" tabindex="-1"></a>  <span class="at">wilcoxon_statistic =</span> wilcoxon_test<span class="sc">$</span>statistic,</span>
-<span id="cb170-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb170-6" tabindex="-1"></a>  <span class="at">wilcoxon_p_value =</span> wilcoxon_test<span class="sc">$</span>p.value</span>
-<span id="cb170-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb170-7" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>$mean_difference
-[1] -24
-
-$t_test_statistic
-        t 
--3.546655 
-
-$t_test_p_value
-[1] 0.00264884
-
-$wilcoxon_statistic
-  V 
-2.5 
-
-$wilcoxon_p_value
-[1] 0.003792958</code></pre>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-1" tabindex="-1"></a><span class="co"># Datos</span></span>
+<span id="cb177-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-2" tabindex="-1"></a>placebo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">211</span>, <span class="dv">210</span>, <span class="dv">210</span>, <span class="dv">203</span>, <span class="dv">196</span>, <span class="dv">190</span>, <span class="dv">191</span>, <span class="dv">177</span>, <span class="dv">173</span>, <span class="dv">170</span>, <span class="dv">163</span>)</span>
+<span id="cb177-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-3" tabindex="-1"></a>h_cloro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">181</span>, <span class="dv">172</span>, <span class="dv">196</span>, <span class="dv">191</span>, <span class="dv">167</span>, <span class="dv">161</span>, <span class="dv">178</span>, <span class="dv">160</span>, <span class="dv">149</span>, <span class="dv">119</span>, <span class="dv">156</span>)</span>
+<span id="cb177-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-4" tabindex="-1"></a></span>
+<span id="cb177-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-5" tabindex="-1"></a><span class="co"># Diferencias</span></span>
+<span id="cb177-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-6" tabindex="-1"></a>meandiff <span class="ot">&lt;-</span> <span class="fu">mean</span>(h_cloro <span class="sc">-</span> placebo)</span>
+<span id="cb177-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-7" tabindex="-1"></a></span>
+<span id="cb177-8"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-8" tabindex="-1"></a><span class="co"># Paramétrico: Test t de Student</span></span>
+<span id="cb177-9"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-9" tabindex="-1"></a>t_test <span class="ot">&lt;-</span> <span class="fu">t.test</span>(h_cloro, placebo, <span class="at">mu =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb177-10"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-10" tabindex="-1"></a></span>
+<span id="cb177-11"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-11" tabindex="-1"></a><span class="co"># No paramétrico: Test de Wilcoxon</span></span>
+<span id="cb177-12"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb177-12" tabindex="-1"></a>wilcoxon_test <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(h_cloro, placebo, <span class="at">mu =</span> <span class="sc">-</span><span class="dv">10</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Warning in wilcox.test.default(h_cloro, placebo, mu = -10, alternative =
+## &quot;less&quot;, : cannot compute exact p-value with ties</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb179-1" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb179-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb179-2" tabindex="-1"></a>  <span class="at">mean_difference =</span> meandiff,</span>
+<span id="cb179-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb179-3" tabindex="-1"></a>  <span class="at">t_test_statistic =</span> t_test<span class="sc">$</span>statistic,</span>
+<span id="cb179-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb179-4" tabindex="-1"></a>  <span class="at">t_test_p_value =</span> t_test<span class="sc">$</span>p.value,</span>
+<span id="cb179-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb179-5" tabindex="-1"></a>  <span class="at">wilcoxon_statistic =</span> wilcoxon_test<span class="sc">$</span>statistic,</span>
+<span id="cb179-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb179-6" tabindex="-1"></a>  <span class="at">wilcoxon_p_value =</span> wilcoxon_test<span class="sc">$</span>p.value</span>
+<span id="cb179-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb179-7" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## $mean_difference
+## [1] -24
+## 
+## $t_test_statistic
+##         t 
+## -3.546655 
+## 
+## $t_test_p_value
+## [1] 0.00264884
+## 
+## $wilcoxon_statistic
+##   V 
+## 2.5 
+## 
+## $wilcoxon_p_value
+## [1] 0.003792958</code></pre>
 <p>En ambos casos, el p-valor del test es muy) inferior al nivel de significación pre-fijado <span class="math inline">\(\alpha=0.05\)</span> por lo que concluiremos que hay evidencia suficiente para afirmar que existe una diferencia significativa entre el tratamiento y el placebo.</p>
 <p>Ambos tests nos llevan a concluir que la presión arterial sistólica media ha descendido en más de 10 unidades entre los pacientes que han recibido el tratamiento frente a los que tan sólo recibieron el placebo. `</p>
 <p>NOTA: Obsérves como se realiza el test de datos pareados. R no indica explícitamente el orden en que realiza la diferencia por lo que, en caso de duda lo mejor es verificar si el signo del estadístico de test concuerda con el de la diferencia de medias que se ha añadido como verificación.</p>
 <p>En este caso la diferencia ha sido entre el primer vector y el segundo por lo que, si <span class="math inline">\(H_0\)</span> es cierta y la diferencia es, como mínimo de 10 unidades el valor de la diferencia media será de -10, porque hemos substraido la cntidad grande (“placebo”) de la pequeña (“hidroclorotiazida”).</p>
 <p>Un diagrama de lineas para datos apareados sirve para reforzar la conclusión:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-1" tabindex="-1"></a><span class="co"># Datos</span></span>
-<span id="cb172-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-2" tabindex="-1"></a>placebo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">211</span>, <span class="dv">210</span>, <span class="dv">210</span>, <span class="dv">203</span>, <span class="dv">196</span>, <span class="dv">190</span>, <span class="dv">191</span>, <span class="dv">177</span>, <span class="dv">173</span>, <span class="dv">170</span>, <span class="dv">163</span>)</span>
-<span id="cb172-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-3" tabindex="-1"></a>h_cloro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">181</span>, <span class="dv">172</span>, <span class="dv">196</span>, <span class="dv">191</span>, <span class="dv">167</span>, <span class="dv">161</span>, <span class="dv">178</span>, <span class="dv">160</span>, <span class="dv">149</span>, <span class="dv">119</span>, <span class="dv">156</span>)</span>
-<span id="cb172-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-4" tabindex="-1"></a></span>
-<span id="cb172-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-5" tabindex="-1"></a><span class="co"># Crear un data frame para los valores emparejados</span></span>
-<span id="cb172-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb172-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-7" tabindex="-1"></a>  <span class="at">Paciente =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(placebo),</span>
-<span id="cb172-8"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-8" tabindex="-1"></a>  <span class="at">Placebo =</span> placebo,</span>
-<span id="cb172-9"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-9" tabindex="-1"></a>  <span class="at">Hidroclorotiacida =</span> h_cloro</span>
-<span id="cb172-10"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-10" tabindex="-1"></a>)</span>
-<span id="cb172-11"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-11" tabindex="-1"></a></span>
-<span id="cb172-12"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-12" tabindex="-1"></a><span class="co"># Transformar a formato largo para ggplot</span></span>
-<span id="cb172-13"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-13" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb172-14"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-14" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(data, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Hidroclorotiacida&quot;</span>), </span>
-<span id="cb172-15"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-15" tabindex="-1"></a>                          <span class="at">names_to =</span> <span class="st">&quot;Tratamiento&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Presión&quot;</span>)</span>
-<span id="cb172-16"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-16" tabindex="-1"></a></span>
-<span id="cb172-17"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-17" tabindex="-1"></a><span class="co"># Generar el gráfico</span></span>
-<span id="cb172-18"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-18" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb172-19"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-19" tabindex="-1"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> Tratamiento, <span class="at">y =</span> Presión, <span class="at">group =</span> Paciente)) <span class="sc">+</span></span>
-<span id="cb172-20"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-20" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Tratamiento), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb172-21"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-21" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">factor</span>(Paciente)), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb172-22"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-22" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Presión Arterial por Paciente y Tratamiento&quot;</span>,</span>
-<span id="cb172-23"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-23" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Tratamiento&quot;</span>,</span>
-<span id="cb172-24"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-24" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Presión Arterial (mmHg)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb172-25"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-25" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb172-26"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb172-26" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-1" tabindex="-1"></a><span class="co"># Datos</span></span>
+<span id="cb181-2"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-2" tabindex="-1"></a>placebo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">211</span>, <span class="dv">210</span>, <span class="dv">210</span>, <span class="dv">203</span>, <span class="dv">196</span>, <span class="dv">190</span>, <span class="dv">191</span>, <span class="dv">177</span>, <span class="dv">173</span>, <span class="dv">170</span>, <span class="dv">163</span>)</span>
+<span id="cb181-3"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-3" tabindex="-1"></a>h_cloro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">181</span>, <span class="dv">172</span>, <span class="dv">196</span>, <span class="dv">191</span>, <span class="dv">167</span>, <span class="dv">161</span>, <span class="dv">178</span>, <span class="dv">160</span>, <span class="dv">149</span>, <span class="dv">119</span>, <span class="dv">156</span>)</span>
+<span id="cb181-4"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-4" tabindex="-1"></a></span>
+<span id="cb181-5"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-5" tabindex="-1"></a><span class="co"># Crear un data frame para los valores emparejados</span></span>
+<span id="cb181-6"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb181-7"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-7" tabindex="-1"></a>  <span class="at">Paciente =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(placebo),</span>
+<span id="cb181-8"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-8" tabindex="-1"></a>  <span class="at">Placebo =</span> placebo,</span>
+<span id="cb181-9"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-9" tabindex="-1"></a>  <span class="at">Hidroclorotiacida =</span> h_cloro</span>
+<span id="cb181-10"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-10" tabindex="-1"></a>)</span>
+<span id="cb181-11"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-11" tabindex="-1"></a></span>
+<span id="cb181-12"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-12" tabindex="-1"></a><span class="co"># Transformar a formato largo para ggplot</span></span>
+<span id="cb181-13"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-13" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb181-14"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-14" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(data, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Hidroclorotiacida&quot;</span>), </span>
+<span id="cb181-15"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-15" tabindex="-1"></a>                          <span class="at">names_to =</span> <span class="st">&quot;Tratamiento&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Presión&quot;</span>)</span>
+<span id="cb181-16"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-16" tabindex="-1"></a></span>
+<span id="cb181-17"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-17" tabindex="-1"></a><span class="co"># Generar el gráfico</span></span>
+<span id="cb181-18"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-18" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb181-19"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-19" tabindex="-1"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> Tratamiento, <span class="at">y =</span> Presión, <span class="at">group =</span> Paciente)) <span class="sc">+</span></span>
+<span id="cb181-20"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-20" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Tratamiento), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb181-21"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-21" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">factor</span>(Paciente)), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb181-22"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-22" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Presión Arterial por Paciente y Tratamiento&quot;</span>,</span>
+<span id="cb181-23"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-23" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Tratamiento&quot;</span>,</span>
+<span id="cb181-24"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-24" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Presión Arterial (mmHg)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb181-25"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-25" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb181-26"><a href="aplicaciones-de-los-contrastes-de-hipótesis.html#cb181-26" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <p><img src="EjerciciosInferenciaEstadistica_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 <p>Como vemos, y comoparece razonable en un tratamiento para la tensión, los pacientes tratados con hidroclorotiacida presentan un descenso de la tensión.</p>
 </div>
