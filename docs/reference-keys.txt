@@ -47,7 +47,8 @@ porcentaje-de-diabéticos-con-niveles-de-glucosa-comprendidos-entre-90-y-120
 hallar-el-nivel-de-glucosa-p25
 resumen-de-resultados
 ejercicio-2.8
-por-debajo-de-qué-valor-se-considera-sano-a-un-individuo-cuántos-sanos-serán-clasificados-como-diabéticos
+por-debajo-de-qué-valor-se-considera-sano-a-un-individuo
+cuántos-sanos-serán-clasificados-como-diabéticos
 cuál-es-la-probabilidad-de-que-un-individuo-elegido-al-azar-y-diagnosticado-como-diabético-realmente-lo-sea
 ejercicio-2.9
 distribuciones-de-probabilidad-multidimensionales

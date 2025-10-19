@@ -819,13 +819,13 @@ $$ p_{25} \approx 100.61 \, \mathrm{mg/100ml} $$
 ## Ejercicio 2.8 
 
 De forma simplificada, podemos suponer que la glucemia ("azucar en sangre") basal en individuos sanos, $X_{s}$ sigue una distribución $X \sim N(\mu=80, \sigma=10)$, mientras que en los diabéticos $X_{d}$, sigue una distribución $X \sim N(\mu=160, \sigma=31.4)$. Si se conviene en clasificar como sanos al $2 \%$ de los diabéticos:
-a) ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?
-b) Se sabe que en la población en general el $10 \%$ de los individuos son diabéticos ¿cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?
 
-Se supone que la glucemia basal en individuos sanos, $X_{s}$ sigue una distribución $X \sim N(\mu=80, \sigma=10)$, mientras que en los diabéticos $X_{d}$, sigue una distribución $X \sim N(\mu=160, \sigma=31.4)$. Si se conviene en clasificar como sanos al $2 \%$ de los diabéticos:
+a) ¿Por debajo de qué valor se considera sano a un individuo? 
+b) ¿Cuántos sanos serán clasificados (erróneamente) como diabéticos?
+c) Se sabe que en la población en general el $10 \%$ de los individuos son diabéticos ¿cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?
 
-### ¿Por debajo de qué valor se considera sano a un individuo? ¿Cuántos sanos serán clasificados como diabéticos?
 
+### ¿Por debajo de qué valor se considera sano a un individuo? 
 
 **Solución**
 
@@ -843,7 +843,11 @@ percentil_sano <- qnorm(0.02, mean = 160, sd = 31.4)
 percentil_sano
 ```
 
-El valor obtenido nos da el límite de glucosa por debajo del cual un individuo será considerado sano. Ahora, para calcular cuántos individuos sanos serán clasificados como diabéticos, necesitamos calcular el porcentaje de individuos sanos cuya glucemia será superior a este valor límite. Dado que $X_s \sim N(\mu = 80, \sigma = 10)$, calculamos la probabilidad:
+El valor obtenido nos da el límite de glucosa por debajo del cual un individuo será considerado sano. 
+
+### ¿Cuántos sanos serán clasificados como diabéticos?
+
+Para calcular cuántos individuos sanos serán clasificados como diabéticos, necesitamos calcular el porcentaje de individuos sanos cuya glucemia será superior a este valor límite. Dado que $X_s \sim N(\mu = 80, \sigma = 10)$, calculamos la probabilidad:
 
 $$
 P(X_s > \text{percentil\_sano})
@@ -874,6 +878,9 @@ p_error_sano <- 1 - pnorm(corte, mean = mu_s, sd = sigma_s)
 cat("Punto de corte:", round(corte, 2), "\n")
 cat("Proporción de sanos mal clasificados:", round(100 * p_error_sano, 2), "%\n")
 ```
+
+
+Podemos representar gráficamente la distribución de diabéticos y sanos lo que nos proporciona también una imagen de las probabilidades de clasificación erróneas.
 
 
 ```{r, fig.align='center', out.width="100%"} 
@@ -916,18 +923,7 @@ ggplot(data = df, mapping = aes(x = x)) +
 
 **Solución**
 
-Este problema es un caso de probabilidad condicional. Sabemos que:
-
-- El 10% de la población son diabéticos, por lo que la probabilidad de que un individuo seleccionado al azar sea diabético es $P(D) = 0.10$.
-- La probabilidad de que un diabético sea diagnosticado como diabético es $P(\text{diagnóstico} | D)$, lo cual corresponde a la probabilidad de que un individuo con glucosa $X_d \sim N(160, 31.4)$ sea diagnosticado como diabético, es decir, que su nivel de glucosa sea superior al valor límite de clasificación.
-
-Para calcular $P(\text{diagnóstico} | D)$, primero calculamos la probabilidad de que un diabético sea diagnosticado como tal. Es decir, que su nivel de glucosa sea superior al valor que hemos calculado anteriormente para los sanos:
-
-```{r}
-# Probabilidad de que un diabético sea diagnosticado como diabético
-prob_diabetico_diagnosticado <- 1 - pnorm(percentil_sano, mean = 160, sd = 31.4)
-prob_diabetico_diagnosticado
-```
+Este problema es un caso de probabilidad condicional. 
 
 La probabilidad de que un individuo seleccionado al azar y diagnosticado como diabético realmente lo sea se puede obtener usando la fórmula de probabilidad condicional de Bayes:
 
@@ -935,15 +931,33 @@ $$
 P(D | \text{diagnóstico}) = \frac{P(\text{diagnóstico} | D) P(D)}{P(\text{diagnóstico})}
 $$
 
-Donde $P(\text{diagnóstico})$ es la probabilidad total de que un individuo sea diagnosticado como diabético. Esta probabilidad es la probabilidad de que un diabético sea diagnosticado como tal más la probabilidad de que un sano sea diagnosticado erróneamente como diabético:
+Donde:
+- $P(\text{diagnóstico} | D)$:  es la probabilidad de que un indivíduo diabético sea diagnosticado (correctamente) como tal,
+- $P(\text{diagnóstico} | S)$ es la probabilidad de que un sano sea diagnosticado (erróneamente) como diabético,
+- $P(D)$: Es la probabilidad de encontrar un indivíduo diabético en la población.
+- $P(S)$: Es la probabilidad de encontrar un indivíduo sano  en la población.
+- $P(\text{diagnóstico})$ es la probabilidad total de que un individuo sea diagnosticado como diabético. 
+
+Esta ultima probabilidad, $P(\text{diagnóstico})$,  es la probabilidad de que un diabético sea diagnosticado como tal más la probabilidad de que un sano sea diagnosticado erróneamente como diabético, donde cada probabilidad se pondera por la probabilidad de encontrar un indivíduo diabético o uno sano en la población.
 
 $$
 P(\text{diagnóstico}) = P(\text{diagnóstico} | D) P(D) + P(\text{diagnóstico} | S) P(S)
 $$
 
-Donde $P(\text{diagnóstico} | S)$ es la probabilidad de que un sano sea diagnosticado erróneamente como diabético, y $P(S) = 0.90$ es la probabilidad de que un individuo seleccionado al azar sea sano.
+Sabemos que:
 
-Primero, calculamos la probabilidad dwe que estando sano, sea diagnosticado como diabético, es decir que su glucosa supere el punto de corte que hemos denominado `percentil_sano`.
+- El 10% de la población son diabéticos, por lo que la probabilidad de que un individuo seleccionado al azar sea diabético es $P(D) = 0.10$.
+- Así pues $P(S) = 0.90$ es la probabilidad de que un individuo seleccionado al azar sea sano.
+
+- La probabilidad de que un diabético sea diagnosticado como diabético es $P(\text{diagnóstico} | D)$ (`prob_diabetico_diagnosticado` en R), lo cual corresponde a la probabilidad de que un individuo con glucosa $X_d \sim N(160, 31.4)$ sea diagnosticado como diabético, es decir, que su nivel de glucosa sea superior al valor límite de clasificación (el valor con el que hemos definido que es "estar sano").
+
+```{r}
+# Probabilidad de que un diabético sea diagnosticado como diabético
+prob_diabetico_diagnosticado <- 1 - pnorm(percentil_sano, mean = 160, sd = 31.4)
+prob_diabetico_diagnosticado
+```
+
+De forma análoga podemos calcular $P(\text{diagnóstico} | S)$ (`prob_sano_diagnosticado` en R), la probabilidad dwe que estando sano, un indivíduo sea diagnosticado como diabético, es decir que su glucosa supere el punto de corte que hemos denominado `percentil_sano`.
 
 ```{r}
 prob_sano_diagnosticado <- 
@@ -963,17 +977,17 @@ prob_diagnostico_total <-
 prob_diagnostico_total
 ```
 
-Luego, calculamos la probabilidad condicional:
+Luego, calculamos la probabilidad (condicional) de que un individuo diagnosticado como diabético realmente lo sea:
 
 ```{r}
-# Probabilidad de que un individuo diagnosticado como diabético realmente lo sea
+# 
 prob_diagnostico_given_diabetico <- 
   (prob_diabetico_diagnosticado * 0.10) / 
   prob_diagnostico_total
 prob_diagnostico_given_diabetico
 ```
 
-Este valor es la probabilidad de que un individuo diagnosticado como diabético realmente lo sea, teniendo en cuenta tanto los errores de diagnóstico como las probabilidades de ser diabético o sano en la población.
+Este valor es** la probabilidad de que un individuo diagnosticado como diabético realmente lo sea, teniendo en cuenta tanto los errores de diagnóstico como las probabilidades de ser diabético o sano en la población.**
 
 
 ## Ejercicio 2.9 
